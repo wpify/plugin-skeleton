@@ -13,7 +13,7 @@ use Wpify\Repositories\LectureRepository;
 class RepositoriesManager extends Manager
 {
 
-    const MODULE_NAMESPACE = '\Bk_Online\Repositories';
+    const MODULE_NAMESPACE = '\Wpify\Repositories';
 
     protected $modules = [
         'LectureRepository',
