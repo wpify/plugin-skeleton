@@ -1,0 +1,13 @@
+{
+    "name": "vasik/wpify",
+    "type": "wordpress-plugin",
+    "require": {
+        "composepress/core": "0.9.0.0",
+        "doctrine/collections": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wpify\\": "src\\"
+        }
+    }
+}
