@@ -31,6 +31,11 @@ class ApiManager extends Manager
 
   public function setup()
   {
+    add_action('init', [$this, 'enable_wc_frontend_in_rest']);
+  }
+
+  function enable_wc_frontend_in_rest()
+  {
     add_filter('woocommerce_is_rest_api_request', [$this, 'simulate_as_not_request']);
   }
 
