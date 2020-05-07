@@ -2,6 +2,7 @@
 
 namespace Wpify\Models;
 
+use WP_Post;
 use Wpify\Core\Component;
 
 class Lecture extends Component
@@ -18,7 +19,7 @@ class Lecture extends Component
   {
     if (is_numeric($this->id)) {
       //
-    } elseif (is_a($this->id, '\WP_Post')) {
+    } elseif (is_a($this->id, WP_Post::class)) {
       //
     }
     if ($this->id) {

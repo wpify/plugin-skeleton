@@ -27,7 +27,7 @@ class Plugin extends PluginBase
   /**
    * Plugin namespace
    */
-  const PLUGIN_NAMESPACE = '\Wpify';
+  const PLUGIN_NAMESPACE = '\\' . __NAMESPACE__;
 
   private $assets;
 

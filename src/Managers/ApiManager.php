@@ -2,17 +2,16 @@
 
 namespace Wpify\Managers;
 
+use Wpify\Api\ExampleApi;
 use Wpify\Core\Manager;
 
 class ApiManager extends Manager
 {
-
-  const MODULE_NAMESPACE = '\Wpify\Api';
   const REST_NAMESPACE = 'wpify/v1';
   const NONCE_ACTION = 'wp_rest';
 
   protected $modules = [
-    'ExampleApi',
+    ExampleApi::class,
   ];
 
   public function get_rest_url()
