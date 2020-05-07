@@ -102,12 +102,22 @@ class Plugin extends PluginBase
     return $this->repositories_manager;
   }
 
+  public function get_repository(string $class)
+  {
+    return $this->repositories_manager->get_module($class);
+  }
+
   /**
    * @return ApiManager
    */
   public function get_api_manager(): ApiManager
   {
     return $this->api_manager;
+  }
+
+  public function get_api(string $class)
+  {
+    return $this->api_manager->get_module($class);
   }
 
   /**
@@ -124,6 +134,11 @@ class Plugin extends PluginBase
   public function get_cpt_manager(): CptManager
   {
     return $this->cpt_manager;
+  }
+
+  public function get_cpt(string $class)
+  {
+    return $this->cpt_manager->get_module($class);
   }
 
   /**
@@ -186,7 +201,7 @@ class Plugin extends PluginBase
   {
     $manifest = $this->get_asset_path('build/assets-manifest.json');
 
-    if ( ! $this->assets && file_exists($manifest)) {
+    if (!$this->assets && file_exists($manifest)) {
       $this->assets = json_decode(file_get_contents($manifest), true);
     }
 

@@ -7,21 +7,27 @@ use Wpify\Core\Interfaces\PostTypeModelInterface;
 
 abstract class PostTypeModel extends Component implements PostTypeModelInterface
 {
-  private $id;
+  /** @var \WP_Post */
+  private $post;
 
   /**
    * @return mixed
    */
-  public function get_id()
+  public function __construct($post, $filter = null)
   {
-    return $this->id;
+    $this->post = get_post($post, null, $filter);
+  }
+
+  public function get_post()
+  {
+    return $this->post;
   }
 
   /**
-   * @param mixed $id
+   * @param int $id
    */
-  public function set_id($id)
+  public function get_id()
   {
-    $this->id = $id;
+    $this->post->ID ?? null;
   }
 }
