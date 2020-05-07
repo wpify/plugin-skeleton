@@ -4,7 +4,7 @@ namespace Wpify\Repositories;
 
 use Wpify\Core\Component;
 
-abstract class CptModel extends Component
+abstract class PostTypeModel extends Component
 {
   private $id;
 

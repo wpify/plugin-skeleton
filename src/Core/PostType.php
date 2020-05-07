@@ -17,7 +17,7 @@ abstract class PostType extends Component
 
   public function setup()
   {
-    add_action('init', [$this->register()]);
+    add_action('init', [$this,'register']);
   }
 
   /**

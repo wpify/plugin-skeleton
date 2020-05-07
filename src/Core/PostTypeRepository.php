@@ -6,7 +6,7 @@ use Wpify\Core\Component;
 use ComposePress\Core\Exception\Plugin;
 use Doctrine\Common\Collections\ArrayCollection;
 
-abstract class CptRepository extends Component
+abstract class PostTypeRepository extends Component
 {
   private $post_type;
   private $model;

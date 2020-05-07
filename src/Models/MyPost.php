@@ -2,9 +2,9 @@
 
 namespace Wpify\Models;
 
-use Wpify\Repositories\CptModel;
+use Wpify\Repositories\PostTypeModel;
 
-class MyPost extends CptModel
+class MyPost extends PostTypeModel
 {
 
   private $id;

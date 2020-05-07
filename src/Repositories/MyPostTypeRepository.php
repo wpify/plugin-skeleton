@@ -7,7 +7,7 @@ namespace Wpify\Repositories;
 use Wpify\Cpt\MyPostType;
 use Wpify\Models\MyPost;
 
-class MyPostTypeRepository extends CptRepository
+class MyPostTypeRepository extends PostTypeRepository
 {
   public function __construct()
   {
