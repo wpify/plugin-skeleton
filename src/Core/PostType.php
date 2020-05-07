@@ -61,6 +61,10 @@ class PostType extends Component
   public function set_label(string $label)
   {
     $this->args['label'] = $label;
+
+    if ($this->post_type) {
+      $this->post_type->label = $label;
+    }
   }
 
   public function get_label()
