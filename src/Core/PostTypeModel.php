@@ -3,8 +3,9 @@
 namespace Wpify\Core;
 
 use Wpify\Core\Component;
+use Wpify\Core\Interfaces\PostTypeModelInterface;
 
-abstract class PostTypeModel extends Component
+abstract class PostTypeModel extends Component implements PostTypeModelInterface
 {
   private $id;
 
