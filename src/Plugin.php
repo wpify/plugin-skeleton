@@ -28,6 +28,8 @@ class Plugin extends PluginBase
    */
   const PLUGIN_NAMESPACE = '\Wpify';
 
+  private $assets;
+
   /**
    * @var Frontend
    */

@@ -15,7 +15,9 @@ class Frontend extends Component
 
   public function enqueue_frontend_scripts()
   {
-    wp_enqueue_style('wpify', $this->plugin->asset('plugin.css'), [], '');
     wp_enqueue_script('wpify', $this->plugin->asset('plugin.js'), ['react', 'react-dom'], '', true);
+    wp_localize_script('wpify', 'wpify', [
+      'publicPath' => $this->plugin->get_asset_url('build/'),
+    ]);
   }
 }
