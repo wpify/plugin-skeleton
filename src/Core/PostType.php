@@ -2,7 +2,9 @@
 
 namespace Wpify\Core;
 
-class PostType extends Component
+use WP_Post_Type;
+
+abstract class PostType extends Component
 {
   /** @var WP_Post_Type */
   private $post_type;
@@ -13,14 +15,9 @@ class PostType extends Component
   /** @var array */
   private $args = [];
 
-  /**
-   * @param string $name Post type identifier
-   * @param array $args Arguments
-   */
-  public function __construct(string $name, array $args = [])
+  public function setup()
   {
-    $this->name = $name;
-    $this->args = $args;
+    add_action('init', [$this->register()]);
   }
 
   /**
@@ -41,6 +38,8 @@ class PostType extends Component
 
   /**
    * Sets labels for the post type
+   *
+   * @param array $labels
    */
   public function set_labels(array $labels)
   {
@@ -70,5 +69,29 @@ class PostType extends Component
   public function get_label()
   {
     return $this->args['label'];
+  }
+
+  /**
+   * @return string
+   */
+  public function get_name(): string
+  {
+    return $this->name;
+  }
+
+  /**
+   * @param string $name
+   */
+  public function set_name(string $name): void
+  {
+    $this->name = $name;
+  }
+
+  /**
+   * @param array $args
+   */
+  public function set_args(array $args): void
+  {
+    $this->args = $args;
   }
 }

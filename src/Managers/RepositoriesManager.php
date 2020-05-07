@@ -17,5 +17,6 @@ class RepositoriesManager extends Manager
 
   protected $modules = [
     'LectureRepository',
+    'MyPostTypeRepository',
   ];
 }
