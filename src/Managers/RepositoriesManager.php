@@ -4,6 +4,7 @@ namespace Wpify\Managers;
 
 use Wpify\Core\Manager;
 use Wpify\Repositories\LectureRepository;
+use Wpify\Repositories\MyPostTypeRepository;
 
 /**
  * Class RepositoriesManager
@@ -16,7 +17,7 @@ class RepositoriesManager extends Manager
   const MODULE_NAMESPACE = '\Wpify\Repositories';
 
   protected $modules = [
-    'LectureRepository',
-    'MyPostTypeRepository',
+    LectureRepository::class,
+    MyPostTypeRepository::class,
   ];
 }
