@@ -21,13 +21,13 @@ const isDevelopment = (process.env.NODE_ENV === 'development');
 
 module.exports = {
   entry: {
-    plugin: ['./assets/plugin.scss', './assets/plugin.js'],
+    plugin: './assets/plugin.jsx',
   },
   output: {
     path: path.resolve(__dirname, 'build'), // where to put compiled files to
     filename: `[name].v${packagejson.version}.js`,
     chunkFilename: `[name].v${packagejson.version}.js`,
-    jsonpFunction: '_borgattisjsonp', // pick the unique jsonp function name, so the react apps doesn't collide
+    jsonpFunction: '_wpifyjsonp', // pick the unique jsonp function name, so the react apps doesn't collide
     pathinfo: false,
   },
   devtool: isDevelopment ? 'cheap-module-eval-source-map' : 'source-map',

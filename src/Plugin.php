@@ -13,7 +13,6 @@ use Wpify\Managers\RepositoriesManager;
  */
 class Plugin extends PluginBase
 {
-
   /**
    * Plugin version
    */
@@ -28,18 +27,22 @@ class Plugin extends PluginBase
    * Plugin namespace
    */
   const PLUGIN_NAMESPACE = '\Wpify';
+
   /**
    * @var Frontend
    */
   private $frontend;
+
   /**
    * @var RepositoriesManager
    */
   private $repositories_manager;
+
   /**
    * @var ApiManager
    */
   private $api_manager;
+
   /**
    * @var Settings
    */
@@ -113,7 +116,6 @@ class Plugin extends PluginBase
   protected function load_components()
   {
     // Conditionally lazy load components with $this->load()
-
   }
 
   /**
@@ -165,7 +167,7 @@ class Plugin extends PluginBase
   {
     $manifest = $this->get_asset_path('build/assets-manifest.json');
 
-    if ( ! $this->assets && file_exists($manifest)) {
+    if (!$this->assets && file_exists($manifest)) {
       $this->assets = json_decode(file_get_contents($manifest), true);
     }
 

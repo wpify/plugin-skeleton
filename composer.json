@@ -1,5 +1,5 @@
 {
-  "name": "vasik/wpify",
+  "name": "wpify/wpify",
   "type": "wordpress-plugin",
   "require": {
     "composepress/core": "0.9.0.0",

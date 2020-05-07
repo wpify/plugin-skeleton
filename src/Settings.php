@@ -7,11 +7,10 @@ use Wpify\Managers\RepositoriesManager;
 
 /**
  * Class Settings
- * @package WPProgramator\DFCOMPETITIONS
+ * @package Wpify\Settings
  */
 class Settings extends Component
 {
-
   public $options = [];
   /**
    * Options Page title
@@ -36,18 +35,18 @@ class Settings extends Component
   /**
    * @var RepositoriesManager
    */
-  private $repositoriesManager;
+  private $repositories_manager;
 
   /**
    * Constructor
    * @since 0.1.0
    */
-  public function __construct(RepositoriesManager $repositoriesManager)
+  public function __construct(RepositoriesManager $repositories_manager)
   {
     // Set our title
     $this->title = __('WPify Settings', 'wpify');
     $this->hooks();
-    $this->repositoriesManager = $repositoriesManager;
+    $this->repositories_manager = $repositories_manager;
   }
 
   /**
@@ -136,11 +135,7 @@ class Settings extends Component
    * @return void
    * @since  0.1.0
    */
-  public
-  function settings_notices(
-    $object_id,
-    $updated
-  ) {
+  public function settings_notices($object_id, $updated) {
     if ($object_id !== $this->key || empty($updated)) {
       return;
     }
@@ -158,10 +153,7 @@ class Settings extends Component
    * @throws \Exception
    * @since  0.1.0
    */
-  public
-  function __get(
-    $field
-  ) {
+  public function __get($field) {
     return $this->{$field};
     // Allowed fields to retrieve
     if (in_array($field, array('key', 'metabox_id', 'title', 'options_page', 'plugin'), true)) {
@@ -176,12 +168,8 @@ class Settings extends Component
    *
    * @return string|array
    */
-  public
-  function get_option(
-    $key = '',
-    $default = null
-  ) {
-    if ( ! $this->options) {
+  public function get_option($key = '', $default = null) {
+    if (!$this->options) {
       $this->get_options();
     }
 
@@ -196,10 +184,9 @@ class Settings extends Component
    * Get all options
    * @return array|mixed
    */
-  public
-  function get_options()
+  public function get_options()
   {
-    if ( ! $this->options) {
+    if (!$this->options) {
       if (function_exists('cmb2_get_option')) {
         // Use cmb2_get_option as it passes through some key filters.
         $this->options = cmb2_get_option($this->key, 'all');

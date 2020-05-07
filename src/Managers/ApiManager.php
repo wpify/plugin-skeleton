@@ -14,19 +14,19 @@ class ApiManager extends Manager
     'ExampleApi',
   ];
 
-  public function getRestUrl()
+  public function get_rest_url()
   {
-    return rest_url($this->getRestNamespace());
+    return rest_url($this->get_rest_namespace());
   }
 
-  public function getRestNamespace()
+  public function get_rest_namespace()
   {
     return $this::REST_NAMESPACE;
   }
 
   public function setup()
   {
-    add_filter('woocommerce_is_rest_api_request', [$this, 'simulateAsNotRequest']);
+    add_filter('woocommerce_is_rest_api_request', [$this, 'simulate_as_not_request']);
   }
 
   /**
@@ -38,14 +38,14 @@ class ApiManager extends Manager
    *
    * @return bool
    */
-  public function simulateAsNotRequest($is_rest_api_request)
+  public function simulate_as_not_request($is_rest_api_request)
   {
     if (empty($_SERVER['REQUEST_URI'])) {
       return $is_rest_api_request;
     }
 
     // Bail early if this is not our request.
-    if (false === strpos($_SERVER['REQUEST_URI'], $this->getRestNamespace())) {
+    if (false === strpos($_SERVER['REQUEST_URI'], $this->get_rest_namespace())) {
       return $is_rest_api_request;
     }
 

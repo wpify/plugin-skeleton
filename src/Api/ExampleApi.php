@@ -1,9 +1,10 @@
 <?php
 
-namespace Borgattis\Api;
+namespace Wpify\Api;
 
-
-use Borgattis\Core\Rest;
+use Wpify\Core\Rest;
+use WP_REST_Server;
+use WP_REST_Response;
 
 /**
  * Class Rest
@@ -21,28 +22,28 @@ class ExampleApi extends Rest
 
   public function setup()
   {
-    add_action('rest_api_init', array($this, 'registerRoutes'));
+    add_action('rest_api_init', [$this, 'register_routes']);
   }
 
   /**
    * Register the routes for the objects of the controller.
    */
-  public function registerRoutes()
+  public function register_routes()
   {
     register_rest_route(
-      $this->plugin->get_api_manager()->getRestNamespace(),
+      $this->plugin->get_api_manager()->get_rest_namespace(),
       'some-endpoint',
-      array(
-        array(
-          'methods'  => \WP_REST_Server::CREATABLE,
-          'callback' => array($this, 'handle_some_endpoint'),
+      [
+        [
+          'methods'  => WP_REST_Server::CREATABLE,
+          'callback' => [$this, 'handle_some_endpoint'],
           'args'     => [
             'size' => [
               'required' => true,
             ],
           ],
-        ),
-      )
+        ],
+      ]
     );
   }
 
@@ -58,12 +59,7 @@ class ExampleApi extends Rest
   {
     $size = $request->get_param('size');
 
-    return new \WP_REST_Response(
-      [
-        'size' => $size,
-      ],
-      201
-    );
+    return new WP_REST_Response([ 'size' => $size ], 201);
   }
 
 
@@ -90,6 +86,6 @@ class ExampleApi extends Rest
    */
   public function prepare_item_for_response($item, $request)
   {
-    return array();
+    return [];
   }
 }

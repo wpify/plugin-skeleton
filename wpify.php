@@ -1,14 +1,12 @@
 <?php
-
 /*
  * Plugin Name: WPify
  * Version: 0.1.0
- * Text Domain:     wpify
- * Domain Path:     /languages
+ * Text Domain: wpify
+ * Domain Path: /languages
 */
 
 use ComposePress\Dice\Dice;
-
 
 /**
  * Singleton instance function. We will not use a global at all as that defeats the purpose of a singleton and is a bad design overall
@@ -31,7 +29,7 @@ function wpify_container( $env = 'prod' ) {
 	static $container;
 	if ( empty( $container ) ) {
 		$container = new Dice();
-		include __DIR__ . "/config_{$env}.php";
+		include __DIR__ . "/config-{$env}.php";
 	}
 
 	return $container;

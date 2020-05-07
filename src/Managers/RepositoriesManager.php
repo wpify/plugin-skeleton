@@ -13,10 +13,9 @@ use Wpify\Repositories\LectureRepository;
 class RepositoriesManager extends Manager
 {
 
-    const MODULE_NAMESPACE = '\Wpify\Repositories';
+  const MODULE_NAMESPACE = '\Wpify\Repositories';
 
-    protected $modules = [
-        'LectureRepository',
-        'UserRepository',
-    ];
+  protected $modules = [
+    'LectureRepository',
+  ];
 }

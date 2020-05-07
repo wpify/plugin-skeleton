@@ -1,11 +1,10 @@
 {
-  "name": "borgattis",
+  "name": "wpify",
   "version": "0.1.0",
-  "main": "assets/index.js",
+  "main": "assets/plugin.jsx",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack --mode=development --watch",
-    "build": "cross-env NODE_ENV=local webpack --mode=production",
-    "postbuild": "node ./bin/update-plugin-version.js"
+    "build": "cross-env NODE_ENV=local webpack --mode=production"
   },
   "author": "Daniel Mejta <daniel@mejta.net>",
   "license": "ISC",
@@ -45,8 +44,7 @@
       "document": false,
       "wp": false,
       "__webpack_public_path__": true,
-      "borgattisPlugin": false,
-      "cartApp": false
+      "WPIFY": false
     },
     "settings": {
       "import/resolver": {
@@ -158,6 +156,7 @@
     "stylelint-config-css-modules": "^2.2.0",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-formatter-pretty": "^2.0.1",
+    "stylelint-order": "^4.0.0",
     "stylelint-scss": "^3.17.0",
     "stylelint-webpack-plugin": "^1.2.3",
     "terser-webpack-plugin": "^2.3.5",
@@ -172,14 +171,10 @@
     "classnames": "^2.2.6",
     "custom-event": "^1.0.1",
     "event-propagation-path": "^1.0.5",
-    "gsap": "^3.2.6",
     "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
     "react-redux": "^7.2.0",
-    "redux": "^4.0.5",
-    "scrollmagic": "^2.0.7",
-    "scrollmagic-plugin-gsap": "^1.0.4",
-    "stylelint-order": "^4.0.0"
+    "redux": "^4.0.5"
   }
 }
