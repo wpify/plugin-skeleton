@@ -12,7 +12,6 @@ use WP_REST_Response;
  */
 class ExampleApi extends Rest
 {
-
   /**
    * ExampleApi constructor.
    */

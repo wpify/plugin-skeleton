@@ -2,11 +2,13 @@
 
 /* @var $container \ComposePress\Dice\Dice */
 
+use Wpify\Models\Lecture;
+
 $container = $container->addRules([
   '*' => [
     'shared' => true,
   ],
-  '\Wpify\Models\Lecture' => [
+  Lecture::class => [
     'shared' => false,
   ],
 ]);

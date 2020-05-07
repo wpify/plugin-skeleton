@@ -12,10 +12,7 @@ use Wpify\Repositories\LectureRepository;
  */
 class RepositoriesManager extends Manager
 {
-
-  const MODULE_NAMESPACE = '\Wpify\Repositories';
-
   protected $modules = [
-    'LectureRepository',
+    LectureRepository::class,
   ];
 }
