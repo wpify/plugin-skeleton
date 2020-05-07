@@ -67,7 +67,16 @@ class Plugin extends PluginBase
     $this->repositories_manager = $repositories_manager;
     $this->api_manager          = $api_manager;
     $this->settings             = $settings;
+
     parent::__construct();
+  }
+
+  /**
+   * @return void
+   */
+  public function setup()
+  {
+    register_theme_directory($this->plugin_dir . '/themes');
   }
 
   /**
@@ -118,13 +127,6 @@ class Plugin extends PluginBase
   protected function load_components()
   {
     // Conditionally lazy load components with $this->load()
-  }
-
-  /**
-   * @return bool
-   */
-  public function setup()
-  {
   }
 
   /**
