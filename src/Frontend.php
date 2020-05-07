@@ -47,10 +47,11 @@ class Frontend extends Component
 
   public function test()
   {
+    $repository = $this->plugin->get_repository(MyPostTypeRepository::class);
+    $myposts = $repository->all();
+
     echo '<pre>';
-    $repo = $this->plugin->get_repositories_manager()->get_module(MyPostTypeRepository::class);
-    $posts = $repo->all();
-    var_dump($posts);
+    var_dump($myposts);
     echo '</pre>';
   }
 }

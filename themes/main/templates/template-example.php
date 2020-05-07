@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * Template Name: Some example template
+ * Template Post Type: page
+ */
+
 get_header();
 
 while (have_posts()) {

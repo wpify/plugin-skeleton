@@ -7,7 +7,6 @@ use Wpify\Core\Component;
 
 class Lecture extends Component
 {
-
   private $id;
 
   public function __construct($id)

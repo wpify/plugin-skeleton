@@ -88,6 +88,32 @@ abstract class PostType extends Component
     $this->args = $args;
   }
 
+  /**
+   * @param string $singular Singular name of the post type
+   * @param string $plural Plural name of the post type
+   */
+  protected function get_generic_labels(string $singular, string $plural): array
+  {
+    $labels = [
+      'name'               => sprintf(_x('%s', 'post type general name', 'wpify'), $plural),
+      'singular_name'      => sprintf(_x('%s', 'post type singular name', 'wpify'), $singular),
+      'menu_name'          => sprintf(_x('%s', 'admin menu', 'wpify'), $plural),
+      'name_admin_bar'     => sprintf(_x('%s', 'add new on admin bar', 'wpify'), $singular),
+      'add_new'            => __('Add New', 'add new', 'wpify'),
+      'add_new_item'       => sprintf(__('Add New %s', 'wpify'), $singular),
+      'new_item'           => sprintf(__('New %s', 'wpify'), $singular),
+      'edit_item'          => sprintf(__('Edit %s', 'wpify'), $singular),
+      'view_item'          => sprintf(__('View %s', 'wpify'), $singular),
+      'all_items'          => sprintf(__('All %s', 'wpify'), $plural),
+      'search_items'       => sprintf(__('Search %s', 'wpify'), $plural),
+      'parent_item_colon'  => sprintf(__('Parent %s:', 'wpify'), $plural),
+      'not_found'          => sprintf(__('No %s found.', 'wpify'), $plural),
+      'not_found_in_trash' => sprintf(__('No %s found in Trash.', 'wpify'), $plural),
+    ];
+
+    return $labels;
+  }
+
   abstract public function post_type_args(): array;
 
   abstract public function post_type_name(): string;

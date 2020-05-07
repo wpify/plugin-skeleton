@@ -12,26 +12,31 @@ use Wpify\Managers\RepositoriesManager;
 class Settings extends Component
 {
   public $options = [];
+
   /**
    * Options Page title
    * @var string
    */
   protected $title = '';
+
   /**
    * Options Page hook
    * @var string
    */
   protected $options_page = '';
+
   /**
    * Option key, and option page slug
    * @var string
    */
   private $key = 'wpify_options';
+
   /**
    * Options page metabox id
    * @var string
    */
   private $metabox_id = 'wpify_options_metabox';
+
   /**
    * @var RepositoriesManager
    */

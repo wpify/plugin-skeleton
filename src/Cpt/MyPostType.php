@@ -11,25 +11,8 @@ class MyPostType extends PostType
 
   public function post_type_args(): array
   {
-    $labels = [
-      'name'               => _x('Books', 'post type general name', 'wpify'),
-      'singular_name'      => _x('Book', 'post type singular name', 'wpify'),
-      'menu_name'          => _x('Books', 'admin menu', 'wpify'),
-      'name_admin_bar'     => _x('Book', 'add new on admin bar', 'wpify'),
-      'add_new'            => _x('Add New', 'book', 'wpify'),
-      'add_new_item'       => __('Add New Book', 'wpify'),
-      'new_item'           => __('New Book', 'wpify'),
-      'edit_item'          => __('Edit Book', 'wpify'),
-      'view_item'          => __('View Book', 'wpify'),
-      'all_items'          => __('All Books', 'wpify'),
-      'search_items'       => __('Search Books', 'wpify'),
-      'parent_item_colon'  => __('Parent Books:', 'wpify'),
-      'not_found'          => __('No books found.', 'wpify'),
-      'not_found_in_trash' => __('No books found in Trash.', 'wpify'),
-    ];
-
     $args = [
-      'labels'             => $labels,
+      'labels'             => $this->get_generic_labels('My post', 'My posts'),
       'description'        => __('Description.', 'wpify'),
       'public'             => true,
       'publicly_queryable' => true,
@@ -52,7 +35,7 @@ class MyPostType extends PostType
     return $this::NAME;
   }
 
-  public function model() : string
+  public function model(): string
   {
     return MyPost::class;
   }
