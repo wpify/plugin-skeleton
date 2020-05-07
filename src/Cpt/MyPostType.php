@@ -9,7 +9,7 @@ class MyPostType extends PostType
 {
   const NAME = 'my-post-type';
 
-  public function __construct()
+  public function post_type_args(): array
   {
     $labels = [
       'name'               => _x('Books', 'post type general name', 'wpify'),
@@ -44,10 +44,16 @@ class MyPostType extends PostType
       'supports'           => ['title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'],
     ];
 
-    $this->set_name($this::NAME);
-    $this->set_args($args);
-    $this->set_model(MyPost::class);
+    return $args;
+  }
 
-    parent::setup();
+  public function post_type_name(): string
+  {
+    return $this::NAME;
+  }
+
+  public function model() : string
+  {
+    return MyPost::class;
   }
 }

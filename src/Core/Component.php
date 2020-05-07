@@ -4,7 +4,6 @@ namespace Wpify\Core;
 
 /**
  * Class Component
- *
  * @package Wpify\Core
  * @property \Wpify\Plugin $plugin
  */

@@ -18,6 +18,13 @@ abstract class PostType extends Component
   /** @var array */
   private $args = [];
 
+  public function __construct()
+  {
+    $this->args  = $this->post_type_args();
+    $this->name  = $this->post_type_name();
+    $this->model = $this->model();
+  }
+
   public function setup()
   {
     add_action('init', [$this, 'register']);
@@ -80,4 +87,10 @@ abstract class PostType extends Component
   {
     $this->args = $args;
   }
+
+  abstract public function post_type_args(): array;
+
+  abstract public function post_type_name(): string;
+
+  abstract public function model(): string;
 }
