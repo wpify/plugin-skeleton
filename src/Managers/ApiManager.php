@@ -9,6 +9,7 @@ class ApiManager extends Manager
 
   const MODULE_NAMESPACE = '\Wpify\Api';
   const REST_NAMESPACE = 'wpify/v1';
+  const NONCE_ACTION = 'wp_rest';
 
   protected $modules = [
     'ExampleApi',
@@ -22,6 +23,11 @@ class ApiManager extends Manager
   public function get_rest_namespace()
   {
     return $this::REST_NAMESPACE;
+  }
+
+  public function get_nonce_action()
+  {
+    return $this::NONCE_ACTION;
   }
 
   public function setup()

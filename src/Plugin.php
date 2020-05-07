@@ -179,6 +179,6 @@ class Plugin extends PluginBase
       return $this->get_asset_url("build/{$this->assets[$file]}");
     }
 
-    throw new \Exception("Asset $file doesn't exists.");
+    return null;
   }
 }

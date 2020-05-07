@@ -45,6 +45,26 @@ class ExampleApi extends Rest
         ],
       ]
     );
+
+    register_rest_route(
+      $this->plugin->get_api_manager()->get_rest_namespace(),
+      '/set-app-name',
+      [
+        'methods' => WP_REST_Server::EDITABLE,
+        'callback' => [$this, 'set_app_name'],
+        'args' => [
+          'nonce' => [
+            'required' => true,
+            'validate_callback' => function ($nonce) {
+              return wp_verify_nonce($nonce, $this->plugin->get_api_manager()->get_nonce_action());
+            },
+          ],
+          'name' => [
+            'required' => true,
+          ],
+        ],
+      ]
+    );
   }
 
   /**
@@ -60,6 +80,15 @@ class ExampleApi extends Rest
     $size = $request->get_param('size');
 
     return new WP_REST_Response(['size' => $size], 201);
+  }
+
+  public function set_app_name($request)
+  {
+    $params = $request->get_params();
+
+    set_transient('wpify_app_name', $params['name']);
+
+    return rest_ensure_response($params);
   }
 
 
