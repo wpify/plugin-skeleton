@@ -59,7 +59,7 @@ class ExampleApi extends Rest
   {
     $size = $request->get_param('size');
 
-    return new WP_REST_Response([ 'size' => $size ], 201);
+    return new WP_REST_Response(['size' => $size], 201);
   }
 
 

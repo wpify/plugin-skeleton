@@ -33,5 +33,4 @@ class Lecture extends Component
   {
     return $this->id;
   }
-
 }

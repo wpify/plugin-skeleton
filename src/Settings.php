@@ -87,12 +87,12 @@ class Settings extends Component
    */
   public function admin_page_display()
   {
-    ?>
+?>
     <div class="wrap cmb2-options-page <?php echo $this->key; ?>">
       <h2><?php echo esc_html(get_admin_page_title()); ?></h2>
       <?php cmb2_metabox_form($this->metabox_id, $this->key); ?>
     </div>
-    <?php
+<?php
   }
 
   /**
@@ -135,7 +135,8 @@ class Settings extends Component
    * @return void
    * @since  0.1.0
    */
-  public function settings_notices($object_id, $updated) {
+  public function settings_notices($object_id, $updated)
+  {
     if ($object_id !== $this->key || empty($updated)) {
       return;
     }
@@ -153,7 +154,8 @@ class Settings extends Component
    * @throws \Exception
    * @since  0.1.0
    */
-  public function __get($field) {
+  public function __get($field)
+  {
     return $this->{$field};
     // Allowed fields to retrieve
     if (in_array($field, array('key', 'metabox_id', 'title', 'options_page', 'plugin'), true)) {
@@ -168,7 +170,8 @@ class Settings extends Component
    *
    * @return string|array
    */
-  public function get_option($key = '', $default = null) {
+  public function get_option($key = '', $default = null)
+  {
     if (!$this->options) {
       $this->get_options();
     }

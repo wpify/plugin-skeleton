@@ -8,6 +8,6 @@ namespace Wpify\Core;
  * @package Wpify\Core
  * @property \Wpify\Plugin $plugin
  */
-abstract class Manager extends \ComposePress\Core\Abstracts\Manager_0_9_0_0 {
-
+abstract class Manager extends \ComposePress\Core\Abstracts\Manager_0_9_0_0
+{
 }

@@ -8,6 +8,6 @@ namespace Wpify\Core;
  * @package Wpify\Core
  * @property \Wpify\Plugin $plugin
  */
-abstract class Component extends \ComposePress\Core\Abstracts\Component_0_9_0_0 {
-
+abstract class Component extends \ComposePress\Core\Abstracts\Component_0_9_0_0
+{
 }

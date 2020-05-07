@@ -44,5 +44,4 @@ class LectureRepository extends Component
 
     return $prod;
   }
-
 }
