@@ -67,13 +67,12 @@ class Plugin extends PluginBase
    * @throws \ComposePress\Core\Exception\ContainerInvalid
    * @throws \ComposePress\Core\Exception\ContainerNotExists
    */
-  public function __construct(Frontend $frontend, RepositoriesManager $repositories_manager, ApiManager $api_manager, Settings $settings, CptManager $cpt_manager)
+  public function __construct(Frontend $frontend, RepositoriesManager $repositories_manager, ApiManager $api_manager, Settings $settings)
   {
     $this->frontend             = $frontend;
     $this->repositories_manager = $repositories_manager;
     $this->api_manager          = $api_manager;
     $this->settings             = $settings;
-    $this->cpt_manager          = $cpt_manager;
 
     parent::__construct();
   }
@@ -116,14 +115,6 @@ class Plugin extends PluginBase
   public function get_settings(): Settings
   {
     return $this->settings;
-  }
-
-  /**
-   * @return CptManager
-   */
-  public function get_cpt_manager(): CptManager
-  {
-    return $this->cpt_manager;
   }
 
   /**
@@ -186,7 +177,7 @@ class Plugin extends PluginBase
   {
     $manifest = $this->get_asset_path('build/assets-manifest.json');
 
-    if ( ! $this->assets && file_exists($manifest)) {
+    if (!$this->assets && file_exists($manifest)) {
       $this->assets = json_decode(file_get_contents($manifest), true);
     }
 

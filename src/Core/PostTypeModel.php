@@ -1,6 +1,6 @@
 <?php
 
-namespace Wpify\Repositories;
+namespace Wpify\Core;
 
 use Wpify\Core\Component;
 

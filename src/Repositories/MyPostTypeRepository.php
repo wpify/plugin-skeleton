@@ -1,17 +1,14 @@
 <?php
 
-
 namespace Wpify\Repositories;
 
-
+use Wpify\Core\PostTypeRepository;
 use Wpify\Cpt\MyPostType;
-use Wpify\Models\MyPost;
 
 class MyPostTypeRepository extends PostTypeRepository
 {
-  public function __construct()
+  public function __construct(MyPostType $post_type)
   {
-    $this->set_post_type(MyPostType::NAME);
-    $this->set_model(MyPost::class);
+    $this->set_post_type($post_type);
   }
 }

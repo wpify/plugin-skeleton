@@ -5,6 +5,7 @@ namespace Wpify;
 
 
 use Wpify\Core\Component;
+use Wpify\Repositories\MyPostTypeRepository;
 
 class Frontend extends Component
 {
@@ -12,6 +13,7 @@ class Frontend extends Component
   {
     add_action('wp_enqueue_scripts', [$this, 'enqueue_frontend_scripts']);
     add_action('wp_footer', [$this, 'print_react_root']);
+    add_action('wp_footer', [$this, 'test']);
   }
 
   public function enqueue_frontend_scripts()
@@ -41,5 +43,14 @@ class Frontend extends Component
   public function print_react_root()
   {
     echo '<div id="react-root"></div>';
+  }
+
+  public function test()
+  {
+    echo '<pre>';
+    $repo = $this->plugin->get_repositories_manager()->get_module(MyPostTypeRepository::class);
+    $posts = $repo->all();
+    var_dump($posts);
+    echo '</pre>';
   }
 }

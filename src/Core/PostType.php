@@ -10,6 +10,9 @@ abstract class PostType extends Component
   private $post_type;
 
   /** @var string */
+  public $model;
+
+  /** @var string */
   private $name;
 
   /** @var array */
@@ -17,7 +20,7 @@ abstract class PostType extends Component
 
   public function setup()
   {
-    add_action('init', [$this,'register']);
+    add_action('init', [$this, 'register']);
   }
 
   /**
@@ -36,39 +39,14 @@ abstract class PostType extends Component
     return $this->post_type;
   }
 
-  /**
-   * Sets labels for the post type
-   *
-   * @param array $labels
-   */
-  public function set_labels(array $labels)
+  public function get_model()
   {
-    $this->args['labels'] = $labels;
-
-    if ($this->post_type) {
-      foreach ($this->args['labels'] as $label) {
-        $this->post_type->labels->{$label} = $label;
-      }
-    }
+    return $this->model;
   }
 
-  public function get_labels()
+  public function set_model(string $model)
   {
-    return $this->args['labels'];
-  }
-
-  public function set_label(string $label)
-  {
-    $this->args['label'] = $label;
-
-    if ($this->post_type) {
-      $this->post_type->label = $label;
-    }
-  }
-
-  public function get_label()
-  {
-    return $this->args['label'];
+    $this->model = $model;
   }
 
   /**
@@ -85,6 +63,14 @@ abstract class PostType extends Component
   public function set_name(string $name): void
   {
     $this->name = $name;
+  }
+
+  /**
+   * @param array $args
+   */
+  public function get_args()
+  {
+    return $this->args;
   }
 
   /**

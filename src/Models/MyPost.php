@@ -2,7 +2,7 @@
 
 namespace Wpify\Models;
 
-use Wpify\Repositories\PostTypeModel;
+use Wpify\Core\PostTypeModel;
 
 class MyPost extends PostTypeModel
 {

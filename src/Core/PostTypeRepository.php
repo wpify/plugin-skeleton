@@ -1,15 +1,16 @@
 <?php
 
-namespace Wpify\Repositories;
+namespace Wpify\Core;
 
 use Wpify\Core\Component;
 use ComposePress\Core\Exception\Plugin;
 use Doctrine\Common\Collections\ArrayCollection;
+use Wpify\Core\PostType;
 
 abstract class PostTypeRepository extends Component
 {
+  /** @var \WPify\Core\PostType */
   private $post_type;
-  private $model;
 
   public function find($args)
   {
@@ -23,9 +24,10 @@ abstract class PostTypeRepository extends Component
   {
     $collection = new ArrayCollection();
     $args       = [
-      'post_type'      => $this->post_type,
+      'post_type'      => $this->post_type->name,
       'posts_per_page' => -1,
     ];
+
     foreach (get_posts($args) as $item) {
       $collection->add($this->get($item));
     }
@@ -36,35 +38,26 @@ abstract class PostTypeRepository extends Component
   /**
    * @param $id
    *
-   * @return Lecture
-   * @throws Plugin
+   * @return PostTypeModel
    */
   public function get($id)
   {
-    $prod = $this->plugin->create_component($this->model, $id);
-    $prod->init();
+    $model = $this->plugin->create_component($this->post_type->model, $id);
+    $model->init();
 
-    return $prod;
+    return $model;
   }
 
   /**
-   * @param mixed $post_type
+   * @param PostType $post_type
    */
-  public function set_post_type($post_type): void
+  public function set_post_type(PostType $post_type): void
   {
     $this->post_type = $post_type;
   }
 
   /**
-   * @param mixed $model
-   */
-  public function set_model($model): void
-  {
-    $this->model = $model;
-  }
-
-  /**
-   * @return mixed
+   * @return PostType
    */
   public function get_post_type()
   {
@@ -72,10 +65,10 @@ abstract class PostTypeRepository extends Component
   }
 
   /**
-   * @return mixed
+   * @return string
    */
   public function get_model()
   {
-    return $this->model;
+    return $this->post_type->get_model();
   }
 }

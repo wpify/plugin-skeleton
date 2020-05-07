@@ -13,9 +13,6 @@ use Wpify\Repositories\MyPostTypeRepository;
  */
 class RepositoriesManager extends Manager
 {
-
-  const MODULE_NAMESPACE = '\Wpify\Repositories';
-
   protected $modules = [
     LectureRepository::class,
     MyPostTypeRepository::class,
