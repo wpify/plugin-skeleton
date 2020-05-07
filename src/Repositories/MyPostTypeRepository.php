@@ -7,9 +7,8 @@ use Wpify\Cpt\MyPostType;
 
 class MyPostTypeRepository extends PostTypeRepository
 {
-  public function __construct(MyPostType $my_post_type)
+  public function setup()
   {
-    $this->set_post_type($my_post_type);
+    $this->set_post_type($this->plugin->get_cpt_manager()->get_module(MyPostType::class));
   }
-
 }

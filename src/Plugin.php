@@ -37,6 +37,11 @@ class Plugin extends PluginBase
   private $frontend;
 
   /**
+   * @var CptManager
+   */
+  private $cpt_manager;
+
+  /**
    * @var RepositoriesManager
    */
   private $repositories_manager;
@@ -50,10 +55,6 @@ class Plugin extends PluginBase
    * @var Settings
    */
   private $settings;
-  /**
-   * @var CptManager
-   */
-  private $cpt_manager;
 
   /**
    * Plugin constructor.
@@ -70,10 +71,10 @@ class Plugin extends PluginBase
   public function __construct(Frontend $frontend, RepositoriesManager $repositories_manager, ApiManager $api_manager, Settings $settings, CptManager $cpt_manager)
   {
     $this->frontend             = $frontend;
+    $this->cpt_manager          = $cpt_manager;
     $this->repositories_manager = $repositories_manager;
     $this->api_manager          = $api_manager;
     $this->settings             = $settings;
-    $this->cpt_manager          = $cpt_manager;
     parent::__construct();
   }
 
