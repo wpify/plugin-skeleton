@@ -3,6 +3,7 @@
 namespace Wpify;
 
 use Wpify\Core\Assets;
+use Wpify\Core\Interfaces\RepositoryInterface;
 use Wpify\Core\Plugin as PluginBase;
 use Wpify\Managers\ApiManager;
 use Wpify\Managers\CptManager;
@@ -112,6 +113,11 @@ class Plugin extends PluginBase
     return $this->repositories_manager;
   }
 
+  /**
+   * @param string $class
+   *
+   * @return RepositoryInterface
+   */
   public function get_repository(string $class)
   {
     return $this->repositories_manager->get_module($class);
@@ -149,6 +155,11 @@ class Plugin extends PluginBase
   public function get_cpt(string $class)
   {
     return $this->cpt_manager->get_module($class);
+  }
+
+  public function get_controller(string $class)
+  {
+    return $this->plugin->create_component($class);
   }
 
   /**
