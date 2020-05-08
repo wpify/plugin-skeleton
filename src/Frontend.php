@@ -2,11 +2,21 @@
 
 namespace Wpify;
 
+use Wpify\Core\Assets;
 use Wpify\Core\Component;
 use Wpify\Repositories\MyPostTypeRepository;
 
 class Frontend extends Component
 {
+  /**
+   * @var Assets
+   */
+  private $assets;
+
+  public function __construct(Assets $assets)
+  {
+    $this->assets = $assets;
+  }
   public function setup()
   {
     add_action('wp_enqueue_scripts', [$this, 'enqueue_frontend_scripts']);
@@ -16,10 +26,10 @@ class Frontend extends Component
 
   public function enqueue_frontend_scripts()
   {
-    $vendors      = $this->plugin->asset('vendors~plugin.js');
+    $vendors      = $this->assets->asset('vendors~plugin.js');
     $vendors_deps = [];
 
-    $main      = $this->plugin->asset('plugin.js');
+    $main      = $this->assets->asset('plugin.js');
     $main_deps = ['react', 'react-dom', 'wp-i18n'];
 
     if ($vendors) {

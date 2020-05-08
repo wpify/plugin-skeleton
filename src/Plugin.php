@@ -2,6 +2,7 @@
 
 namespace Wpify;
 
+use Wpify\Core\Assets;
 use Wpify\Core\Plugin as PluginBase;
 use Wpify\Managers\ApiManager;
 use Wpify\Managers\CptManager;
@@ -28,8 +29,6 @@ class Plugin extends PluginBase
    */
   public const PLUGIN_NAMESPACE = '\\' . __NAMESPACE__;
 
-  private $assets;
-
   /**
    * @var Frontend
    */
@@ -54,6 +53,10 @@ class Plugin extends PluginBase
    * @var Settings
    */
   private $settings;
+  /**
+   * @var Assets
+   */
+  private $assets;
 
   /**
    * Plugin constructor.
@@ -63,6 +66,7 @@ class Plugin extends PluginBase
    * @param ApiManager $api_manager
    * @param Settings $settings
    * @param CptManager $cpt_manager
+   * @param Assets $assets
    *
    * @throws \ComposePress\Core\Exception\ContainerInvalid
    * @throws \ComposePress\Core\Exception\ContainerNotExists
@@ -72,13 +76,15 @@ class Plugin extends PluginBase
     RepositoriesManager $repositories_manager,
     ApiManager $api_manager,
     Settings $settings,
-    CptManager $cpt_manager
+    CptManager $cpt_manager,
+    Assets $assets
   ) {
     $this->frontend             = $frontend;
     $this->cpt_manager          = $cpt_manager;
     $this->repositories_manager = $repositories_manager;
     $this->api_manager          = $api_manager;
     $this->settings             = $settings;
+    $this->assets               = $assets;
     parent::__construct();
   }
 
@@ -146,6 +152,14 @@ class Plugin extends PluginBase
   }
 
   /**
+   * @return Assets
+   */
+  public function get_assets(): Assets
+  {
+    return $this->assets;
+  }
+
+  /**
    * Method to check if plugin has its dependencies. If not, it silently aborts
    * @return bool
    */
@@ -191,28 +205,5 @@ class Plugin extends PluginBase
    */
   public function uninstall()
   {
-  }
-
-  /**
-   * Gets asset URL from assets-manifest.json
-   *
-   * @param $file
-   *
-   * @return string
-   * @throws \Exception
-   */
-  public function asset($file): string
-  {
-    $manifest = $this->get_asset_path('build/assets-manifest.json');
-
-    if (!$this->assets && file_exists($manifest)) {
-      $this->assets = json_decode(file_get_contents($manifest), true);
-    }
-
-    if (isset($this->assets[$file])) {
-      return $this->get_asset_url("build/{$this->assets[$file]}");
-    }
-
-    return null;
   }
 }
