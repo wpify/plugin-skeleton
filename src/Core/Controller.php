@@ -6,6 +6,11 @@ abstract class Controller extends Component
 {
   private $assets = [];
 
+  public function setup()
+  {
+    $this->add_assets($this->assets);
+  }
+
   public function add_asset($asset)
   {
     $this->plugin->get_assets()->add_asset($asset);
