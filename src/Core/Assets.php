@@ -24,39 +24,47 @@ abstract class Assets extends Component
   {
     $preloading_styles_enabled = $this->preloading_styles_enabled();
 
-    foreach ($this->assets as $handle => $asset) {
-      if ($this->is_asset_enqueued($handle)) {
+    foreach ($this->assets as $asset) {
+      if (!$asset['handle']) {
+        throw new \ComposePress\Core\Exception\Plugin("Asset args have to contain 'handle'.");
+      }
+
+      if ($this->is_asset_enqueued($asset['handle'])) {
         continue;
       }
 
-      $type = $this->get_file_type($this->asset($handle));
+      if ($asset['file']) {
+        $asset['file'] = $this->asset($asset['handle']);
+      }
+
+      $type = $this->get_file_type($asset['file']);
       if (!$type) {
         continue;
       }
 
       if ($type === 'script') {
         wp_enqueue_script(
-          $handle,
-          $this->asset($handle),
+          $asset['handle'],
+          $this->asset($asset['file']),
           $asset['deps'],
-          false,
-          empty($asset['in_footer']) ? true : $asset['in_footer']
+          $asset['version'],
+          $asset['in_footer']
         );
       } elseif ($type === 'style') {
         if (!$preloading_styles_enabled || !isset($data['preload'])) {
-          wp_enqueue_style($handle, $this->asset($handle), $asset['deps']);
+          wp_enqueue_style($asset['handle'], $asset['file'], $asset['deps']);
         } else {
-          wp_register_style($handle, $this->asset($handle), $asset['deps']);
-          wp_style_add_data($handle, 'precache', true);
+          wp_register_style($asset['handle'], $asset['file'], $asset['deps']);
+          wp_style_add_data($asset['handle'], 'precache', true);
         }
       }
+      $this->enqueued_assets[] = $asset['handle'];
     }
   }
 
-
   public function add_asset(array $asset)
   {
-    $this->assets[] = $asset;
+    $this->assets[] = wp_parse_args($asset, $this->get_default_args());
   }
 
   public function add_assets(array $assets)
@@ -86,6 +94,19 @@ abstract class Assets extends Component
     return $file_type;
   }
 
+  public function get_default_args()
+  {
+    return [
+      'handle'           => '',
+      'file'             => '',
+      'in_footer'        => true,
+      'version'          => true,
+      'deps'             => [],
+      'preload'          => false,
+      'preload_callback' => false,
+    ];
+  }
+
   public function is_asset_enqueued($handle)
   {
     return in_array($handle, $this->enqueued_assets);
@@ -105,20 +126,19 @@ abstract class Assets extends Component
       return;
     }
 
-    foreach ($this->assets as $handle => $asset) {
+    foreach ($this->get_styles() as $asset) {
       // Skip if no preload callback provided.
-//      if (!is_callable($asset['preload_callback'])) {
-//        continue;
-//      }
-
-      // Skip if preloading is not necessary for this request.
-//      if (!call_user_func($data['preload_callback'])) {
-//        continue;
-//      }
-
-      if (!$this->get_file_type($this->asset($handle) !== 'style')) {
+      if (!is_callable($asset['preload_callback'])) {
         continue;
       }
+
+      // Skip if preloading is not necessary for this request.
+      if (!call_user_func($asset['preload_callback'])) {
+        continue;
+      }
+
+
+      $handle = $asset['handle'];
 
       $wp_styles   = wp_styles();
       $preload_uri = $wp_styles->registered[$handle]->src . '?ver=' . $wp_styles->registered[$handle]->ver;
@@ -141,32 +161,12 @@ abstract class Assets extends Component
    *
    * @param string ...$handles One or more stylesheet handles.
    */
-  public
-  function print_style(
-    string ...$handles
-  ) {
+  public function print_styles(string ...$handles)
+  {
     // If preloading styles is disabled (and thus they have already been enqueued), return early.
     if (!$this->preloading_styles_enabled()) {
       return;
     }
-
-    $css_files = $this->get_css_files();
-    $handles   = array_filter(
-      $handles,
-      function ($handle) use ($css_files) {
-        $is_valid = isset($css_files[$handle]) && !$css_files[$handle]['global'];
-        if (!$is_valid) {
-          /* translators: %s: stylesheet handle */
-          _doing_it_wrong(
-            __CLASS__ . '::print_styles()',
-            esc_html(sprintf(__('Invalid theme stylesheet handle: %s', 'wp-rig'), $handle)),
-            'WP Rig 2.0.0'
-          );
-        }
-
-        return $is_valid;
-      }
-    );
 
     if (empty($handles)) {
       return;
@@ -190,17 +190,16 @@ abstract class Assets extends Component
      *
      * @param bool $preloading_styles_enabled Whether preloading stylesheets and injecting them is enabled.
      */
-    return apply_filters('wpify_preloading_styles_enabled', true);
+    return apply_filters($this->plugin->safe_slug . '_preloading_styles_enabled', true);
   }
 
   private function get_styles()
   {
     return array_filter(
       $this->assets,
-      function ($handle) {
-        return $this->get_file_type($handle) === 'style';
-      },
-      ARRAY_FILTER_USE_KEY
+      function ($asset) {
+        return $this->get_file_type($asset['file']) === 'style';
+      }
     );
   }
 

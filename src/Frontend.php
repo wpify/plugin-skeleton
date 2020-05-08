@@ -19,12 +19,12 @@ class Frontend extends Component
   }
   public function setup()
   {
-    add_action('wp_enqueue_scripts', [$this, 'enqueue_frontend_scripts']);
+    $this->register_frontend_scripts();
     add_action('wp_footer', [$this, 'print_react_root']);
     add_action('wp_footer', [$this, 'test']);
   }
 
-  public function enqueue_frontend_scripts()
+  public function register_frontend_scripts()
   {
     $vendors      = $this->assets->asset('vendors~plugin.js');
     $vendors_deps = [];
@@ -33,12 +33,24 @@ class Frontend extends Component
     $main_deps = ['react', 'react-dom', 'wp-i18n'];
 
     if ($vendors) {
-      wp_enqueue_script('wpify-vendors', $vendors, $vendors_deps, null, true);
+      $this->assets->add_asset(
+        [
+          'handle' => 'wpify-vendors',
+          'file' => $vendors,
+          'deps' => $vendors_deps
+        ]
+      );
       $main_deps[] = 'wpify-vendors';
     }
 
     if ($main) {
-      wp_enqueue_script('wpify', $main, $main_deps, null, true);
+      $this->assets->add_asset(
+        [
+          'handle' => 'wpify',
+          'file' => $main,
+          'deps' => $main_deps
+        ]
+      );
 
       wp_localize_script('wpify', 'wpify', [
         'publicPath' => $this->plugin->get_asset_url('build/'),
