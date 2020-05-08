@@ -109,7 +109,6 @@ abstract class Assets extends Component
       'version'          => true,
       'deps'             => [],
       'preload'          => false,
-      'preload_callback' => false,
       'localize'         => false,
     ];
   }
@@ -135,12 +134,7 @@ abstract class Assets extends Component
 
     foreach ($this->get_styles() as $asset) {
       // Skip if no preload callback provided.
-      if (!is_callable($asset['preload_callback'])) {
-        continue;
-      }
-
-      // Skip if preloading is not necessary for this request.
-      if (!call_user_func($asset['preload_callback'])) {
+      if (!$asset['preload']) {
         continue;
       }
 
