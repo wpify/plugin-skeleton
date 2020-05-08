@@ -7,7 +7,7 @@ use Wpify\Models\MyPost;
 
 class MyPostType extends PostType
 {
-  const NAME = 'my-post-type';
+  public const NAME = 'my-post-type';
 
   public function post_type_args(): array
   {

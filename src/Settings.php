@@ -7,6 +7,7 @@ use Wpify\Managers\RepositoriesManager;
 
 /**
  * Class Settings
+ *
  * @package Wpify\Settings
  */
 class Settings extends Component
@@ -15,24 +16,28 @@ class Settings extends Component
 
   /**
    * Options Page title
+   *
    * @var string
    */
   protected $title = '';
 
   /**
    * Options Page hook
+   *
    * @var string
    */
   protected $options_page = '';
 
   /**
    * Option key, and option page slug
+   *
    * @var string
    */
   private $key = 'wpify_options';
 
   /**
    * Options page metabox id
+   *
    * @var string
    */
   private $metabox_id = 'wpify_options_metabox';
@@ -44,6 +49,7 @@ class Settings extends Component
 
   /**
    * Constructor
+   *
    * @since 0.1.0
    */
   public function __construct(RepositoriesManager $repositories_manager)
@@ -56,6 +62,7 @@ class Settings extends Component
 
   /**
    * Initiate our hooks
+   *
    * @since 0.1.0
    */
   public function hooks()
@@ -68,7 +75,8 @@ class Settings extends Component
 
   /**
    * Register our setting to WP
-   * @since  0.1.0
+   *
+   * @since 0.1.0
    */
   public function init()
   {
@@ -77,32 +85,41 @@ class Settings extends Component
 
   /**
    * Add menu options page
+   *
    * @since 0.1.0
    */
   public function add_options_page()
   {
-    $this->options_page = add_menu_page($this->title, $this->title, 'manage_options', $this->key, array($this, 'admin_page_display'));
+    $this->options_page = add_menu_page(
+      $this->title,
+      $this->title,
+      'manage_options',
+      $this->key,
+      [$this, 'admin_page_display']
+    );
     // Include CMB CSS in the head to avoid FOUC
     add_action("admin_print_styles-{$this->options_page}", array('CMB2_hookup', 'enqueue_cmb_css'));
   }
 
   /**
    * Admin page markup. Mostly handled by CMB2
-   * @since  0.1.0
+   *
+   * @since 0.1.0
    */
   public function admin_page_display()
   {
-?>
+    ?>
     <div class="wrap cmb2-options-page <?php echo $this->key; ?>">
       <h2><?php echo esc_html(get_admin_page_title()); ?></h2>
       <?php cmb2_metabox_form($this->metabox_id, $this->key); ?>
     </div>
-<?php
+    <?php
   }
 
   /**
    * Add the options metabox to the array of metaboxes
-   * @since  0.1.0
+   *
+   * @since 0.1.0
    */
   public function add_options_page_metabox()
   {
@@ -115,7 +132,7 @@ class Settings extends Component
         'hookup'     => false,
         'cmb_styles' => true,
         'show_on'    => [
-          // These are important, don't remove
+        // These are important, don't remove
           'key'   => 'options-page',
           'value' => [$this->key],
         ],
@@ -123,19 +140,19 @@ class Settings extends Component
     );
 
     $cmb->add_field(
-      array(
+      [
         'name' => __('Some Field', 'wpify'),
         'id'   => 'box_product_id',
         'type' => 'text',
-      )
+      ]
     );
   }
 
   /**
    * Register settings notices for display
    *
-   * @param int $object_id Option key
-   * @param array $updated Array of updated fields
+   * @param int   $object_id Option key
+   * @param array $updated   Array of updated fields
    *
    * @return void
    * @since  0.1.0
@@ -146,8 +163,8 @@ class Settings extends Component
       return;
     }
 
-    add_settings_error($this->key . '-notices', '', __('Settings updated.', 'rm'), 'updated');
-    settings_errors($this->key . '-notices');
+      add_settings_error($this->key . '-notices', '', __('Settings updated.', 'rm'), 'updated');
+      settings_errors($this->key . '-notices');
   }
 
   /**
@@ -155,13 +172,14 @@ class Settings extends Component
    *
    * @param string $field Field to retrieve
    *
-   * @return mixed          Field value or exception is thrown
+   * @return mixed Field value or exception is thrown
    * @throws \Exception
    * @since  0.1.0
    */
   public function __get($field)
   {
     return $this->{$field};
+
     // Allowed fields to retrieve
     if (in_array($field, array('key', 'metabox_id', 'title', 'options_page', 'plugin'), true)) {
     }
@@ -171,7 +189,7 @@ class Settings extends Component
 
   /**
    * @param string $key
-   * @param null $default
+   * @param null   $default
    *
    * @return string|array
    */
@@ -190,6 +208,7 @@ class Settings extends Component
 
   /**
    * Get all options
+   *
    * @return array|mixed
    */
   public function get_options()
@@ -199,8 +218,8 @@ class Settings extends Component
         // Use cmb2_get_option as it passes through some key filters.
         $this->options = cmb2_get_option($this->key, 'all');
       }
-      // Fallback to get_option if CMB2 is not loaded yet.
-      $this->options = get_option($this->key, []);
+        // Fallback to get_option if CMB2 is not loaded yet.
+        $this->options = get_option($this->key, []);
     }
 
     return $this->options;

@@ -7,8 +7,8 @@ use Wpify\Core\Manager;
 
 class ApiManager extends Manager
 {
-  const REST_NAMESPACE = 'wpify/v1';
-  const NONCE_ACTION = 'wp_rest';
+  public const REST_NAMESPACE = 'wpify/v1';
+  public const NONCE_ACTION = 'wp_rest';
 
   protected $modules = [
     ExampleApi::class,
@@ -34,7 +34,7 @@ class ApiManager extends Manager
     add_action('init', [$this, 'enable_wc_frontend_in_rest']);
   }
 
-  function enable_wc_frontend_in_rest()
+  public function enable_wc_frontend_in_rest()
   {
     add_filter('woocommerce_is_rest_api_request', [$this, 'simulate_as_not_request']);
   }

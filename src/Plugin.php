@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Wpify;
 
 use Wpify\Core\Plugin as PluginBase;
@@ -17,17 +16,17 @@ class Plugin extends PluginBase
   /**
    * Plugin version
    */
-  const VERSION = '0.1.0';
+  public const VERSION = '0.1.0';
 
   /**
    * Plugin slug name
    */
-  const PLUGIN_SLUG = 'wpify';
+  public const PLUGIN_SLUG = 'wpify';
 
   /**
    * Plugin namespace
    */
-  const PLUGIN_NAMESPACE = '\\' . __NAMESPACE__;
+  public const PLUGIN_NAMESPACE = '\\' . __NAMESPACE__;
 
   private $assets;
 
@@ -68,8 +67,13 @@ class Plugin extends PluginBase
    * @throws \ComposePress\Core\Exception\ContainerInvalid
    * @throws \ComposePress\Core\Exception\ContainerNotExists
    */
-  public function __construct(Frontend $frontend, RepositoriesManager $repositories_manager, ApiManager $api_manager, Settings $settings, CptManager $cpt_manager)
-  {
+  public function __construct(
+    Frontend $frontend,
+    RepositoriesManager $repositories_manager,
+    ApiManager $api_manager,
+    Settings $settings,
+    CptManager $cpt_manager
+  ) {
     $this->frontend             = $frontend;
     $this->cpt_manager          = $cpt_manager;
     $this->repositories_manager = $repositories_manager;
