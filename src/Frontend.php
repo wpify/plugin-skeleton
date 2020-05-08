@@ -48,15 +48,16 @@ class Frontend extends Component
         [
           'handle' => 'wpify',
           'file' => $main,
-          'deps' => $main_deps
+          'deps' => $main_deps,
+          'localize' => [
+            'wpify' => [
+              'publicPath' => $this->plugin->get_asset_url('build/'),
+              'restUrl' => $this->plugin->get_api_manager()->get_rest_url(),
+              'nonce' => wp_create_nonce($this->plugin->get_api_manager()->get_nonce_action()),
+            ]
+          ]
         ]
       );
-
-      wp_localize_script('wpify', 'wpify', [
-        'publicPath' => $this->plugin->get_asset_url('build/'),
-        'restUrl' => $this->plugin->get_api_manager()->get_rest_url(),
-        'nonce' => wp_create_nonce($this->plugin->get_api_manager()->get_nonce_action()),
-      ]);
     }
   }
 

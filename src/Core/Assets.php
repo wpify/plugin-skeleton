@@ -50,6 +50,12 @@ abstract class Assets extends Component
           $asset['version'],
           $asset['in_footer']
         );
+
+        if ($asset['localize']) {
+          foreach ($asset['localize'] as $object_name => $args) {
+            wp_localize_script($asset['handle'], $object_name, $args);
+          }
+        }
       } elseif ($type === 'style') {
         if (!$preloading_styles_enabled || !isset($data['preload'])) {
           wp_enqueue_style($asset['handle'], $asset['file'], $asset['deps']);
@@ -104,6 +110,7 @@ abstract class Assets extends Component
       'deps'             => [],
       'preload'          => false,
       'preload_callback' => false,
+      'localize'         => false,
     ];
   }
 
