@@ -7,14 +7,11 @@ use Wpify\Repositories\MyPostTypeRepository;
 
 class HomeController extends Controller
 {
-  private $assets;
-
   public function setup()
   {
-    $this->assets = [
-      ['handle' => 'home', 'preload' => true],
-    ];
-    $this->add_assets($this->assets);
+    $assets = ['handle' => 'home', 'preload' => true];
+    $this->set_assets($assets);
+    $this->add_assets($this->get_assets());
   }
 
   public function get_posts()

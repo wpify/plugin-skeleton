@@ -14,6 +14,10 @@ abstract class Assets extends Component
   /** @var $enqueued_assets [] */
   private $enqueued_assets;
 
+  /** @var $printed_assets [] */
+  private $printed_assets;
+
+
   public function setup()
   {
     add_action('wp_enqueue_scripts', [$this, 'enqueue_assets']);
@@ -103,13 +107,13 @@ abstract class Assets extends Component
   public function get_default_args()
   {
     return [
-      'handle'           => '',
-      'file'             => '',
-      'in_footer'        => true,
-      'version'          => true,
-      'deps'             => [],
-      'preload'          => false,
-      'localize'         => false,
+      'handle'    => '',
+      'file'      => '',
+      'in_footer' => true,
+      'version'   => true,
+      'deps'      => [],
+      'preload'   => false,
+      'localize'  => false,
     ];
   }
 
@@ -173,6 +177,27 @@ abstract class Assets extends Component
       return;
     }
 
+    if (is_array($handles)) {
+      $handles = array_filter(
+        $handles,
+        function ($handle) {
+          return !in_array($handle, $this->printed_assets);
+        }
+      );
+    } else {
+      if (in_array($handles, $this->printed_assets)) {
+        return;
+      }
+    }
+
+    if (is_array($handles)) {
+      foreach ($handles as $handle) {
+        $this->printed_assets[] = $handle;
+      }
+    } else {
+      $this->printed_assets[] = $handles;
+    }
+
     wp_print_styles($handles);
   }
 
@@ -225,5 +250,13 @@ abstract class Assets extends Component
     }
 
     return null;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function get_printed_assets()
+  {
+    return $this->printed_assets;
   }
 }

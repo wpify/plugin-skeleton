@@ -29,4 +29,12 @@ abstract class Controller extends Component
     return $this->assets;
   }
 
+  /**
+   * @param array $assets
+   */
+  public function set_assets(array $assets): void
+  {
+    $this->assets = $assets;
+  }
+
 }
