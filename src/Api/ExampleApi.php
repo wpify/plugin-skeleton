@@ -107,7 +107,7 @@ class ExampleApi extends Rest
   /**
    * Prepare the item for the REST response
    *
-   * @param mixed $item WordPress representation of the item.
+   * @param mixed            $item WordPress representation of the item.
    * @param \WP_REST_Request $request Request object.
    *
    * @return mixed

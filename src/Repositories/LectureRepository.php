@@ -20,7 +20,7 @@ class LectureRepository extends Component
   public function all()
   {
     $collection = new ArrayCollection();
-    $args = [
+    $args       = [
       'post_type'      => 'lecture',
       'posts_per_page' => -1,
     ];

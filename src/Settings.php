@@ -178,13 +178,12 @@ class Settings extends Component
    */
   public function __get($field)
   {
-    return $this->{$field};
-
     // Allowed fields to retrieve
-    if (in_array($field, array('key', 'metabox_id', 'title', 'options_page', 'plugin'), true)) {
+    if (!in_array($field, ['key', 'metabox_id', 'title', 'options_page', 'plugin'], true)) {
+      throw new \Exception('Invalid property: ' . $field);
     }
 
-    throw new \Exception('Invalid property: ' . $field);
+    return $this->{$field};
   }
 
   /**

@@ -8,7 +8,7 @@ use Wpify\Core\Manager;
 class ApiManager extends Manager
 {
   public const REST_NAMESPACE = 'wpify/v1';
-  public const NONCE_ACTION = 'wp_rest';
+  public const NONCE_ACTION   = 'wp_rest';
 
   protected $modules = [
     ExampleApi::class,

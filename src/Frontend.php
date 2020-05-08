@@ -16,10 +16,10 @@ class Frontend extends Component
 
   public function enqueue_frontend_scripts()
   {
-    $vendors = $this->plugin->asset('vendors~plugin.js');
+    $vendors      = $this->plugin->asset('vendors~plugin.js');
     $vendors_deps = [];
 
-    $main = $this->plugin->asset('plugin.js');
+    $main      = $this->plugin->asset('plugin.js');
     $main_deps = ['react', 'react-dom', 'wp-i18n'];
 
     if ($vendors) {
@@ -46,7 +46,7 @@ class Frontend extends Component
   public function test()
   {
     $repository = $this->plugin->get_repository(MyPostTypeRepository::class);
-    $myposts = $repository->all();
+    $myposts    = $repository->all();
 
     echo '<pre>';
     var_dump($myposts);

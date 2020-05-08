@@ -1,4 +1,5 @@
-<?php
+<?php // phpcs:disable PSR1.Files.SideEffects.FoundWithSymbols
+
 /*
  * Plugin Name: WPify
  * Version: 0.1.0
@@ -10,7 +11,8 @@ use ComposePress\Dice\Dice;
 use Wpify\Plugin;
 
 /**
- * Singleton instance function. We will not use a global at all as that defeats the purpose of a singleton and is a bad design overall
+ * Singleton instance function. We will not use a global at all as that defeats the purpose of a singleton
+ * and is a bad design overall
  *
  * @SuppressWarnings(PHPMD.StaticAccess)
  * @return Wpify\Plugin
@@ -82,7 +84,10 @@ function wpify_php_upgrade_notice()
     sprintf(
       '
       <div class="error notice">
-		    <p>Opps! %s requires a minimum PHP version of 5.4.0. Your current version is: %s. Please contact your host to upgrade.</p>
+        <p>
+          Opps! %s requires a minimum PHP version of 5.4.0. Your current version is: %s.
+          Please contact your host to upgrade.
+        </p>
       </div>
       ',
       $info['Name'],
