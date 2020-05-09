@@ -1,6 +1,8 @@
 <?php
 
-namespace Wpify\Core;
+namespace Wpify;
+
+use Wpify\Core\Component;
 
 class Assets extends Component
 {

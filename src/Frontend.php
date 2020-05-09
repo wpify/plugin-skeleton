@@ -2,7 +2,7 @@
 
 namespace Wpify;
 
-use Wpify\Core\Assets;
+use Wpify\Assets;
 use Wpify\Core\Component;
 use Wpify\Repositories\MyPostTypeRepository;
 

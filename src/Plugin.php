@@ -2,7 +2,7 @@
 
 namespace Wpify;
 
-use Wpify\Core\Assets;
+use Wpify\Assets;
 use Wpify\Core\Interfaces\RepositoryInterface;
 use Wpify\Core\Plugin as PluginBase;
 use Wpify\Managers\ApiManager;
