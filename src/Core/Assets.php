@@ -10,7 +10,6 @@ abstract class Assets extends Component
   /** @var $assets [] */
   private $assets_manifest;
 
-
   /** @var $enqueued_assets [] */
   private $enqueued_assets = [];
 
@@ -25,11 +24,17 @@ abstract class Assets extends Component
     add_action('wp_head', [$this, 'preload_styles']);
   }
 
+  /**
+   * Add the assets from the child classes
+   */
   public function setup_assets()
   {
     $this->add_assets($this->assets());
   }
 
+  /**
+   * Enqueue assets
+   */
   public function enqueue_assets()
   {
     $preloading_styles_enabled = $this->preloading_styles_enabled();
@@ -91,6 +96,13 @@ abstract class Assets extends Component
     $this->assets[] = wp_parse_args($asset, $this->get_default_args());
   }
 
+  /**
+   * Add assets
+   *
+   * @param array $assets
+   *
+   * @throws \ComposePress\Core\Exception\Plugin
+   */
   public function add_assets(array $assets)
   {
     foreach ($assets as $asset) {
@@ -98,6 +110,13 @@ abstract class Assets extends Component
     }
   }
 
+  /**
+   * Get filetype from filename
+   *
+   * @param $filename
+   *
+   * @return bool|string
+   */
   public function get_file_type($filename)
   {
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
@@ -118,6 +137,10 @@ abstract class Assets extends Component
     return $file_type;
   }
 
+  /**
+   * Get default Asset args
+   * @return array
+   */
   public function get_default_args()
   {
     return [
@@ -132,6 +155,13 @@ abstract class Assets extends Component
     ];
   }
 
+  /**
+   * Check if the asset has been enqueued already
+   *
+   * @param $handle
+   *
+   * @return bool
+   */
   public function is_asset_enqueued($handle)
   {
     return in_array($handle, $this->enqueued_assets);
@@ -179,7 +209,7 @@ abstract class Assets extends Component
    * anything.
    * If the `<link>` tag for a given stylesheet has already been printed, it will be skipped.
    *
-   * @param string ...$handles One or more stylesheet handles.
+   * @param string[] $handles
    */
   public function print_styles(string ...$handles)
   {
@@ -199,10 +229,8 @@ abstract class Assets extends Component
           return !in_array($handle, $this->printed_assets);
         }
       );
-    } else {
-      if (in_array($handles, $this->printed_assets)) {
-        return;
-      }
+    } elseif (in_array($handles, $this->printed_assets)) {
+      return;
     }
 
     if (is_array($handles)) {
@@ -234,12 +262,16 @@ abstract class Assets extends Component
     return apply_filters($this->plugin->safe_slug . '_preloading_styles_enabled', true);
   }
 
+  /**
+   * Get styles from the assets array
+   * @return array
+   */
   private function get_styles()
   {
     return array_filter(
       $this->assets,
       function ($asset) {
-        return $this->get_file_type($asset['file']) === 'style';
+        return $asset['type'] === 'style';
       }
     );
   }
@@ -275,5 +307,5 @@ abstract class Assets extends Component
     return $this->printed_assets;
   }
 
-  abstract public function assets() : array;
+  abstract public function assets(): array;
 }
