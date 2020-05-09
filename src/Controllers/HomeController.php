@@ -17,6 +17,4 @@ class HomeController extends Controller
   {
     return $this->plugin->get_repository(MyPostTypeRepository::class)->all();
   }
-
-
 }

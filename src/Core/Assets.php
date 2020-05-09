@@ -29,10 +29,6 @@ abstract class Assets extends Component
     $preloading_styles_enabled = $this->preloading_styles_enabled();
 
     foreach ($this->assets as $asset) {
-      if (!$asset['handle']) {
-        throw new \ComposePress\Core\Exception\Plugin("Asset args have to contain 'handle'.");
-      }
-
       if ($this->is_asset_enqueued($asset['handle'])) {
         continue;
       }
@@ -41,15 +37,10 @@ abstract class Assets extends Component
         $asset['file'] = $this->asset($asset['handle']);
       }
 
-      $type = $this->get_file_type($asset['file']);
-      if (!$type) {
-        continue;
-      }
-
-      if ($type === 'script') {
+      if ($asset['type'] === 'script') {
         wp_enqueue_script(
           $asset['handle'],
-          $this->asset($asset['file']),
+          $asset['file'],
           $asset['deps'],
           $asset['version'],
           $asset['in_footer']
@@ -60,7 +51,7 @@ abstract class Assets extends Component
             wp_localize_script($asset['handle'], $object_name, $args);
           }
         }
-      } elseif ($type === 'style') {
+      } elseif ($asset['type'] === 'style') {
         if (!$preloading_styles_enabled || !isset($data['preload'])) {
           wp_enqueue_style($asset['handle'], $asset['file'], $asset['deps']);
         } else {
@@ -72,8 +63,26 @@ abstract class Assets extends Component
     }
   }
 
+  /**
+   * Add a single asset
+   * @param array $asset
+   *
+   * @throws \ComposePress\Core\Exception\Plugin
+   */
   public function add_asset(array $asset)
   {
+    if (!$asset['handle']) {
+      throw new \ComposePress\Core\Exception\Plugin("Asset args have to contain 'handle'.");
+    }
+    if ($asset['file']) {
+      $asset['file'] = $this->asset($asset['handle']);
+    }
+
+    $asset['type'] = $this->get_file_type($asset['file']);
+    if (!$asset['type']) {
+      throw new \ComposePress\Core\Exception\Plugin("Failed to get file type.");
+    }
+
     $this->assets[] = wp_parse_args($asset, $this->get_default_args());
   }
 
@@ -114,6 +123,7 @@ abstract class Assets extends Component
       'deps'      => [],
       'preload'   => false,
       'localize'  => false,
+      'type'      => '',
     ];
   }
 

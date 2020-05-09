@@ -5,7 +5,7 @@
 use Wpify\Controllers\HomeController;
 
 $controller = wpify()->get_controller(HomeController::class);
-
+$controller->print_styles($controller->get_assets());
 get_header();
 $controller->print_styles($controller->get_assets());
 while (have_posts()) {
