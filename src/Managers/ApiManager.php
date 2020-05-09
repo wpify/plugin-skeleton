@@ -16,7 +16,10 @@ class ApiManager extends Manager
 
   public function get_rest_url()
   {
-    return rest_url($this->get_rest_namespace());
+    return site_url('wp-json/'.$this->get_rest_namespace());
+
+    // TODO: Find out why this is broken
+    //return rest_url($this->get_rest_namespace());
   }
 
   public function get_rest_namespace()

@@ -8,7 +8,7 @@ use Wpify\Cpt\MyPostType;
 
 class MyPostTypeRepository extends PostTypeRepository
 {
-  function post_type(): PostType
+  public function post_type()
   {
     return $this->plugin->get_cpt(MyPostType::class);
   }

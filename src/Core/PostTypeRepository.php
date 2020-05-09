@@ -18,8 +18,9 @@ abstract class PostTypeRepository extends Component implements RepositoryInterfa
 
   public function setup()
   {
-    $this->set_post_type($this->post_type);
+    $this->post_type = $this->post_type();
   }
+
   public function find($args)
   {
   }
@@ -94,5 +95,5 @@ abstract class PostTypeRepository extends Component implements RepositoryInterfa
     return $this->query;
   }
 
-  abstract function post_type(): PostType;
+  abstract public function post_type();
 }

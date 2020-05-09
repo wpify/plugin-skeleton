@@ -2,7 +2,7 @@
 
 namespace Wpify\Core;
 
-abstract class Assets extends Component
+class Assets extends Component
 {
   /** @var $assets [] */
   private $assets;
@@ -12,10 +12,10 @@ abstract class Assets extends Component
 
 
   /** @var $enqueued_assets [] */
-  private $enqueued_assets;
+  private $enqueued_assets = [];
 
   /** @var $printed_assets [] */
-  private $printed_assets;
+  private $printed_assets = [];
 
 
   public function setup()
@@ -31,10 +31,6 @@ abstract class Assets extends Component
     foreach ($this->assets as $asset) {
       if ($this->is_asset_enqueued($asset['handle'])) {
         continue;
-      }
-
-      if ($asset['file']) {
-        $asset['file'] = $this->asset($asset['handle']);
       }
 
       if ($asset['type'] === 'script') {
@@ -74,14 +70,16 @@ abstract class Assets extends Component
     if (!$asset['handle']) {
       throw new \ComposePress\Core\Exception\Plugin("Asset args have to contain 'handle'.");
     }
-    if ($asset['file']) {
+    if (!$asset['file']) {
       $asset['file'] = $this->asset($asset['handle']);
     }
 
     $asset['type'] = $this->get_file_type($asset['file']);
+
     if (!$asset['type']) {
       throw new \ComposePress\Core\Exception\Plugin("Failed to get file type.");
     }
+
 
     $this->assets[] = wp_parse_args($asset, $this->get_default_args());
   }
@@ -256,10 +254,10 @@ abstract class Assets extends Component
     }
 
     if (isset($this->assets_manifest[$file])) {
-      return $this->plugin->get_asset_path("build/{$this->assets_manifest[$file]}");
+      return $this->plugin->get_asset_url("build/{$this->assets_manifest[$file]}");
     }
 
-    return null;
+    return '';
   }
 
   /**
