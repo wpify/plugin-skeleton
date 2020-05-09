@@ -14,6 +14,8 @@ abstract class PostTypeRepository extends Component implements RepositoryInterfa
   /** @var \WPify\Core\PostType */
   private $post_type;
 
+  private $query;
+
   public function find($args)
   {
   }
@@ -30,9 +32,15 @@ abstract class PostTypeRepository extends Component implements RepositoryInterfa
       'posts_per_page' => -1,
     ];
 
-    foreach (get_posts($args) as $item) {
-      $collection->add($this->get($item));
+    $this->query = new \WP_Query( $args );
+
+    // The Loop
+    while ( $this->query->have_posts() ) {
+      $this->query->the_post();
+      global $post;
+      $collection->add($this->get($post));
     }
+    wp_reset_postdata();
 
     return $collection;
   }
@@ -72,5 +80,13 @@ abstract class PostTypeRepository extends Component implements RepositoryInterfa
   public function get_model()
   {
     return $this->post_type->get_model();
+  }
+
+  /**
+   * @return mixed
+   */
+  public function get_query()
+  {
+    return $this->query;
   }
 }
