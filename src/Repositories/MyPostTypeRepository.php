@@ -2,13 +2,14 @@
 
 namespace Wpify\Repositories;
 
+use Wpify\Core\PostType;
 use Wpify\Core\PostTypeRepository;
 use Wpify\Cpt\MyPostType;
 
 class MyPostTypeRepository extends PostTypeRepository
 {
-  public function setup()
+  function post_type(): PostType
   {
-    $this->set_post_type($this->plugin->get_cpt(MyPostType::class));
+    return $this->plugin->get_cpt(MyPostType::class);
   }
 }
