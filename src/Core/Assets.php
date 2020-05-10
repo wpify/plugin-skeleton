@@ -214,11 +214,11 @@ abstract class Assets extends Component
    * anything.
    * If the `<link>` tag for a given stylesheet has already been printed, it will be skipped.
    *
-   * @param string[] $handles
+   * @param $handles
    */
   public function print_styles(string ...$handles)
   {
-    // If preloading styles is disabled (and thus they have already been enueued), return early.
+    // If preloading styles is disabled (and thus they have already been enqueued), return early.
     if (!$this->preloading_styles_enabled()) {
       return;
     }
@@ -242,8 +242,8 @@ abstract class Assets extends Component
     );
 
 
-    foreach ($handles as $handle) {
-      $this->printed_assets[] = $handle;
+    foreach ($assets as $asset) {
+      $this->printed_assets[] = $asset['handle'];
     }
 
     wp_print_styles($handles);
