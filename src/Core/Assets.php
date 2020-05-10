@@ -97,6 +97,7 @@ abstract class Assets extends Component
     if (!$asset['handle']) {
       throw new \ComposePress\Core\Exception\Plugin("Asset args have to contain 'handle'.");
     }
+
     if (!$asset['file']) {
       $asset['file'] = $this->asset($asset['handle']);
     }
@@ -206,8 +207,7 @@ abstract class Assets extends Component
       }
 
 
-      $handle = $asset['handle'];
-
+      $handle      = $asset['handle'];
       $wp_styles   = wp_styles();
       $preload_uri = $wp_styles->registered[$handle]->src . '?ver=' . $wp_styles->registered[$handle]->ver;
 

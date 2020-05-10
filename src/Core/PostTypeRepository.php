@@ -51,13 +51,13 @@ abstract class PostTypeRepository extends Component implements RepositoryInterfa
   }
 
   /**
-   * @param $id
+   * @param $post
    *
    * @return PostTypeModel
    */
-  public function get($id): PostTypeModelInterface
+  public function get($post): PostTypeModelInterface
   {
-    $model = $this->plugin->create_component($this->post_type->model, $id, $this->post_type);
+    $model = $this->plugin->create_component($this->post_type->model, $post);
     $model->init();
 
     return $model;

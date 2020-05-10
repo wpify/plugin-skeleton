@@ -8,6 +8,7 @@ use Wpify\Core\Plugin as PluginBase;
 use Wpify\Managers\ApiManager;
 use Wpify\Managers\CptManager;
 use Wpify\Managers\RepositoriesManager;
+use Wpify\Managers\TaxonomiesManager;
 
 /**
  * Class Plugin
@@ -39,6 +40,11 @@ class Plugin extends PluginBase
    * @var CptManager
    */
   private $cpt_manager;
+
+  /**
+   * @var TaxonomiesManager
+   */
+  private $taxonomies_manager;
 
   /**
    * @var RepositoriesManager
@@ -78,10 +84,12 @@ class Plugin extends PluginBase
     ApiManager $api_manager,
     Settings $settings,
     CptManager $cpt_manager,
+    TaxonomiesManager $taxonomies_manager,
     Assets $assets
   ) {
     $this->frontend             = $frontend;
     $this->cpt_manager          = $cpt_manager;
+    $this->taxonomies_manager   = $taxonomies_manager;
     $this->repositories_manager = $repositories_manager;
     $this->api_manager          = $api_manager;
     $this->settings             = $settings;
@@ -155,6 +163,19 @@ class Plugin extends PluginBase
   public function get_cpt(string $class)
   {
     return $this->cpt_manager->get_module($class);
+  }
+
+  /**
+   * @return CptManager
+   */
+  public function get_taxonomies_manager(): TaxonomiesManager
+  {
+    return $this->taxonomies_manager;
+  }
+
+  public function get_taxonomy(string $class)
+  {
+    return $this->taxonomies_manager->get_module($class);
   }
 
   public function get_controller(string $class)

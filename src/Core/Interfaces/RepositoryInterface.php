@@ -8,5 +8,5 @@ interface RepositoryInterface
 {
   public function all(): ArrayCollection;
 
-  public function get($id): PostTypeModelInterface;
+  public function get($id);
 }

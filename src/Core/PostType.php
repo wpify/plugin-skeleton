@@ -27,9 +27,10 @@ abstract class PostType extends Component
    */
   public function __construct()
   {
-    $this->args  = $this->post_type_args();
-    $this->name  = $this->post_type_name();
-    $this->model = $this->model();
+    $this->args       = $this->post_type_args();
+    $this->name       = $this->post_type_name();
+    $this->model      = $this->model();
+    $this->taxonomies = $this->taxonomies();
   }
 
   /**
@@ -171,6 +172,11 @@ abstract class PostType extends Component
    * Set post type args
    * @return array
    */
+  protected function taxonomies(): array
+  {
+    return [];
+  }
+
   abstract public function post_type_args(): array;
 
   /**

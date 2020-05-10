@@ -120,11 +120,6 @@
       <property name="indent" value="2" />
     </properties>
   </rule>
-  <rule ref="PEAR.WhiteSpace.ScopeIndent">
-    <properties>
-      <property name="indent" value="2" />
-    </properties>
-  </rule>
   <rule ref="PEAR.WhiteSpace.ObjectOperatorIndent">
     <properties>
         <property name="indent" value="2" />
