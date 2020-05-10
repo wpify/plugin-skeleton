@@ -19,7 +19,6 @@ abstract class Assets extends Component
 
   public function setup()
   {
-    $this->setup_assets();
     add_action('wp_enqueue_scripts', [$this, 'enqueue_assets']);
     add_action('wp_head', [$this, 'preload_styles']);
   }
@@ -37,10 +36,15 @@ abstract class Assets extends Component
    */
   public function enqueue_assets()
   {
+    $this->setup_assets();
     $preloading_styles_enabled = $this->preloading_styles_enabled();
 
     foreach ($this->assets as $asset) {
       if ($this->is_asset_enqueued($asset['handle'])) {
+        continue;
+      }
+
+      if (!$asset['enqueue']) {
         continue;
       }
 
@@ -59,7 +63,7 @@ abstract class Assets extends Component
           }
         }
       } elseif ($asset['type'] === 'style') {
-        if (!$preloading_styles_enabled || !isset($data['preload'])) {
+        if (!$preloading_styles_enabled || !$asset['preload']) {
           wp_enqueue_style($asset['handle'], $asset['file'], $asset['deps']);
         } else {
           wp_register_style($asset['handle'], $asset['file'], $asset['deps']);
@@ -152,6 +156,7 @@ abstract class Assets extends Component
       'preload'   => false,
       'localize'  => false,
       'type'      => '',
+      'enqueue'   => true,
     ];
   }
 
@@ -183,7 +188,7 @@ abstract class Assets extends Component
 
     foreach ($this->get_styles() as $asset) {
       // Skip if no preload callback provided.
-      if (!$asset['preload']) {
+      if (!$asset['preload'] || !$asset['enqueue']) {
         continue;
       }
 
@@ -213,7 +218,7 @@ abstract class Assets extends Component
    */
   public function print_styles(string ...$handles)
   {
-    // If preloading styles is disabled (and thus they have already been enqueued), return early.
+    // If preloading styles is disabled (and thus they have already been enueued), return early.
     if (!$this->preloading_styles_enabled()) {
       return;
     }
@@ -222,23 +227,23 @@ abstract class Assets extends Component
       return;
     }
 
-    if (is_array($handles)) {
-      $handles = array_filter(
-        $handles,
-        function ($handle) {
-          return !in_array($handle, $this->printed_assets);
-        }
-      );
-    } elseif (in_array($handles, $this->printed_assets)) {
-      return;
-    }
-
-    if (is_array($handles)) {
-      foreach ($handles as $handle) {
-        $this->printed_assets[] = $handle;
+    $handles = array_filter(
+      $handles,
+      function ($handle) {
+        return !in_array($handle, $this->printed_assets);
       }
-    } else {
-      $this->printed_assets[] = $handles;
+    );
+
+    $assets = array_filter(
+      $this->assets(),
+      function ($asset) use ($handles) {
+        return in_array($asset['handle'], $handles) && $asset['preload'];
+      }
+    );
+
+
+    foreach ($handles as $handle) {
+      $this->printed_assets[] = $handle;
     }
 
     wp_print_styles($handles);

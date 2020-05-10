@@ -37,10 +37,10 @@ abstract class PostTypeRepository extends Component implements RepositoryInterfa
       'posts_per_page' => -1,
     ];
 
-    $this->query = new \WP_Query( $args );
+    $this->query = new \WP_Query($args);
 
     // The Loop
-    while ( $this->query->have_posts() ) {
+    while ($this->query->have_posts()) {
       $this->query->the_post();
       global $post;
       $collection->add($this->get($post));
