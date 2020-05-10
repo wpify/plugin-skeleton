@@ -17,18 +17,12 @@ class MyTaxonomy extends Taxonomy
         __('My taxonomy', 'wpify'),
         __('My taxonomies', 'wpify')
       ),
-      'description'        => __('Description.', 'wpify'),
-      'public'             => true,
-      'publicly_queryable' => true,
-      'show_ui'            => true,
-      'show_in_menu'       => true,
-      'query_var'          => true,
-      'rewrite'            => ['slug' => 'book'],
-      'capability_type'    => 'post',
-      'has_archive'        => true,
       'hierarchical'       => false,
-      'menu_position'      => null,
-      'supports'           => ['title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'],
+      'public'             => true,
+      'show_ui'            => true,
+      'show_admin_columns' => true,
+      'show_in_nav_menus'  => true,
+      'show_tagcloud'      => true,
     ];
 
     return $args;
