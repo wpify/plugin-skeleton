@@ -3,6 +3,7 @@
 namespace Wpify\Core;
 
 use WP_Post_Type;
+use Wpify\Core\Interfaces\CustomFieldsFactoryInterface;
 
 abstract class PostType extends Component
 {
@@ -17,6 +18,9 @@ abstract class PostType extends Component
 
   /** @var array */
   private $args = [];
+
+  /** @var CustomFieldsFactoryInterface $custom_fields_factory */
+  private $custom_fields_factory;
 
   public function __construct()
   {
@@ -36,6 +40,20 @@ abstract class PostType extends Component
   public function register()
   {
     $this->post_type = register_post_type($this->name, $this->args);
+    if (!empty($this->custom_fields())) {
+      if (!$this->custom_fields_factory()) {
+        throw new \Exception('You need to set custom fields factory to register custom fields');
+      }
+
+      /** @var CustomFieldsFactoryInterface $factory */
+      $this->custom_fields_factory = $this->plugin->create_component(
+        $this->custom_fields_factory(),
+        $this->post_type,
+        $this->custom_fields()
+      );
+
+      $this->custom_fields_factory->init();
+    }
   }
 
   /**
@@ -89,6 +107,14 @@ abstract class PostType extends Component
   }
 
   /**
+   * @return CustomFieldsFactoryInterface
+   */
+  public function get_custom_fields_factory(): CustomFieldsFactoryInterface
+  {
+    return $this->custom_fields_factory;
+  }
+
+  /**
    * @param string $singular Singular name of the post type
    * @param string $plural Plural name of the post type
    */
@@ -112,6 +138,16 @@ abstract class PostType extends Component
     ];
 
     return $labels;
+  }
+
+  public function custom_fields()
+  {
+    return [];
+  }
+
+  public function custom_fields_factory(): string
+  {
+    return '';
   }
 
   abstract public function post_type_args(): array;
