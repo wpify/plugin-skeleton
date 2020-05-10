@@ -3,6 +3,7 @@
 namespace Wpify\Core;
 
 use WP_Post_Type;
+use Wpify\Core\Interfaces\CustomFieldsFactoryInterface;
 
 abstract class PostType extends Component
 {
@@ -18,6 +19,12 @@ abstract class PostType extends Component
   /** @var array */
   private $args = [];
 
+  /** @var CustomFieldsFactoryInterface $custom_fields_factory */
+  private $custom_fields_factory;
+
+  /**
+   * PostType constructor.
+   */
   public function __construct()
   {
     $this->args  = $this->post_type_args();
@@ -25,6 +32,10 @@ abstract class PostType extends Component
     $this->model = $this->model();
   }
 
+  /**
+   * Register hooks
+   * @return bool|void
+   */
   public function setup()
   {
     add_action('init', [$this, 'register']);
@@ -36,6 +47,20 @@ abstract class PostType extends Component
   public function register()
   {
     $this->post_type = register_post_type($this->name, $this->args);
+    if (!empty($this->custom_fields())) {
+      if (!$this->custom_fields_factory()) {
+        throw new \Exception(__('You need to set custom fields factory to register custom fields', 'wpify'));
+      }
+
+      /** @var CustomFieldsFactoryInterface $factory */
+      $this->custom_fields_factory = $this->plugin->create_component(
+        $this->custom_fields_factory(),
+        $this->post_type,
+        $this->custom_fields()
+      );
+
+      $this->custom_fields_factory->init();
+    }
   }
 
   /**
@@ -89,8 +114,18 @@ abstract class PostType extends Component
   }
 
   /**
+   * @return CustomFieldsFactoryInterface
+   */
+  public function get_custom_fields_factory(): CustomFieldsFactoryInterface
+  {
+    return $this->custom_fields_factory;
+  }
+
+  /**
    * @param string $singular Singular name of the post type
    * @param string $plural Plural name of the post type
+   *
+   * @return array
    */
   protected function get_generic_labels(string $singular, string $plural): array
   {
@@ -114,9 +149,39 @@ abstract class PostType extends Component
     return $labels;
   }
 
+  /**
+   * Set custom fields for the post type
+   * @return array
+   */
+  public function custom_fields()
+  {
+    return [];
+  }
+
+  /**
+   * Set custom fields factory needed for custom fields registration / manipulation
+   * @return string
+   */
+  public function custom_fields_factory(): string
+  {
+    return '';
+  }
+
+  /**
+   * Set post type args
+   * @return array
+   */
   abstract public function post_type_args(): array;
 
+  /**
+   * Set post type name
+   * @return string
+   */
   abstract public function post_type_name(): string;
 
+  /**
+   * Set post type model
+   * @return string
+   */
   abstract public function model(): string;
 }
