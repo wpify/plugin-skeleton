@@ -23,6 +23,7 @@ module.exports = {
   entry: {
     plugin: './assets/plugin.jsx',
     home: './assets/home.scss',
+    'some-module': './assets/some-module.scss',
   },
   output: {
     path: path.resolve(__dirname, 'build'), // where to put compiled files to

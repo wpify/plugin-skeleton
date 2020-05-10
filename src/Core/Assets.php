@@ -44,18 +44,28 @@ abstract class Assets extends Component
         continue;
       }
 
-      if (!$asset['enqueue']) {
+      if (!$asset['enqueue_on']) {
         continue;
       }
 
       if ($asset['type'] === 'script') {
-        wp_enqueue_script(
-          $asset['handle'],
-          $asset['file'],
-          $asset['deps'],
-          $asset['version'],
-          $asset['in_footer']
-        );
+        if ($asset['enqueue']) {
+          wp_enqueue_script(
+            $asset['handle'],
+            $asset['file'],
+            $asset['deps'],
+            $asset['version'],
+            $asset['in_footer']
+          );
+        } else {
+          wp_register_script(
+            $asset['handle'],
+            $asset['file'],
+            $asset['deps'],
+            $asset['version'],
+            $asset['in_footer']
+          );
+        }
 
         if ($asset['localize']) {
           foreach ($asset['localize'] as $object_name => $args) {
@@ -63,7 +73,7 @@ abstract class Assets extends Component
           }
         }
       } elseif ($asset['type'] === 'style') {
-        if (!$preloading_styles_enabled || !$asset['preload']) {
+        if (!$preloading_styles_enabled || $asset['enqueue']) {
           wp_enqueue_style($asset['handle'], $asset['file'], $asset['deps']);
         } else {
           wp_register_style($asset['handle'], $asset['file'], $asset['deps']);
@@ -150,15 +160,16 @@ abstract class Assets extends Component
   public function get_default_args()
   {
     return [
-      'handle'    => '',
-      'file'      => '',
-      'in_footer' => true,
-      'version'   => '',
-      'deps'      => [],
-      'preload'   => false,
-      'localize'  => false,
-      'type'      => '',
-      'enqueue'   => true,
+      'handle'     => '', // Asset handle
+      'file'       => '', // Asset file. If empty, we'll try to find the file by handle in assets-manifest.json
+      'in_footer'  => true, // Load in footer, applies to JS only
+      'localize'   => false, // Localize script, applies to JS only
+      'version'    => '', // Asset version
+      'deps'       => [], // Dependencies
+      'preload'    => false, // Add a preload tag to head, can be true / false
+      'enqueue'    => true, // Set to false to register the asset only to be printed anywhere with print_assets()
+      'enqueue_on' => true, // Enqueue on the current request. If false, the scrip won't be enqueued or registered
+      'type'       => '', // Asset type, detected automatically
     ];
   }
 
@@ -190,7 +201,8 @@ abstract class Assets extends Component
 
     foreach ($this->get_styles() as $asset) {
       // Skip if no preload callback provided.
-      if (!$asset['preload'] || !$asset['enqueue']) {
+
+      if (!$asset['preload'] || !$asset['enqueue_on']) {
         continue;
       }
 
@@ -218,7 +230,7 @@ abstract class Assets extends Component
    *
    * @param array $handles
    */
-  public function print_styles(array $handles)
+  public function print_assets(array $handles)
   {
     // If preloading styles is disabled (and thus they have already been enqueued), return early.
     if (!$this->preloading_styles_enabled()) {
@@ -237,7 +249,7 @@ abstract class Assets extends Component
     );
 
     $assets = array_filter(
-      $this->assets(),
+      $this->assets,
       function ($asset) use ($handles) {
         return in_array($asset['handle'], $handles) && $asset['preload'];
       }

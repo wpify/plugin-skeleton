@@ -7,13 +7,18 @@ class Assets extends Core\Assets
 
   public function assets(): array
   {
-    $assets       = [
+    $assets = [
       [
-        'handle'  => 'home.css',
-        'preload' => true,
-        'enqueue' => is_home(),
+        'handle'     => 'home.css',
+        'preload'    => true,
+        'enqueue_on' => is_home(),
+      ],
+      [
+        'handle'  => 'some-module.css',
+        'enqueue' => false,
       ],
     ];
+
     $vendors      = $this->asset('vendors~plugin.js');
     $vendors_deps = [];
 
