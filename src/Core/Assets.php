@@ -153,7 +153,7 @@ abstract class Assets extends Component
       'handle'    => '',
       'file'      => '',
       'in_footer' => true,
-      'version'   => true,
+      'version'   => '',
       'deps'      => [],
       'preload'   => false,
       'localize'  => false,

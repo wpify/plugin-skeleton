@@ -10,7 +10,7 @@ class Frontend extends Component
   public function setup()
   {
     add_action('wp_footer', [$this, 'print_react_root']);
-    add_action('wp_footer', [$this, 'test']);
+    //add_action('wp_footer', [$this, 'test']);
   }
 
 

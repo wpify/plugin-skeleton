@@ -22,18 +22,16 @@ class Assets extends Core\Assets
 
     if ($vendors) {
       $assets[] = [
-        'handle' => 'wpify-vendors',
-        'file'   => $vendors,
+        'handle' => 'vendors~plugin.js',
         'deps'   => $vendors_deps,
       ];
 
-      $main_deps[] = 'wpify-vendors';
+      $main_deps[] = 'vendors~plugin.js';
     }
 
     if ($main) {
       $assets[] = [
-        'handle'   => 'wpify',
-        'file'     => $main,
+        'handle'   => 'plugin.js',
         'deps'     => $main_deps,
         'localize' => [
           'wpify' => [
