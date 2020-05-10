@@ -105,7 +105,7 @@ abstract class Assets extends Component
     $asset['type'] = $this->get_file_type($asset['file']);
 
     if (!$asset['type']) {
-      throw new \ComposePress\Core\Exception\Plugin("Failed to get file type.");
+      throw new \ComposePress\Core\Exception\Plugin('Failed to get file type.');
     }
 
 
@@ -143,7 +143,6 @@ abstract class Assets extends Component
         $file_type = 'script';
         break;
       case 'css':
-      case 'jsx':
         $file_type = 'style';
         break;
       default:
@@ -202,7 +201,7 @@ abstract class Assets extends Component
     foreach ($this->get_styles() as $asset) {
       // Skip if no preload callback provided.
 
-      if (!$asset['preload'] || !$asset['enqueue_on']) {
+      if (!$asset['preload'] || !$asset['load']) {
         continue;
       }
 
@@ -212,9 +211,12 @@ abstract class Assets extends Component
       $wp_styles   = wp_styles();
       $preload_uri = $wp_styles->registered[$handle]->src . '?ver=' . $wp_styles->registered[$handle]->ver;
 
-      echo '<link rel="preload" id="' . esc_attr($handle) . '-preload" href="' . esc_url(
-          $preload_uri
-        ) . '" as="style">';
+      printf(
+        '<link rel="preload" id="%s-preload" href="%s" as="style">',
+        esc_attr($handle),
+        esc_url($preload_uri)
+      );
+
       echo "\n";
     }
   }
