@@ -9,8 +9,7 @@ class Assets extends Core\Assets
   {
     $assets       = [
       [
-        'handle'  => 'home',
-        'file'    => $this->plugin->get_asset_url('assets/home.css'),
+        'handle'  => 'home.css',
         'preload' => true,
         'enqueue' => is_home(),
       ],

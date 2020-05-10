@@ -83,12 +83,14 @@ abstract class Assets extends Component
    */
   public function add_asset(array $asset)
   {
+    $asset = wp_parse_args($asset, $this->get_default_args());
     if (!$asset['handle']) {
       throw new \ComposePress\Core\Exception\Plugin("Asset args have to contain 'handle'.");
     }
     if (!$asset['file']) {
       $asset['file'] = $this->asset($asset['handle']);
     }
+
 
     $asset['type'] = $this->get_file_type($asset['file']);
 
@@ -97,7 +99,7 @@ abstract class Assets extends Component
     }
 
 
-    $this->assets[] = wp_parse_args($asset, $this->get_default_args());
+    $this->assets[] = $asset;
   }
 
   /**
