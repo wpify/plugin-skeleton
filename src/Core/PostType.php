@@ -22,6 +22,9 @@ abstract class PostType extends Component
   /** @var CustomFieldsFactoryInterface $custom_fields_factory */
   private $custom_fields_factory;
 
+  /**
+   * PostType constructor.
+   */
   public function __construct()
   {
     $this->args  = $this->post_type_args();
@@ -29,6 +32,10 @@ abstract class PostType extends Component
     $this->model = $this->model();
   }
 
+  /**
+   * Register hooks
+   * @return bool|void
+   */
   public function setup()
   {
     add_action('init', [$this, 'register']);
@@ -117,6 +124,8 @@ abstract class PostType extends Component
   /**
    * @param string $singular Singular name of the post type
    * @param string $plural Plural name of the post type
+   *
+   * @return array
    */
   protected function get_generic_labels(string $singular, string $plural): array
   {
@@ -140,19 +149,39 @@ abstract class PostType extends Component
     return $labels;
   }
 
+  /**
+   * Set custom fields for the post type
+   * @return array
+   */
   public function custom_fields()
   {
     return [];
   }
 
+  /**
+   * Set custom fields factory needed for custom fields registration / manipulation
+   * @return string
+   */
   public function custom_fields_factory(): string
   {
     return '';
   }
 
+  /**
+   * Set post type args
+   * @return array
+   */
   abstract public function post_type_args(): array;
 
+  /**
+   * Set post type name
+   * @return string
+   */
   abstract public function post_type_name(): string;
 
+  /**
+   * Set post type model
+   * @return string
+   */
   abstract public function model(): string;
 }

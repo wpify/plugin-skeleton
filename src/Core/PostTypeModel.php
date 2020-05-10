@@ -2,6 +2,7 @@
 
 namespace Wpify\Core;
 
+use WP_Post_Type;
 use Wpify\Core\Component;
 use Wpify\Core\Interfaces\PostTypeModelInterface;
 
@@ -11,7 +12,7 @@ abstract class PostTypeModel extends Component implements PostTypeModelInterface
   private $post;
 
   /**
-   * @var \WP_Post_Type $post_type
+   * @var WP_Post_Type $post_type
    */
   private $post_type;
 
@@ -37,6 +38,14 @@ abstract class PostTypeModel extends Component implements PostTypeModelInterface
     return $this->post->ID ?? null;
   }
 
+  /**
+   * Get custom field value
+   *
+   * @param $field
+   *
+   * @return mixed
+   * @throws \Exception
+   */
   public function get_custom_field($field)
   {
     $factory = $this->post_type->get_custom_fields_factory();
@@ -48,9 +57,10 @@ abstract class PostTypeModel extends Component implements PostTypeModelInterface
   }
 
   /**
-   * @return mixed
+   * Get Post type for the current model
+   * @return WP_Post_Type
    */
-  public function get_post_type(): \WP_Post_Type
+  public function get_post_type(): WP_Post_Type
   {
     return $this->post_type;
   }

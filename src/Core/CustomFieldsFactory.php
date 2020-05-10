@@ -2,12 +2,13 @@
 
 namespace Wpify\Core;
 
+use WP_Post_Type;
 use Wpify\Core\Interfaces\CustomFieldsFactoryInterface;
 
 abstract class CustomFieldsFactory extends Component implements CustomFieldsFactoryInterface
 {
   /**
-   * @var \WP_Post_Type $post_type
+   * @var WP_Post_Type $post_type
    */
   private $post_type;
 
@@ -17,7 +18,7 @@ abstract class CustomFieldsFactory extends Component implements CustomFieldsFact
   private $custom_fields;
 
   /**
-   * @return \WP_Post_Type
+   * @return WP_Post_Type
    */
   public function get_post_type()
   {
