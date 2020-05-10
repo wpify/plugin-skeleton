@@ -44,7 +44,7 @@ abstract class Assets extends Component
         continue;
       }
 
-      if (!$asset['enqueue_on']) {
+      if (!$asset['load']) {
         continue;
       }
 
@@ -160,16 +160,16 @@ abstract class Assets extends Component
   public function get_default_args()
   {
     return [
-      'handle'     => '', // Asset handle
-      'file'       => '', // Asset file. If empty, we'll try to find the file by handle in assets-manifest.json
-      'in_footer'  => true, // Load in footer, applies to JS only
-      'localize'   => false, // Localize script, applies to JS only
-      'version'    => '', // Asset version
-      'deps'       => [], // Dependencies
-      'preload'    => false, // Add a preload tag to head, can be true / false
-      'enqueue'    => true, // Set to false to register the asset only to be printed anywhere with print_assets()
-      'enqueue_on' => true, // Enqueue on the current request. If false, the scrip won't be enqueued or registered
-      'type'       => '', // Asset type, detected automatically
+      'handle'    => '', // Asset handle
+      'file'      => '', // Asset file. If empty, we'll try to find the file by handle in assets-manifest.json
+      'in_footer' => true, // Load in footer, applies to JS only
+      'localize'  => false, // Localize script, applies to JS only
+      'version'   => '', // Asset version
+      'deps'      => [], // Dependencies
+      'preload'   => false, // Add a preload tag to head, can be true / false
+      'enqueue'   => true, // Set to false to register the asset only to be printed anywhere with print_assets()
+      'load'      => true, // Use on the current request. If false, the script won't be enqueued or registered
+      'type'      => '', // Asset type, detected automatically
     ];
   }
 

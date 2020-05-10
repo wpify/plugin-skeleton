@@ -9,9 +9,9 @@ class Assets extends Core\Assets
   {
     $assets = [
       [
-        'handle'     => 'home.css',
-        'preload'    => true,
-        'enqueue_on' => is_home(),
+        'handle'  => 'home.css',
+        'preload' => true,
+        'load'    => is_home(),
       ],
       [
         'handle'  => 'some-module.css',
