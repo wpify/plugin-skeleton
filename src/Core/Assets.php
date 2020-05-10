@@ -214,9 +214,9 @@ abstract class Assets extends Component
    * anything.
    * If the `<link>` tag for a given stylesheet has already been printed, it will be skipped.
    *
-   * @param $handles
+   * @param array $handles
    */
-  public function print_styles(string ...$handles)
+  public function print_styles(array $handles)
   {
     // If preloading styles is disabled (and thus they have already been enqueued), return early.
     if (!$this->preloading_styles_enabled()) {

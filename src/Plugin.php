@@ -171,6 +171,14 @@ class Plugin extends PluginBase
   }
 
   /**
+   * Print styles in theme
+   * @param $handles
+   */
+  public function print_styles(string ...$handles)
+  {
+    $this->assets->print_styles($handles);
+  }
+  /**
    * Method to check if plugin has its dependencies. If not, it silently aborts
    * @return bool
    */

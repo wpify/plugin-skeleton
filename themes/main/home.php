@@ -7,7 +7,7 @@ get_header();
 $controller = wpify()->get_controller(HomeController::class);
 $items      = $controller->get_posts();
 
-wpify()->get_assets()->print_styles('home');
+wpify()->print_styles('home');
 
 while (have_posts()) {
   the_post();
