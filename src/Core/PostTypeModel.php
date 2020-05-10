@@ -4,6 +4,7 @@ namespace Wpify\Core;
 
 use WP_Post_Type;
 use Wpify\Core\Component;
+use Wpify\Core\Interfaces\CustomFieldsFactoryInterface;
 use Wpify\Core\Interfaces\PostTypeModelInterface;
 
 abstract class PostTypeModel extends Component implements PostTypeModelInterface
@@ -48,12 +49,39 @@ abstract class PostTypeModel extends Component implements PostTypeModelInterface
    */
   public function get_custom_field($field)
   {
-    $factory = $this->post_type->get_custom_fields_factory();
+    $factory = $this->get_custom_fields_factory();
     if (!$factory) {
-      throw new \Exception('You need to set custom fields factory to register and retrieve custom fields');
+      throw new \Exception(__('You need to set custom fields factory to register and retrieve custom fields', 'wpify'));
     }
 
     return $factory->get_field($this->get_id(), $field);
+  }
+
+  /**
+   * Get custom field value
+   *
+   * @param $field
+   * @param $value
+   *
+   * @return mixed
+   * @throws \Exception
+   */
+  public function save_custom_field($field, $value)
+  {
+    $factory = $this->get_custom_fields_factory();
+    if (!$factory) {
+      throw new \Exception(__('You need to set custom fields factory to register and save custom fields', 'wpify'));
+    }
+
+    return $factory->save_field($this->get_id(), $field, $value);
+  }
+
+  /**
+   * @return CustomFieldsFactoryInterface|false
+   */
+  private function get_custom_fields_factory()
+  {
+    return $this->post_type->get_custom_fields_factory();
   }
 
   /**
@@ -64,5 +92,4 @@ abstract class PostTypeModel extends Component implements PostTypeModelInterface
   {
     return $this->post_type;
   }
-
 }

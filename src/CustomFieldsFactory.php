@@ -39,6 +39,21 @@ class CustomFieldsFactory extends \Wpify\Core\CustomFieldsFactory
   }
 
   /**
+   * Save custom field value
+   *
+   * @param $id
+   * @param $field
+   * @param $value
+   *
+   * @return bool|int
+   */
+  public function save_field($id, $field, $value)
+  {
+    return update_post_meta($id, $field, $value);
+  }
+
+
+  /**
    * Register metaboxes
    */
   public function register_metaboxes()
@@ -58,4 +73,5 @@ class CustomFieldsFactory extends \Wpify\Core\CustomFieldsFactory
       $cmb->add_field($field);
     }
   }
+
 }

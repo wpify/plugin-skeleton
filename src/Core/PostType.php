@@ -49,7 +49,7 @@ abstract class PostType extends Component
     $this->post_type = register_post_type($this->name, $this->args);
     if (!empty($this->custom_fields())) {
       if (!$this->custom_fields_factory()) {
-        throw new \Exception('You need to set custom fields factory to register custom fields');
+        throw new \Exception(__('You need to set custom fields factory to register custom fields', 'wpify'));
       }
 
       /** @var CustomFieldsFactoryInterface $factory */
