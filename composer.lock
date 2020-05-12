@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa7a22192fc1f608347c17340989b113",
+    "content-hash": "28297d4854cdd018ffdecedf2c691f9f",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -218,9 +218,122 @@
                 "php"
             ],
             "time": "2019-11-13T13:07:11+00:00"
+        },
+        {
+            "name": "wpify/core",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/wpify/wpify-core.git",
+                "reference": "82f2149444cf5d1aaf74642beb94f787475f4f47"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=82f2149444cf5d1aaf74642beb94f787475f4f47",
+                "reference": "82f2149444cf5d1aaf74642beb94f787475f4f47",
+                "shasum": ""
+            },
+            "require": {
+                "composepress/core": "^0.9.0",
+                "doctrine/collections": "^1.6"
+            },
+            "require-dev": {
+                "php-stubs/wordpress-stubs": "^5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Wpify\\Core\\": "src\\"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "time": "2020-05-12T09:34:05+00:00"
         }
     ],
     "packages-dev": [
+        {
+            "name": "php-stubs/woocommerce-stubs",
+            "version": "v4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-stubs/woocommerce-stubs.git",
+                "reference": "9b18463b1d464c7a01bd372e68bf8c6e09e110a8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-stubs/woocommerce-stubs/zipball/9b18463b1d464c7a01bd372e68bf8c6e09e110a8",
+                "reference": "9b18463b1d464c7a01bd372e68bf8c6e09e110a8",
+                "shasum": ""
+            },
+            "require": {
+                "php-stubs/wordpress-stubs": "^5.3.0"
+            },
+            "require-dev": {
+                "giacocorsiglia/stubs-generator": "^0.5.0",
+                "php": "~7.1"
+            },
+            "suggest": {
+                "symfony/polyfill-php73": "Symfony polyfill backporting some PHP 7.3+ features to lower PHP versions",
+                "szepeviktor/phpstan-wordpress": "WordPress extensions for PHPStan"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "WooCommerce function and class declaration stubs for static analysis.",
+            "homepage": "https://github.com/php-stubs/woocommerce-stubs",
+            "keywords": [
+                "PHPStan",
+                "static analysis",
+                "woocommerce",
+                "wordpress"
+            ],
+            "time": "2020-05-05T20:20:07+00:00"
+        },
+        {
+            "name": "php-stubs/wordpress-stubs",
+            "version": "v5.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-stubs/wordpress-stubs.git",
+                "reference": "baab62405f6a6ac9b25ed3fe6df371d090f9bc0c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-stubs/wordpress-stubs/zipball/baab62405f6a6ac9b25ed3fe6df371d090f9bc0c",
+                "reference": "baab62405f6a6ac9b25ed3fe6df371d090f9bc0c",
+                "shasum": ""
+            },
+            "replace": {
+                "giacocorsiglia/wordpress-stubs": "*"
+            },
+            "require-dev": {
+                "giacocorsiglia/stubs-generator": "^0.5.0",
+                "php": "~7.1"
+            },
+            "suggest": {
+                "paragonie/sodium_compat": "Pure PHP implementation of libsodium",
+                "symfony/polyfill-php73": "Symfony polyfill backporting some PHP 7.3+ features to lower PHP versions",
+                "szepeviktor/phpstan-wordpress": "WordPress extensions for PHPStan"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "WordPress function and class declaration stubs for static analysis.",
+            "homepage": "https://github.com/php-stubs/wordpress-stubs",
+            "keywords": [
+                "PHPStan",
+                "static analysis",
+                "wordpress"
+            ],
+            "time": "2020-03-31T21:58:11+00:00"
+        },
         {
             "name": "squizlabs/php_codesniffer",
             "version": "3.5.5",

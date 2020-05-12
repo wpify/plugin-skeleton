@@ -7,7 +7,7 @@ use WP_REST_Server;
 use WP_REST_Response;
 
 /**
- * Class ExampleApi
+ * @property Plugin $plugin
  */
 class ExampleApi extends AbstractRest
 {

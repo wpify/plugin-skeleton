@@ -2,6 +2,9 @@
 
 namespace Wpify;
 
+/**
+ * @property Plugin $plugin
+ */
 class Assets extends Core\AbstractAssets
 {
 
