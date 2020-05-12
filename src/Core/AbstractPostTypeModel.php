@@ -3,11 +3,11 @@
 namespace Wpify\Core;
 
 use WP_Post_Type;
-use Wpify\Core\Component;
+use Wpify\Core\AbstractComponent;
 use Wpify\Core\Interfaces\CustomFieldsFactoryInterface;
 use Wpify\Core\Interfaces\PostTypeModelInterface;
 
-abstract class PostTypeModel extends Component implements PostTypeModelInterface
+abstract class AbstractPostTypeModel extends AbstractComponent implements PostTypeModelInterface
 {
   /** @var \WP_Post */
   private $post;

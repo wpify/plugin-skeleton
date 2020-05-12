@@ -2,8 +2,8 @@
 
 namespace Wpify\Models;
 
-use Wpify\Core\TermModel;
+use Wpify\Core\AbstractTermModel;
 
-class MyTaxonomyModel extends TermModel
+class MyTaxonomyModel extends AbstractTermModel
 {
 }

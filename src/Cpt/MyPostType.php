@@ -2,11 +2,11 @@
 
 namespace Wpify\Cpt;
 
-use Wpify\Core\PostType;
+use Wpify\Core\AbstractPostType;
 use Wpify\CustomFieldsFactory;
 use Wpify\Models\MyPost;
 
-class MyPostType extends PostType
+class MyPostType extends AbstractPostType
 {
   public const NAME = 'my-post-type';
 

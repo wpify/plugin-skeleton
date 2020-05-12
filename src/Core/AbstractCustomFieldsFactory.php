@@ -5,7 +5,7 @@ namespace Wpify\Core;
 use WP_Post_Type;
 use Wpify\Core\Interfaces\CustomFieldsFactoryInterface;
 
-abstract class CustomFieldsFactory extends Component implements CustomFieldsFactoryInterface
+abstract class AbstractCustomFieldsFactory extends AbstractComponent implements CustomFieldsFactoryInterface
 {
   /**
    * @var WP_Post_Type $post_type

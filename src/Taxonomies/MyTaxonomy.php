@@ -2,11 +2,11 @@
 
 namespace Wpify\Taxonomies;
 
-use Wpify\Core\Taxonomy;
+use Wpify\Core\AbstractTaxonomy;
 use Wpify\Cpt\MyPostType;
 use Wpify\Models\MyTaxonomyModel;
 
-class MyTaxonomy extends Taxonomy
+class MyTaxonomy extends AbstractTaxonomy
 {
   public const NAME = 'my-taxonomy';
 

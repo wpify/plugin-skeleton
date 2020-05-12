@@ -2,11 +2,10 @@
 
 namespace Wpify\Repositories;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Wpify\Core\TaxonomyRepository;
+use Wpify\Core\AbstractTaxonomyRepository;
 use Wpify\Taxonomies\MyTaxonomy;
 
-class MyTaxonomyRepository extends TaxonomyRepository
+class MyTaxonomyRepository extends AbstractTaxonomyRepository
 {
   public function taxonomy(): MyTaxonomy
   {

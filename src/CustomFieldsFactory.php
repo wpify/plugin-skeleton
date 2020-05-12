@@ -2,7 +2,7 @@
 
 namespace Wpify;
 
-class CustomFieldsFactory extends \Wpify\Core\CustomFieldsFactory
+class CustomFieldsFactory extends \Wpify\Core\AbstractCustomFieldsFactory
 {
   /**
    * CustomFieldsFactory constructor.
@@ -73,5 +73,4 @@ class CustomFieldsFactory extends \Wpify\Core\CustomFieldsFactory
       $cmb->add_field($field);
     }
   }
-
 }

@@ -3,9 +3,9 @@
 namespace Wpify\Managers;
 
 use Wpify\Api\ExampleApi;
-use Wpify\Core\Manager;
+use Wpify\Core\AbstractManager;
 
-class ApiManager extends Manager
+class ApiManager extends AbstractManager
 {
   public const REST_NAMESPACE = 'wpify/v1';
   public const NONCE_ACTION   = 'wp_rest';

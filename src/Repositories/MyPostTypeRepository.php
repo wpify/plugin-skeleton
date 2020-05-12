@@ -2,10 +2,10 @@
 
 namespace Wpify\Repositories;
 
-use Wpify\Core\PostTypeRepository;
+use Wpify\Core\AbstractPostTypeRepository;
 use Wpify\Cpt\MyPostType;
 
-class MyPostTypeRepository extends PostTypeRepository
+class MyPostTypeRepository extends AbstractPostTypeRepository
 {
   public function post_type(): MyPostType
   {

@@ -9,6 +9,6 @@ use ComposePress\Core\Abstracts\Manager_0_9_0_0;
  * @package Wpify\Core
  * @property \Wpify\Plugin $plugin
  */
-abstract class Manager extends Manager_0_9_0_0
+abstract class AbstractManager extends Manager_0_9_0_0
 {
 }

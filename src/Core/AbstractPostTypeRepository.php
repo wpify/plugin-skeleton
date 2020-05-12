@@ -2,14 +2,14 @@
 
 namespace Wpify\Core;
 
-use Wpify\Core\Component;
+use Wpify\Core\AbstractComponent;
 use ComposePress\Core\Exception\Plugin;
 use Doctrine\Common\Collections\ArrayCollection;
 use Wpify\Core\Interfaces\PostTypeModelInterface;
 use Wpify\Core\Interfaces\RepositoryInterface;
 use Wpify\Core\PostType;
 
-abstract class PostTypeRepository extends Component implements RepositoryInterface
+abstract class AbstractPostTypeRepository extends AbstractComponent implements RepositoryInterface
 {
   /** @var \WPify\Core\PostType */
   private $post_type;
@@ -66,7 +66,7 @@ abstract class PostTypeRepository extends Component implements RepositoryInterfa
   /**
    * @param PostType $post_type
    */
-  public function set_post_type(PostType $post_type): void
+  public function set_post_type(AbstractPostType $post_type): void
   {
     $this->post_type = $post_type;
   }

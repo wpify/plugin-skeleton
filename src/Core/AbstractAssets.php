@@ -2,18 +2,18 @@
 
 namespace Wpify\Core;
 
-abstract class Assets extends Component
+abstract class AbstractAssets extends AbstractComponent
 {
-  /** @var $assets [] */
+  /** @var array $assets */
   private $assets;
 
-  /** @var $assets [] */
+  /** @var array $assets */
   private $assets_manifest;
 
-  /** @var $enqueued_assets [] */
+  /** @var array $enqueued_assets */
   private $enqueued_assets = [];
 
-  /** @var $printed_assets [] */
+  /** @var array $printed_assets */
   private $printed_assets = [];
 
 
@@ -101,7 +101,6 @@ abstract class Assets extends Component
     if (!$asset['file']) {
       $asset['file'] = $this->asset($asset['handle']);
     }
-
 
     $asset['type'] = $this->get_file_type($asset['file']);
 

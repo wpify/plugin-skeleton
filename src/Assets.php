@@ -2,7 +2,7 @@
 
 namespace Wpify;
 
-class Assets extends Core\Assets
+class Assets extends Core\AbstractAssets
 {
 
   public function assets(): array

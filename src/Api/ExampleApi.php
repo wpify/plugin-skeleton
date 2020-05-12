@@ -2,15 +2,14 @@
 
 namespace Wpify\Api;
 
-use Wpify\Core\Rest;
+use Wpify\Core\AbstractRest;
 use WP_REST_Server;
 use WP_REST_Response;
 
 /**
- * Class Rest
- * @package WPProgramator\sonoma
+ * Class ExampleApi
  */
-class ExampleApi extends Rest
+class ExampleApi extends AbstractRest
 {
   /**
    * ExampleApi constructor.

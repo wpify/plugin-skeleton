@@ -2,8 +2,8 @@
 
 namespace Wpify\Models;
 
-use Wpify\Core\PostTypeModel;
+use Wpify\Core\AbstractPostTypeModel;
 
-class MyPost extends PostTypeModel
+class MyPost extends AbstractPostTypeModel
 {
 }

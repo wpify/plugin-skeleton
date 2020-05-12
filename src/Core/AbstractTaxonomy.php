@@ -3,9 +3,8 @@
 namespace Wpify\Core;
 
 use WP_Taxonomy;
-use Wpify\Core\PostType;
 
-abstract class Taxonomy extends Component
+abstract class AbstractTaxonomy extends AbstractComponent
 {
   /** @var string */
   private $post_type;

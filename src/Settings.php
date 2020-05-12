@@ -2,7 +2,7 @@
 
 namespace Wpify;
 
-use Wpify\Core\Component;
+use Wpify\Core\AbstractComponent;
 use Wpify\Managers\RepositoriesManager;
 
 /**
@@ -10,7 +10,7 @@ use Wpify\Managers\RepositoriesManager;
  *
  * @package Wpify\Settings
  */
-class Settings extends Component
+class Settings extends AbstractComponent
 {
   public $options = [];
 
@@ -108,12 +108,12 @@ class Settings extends Component
    */
   public function admin_page_display()
   {
-    ?>
+?>
     <div class="wrap cmb2-options-page <?php echo $this->key; ?>">
       <h2><?php echo esc_html(get_admin_page_title()); ?></h2>
       <?php cmb2_metabox_form($this->metabox_id, $this->key); ?>
     </div>
-    <?php
+<?php
   }
 
   /**
@@ -132,7 +132,7 @@ class Settings extends Component
         'hookup'     => false,
         'cmb_styles' => true,
         'show_on'    => [
-        // These are important, don't remove
+          // These are important, don't remove
           'key'   => 'options-page',
           'value' => [$this->key],
         ],
@@ -163,8 +163,8 @@ class Settings extends Component
       return;
     }
 
-      add_settings_error($this->key . '-notices', '', __('Settings updated.', 'rm'), 'updated');
-      settings_errors($this->key . '-notices');
+    add_settings_error($this->key . '-notices', '', __('Settings updated.', 'rm'), 'updated');
+    settings_errors($this->key . '-notices');
   }
 
   /**
@@ -217,8 +217,8 @@ class Settings extends Component
         // Use cmb2_get_option as it passes through some key filters.
         $this->options = cmb2_get_option($this->key, 'all');
       }
-        // Fallback to get_option if CMB2 is not loaded yet.
-        $this->options = get_option($this->key, []);
+      // Fallback to get_option if CMB2 is not loaded yet.
+      $this->options = get_option($this->key, []);
     }
 
     return $this->options;

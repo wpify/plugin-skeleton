@@ -2,7 +2,7 @@
 
 namespace Wpify\Managers;
 
-use Wpify\Core\Manager;
+use Wpify\Core\AbstractManager;
 use Wpify\Cpt\MyPostType;
 
 /**
@@ -10,7 +10,7 @@ use Wpify\Cpt\MyPostType;
  * @package Wpify\Managers
  * @property MyPostType $MyPostType
  */
-class CptManager extends Manager
+class CptManager extends AbstractManager
 {
   protected $modules = [
     MyPostType::class,

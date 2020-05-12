@@ -2,10 +2,9 @@
 
 namespace Wpify;
 
-use Wpify\Core\Component;
-use Wpify\Repositories\MyPostTypeRepository;
+use Wpify\Core\AbstractComponent;
 
-class Frontend extends Component
+class Frontend extends AbstractComponent
 {
   public function setup()
   {

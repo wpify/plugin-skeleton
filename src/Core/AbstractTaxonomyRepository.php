@@ -3,10 +3,10 @@
 namespace Wpify\Core;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Wpify\Core\Component;
+use Wpify\Core\AbstractComponent;
 use Wpify\Core\Interfaces\RepositoryInterface;
 
-abstract class TaxonomyRepository extends Component implements RepositoryInterface
+abstract class AbstractTaxonomyRepository extends AbstractComponent implements RepositoryInterface
 {
   /** @var \WPify\Core\Taxonomy */
   private $taxonomy;
@@ -21,7 +21,7 @@ abstract class TaxonomyRepository extends Component implements RepositoryInterfa
   /**
    * @param Taxonomy $taxonomy
    */
-  public function set_taxonomy(Taxonomy $taxonomy): void
+  public function set_taxonomy(AbstractTaxonomy $taxonomy): void
   {
     $this->taxonomy = $taxonomy;
   }
@@ -42,7 +42,7 @@ abstract class TaxonomyRepository extends Component implements RepositoryInterfa
     return $this->taxonomy->get_model();
   }
 
-  public function get($term): TermModel
+  public function get($term): AbstractTermModel
   {
     $model = $this->plugin->create_component($this->taxonomy->model, $term, $this->taxonomy->get_name());
     $model->init();
@@ -51,7 +51,7 @@ abstract class TaxonomyRepository extends Component implements RepositoryInterfa
   }
 
   /**
-   * @return ArrayCollection&TermModel[]
+   * @return ArrayCollection&AbstractTermModel[]
    */
   public function all(): ArrayCollection
   {

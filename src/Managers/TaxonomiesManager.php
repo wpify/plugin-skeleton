@@ -2,7 +2,7 @@
 
 namespace Wpify\Managers;
 
-use Wpify\Core\Manager;
+use Wpify\Core\AbstractManager;
 use Wpify\Taxonomies\MyTaxonomy;
 
 /**
@@ -10,7 +10,7 @@ use Wpify\Taxonomies\MyTaxonomy;
  * @package Wpify\Managers
  * @property MyTaxonomy $MyTaxonomy
  */
-class TaxonomiesManager extends Manager
+class TaxonomiesManager extends AbstractManager
 {
   protected $modules = [
     MyTaxonomy::class,

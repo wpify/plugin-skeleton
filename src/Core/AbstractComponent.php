@@ -9,6 +9,6 @@ use ComposePress\Core\Abstracts\Component_0_9_0_0;
  * @package Wpify\Core
  * @property \Wpify\Plugin $plugin
  */
-abstract class Component extends Component_0_9_0_0
+abstract class AbstractComponent extends Component_0_9_0_0
 {
 }

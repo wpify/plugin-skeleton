@@ -6,7 +6,7 @@ use WP_Error;
 use WP_Term;
 use Wpify\Core\Interfaces\TermModelInterface;
 
-abstract class TermModel extends Component implements TermModelInterface
+abstract class AbstractTermModel extends AbstractComponent implements TermModelInterface
 {
   private $term;
 

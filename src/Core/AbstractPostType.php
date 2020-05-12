@@ -5,7 +5,7 @@ namespace Wpify\Core;
 use WP_Post_Type;
 use Wpify\Core\Interfaces\CustomFieldsFactoryInterface;
 
-abstract class PostType extends Component
+abstract class AbstractPostType extends AbstractComponent
 {
   /** @var WP_Post_Type */
   private $post_type;
