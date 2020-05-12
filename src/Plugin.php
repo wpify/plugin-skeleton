@@ -94,6 +94,7 @@ class Plugin extends PluginBase
     $this->api_manager          = $api_manager;
     $this->settings             = $settings;
     $this->assets               = $assets;
+
     parent::__construct();
   }
 

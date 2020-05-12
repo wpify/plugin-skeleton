@@ -62,7 +62,7 @@ class CustomFieldsFactory extends \Wpify\Core\AbstractCustomFieldsFactory
       [
         'id'           => $this->get_post_type()->name . 'metabox',
         'title'        => sprintf(__('%s Metabox', 'wpify'), $this->get_post_type()->label),
-        'object_types' => array($this->get_post_type()->name),
+        'object_types' => [$this->get_post_type()->name],
         'context'      => 'normal',
         'priority'     => 'high',
         'show_names'   => true,

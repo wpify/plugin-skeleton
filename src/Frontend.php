@@ -11,9 +11,8 @@ class Frontend extends AbstractComponent
     add_action('wp_footer', [$this, 'print_react_root']);
   }
 
-
   /**
-   * Render React root div
+   * Prints React root div
    */
   public function print_react_root()
   {

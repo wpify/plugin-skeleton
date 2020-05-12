@@ -10,6 +10,10 @@
 use ComposePress\Dice\Dice;
 use Wpify\Plugin;
 
+if (!defined('WPIFY_MIN_PHP_VERSION')) {
+  define('WPIFY_MIN_PHP_VERSION', '7.2.0');
+}
+
 /**
  * Singleton instance function. We will not use a global at all as that defeats the purpose of a singleton
  * and is a bad design overall
@@ -17,7 +21,7 @@ use Wpify\Plugin;
  * @SuppressWarnings(PHPMD.StaticAccess)
  * @return Wpify\Plugin
  */
-function wpify()
+function wpify(): Plugin
 {
   return wpify_container()->create(Plugin::class);
 }
@@ -29,7 +33,7 @@ function wpify()
  *
  * @return \ComposePress\Dice\Dice
  */
-function wpify_container($env = 'prod')
+function wpify_container($env = 'production'): Dice
 {
   static $container;
   if (empty($container)) {
@@ -117,7 +121,7 @@ function wpify_php_vendor_missing()
 /*
  * We want to use a fairly modern php version, feel free to increase the minimum requirement
  */
-if (version_compare(PHP_VERSION, '7.3.0') < 0) {
+if (version_compare(PHP_VERSION, WPIFY_MIN_PHP_VERSION) < 0) {
   add_action('admin_notices', 'wpify_php_upgrade_notice');
 } else {
   if (file_exists(__DIR__ . '/vendor/autoload.php')) {

@@ -67,9 +67,9 @@ class Settings extends AbstractComponent
    */
   public function hooks()
   {
-    add_action('admin_init', array($this, 'init'));
-    add_action('admin_menu', array($this, 'add_options_page'));
-    add_action('cmb2_admin_init', array($this, 'add_options_page_metabox'));
+    add_action('admin_init', [$this, 'init']);
+    add_action('admin_menu', [$this, 'add_options_page']);
+    add_action('cmb2_admin_init', [$this, 'add_options_page_metabox']);
   }
 
 
@@ -98,7 +98,7 @@ class Settings extends AbstractComponent
       [$this, 'admin_page_display']
     );
     // Include CMB CSS in the head to avoid FOUC
-    add_action("admin_print_styles-{$this->options_page}", array('CMB2_hookup', 'enqueue_cmb_css'));
+    add_action("admin_print_styles-{$this->options_page}", ['CMB2_hookup', 'enqueue_cmb_css']);
   }
 
   /**
@@ -124,7 +124,7 @@ class Settings extends AbstractComponent
   public function add_options_page_metabox()
   {
     // hook in our save notices
-    add_action("cmb2_save_options-page_fields_{$this->metabox_id}", array($this, 'settings_notices'), 10, 2);
+    add_action("cmb2_save_options-page_fields_{$this->metabox_id}", [$this, 'settings_notices'], 10, 2);
 
     $cmb = new_cmb2_box(
       [
