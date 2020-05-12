@@ -1,6 +1,7 @@
 {
   "name": "wpify/plugin",
   "type": "project",
+  "license": "GPL-3.0-or-later",
   "require": {
     "doctrine/collections": "^1.6",
     "cmb2/cmb2": "^2.7",
