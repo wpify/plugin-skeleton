@@ -2,31 +2,39 @@
 
 namespace Wpify\Core;
 
-use Wpify\Core\Component;
-use Wpify\Core\Interfaces\PostTypeModelInterface;
+use WP_Error;
+use WP_Term;
+use Wpify\Core\Interfaces\TermModelInterface;
 
-abstract class TermModel extends Component implements PostTypeModelInterface
+abstract class TermModel extends Component implements TermModelInterface
 {
   private $term;
 
   /**
-   * @return mixed
+   * @param int $term
+   * @param string $taxonomy
+   * @param null $filter
    */
   public function __construct($term, $taxonomy, $filter = null)
   {
-    $this->post = get_term($term, $taxonomy, null, $filter);
+    $this->term = get_term($term, $taxonomy, null, $filter);
   }
 
+  /**
+   * Get single term
+   * @return array|WP_Error|WP_Term|null
+   */
   public function get_term()
   {
     return $this->term;
   }
 
   /**
-   * @param int $id
+   * Get term ID
+   * @return int|null
    */
   public function get_id()
   {
-    $this->term->term_id ?? null;
+    return $this->term->term_id ?? null;
   }
 }

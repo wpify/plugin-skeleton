@@ -50,6 +50,9 @@ abstract class TaxonomyRepository extends Component implements RepositoryInterfa
     return $model;
   }
 
+  /**
+   * @return ArrayCollection&TermModel[]
+   */
   public function all(): ArrayCollection
   {
     $collection = new ArrayCollection();
