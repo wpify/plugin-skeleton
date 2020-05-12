@@ -40,7 +40,7 @@ abstract class Taxonomy extends Component
    */
   public function register()
   {
-    $post_type = $this->plugin->get_cpt($this->post_type);
+    $post_type = $this->plugin->create_component($this->post_type);
 
     $this->taxonomy = register_taxonomy($this->name, $post_type->name, $this->args);
 
