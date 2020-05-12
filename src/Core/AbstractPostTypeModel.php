@@ -2,8 +2,6 @@
 
 namespace Wpify\Core;
 
-use WP_Post_Type;
-use Wpify\Core\AbstractComponent;
 use Wpify\Core\Interfaces\CustomFieldsFactoryInterface;
 use Wpify\Core\Interfaces\PostTypeModelInterface;
 
@@ -13,7 +11,7 @@ abstract class AbstractPostTypeModel extends AbstractComponent implements PostTy
   private $post;
 
   /**
-   * @var WP_Post_Type $post_type
+   * @var AbstractPostType $post_type
    */
   private $post_type;
 
@@ -86,9 +84,9 @@ abstract class AbstractPostTypeModel extends AbstractComponent implements PostTy
 
   /**
    * Get Post type for the current model
-   * @return WP_Post_Type
+   * @return AbstractPostType
    */
-  public function get_post_type(): WP_Post_Type
+  public function get_post_type(): AbstractPostType
   {
     return $this->post_type;
   }
