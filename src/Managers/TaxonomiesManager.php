@@ -3,16 +3,16 @@
 namespace Wpify\Managers;
 
 use Wpify\Core\AbstractManager;
-use Wpify\Taxonomies\MyTaxonomy;
+use Wpify\Taxonomies\BookshelfTaxonomy;
 
 /**
  * Class CptManager
  * @package Wpify\Managers
- * @property MyTaxonomy $MyTaxonomy
+ * @property BookshelfTaxonomy $MyTaxonomy
  */
 class TaxonomiesManager extends AbstractManager
 {
   protected $modules = [
-    MyTaxonomy::class,
+    BookshelfTaxonomy::class,
   ];
 }

@@ -1,13 +1,12 @@
 __webpack_public_path__ = window.wpify.publicPath;
 
-import('./plugin.scss');
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { __ } from '@wordpress/i18n';
 import Example from './components/Example';
 import store from './store/root';
+import './plugin.scss';
 
 const Plugin = () => {
   return (

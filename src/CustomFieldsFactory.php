@@ -2,7 +2,9 @@
 
 namespace Wpify;
 
-class CustomFieldsFactory extends \Wpify\Core\AbstractCustomFieldsFactory
+use Wpify\Core\AbstractCustomFieldsFactory;
+
+class CustomFieldsFactory extends AbstractCustomFieldsFactory
 {
   /**
    * CustomFieldsFactory constructor.

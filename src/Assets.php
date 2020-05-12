@@ -46,6 +46,11 @@ class Assets extends Core\AbstractAssets
             'publicPath' => $this->plugin->get_asset_url('build/'),
             'restUrl'    => $this->plugin->get_api_manager()->get_rest_url(),
             'nonce'      => wp_create_nonce($this->plugin->get_api_manager()->get_nonce_action()),
+            'state'      => [
+              'app' => [
+                'name' => get_transient('wpify_app_name'),
+              ],
+            ],
           ],
         ],
       ];

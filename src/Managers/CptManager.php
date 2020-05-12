@@ -3,16 +3,16 @@
 namespace Wpify\Managers;
 
 use Wpify\Core\AbstractManager;
-use Wpify\Cpt\MyPostType;
+use Wpify\Cpt\BookPostType;
 
 /**
  * Class CptManager
  * @package Wpify\Managers
- * @property MyPostType $MyPostType
+ * @property BookPostType $MyPostType
  */
 class CptManager extends AbstractManager
 {
   protected $modules = [
-    MyPostType::class,
+    BookPostType::class,
   ];
 }

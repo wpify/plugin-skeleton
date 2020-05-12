@@ -3,8 +3,8 @@
 namespace Wpify\Managers;
 
 use Wpify\Core\AbstractManager;
-use Wpify\Repositories\MyPostTypeRepository;
-use Wpify\Repositories\MyTaxonomyRepository;
+use Wpify\Repositories\BookRepository;
+use Wpify\Repositories\BookshelfRepository;
 
 /**
  * Class RepositoriesManager
@@ -13,7 +13,7 @@ use Wpify\Repositories\MyTaxonomyRepository;
 class RepositoriesManager extends AbstractManager
 {
   protected $modules = [
-    MyPostTypeRepository::class,
-    MyTaxonomyRepository::class,
+    BookRepository::class,
+    BookshelfRepository::class,
   ];
 }

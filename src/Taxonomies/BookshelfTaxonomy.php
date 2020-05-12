@@ -3,21 +3,21 @@
 namespace Wpify\Taxonomies;
 
 use Wpify\Core\AbstractTaxonomy;
-use Wpify\Cpt\MyPostType;
-use Wpify\Models\MyTaxonomyModel;
+use Wpify\Cpt\BookPostType;
+use Wpify\Models\BookshelfModel;
 
-class MyTaxonomy extends AbstractTaxonomy
+class BookshelfTaxonomy extends AbstractTaxonomy
 {
-  public const NAME = 'my-taxonomy';
+  public const NAME = 'bookshelf';
 
   public function taxonomy_args(): array
   {
     $args = [
       'labels'             => $this->get_generic_labels(
-        __('My taxonomy', 'wpify'),
-        __('My taxonomies', 'wpify')
+        __('Bookshelf', 'wpify'),
+        __('Bookshelves', 'wpify')
       ),
-      'hierarchical'       => false,
+      'hierarchical'       => true,
       'public'             => true,
       'show_ui'            => true,
       'show_admin_columns' => true,
@@ -35,11 +35,11 @@ class MyTaxonomy extends AbstractTaxonomy
 
   public function model(): string
   {
-    return MyTaxonomyModel::class;
+    return BookshelfModel::class;
   }
 
   public function post_type(): string
   {
-    return MyPostType::class;
+    return BookPostType::class;
   }
 }

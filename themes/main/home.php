@@ -1,11 +1,6 @@
 <?php
 
-use Wpify\Controllers\HomeController;
-
 get_header();
-/** @var HomeController $controller */
-$controller = wpify()->get_controller(HomeController::class);
-$items      = $controller->get_posts();
 
 wpify()->print_assets('some-module.css');
 

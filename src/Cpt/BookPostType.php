@@ -4,17 +4,17 @@ namespace Wpify\Cpt;
 
 use Wpify\Core\AbstractPostType;
 use Wpify\CustomFieldsFactory;
-use Wpify\Models\MyPost;
+use Wpify\Models\BookModel;
 
-class MyPostType extends AbstractPostType
+class BookPostType extends AbstractPostType
 {
-  public const NAME = 'my-post-type';
+  public const NAME = 'book';
 
   public function post_type_args(): array
   {
     $args = [
-      'labels'             => $this->get_generic_labels('My post', 'My posts'),
-      'description'        => __('Description.', 'wpify'),
+      'labels'             => $this->get_generic_labels('Book', 'Books'),
+      'description'        => __('Description of books.', 'wpify'),
       'public'             => true,
       'publicly_queryable' => true,
       'show_ui'            => true,
@@ -38,7 +38,7 @@ class MyPostType extends AbstractPostType
 
   public function model(): string
   {
-    return MyPost::class;
+    return BookModel::class;
   }
 
   public function custom_fields()

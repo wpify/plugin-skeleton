@@ -1,9 +1,9 @@
 <?php
 
-use Wpify\Controllers\HomeController;
+use Wpify\Controllers\FrontPageController;
 
-/** @var HomeController */
-$controller = wpify()->get_controller(HomeController::class);
+/** @var FrontPageController */
+$controller = wpify()->get_controller(FrontPageController::class);
 
 $posts = $controller->get_posts();
 ?>
