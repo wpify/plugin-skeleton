@@ -1,13 +1,5 @@
 # WPify plugin boilerplate
 
-## Todo
-
-[ ] Make naming compatible with https://www.php-fig.org/bylaws/psr-naming-conventions/
-[ ] Create example taxonomy
-[ ] Create controllers
-[ ] Make basic theme
-[ ] Example of custom tables
-
 ## Benefits
 
 ### I'm a plugin
