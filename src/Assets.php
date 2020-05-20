@@ -20,6 +20,10 @@ class Assets extends Core\AbstractAssets
         'handle'  => 'some-module.css',
         'enqueue' => false,
       ],
+      [
+        'handle'  => 'button.css',
+        'enqueue' => false,
+      ],
     ];
 
     $vendors      = $this->asset('vendors~plugin.js');

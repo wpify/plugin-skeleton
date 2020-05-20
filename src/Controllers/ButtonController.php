@@ -3,16 +3,16 @@
 namespace Wpify\Controllers;
 
 use Wpify\Controller;
+use Wpify\Plugin;
 
 /**
  * @property Plugin $plugin
  */
 class ButtonController extends Controller
 {
-  private $view = 'button';
-
   public function __construct()
   {
-    $this->set_view($this->view);
+    $this->set_view('button');
+    $this->set_assets(['button.css']);
   }
 }
