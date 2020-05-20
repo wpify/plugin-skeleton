@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "28297d4854cdd018ffdecedf2c691f9f",
+    "content-hash": "e9660501113642be465fa08ae0d35f4b",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -150,6 +150,45 @@
             "time": "2019-07-30T07:06:24+00:00"
         },
         {
+            "name": "composepress/views",
+            "version": "0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/ComposePress/views.git",
+                "reference": "4269649b141990a98a890b96874622e810cb4896"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/ComposePress%2Fviews/repository/archive.zip?sha=4269649b141990a98a890b96874622e810cb4896",
+                "reference": "4269649b141990a98a890b96874622e810cb4896",
+                "shasum": ""
+            },
+            "require": {
+                "composepress/core": "0.9.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^2.4",
+                "lucatume/wp-browser": "~2.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ComposePress\\Views\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Derrick Hammer",
+                    "email": "derrick@derrickhammer.com"
+                }
+            ],
+            "time": "2020-05-08T14:04:40+00:00"
+        },
+        {
             "name": "doctrine/collections",
             "version": "1.6.4",
             "source": {
@@ -221,21 +260,23 @@
         },
         {
             "name": "wpify/core",
-            "version": "v1.0",
+            "version": "dev-views",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/wpify-core.git",
-                "reference": "82f2149444cf5d1aaf74642beb94f787475f4f47"
+                "reference": "d37304dc6612007a322126f2e824052523a64165"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=82f2149444cf5d1aaf74642beb94f787475f4f47",
-                "reference": "82f2149444cf5d1aaf74642beb94f787475f4f47",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=d37304dc6612007a322126f2e824052523a64165",
+                "reference": "d37304dc6612007a322126f2e824052523a64165",
                 "shasum": ""
             },
             "require": {
                 "composepress/core": "^0.9.0",
-                "doctrine/collections": "^1.6"
+                "composepress/views": "^0.5.0",
+                "doctrine/collections": "^1.6",
+                "php": "^7.2.0"
             },
             "require-dev": {
                 "php-stubs/wordpress-stubs": "^5.4"
@@ -250,22 +291,22 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2020-05-12T09:34:05+00:00"
+            "time": "2020-05-20T18:55:51+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "php-stubs/woocommerce-stubs",
-            "version": "v4.1.0",
+            "version": "v4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-stubs/woocommerce-stubs.git",
-                "reference": "9b18463b1d464c7a01bd372e68bf8c6e09e110a8"
+                "reference": "983e56661c395f7fdc9b2c0131818955d3e46037"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-stubs/woocommerce-stubs/zipball/9b18463b1d464c7a01bd372e68bf8c6e09e110a8",
-                "reference": "9b18463b1d464c7a01bd372e68bf8c6e09e110a8",
+                "url": "https://api.github.com/repos/php-stubs/woocommerce-stubs/zipball/983e56661c395f7fdc9b2c0131818955d3e46037",
+                "reference": "983e56661c395f7fdc9b2c0131818955d3e46037",
                 "shasum": ""
             },
             "require": {
@@ -292,7 +333,7 @@
                 "woocommerce",
                 "wordpress"
             ],
-            "time": "2020-05-05T20:20:07+00:00"
+            "time": "2020-05-19T17:17:36+00:00"
         },
         {
             "name": "php-stubs/wordpress-stubs",
@@ -388,9 +429,13 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wpify/core": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "^7.2.0"
+    },
     "platform-dev": []
 }

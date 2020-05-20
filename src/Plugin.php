@@ -64,6 +64,10 @@ class Plugin extends PluginBase
    * @var Assets
    */
   private $assets;
+  /**
+   * @var View
+   */
+  private $view;
 
   /**
    * Plugin constructor.
@@ -73,7 +77,9 @@ class Plugin extends PluginBase
    * @param ApiManager $api_manager
    * @param Settings $settings
    * @param CptManager $cpt_manager
+   * @param TaxonomiesManager $taxonomies_manager
    * @param Assets $assets
+   * @param View $view
    *
    * @throws \ComposePress\Core\Exception\ContainerInvalid
    * @throws \ComposePress\Core\Exception\ContainerNotExists
@@ -85,7 +91,8 @@ class Plugin extends PluginBase
     Settings $settings,
     CptManager $cpt_manager,
     TaxonomiesManager $taxonomies_manager,
-    Assets $assets
+    Assets $assets,
+    View $view
   ) {
     $this->frontend             = $frontend;
     $this->cpt_manager          = $cpt_manager;
@@ -94,6 +101,7 @@ class Plugin extends PluginBase
     $this->api_manager          = $api_manager;
     $this->settings             = $settings;
     $this->assets               = $assets;
+    $this->view                 = $view;
 
     parent::__construct();
   }
@@ -200,6 +208,14 @@ class Plugin extends PluginBase
   public function print_assets(string ...$handles)
   {
     $this->assets->print_assets($handles);
+  }
+
+  /**
+   * @return View
+   */
+  public function get_view(): View
+  {
+    return $this->view;
   }
 
   /**
