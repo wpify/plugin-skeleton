@@ -2,6 +2,8 @@
 
 namespace Wpify;
 
-class ViewEngineWordpress extends \Wpify\Core\AbstractViewEngineWordpress
+use Wpify\Core\AbstractViewEngineWordpress;
+
+class ViewEngineWordpress extends AbstractViewEngineWordpress
 {
 }
