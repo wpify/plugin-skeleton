@@ -2,16 +2,16 @@
 
 use ComposePress\Dice\Dice;
 use Wpify\Plugin;
-use Wpify\View;
+
+$defaults = include __DIR__ . '/vendor/wpify/core/src/config-default.php';
+
 
 /** @var Dice $container */
 $container = $container->addRules(
-  [
-    Plugin::class => ['shared' => true],
-    View::class   => [
-      'substitutions' => [
-        'ComposePress\Views\Interfaces\ViewEngine' => '\Wpify\ViewEngineWordpress',
-      ],
-    ],
-  ]
+  array_merge_recursive(
+    $defaults,
+    [
+      Plugin::class => ['shared' => true],
+    ]
+  )
 );

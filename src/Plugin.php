@@ -5,6 +5,7 @@ namespace Wpify;
 use Wpify\Assets;
 use Wpify\Core\Interfaces\RepositoryInterface;
 use Wpify\Core\AbstractPlugin as PluginBase;
+use Wpify\Core\View;
 use Wpify\Managers\ApiManager;
 use Wpify\Managers\CptManager;
 use Wpify\Managers\RepositoriesManager;
