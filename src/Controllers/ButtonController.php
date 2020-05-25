@@ -12,7 +12,7 @@ class ButtonController extends Controller
 {
   public function __construct()
   {
-    $this->set_view('button');
+    $this->set_template('button');
     $this->set_assets(['button.css']);
   }
 }
