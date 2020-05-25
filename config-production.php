@@ -3,7 +3,7 @@
 use ComposePress\Dice\Dice;
 use Wpify\Plugin;
 
-$defaults = include __DIR__ . '/vendor/wpify/core/src/config-default.php';
+$defaults = include __DIR__ . '/vendor/wpify/core/config-default.php';
 
 
 /** @var Dice $container */
