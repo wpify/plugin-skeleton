@@ -63,7 +63,7 @@ class Plugin extends PluginBase
    * @param Settings $settings
    * @param CptManager $cpt_manager
    * @param TaxonomiesManager $taxonomies_manager
-   * @param ToolsManaget $tools_manager
+   * @param ToolsManager $tools_manager
    * @param Assets $assets
    * @param View $view
    *
@@ -87,7 +87,7 @@ class Plugin extends PluginBase
     $this->repositories_manager = $repositories_manager;
     $this->api_manager          = $api_manager;
     $this->settings             = $settings;
-    $this->tools_managet        = $tools_manager;
+    $this->tools_manager        = $tools_manager;
     $this->assets               = $assets;
     $this->view                 = $view;
 
