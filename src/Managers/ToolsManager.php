@@ -12,7 +12,7 @@ use Wpify\Tools\DisableXmlRpc;
 use Wpify\Tools\RemoveAccentInFilenames;
 use Wpify\Tools\RemoveScriptVersion;
 
-class CptManager extends AbstractManager
+class ToolsManager extends AbstractManager
 {
   protected $modules = [
     CopyrightShortcode::class,

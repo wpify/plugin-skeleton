@@ -10,6 +10,7 @@ use Wpify\Managers\ApiManager;
 use Wpify\Managers\CptManager;
 use Wpify\Managers\RepositoriesManager;
 use Wpify\Managers\TaxonomiesManager;
+use Wpify\Managers\ToolsManager;
 
 /**
  * Class Plugin
@@ -17,57 +18,40 @@ use Wpify\Managers\TaxonomiesManager;
  */
 class Plugin extends PluginBase
 {
-  /**
-   * Plugin version
-   */
+  /** Plugin version */
   public const VERSION = '0.1.0';
 
-  /**
-   * Plugin slug name
-   */
+  /** Plugin slug name */
   public const PLUGIN_SLUG = 'wpify';
 
-  /**
-   * Plugin namespace
-   */
+  /** Plugin namespace */
   public const PLUGIN_NAMESPACE = '\\' . __NAMESPACE__;
 
-  /**
-   * @var Frontend
-   */
+  /** @var Frontend */
   private $frontend;
 
-  /**
-   * @var CptManager
-   */
+  /** @var CptManager */
   private $cpt_manager;
 
-  /**
-   * @var TaxonomiesManager
-   */
+  /** @var TaxonomiesManager */
   private $taxonomies_manager;
 
-  /**
-   * @var RepositoriesManager
-   */
+  /** @var RepositoriesManager */
   private $repositories_manager;
 
-  /**
-   * @var ApiManager
-   */
+  /** @var ToolsManager */
+  private $tools_manager;
+
+  /** @var ApiManager */
   private $api_manager;
 
-  /**
-   * @var Settings
-   */
+  /** @var Settings */
   private $settings;
-  /**
-   * @var Assets
-   */
+
+  /** @var Assets */
   private $assets;
-  /**
-   * @var View
-   */
+
+  /** @var View */
   private $view;
 
   /**
@@ -79,6 +63,7 @@ class Plugin extends PluginBase
    * @param Settings $settings
    * @param CptManager $cpt_manager
    * @param TaxonomiesManager $taxonomies_manager
+   * @param ToolsManaget $tools_manager
    * @param Assets $assets
    * @param View $view
    *
@@ -92,6 +77,7 @@ class Plugin extends PluginBase
     Settings $settings,
     CptManager $cpt_manager,
     TaxonomiesManager $taxonomies_manager,
+    ToolsManager $tools_manager,
     Assets $assets,
     View $view
   ) {
@@ -101,6 +87,7 @@ class Plugin extends PluginBase
     $this->repositories_manager = $repositories_manager;
     $this->api_manager          = $api_manager;
     $this->settings             = $settings;
+    $this->tools_managet        = $tools_manager;
     $this->assets               = $assets;
     $this->view                 = $view;
 
@@ -173,6 +160,11 @@ class Plugin extends PluginBase
   public function get_cpt(string $class)
   {
     return $this->cpt_manager->get_module($class);
+  }
+
+  public function get_tools_manager()
+  {
+    return $this->tools_manager;
   }
 
   /**
