@@ -2,14 +2,14 @@
 
 namespace Wpify\Controllers;
 
-use Wpify\Core\AbstractController;
 use Wpify\Repositories\BookRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Wpify\Controller;
 
 /**
  * @property Plugin $plugin
  */
-class FrontPageController extends AbstractController
+class FrontPageController extends Controller
 {
   public function get_posts(): ArrayCollection
   {
