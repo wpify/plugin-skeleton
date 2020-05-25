@@ -3,7 +3,6 @@
 namespace Wpify\Managers;
 
 use Wpify\Core\AbstractManager;
-use Wpify\Cpt\BookPostType;
 use Wpify\Tools\CopyrightShortcode;
 use Wpify\Tools\CustomSMTP;
 use Wpify\Tools\DeferScripts;
@@ -13,11 +12,6 @@ use Wpify\Tools\DisableXmlRpc;
 use Wpify\Tools\RemoveAccentInFilenames;
 use Wpify\Tools\RemoveScriptVersion;
 
-/**
- * Class CptManager
- * @package Wpify\Managers
- * @property BookPostType $MyPostType
- */
 class CptManager extends AbstractManager
 {
   protected $modules = [
