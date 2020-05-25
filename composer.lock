@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e9660501113642be465fa08ae0d35f4b",
+    "content-hash": "4012e8073a32a95c34b7820d5989d604",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -150,45 +150,6 @@
             "time": "2019-07-30T07:06:24+00:00"
         },
         {
-            "name": "composepress/views",
-            "version": "0.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://gitlab.com/ComposePress/views.git",
-                "reference": "4269649b141990a98a890b96874622e810cb4896"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/ComposePress%2Fviews/repository/archive.zip?sha=4269649b141990a98a890b96874622e810cb4896",
-                "reference": "4269649b141990a98a890b96874622e810cb4896",
-                "shasum": ""
-            },
-            "require": {
-                "composepress/core": "0.9.0"
-            },
-            "require-dev": {
-                "codeception/codeception": "^2.4",
-                "lucatume/wp-browser": "~2.2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ComposePress\\Views\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Derrick Hammer",
-                    "email": "derrick@derrickhammer.com"
-                }
-            ],
-            "time": "2020-05-08T14:04:40+00:00"
-        },
-        {
             "name": "doctrine/collections",
             "version": "1.6.4",
             "source": {
@@ -260,23 +221,22 @@
         },
         {
             "name": "wpify/core",
-            "version": "dev-views",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/wpify-core.git",
-                "reference": "d37304dc6612007a322126f2e824052523a64165"
+                "reference": "567f866707a0bd236f04594ebc9235d14422d713"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=d37304dc6612007a322126f2e824052523a64165",
-                "reference": "d37304dc6612007a322126f2e824052523a64165",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=567f866707a0bd236f04594ebc9235d14422d713",
+                "reference": "567f866707a0bd236f04594ebc9235d14422d713",
                 "shasum": ""
             },
             "require": {
                 "composepress/core": "^0.9.0",
-                "composepress/views": "^0.5.0",
                 "doctrine/collections": "^1.6",
-                "php": "^7.2.0"
+                "php": ">=7.2.0"
             },
             "require-dev": {
                 "php-stubs/wordpress-stubs": "^5.4"
@@ -291,10 +251,91 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2020-05-20T18:55:51+00:00"
+            "time": "2020-05-25T11:07:49+00:00"
+        },
+        {
+            "name": "wpify/tools",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/wpify/wpify-tools.git",
+                "reference": "055f21ac13329cf608fb64a4ced7be555b6b21d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-tools/repository/archive.zip?sha=055f21ac13329cf608fb64a4ced7be555b6b21d9",
+                "reference": "055f21ac13329cf608fb64a4ced7be555b6b21d9",
+                "shasum": ""
+            },
+            "require": {
+                "wpify/core": "^1.1"
+            },
+            "require-dev": {
+                "php-stubs/wordpress-stubs": "^5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Wpify\\Tools\\": "src\\"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Mejta",
+                    "email": "daniel@mejta.net"
+                },
+                {
+                    "name": "Václav Greif",
+                    "email": "info@vaclavgreif.cz"
+                }
+            ],
+            "time": "2020-05-25T16:05:34+00:00"
         }
     ],
     "packages-dev": [
+        {
+            "name": "composepress/views",
+            "version": "0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/ComposePress/views.git",
+                "reference": "4269649b141990a98a890b96874622e810cb4896"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/ComposePress%2Fviews/repository/archive.zip?sha=4269649b141990a98a890b96874622e810cb4896",
+                "reference": "4269649b141990a98a890b96874622e810cb4896",
+                "shasum": ""
+            },
+            "require": {
+                "composepress/core": "0.9.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^2.4",
+                "lucatume/wp-browser": "~2.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ComposePress\\Views\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Derrick Hammer",
+                    "email": "derrick@derrickhammer.com"
+                }
+            ],
+            "time": "2020-05-08T14:04:40+00:00"
+        },
         {
             "name": "php-stubs/woocommerce-stubs",
             "version": "v4.1.1",
@@ -429,9 +470,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "wpify/core": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
