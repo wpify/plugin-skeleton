@@ -2,7 +2,7 @@ const path = require('path');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const eslintCodeframeFormatter = require('eslint-codeframe-formatter');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -14,6 +14,7 @@ const imageminPngquant = require('imagemin-pngquant');
 const imageminSvgo = require('imagemin-svgo');
 const WebpackManifestPlugin = require('webpack-manifest-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const DependencyExtractionWebpackPlugin = require('@wordpress/dependency-extraction-webpack-plugin');
 const notifier = require('node-notifier');
 const packagejson = require('./package.json');
 
@@ -21,10 +22,11 @@ const isDevelopment = (process.env.NODE_ENV === 'development');
 
 module.exports = {
   entry: {
-    plugin: './assets/plugin.jsx',
-    home: './assets/home.scss',
+    'plugin': './assets/plugin.jsx',
+    'home': './assets/home.scss',
     'some-module': './assets/some-module.scss',
     'button': './assets/button.scss',
+    'block-editor': './assets/block-editor.js',
   },
   output: {
     path: path.resolve(__dirname, 'build'), // where to put compiled files to
@@ -55,7 +57,6 @@ module.exports = {
     'react': 'React',
     'react-dom': 'ReactDOM',
     'jquery': 'jQuery',
-    '@wordpress/i18n': 'wp.i18n',
   },
   optimization: {
     splitChunks: {
@@ -250,5 +251,6 @@ module.exports = {
         });
       }
     }),
+    new DependencyExtractionWebpackPlugin({ injectPolyfill: true }),
   ].filter(Boolean),
 };

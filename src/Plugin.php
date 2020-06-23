@@ -7,6 +7,7 @@ use Wpify\Core\Interfaces\RepositoryInterface;
 use Wpify\Core\AbstractPlugin as PluginBase;
 use Wpify\Core\View;
 use Wpify\Managers\ApiManager;
+use Wpify\Managers\BlockManager;
 use Wpify\Managers\CptManager;
 use Wpify\Managers\RepositoriesManager;
 use Wpify\Managers\TaxonomiesManager;
@@ -45,6 +46,8 @@ class Plugin extends PluginBase
   /** @var ApiManager */
   private $api_manager;
 
+  private $block_manager;
+
   /** @var Settings */
   private $settings;
 
@@ -57,15 +60,16 @@ class Plugin extends PluginBase
   /**
    * Plugin constructor.
    *
-   * @param Frontend $frontend
+   * @param Frontend            $frontend
    * @param RepositoriesManager $repositories_manager
-   * @param ApiManager $api_manager
-   * @param Settings $settings
-   * @param CptManager $cpt_manager
-   * @param TaxonomiesManager $taxonomies_manager
-   * @param ToolsManager $tools_manager
-   * @param Assets $assets
-   * @param View $view
+   * @param ApiManager          $api_manager
+   * @param Settings            $settings
+   * @param CptManager          $cpt_manager
+   * @param TaxonomiesManager   $taxonomies_manager
+   * @param ToolsManager        $tools_manager
+   * @param BlockManager        $block_manager
+   * @param Assets              $assets
+   * @param View                $view
    *
    * @throws \ComposePress\Core\Exception\ContainerInvalid
    * @throws \ComposePress\Core\Exception\ContainerNotExists
@@ -78,6 +82,7 @@ class Plugin extends PluginBase
     CptManager $cpt_manager,
     TaxonomiesManager $taxonomies_manager,
     ToolsManager $tools_manager,
+    BlockManager $block_manager,
     Assets $assets,
     View $view
   ) {
@@ -88,31 +93,23 @@ class Plugin extends PluginBase
     $this->api_manager          = $api_manager;
     $this->settings             = $settings;
     $this->tools_manager        = $tools_manager;
+    $this->block_manager        = $block_manager;
     $this->assets               = $assets;
     $this->view                 = $view;
 
     parent::__construct();
   }
 
-  /**
-   * @return void
-   */
   public function setup()
   {
     register_theme_directory($this->plugin_dir . '/themes');
   }
 
-  /**
-   * @return Frontend
-   */
   public function get_frontend(): Frontend
   {
     return $this->frontend;
   }
 
-  /**
-   * @return RepositoriesManager
-   */
   public function get_repositories_manager(): RepositoriesManager
   {
     return $this->repositories_manager;
@@ -128,9 +125,6 @@ class Plugin extends PluginBase
     return $this->repositories_manager->get_module($class);
   }
 
-  /**
-   * @return ApiManager
-   */
   public function get_api_manager(): ApiManager
   {
     return $this->api_manager;
@@ -141,17 +135,11 @@ class Plugin extends PluginBase
     return $this->api_manager->get_module($class);
   }
 
-  /**
-   * @return Settings
-   */
   public function get_settings(): Settings
   {
     return $this->settings;
   }
 
-  /**
-   * @return CptManager
-   */
   public function get_cpt_manager(): CptManager
   {
     return $this->cpt_manager;
@@ -167,9 +155,6 @@ class Plugin extends PluginBase
     return $this->tools_manager;
   }
 
-  /**
-   * @return CptManager
-   */
   public function get_taxonomies_manager(): TaxonomiesManager
   {
     return $this->taxonomies_manager;
@@ -185,9 +170,11 @@ class Plugin extends PluginBase
     return $this->plugin->create_component($class);
   }
 
-  /**
-   * @return Assets
-   */
+  public function get_block_manager()
+  {
+    return $this->block_manager;
+  }
+
   public function get_assets(): Assets
   {
     return $this->assets;
@@ -203,9 +190,6 @@ class Plugin extends PluginBase
     $this->assets->print_assets($handles);
   }
 
-  /**
-   * @return View
-   */
   public function get_view(): View
   {
     return $this->view;

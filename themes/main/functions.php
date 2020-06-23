@@ -11,3 +11,6 @@ function wpify_render($controller, $data = [], $view = '', $return = false)
 {
   wpify()->get_controller($controller)->render($data, $view, $return);
 }
+
+add_theme_support('editor-styles');
+add_editor_style('editor-style.css');
