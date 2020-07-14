@@ -33,15 +33,12 @@ class BlockManager extends AbstractManager
 
   public function gutenberg_script()
   {
-    $script = $this->plugin->get_assets()->asset('block-editor.js');
-    $deps = [
-      'wp-dom-ready',
-      'wp-blocks',
-      'wp-i18n',
-      'wp-block-editor',
-      'wp-element',
-    ];
+    $scripts = $this->plugin->get_assets()->get_manifest_asset(
+      'block-editor.js',
+      'mojamiska-block-editor',
+      []
+    );
 
-    wp_enqueue_script('wpify-blocks', $script, $deps, null);
+    $this->plugin->get_assets()->enqueue_assets($scripts);
   }
 }

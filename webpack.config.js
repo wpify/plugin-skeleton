@@ -14,9 +14,10 @@ const imageminPngquant = require('imagemin-pngquant');
 const imageminSvgo = require('imagemin-svgo');
 const WebpackManifestPlugin = require('webpack-manifest-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const packagejson = require('./package.json');
 const DependencyExtractionWebpackPlugin = require('@wordpress/dependency-extraction-webpack-plugin');
 const notifier = require('node-notifier');
-const packagejson = require('./package.json');
+const FixStyleWebpackPlugin = require('@wordpress/scripts/config/fix-style-webpack-plugin')
 
 const isDevelopment = (process.env.NODE_ENV === 'development');
 
@@ -251,6 +252,10 @@ module.exports = {
         });
       }
     }),
-    new DependencyExtractionWebpackPlugin({ injectPolyfill: true }),
+    new DependencyExtractionWebpackPlugin({
+      injectPolyfill: true,
+      combineAssets: true,
+    }),
+    new FixStyleWebpackPlugin(),
   ].filter(Boolean),
 };

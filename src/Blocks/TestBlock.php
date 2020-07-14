@@ -5,16 +5,25 @@ use Wpify\Core\AbstractComponent;
 
 class TestBlock extends AbstractComponent
 {
-  public function setup()
+  public function name(): string
   {
-    add_action('init', [$this, 'register']);
+    return 'wpify/test-block';
   }
 
-  public function register()
+  public function register(): void
   {
-    register_block_type('wpify/test-block', [
+    register_block_type($this->name(), [
       'render_callback' => [$this, 'render'],
     ]);
+  }
+
+  public function attributes(): array
+  {
+    return [
+      'content' => [
+        'type' => 'string',
+      ],
+    ];
   }
 
   public function render($block_attributes, $content)
