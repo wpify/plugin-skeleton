@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { __ } from '@wordpress/i18n';
+import { registerBlockType } from '@wordpress/blocks';
 import { RichText, InspectorControls } from '@wordpress/block-editor';
 import classnames from 'classnames';
 import styles from './test-block.module.scss';
@@ -58,5 +59,7 @@ const config = {
   edit,
   save,
 };
+
+registerBlockType('wpify/test-block', config);
 
 export default config;

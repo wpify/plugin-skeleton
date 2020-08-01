@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd25478ec15f1131d0d8d31ad5942046",
+    "content-hash": "4d1715d1e47913dc74d92a811a47baa1",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -190,16 +190,16 @@
         },
         {
             "name": "doctrine/collections",
-            "version": "1.6.5",
+            "version": "1.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/collections.git",
-                "reference": "fc0206348e17e530d09463fef07ba8968406cd6d"
+                "reference": "55f8b799269a1a472457bd1a41b4f379d4cfba4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/fc0206348e17e530d09463fef07ba8968406cd6d",
-                "reference": "fc0206348e17e530d09463fef07ba8968406cd6d",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/55f8b799269a1a472457bd1a41b4f379d4cfba4a",
+                "reference": "55f8b799269a1a472457bd1a41b4f379d4cfba4a",
                 "shasum": ""
             },
             "require": {
@@ -251,20 +251,20 @@
                 "iterators",
                 "php"
             ],
-            "time": "2020-05-25T19:24:35+00:00"
+            "time": "2020-07-27T17:53:49+00:00"
         },
         {
             "name": "wpify/core",
-            "version": "v1.1.11",
+            "version": "v1.1.16",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/wpify-core.git",
-                "reference": "8c616b67c0c0560893be990d81b246868153403f"
+                "reference": "2140c8c1fe4a8543b17ed5384b2d75179dc215f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=8c616b67c0c0560893be990d81b246868153403f",
-                "reference": "8c616b67c0c0560893be990d81b246868153403f",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=2140c8c1fe4a8543b17ed5384b2d75179dc215f4",
+                "reference": "2140c8c1fe4a8543b17ed5384b2d75179dc215f4",
                 "shasum": ""
             },
             "require": {
@@ -286,7 +286,7 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2020-06-26T11:11:39+00:00"
+            "time": "2020-07-29T15:15:46+00:00"
         },
         {
             "name": "wpify/tools",
@@ -334,16 +334,16 @@
     "packages-dev": [
         {
             "name": "php-stubs/woocommerce-stubs",
-            "version": "v4.2.2",
+            "version": "v4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-stubs/woocommerce-stubs.git",
-                "reference": "7be6ae8b266a829156a44848c10d681cf0d7f2c7"
+                "reference": "beb8e035628f9c7f699c93ddf3e16b3fe87cf46f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-stubs/woocommerce-stubs/zipball/7be6ae8b266a829156a44848c10d681cf0d7f2c7",
-                "reference": "7be6ae8b266a829156a44848c10d681cf0d7f2c7",
+                "url": "https://api.github.com/repos/php-stubs/woocommerce-stubs/zipball/beb8e035628f9c7f699c93ddf3e16b3fe87cf46f",
+                "reference": "beb8e035628f9c7f699c93ddf3e16b3fe87cf46f",
                 "shasum": ""
             },
             "require": {
@@ -370,7 +370,7 @@
                 "woocommerce",
                 "wordpress"
             ],
-            "time": "2020-06-23T22:41:21+00:00"
+            "time": "2020-07-21T11:10:25+00:00"
         },
         {
             "name": "php-stubs/wordpress-stubs",

@@ -1,11 +1,6 @@
-import { registerBlockType, registerBlockStyle, unregisterBlockStyle } from '@wordpress/blocks';
+import { registerBlockStyle, unregisterBlockStyle } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
-import testBlock from './blocks/test-block';
 import './block-editor.scss';
-
-// Blocks
-
-registerBlockType('wpify/test-block', testBlock);
 
 // Block styles
 

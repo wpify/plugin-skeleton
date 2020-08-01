@@ -1,9 +1,9 @@
 <?php
 namespace Wpify\Blocks;
 
-use Wpify\Core\AbstractComponent;
+use Wpify\Core\AbstractBlock;
 
-class TestBlock extends AbstractComponent
+class TestBlock extends AbstractBlock
 {
   public function name(): string
   {
@@ -14,6 +14,8 @@ class TestBlock extends AbstractComponent
   {
     register_block_type($this->name(), [
       'render_callback' => [$this, 'render'],
+      'editor_script'   => $this->plugin->get_assets()->register_manifest_asset('blocks-test-backend.js'),
+      'editor_style'    => $this->plugin->get_assets()->register_manifest_asset('blocks-test-backend.css'),
     ]);
   }
 
