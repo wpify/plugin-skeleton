@@ -2,7 +2,7 @@
 
 /*
  * Plugin Name: WPify
- * Version: 1.2.2
+ * Version: 1.2.3
  * Text Domain: wpify
  * Domain Path: /languages
 */
