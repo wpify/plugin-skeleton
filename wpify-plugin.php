@@ -1,9 +1,16 @@
 <?php // phpcs:disable PSR1.Files.SideEffects.FoundWithSymbols
 
 /*
- * Plugin Name: WPify Plugin
- * Version: 0.1.0
- * Text Domain: wpify-plugin
+ * Plugin Name:       WPify Plugin
+ * Description:       Plugin with theme by WPify
+ * Version:           1.2.4
+ * Requires PHP:      7.3.0
+ * Requires at least: 5.5
+ * Author:            WPify
+ * Author URI:        https://www.wpify.io/
+ * License:           GPL v2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       wpify-plugin
  * Domain Path: /languages
 */
 
@@ -11,7 +18,7 @@ use ComposePress\Dice\Dice;
 use WpifyPlugin\Plugin;
 
 if (!defined('WPIFY_MIN_PHP_VERSION')) {
-  define('WPIFY_MIN_PHP_VERSION', '7.2.0');
+  define('WPIFY_MIN_PHP_VERSION', '7.3.0');
 }
 
 /**
@@ -88,7 +95,7 @@ function wpify_plugin_php_upgrade_notice()
       '
       <div class="error notice">
         <p>
-          Opps! %s requires a minimum PHP version of 7.2.0. Your current version is: %s.
+          Opps! %s requires a minimum PHP version of ' . WPIFY_MIN_PHP_VERSION . '. Your current version is: %s.
           Please contact your host to upgrade.
         </p>
       </div>

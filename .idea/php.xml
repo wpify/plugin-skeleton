@@ -13,12 +13,11 @@
       <path value="$PROJECT_DIR$/vendor/wpify/tools" />
       <path value="$PROJECT_DIR$/vendor/composepress/core" />
       <path value="$PROJECT_DIR$/vendor/cmb2/cmb2" />
-      <path value="$PROJECT_DIR$/vendor/php-stubs/woocommerce-stubs" />
       <path value="$PROJECT_DIR$/vendor/squizlabs/php_codesniffer" />
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
-      <path value="$PROJECT_DIR$/vendor/php-stubs/wordpress-stubs" />
+      <path value="$PROJECT_DIR$/vendor/wpify/composepress" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />
 </project>

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4d1715d1e47913dc74d92a811a47baa1",
+    "content-hash": "c5f85fcfe6c8b963fa277e4fb40643fe",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -254,24 +254,75 @@
             "time": "2020-07-27T17:53:49+00:00"
         },
         {
-            "name": "wpify/core",
-            "version": "v1.1.16",
+            "name": "wpify/composepress",
+            "version": "0.10.0",
             "source": {
                 "type": "git",
-                "url": "https://gitlab.com/wpify/wpify-core.git",
-                "reference": "2140c8c1fe4a8543b17ed5384b2d75179dc215f4"
+                "url": "https://gitlab.com/wpify/composepress.git",
+                "reference": "98004b1aa0febc432d848b6a55387ebb9caf6a0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=2140c8c1fe4a8543b17ed5384b2d75179dc215f4",
-                "reference": "2140c8c1fe4a8543b17ed5384b2d75179dc215f4",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fcomposepress/repository/archive.zip?sha=98004b1aa0febc432d848b6a55387ebb9caf6a0d",
+                "reference": "98004b1aa0febc432d848b6a55387ebb9caf6a0d",
                 "shasum": ""
             },
             "require": {
-                "composepress/core": "^0.9.0",
+                "composepress/dice": "^0.6.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^2.4",
+                "lucatume/wp-browser": "~2.2.0"
+            },
+            "type": "library",
+            "extra": {
+                "composepress": []
+            },
+            "autoload": {
+                "psr-4": {
+                    "ComposePress\\Core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Derrick Hammer",
+                    "email": "derrick@derrickhammer.com"
+                },
+                {
+                    "name": "Václav Greif",
+                    "email": "info@vaclavgreif.cz"
+                },
+                {
+                    "name": "Daniel Mejta",
+                    "email": "daniel@mejta.net"
+                }
+            ],
+            "description": "A simple PSR-4 and composer ready plugin framework for the modern wordpress age",
+            "time": "2020-08-05T12:09:03+00:00"
+        },
+        {
+            "name": "wpify/core",
+            "version": "v1.1.19",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/wpify/wpify-core.git",
+                "reference": "8f244264e49158c82a2de0c760fe84d5b92b97cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=8f244264e49158c82a2de0c760fe84d5b92b97cb",
+                "reference": "8f244264e49158c82a2de0c760fe84d5b92b97cb",
+                "shasum": ""
+            },
+            "require": {
                 "composepress/views": "^0.5.0",
                 "doctrine/collections": "^1.6",
-                "php": ">=7.2.0"
+                "php": ">=7.2.0",
+                "wpify/composepress": "^0.10.0"
             },
             "require-dev": {
                 "php-stubs/wordpress-stubs": "^5.4"
@@ -286,7 +337,7 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2020-07-29T15:15:46+00:00"
+            "time": "2020-08-11T20:54:18+00:00"
         },
         {
             "name": "wpify/tools",
@@ -333,97 +384,17 @@
     ],
     "packages-dev": [
         {
-            "name": "php-stubs/woocommerce-stubs",
-            "version": "v4.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-stubs/woocommerce-stubs.git",
-                "reference": "beb8e035628f9c7f699c93ddf3e16b3fe87cf46f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-stubs/woocommerce-stubs/zipball/beb8e035628f9c7f699c93ddf3e16b3fe87cf46f",
-                "reference": "beb8e035628f9c7f699c93ddf3e16b3fe87cf46f",
-                "shasum": ""
-            },
-            "require": {
-                "php-stubs/wordpress-stubs": "^5.3.0"
-            },
-            "require-dev": {
-                "giacocorsiglia/stubs-generator": "^0.5.0",
-                "php": "~7.1"
-            },
-            "suggest": {
-                "symfony/polyfill-php73": "Symfony polyfill backporting some PHP 7.3+ features to lower PHP versions",
-                "szepeviktor/phpstan-wordpress": "WordPress extensions for PHPStan"
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "WooCommerce function and class declaration stubs for static analysis.",
-            "homepage": "https://github.com/php-stubs/woocommerce-stubs",
-            "keywords": [
-                "PHPStan",
-                "static analysis",
-                "woocommerce",
-                "wordpress"
-            ],
-            "time": "2020-07-21T11:10:25+00:00"
-        },
-        {
-            "name": "php-stubs/wordpress-stubs",
-            "version": "v5.4.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-stubs/wordpress-stubs.git",
-                "reference": "38b0963698ca5858658a5b09198062411f22932a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-stubs/wordpress-stubs/zipball/38b0963698ca5858658a5b09198062411f22932a",
-                "reference": "38b0963698ca5858658a5b09198062411f22932a",
-                "shasum": ""
-            },
-            "replace": {
-                "giacocorsiglia/wordpress-stubs": "*"
-            },
-            "require-dev": {
-                "giacocorsiglia/stubs-generator": "^0.5.0",
-                "php": "~7.1"
-            },
-            "suggest": {
-                "paragonie/sodium_compat": "Pure PHP implementation of libsodium",
-                "symfony/polyfill-php73": "Symfony polyfill backporting some PHP 7.3+ features to lower PHP versions",
-                "szepeviktor/phpstan-wordpress": "WordPress extensions for PHPStan"
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "WordPress function and class declaration stubs for static analysis.",
-            "homepage": "https://github.com/php-stubs/wordpress-stubs",
-            "keywords": [
-                "PHPStan",
-                "static analysis",
-                "wordpress"
-            ],
-            "time": "2020-06-11T14:56:54+00:00"
-        },
-        {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.5.5",
+            "version": "3.5.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "73e2e7f57d958e7228fce50dc0c61f58f017f9f6"
+                "reference": "e97627871a7eab2f70e59166072a6b767d5834e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/73e2e7f57d958e7228fce50dc0c61f58f017f9f6",
-                "reference": "73e2e7f57d958e7228fce50dc0c61f58f017f9f6",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/e97627871a7eab2f70e59166072a6b767d5834e0",
+                "reference": "e97627871a7eab2f70e59166072a6b767d5834e0",
                 "shasum": ""
             },
             "require": {
@@ -461,7 +432,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2020-04-17T01:09:41+00:00"
+            "time": "2020-08-10T04:50:15+00:00"
         }
     ],
     "aliases": [],
@@ -470,7 +441,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.2.0"
+        "php": "^7.3.0"
     },
     "platform-dev": []
 }
