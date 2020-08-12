@@ -2,7 +2,7 @@
 
 namespace WpifyPlugin\Blocks;
 
-use Wpify\Core\AbstractComponent;
+use Wpify\Core\AbstractBlock;
 use WpifyPlugin\Plugin;
 
 /**
@@ -10,31 +10,36 @@ use WpifyPlugin\Plugin;
  * @package WpifyPlugin\Blocks
  * @property Plugin $plugin
  */
-class TestBlock extends AbstractComponent
+class TestBlock extends AbstractBlock
 {
-  public function setup()
+  public function name(): string
   {
-    add_action('init', [$this, 'register']);
+    return 'wpify/test-block';
   }
 
-  public function register()
+  public function register(): void
   {
-    register_block_type(
-      'wpify/test-block',
-      [
-        'render_callback' => [$this, 'render'],
-      ]
-    );
+    register_block_type($this->name(), [
+      'render_callback' => [$this, 'render'],
+      'editor_script'   => $this->plugin->get_assets()->register_manifest_asset('blocks-test-backend.js'),
+      'editor_style'    => $this->plugin->get_assets()->register_manifest_asset('blocks-test-backend.css'),
+    ]);
+  }
+
+  public function attributes(): array
+  {
+    return [
+      'content' => [
+        'type' => 'string',
+      ],
+    ];
   }
 
   public function render($block_attributes, $content)
   {
-    return print_r(
-      [
-        'block_attributes' => $block_attributes,
-        'content'          => $content,
-      ],
-      true
-    );
+    return print_r([
+      'block_attributes' => $block_attributes,
+      'content' => $content,
+    ], true);
   }
 }

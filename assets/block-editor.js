@@ -1,20 +1,12 @@
-import domReady from '@wordpress/dom-ready';
-import { registerBlockType, registerBlockStyle, unregisterBlockStyle } from '@wordpress/blocks';
+import { registerBlockStyle, unregisterBlockStyle } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
-import testBlock from './blocks/test-block';
 import './block-editor.scss';
 
-domReady(() => {
-  // Blocks
+// Block styles
 
-  registerBlockType('wpify/test-block', testBlock);
+unregisterBlockStyle('core/quote', 'large');
 
-  // Block styles
-
-  unregisterBlockStyle('core/quote', 'large');
-
-  registerBlockStyle('core/paragraph', {
-    name: 'wpify-style',
-    label: __('WPify style', 'wpify'),
-  });
+registerBlockStyle('core/paragraph', {
+  name: 'wpify-style',
+  label: __('WPify style', 'wpify'),
 });

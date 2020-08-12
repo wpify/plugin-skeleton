@@ -88,7 +88,7 @@ function wpify_plugin_php_upgrade_notice()
       '
       <div class="error notice">
         <p>
-          Opps! %s requires a minimum PHP version of 5.4.0. Your current version is: %s.
+          Opps! %s requires a minimum PHP version of 7.2.0. Your current version is: %s.
           Please contact your host to upgrade.
         </p>
       </div>
