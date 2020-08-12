@@ -1,5 +1,5 @@
 {
-  "name": "wpify/plugin",
+  "name": "wpify-plugin/plugin",
   "type": "project",
   "license": "GPL-3.0-or-later",
   "scripts": {
@@ -7,7 +7,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Wpify\\": "src\\"
+      "WpifyPlugin\\": "src\\"
     },
     "files": [
       "vendor/cmb2/cmb2/init.php"

@@ -1,11 +1,13 @@
 <?php
 
-namespace Wpify;
+namespace WpifyPlugin;
+
+use Wpify\Core\AbstractAssets;
 
 /**
  * @property Plugin $plugin
  */
-class Assets extends Core\AbstractAssets
+class Assets extends AbstractAssets
 {
 
   public function assets(): array
@@ -46,7 +48,7 @@ class Assets extends Core\AbstractAssets
         'handle'   => 'plugin.js',
         'deps'     => $main_deps,
         'localize' => [
-          'wpify' => [
+          'wpify-plugin' => [
             'publicPath' => $this->plugin->get_asset_url('build/'),
             'restUrl'    => $this->plugin->get_api_manager()->get_rest_url(),
             'nonce'      => wp_create_nonce($this->plugin->get_api_manager()->get_nonce_action()),

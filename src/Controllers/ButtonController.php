@@ -1,9 +1,9 @@
 <?php
 
-namespace Wpify\Controllers;
+namespace WpifyPlugin\Controllers;
 
-use Wpify\Controller;
-use Wpify\Plugin;
+use WpifyPlugin\Controller;
+use WpifyPlugin\Plugin;
 
 /**
  * @property Plugin $plugin

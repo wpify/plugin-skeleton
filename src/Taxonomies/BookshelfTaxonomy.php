@@ -1,11 +1,17 @@
 <?php
 
-namespace Wpify\Taxonomies;
+namespace WpifyPlugin\Taxonomies;
 
 use Wpify\Core\AbstractTaxonomy;
-use Wpify\Cpt\BookPostType;
-use Wpify\Models\BookshelfModel;
+use WpifyPlugin\Cpt\BookPostType;
+use WpifyPlugin\Models\BookshelfModel;
+use WpifyPlugin\Plugin;
 
+/**
+ * Class BookshelfTaxonomy
+ * @property Plugin $plugin
+ * @package WpifyPlugin\Taxonomies
+ */
 class BookshelfTaxonomy extends AbstractTaxonomy
 {
   public const NAME = 'bookshelf';
@@ -14,8 +20,8 @@ class BookshelfTaxonomy extends AbstractTaxonomy
   {
     $args = [
       'labels'             => $this->get_generic_labels(
-        __('Bookshelf', 'wpify'),
-        __('Bookshelves', 'wpify')
+        __('Bookshelf', 'wpify-plugin'),
+        __('Bookshelves', 'wpify-plugin')
       ),
       'hierarchical'       => true,
       'public'             => true,

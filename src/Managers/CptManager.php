@@ -1,13 +1,15 @@
 <?php
 
-namespace Wpify\Managers;
+namespace WpifyPlugin\Managers;
 
 use Wpify\Core\AbstractManager;
-use Wpify\Cpt\BookPostType;
+use WpifyPlugin\Cpt\BookPostType;
+use WpifyPlugin\Plugin;
 
 /**
  * Class CptManager
  * @package Wpify\Managers
+ * @property Plugin $plugin
  * @property BookPostType $MyPostType
  */
 class CptManager extends AbstractManager

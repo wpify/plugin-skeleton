@@ -1,6 +1,6 @@
 <?php
 
-namespace Wpify;
+namespace WpifyPlugin;
 
 use Wpify\Core\AbstractCustomFieldsFactory;
 
@@ -63,7 +63,7 @@ class CustomFieldsFactory extends AbstractCustomFieldsFactory
     $cmb = new_cmb2_box(
       [
         'id'           => $this->get_post_type()->name . 'metabox',
-        'title'        => sprintf(__('%s Metabox', 'wpify'), $this->get_post_type()->label),
+        'title'        => sprintf(__('%s Metabox', 'wpify-plugin'), $this->get_post_type()->label),
         'object_types' => [$this->get_post_type()->name],
         'context'      => 'normal',
         'priority'     => 'high',

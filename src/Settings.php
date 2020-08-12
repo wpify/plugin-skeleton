@@ -1,9 +1,9 @@
 <?php
 
-namespace Wpify;
+namespace WpifyPlugin;
 
 use Wpify\Core\AbstractComponent;
-use Wpify\Managers\RepositoriesManager;
+use WpifyPlugin\Managers\RepositoriesManager;
 
 /**
  * Class Settings
@@ -55,7 +55,7 @@ class Settings extends AbstractComponent
   public function __construct(RepositoriesManager $repositories_manager)
   {
     // Set our title
-    $this->title = __('WPify Settings', 'wpify');
+    $this->title = __('WPify Settings', 'wpify-plugin');
     $this->hooks();
     $this->repositories_manager = $repositories_manager;
   }
@@ -141,7 +141,7 @@ class Settings extends AbstractComponent
 
     $cmb->add_field(
       [
-        'name' => __('Some Field', 'wpify'),
+        'name' => __('Some Field', 'wpify-plugin'),
         'id'   => 'box_product_id',
         'type' => 'text',
       ]

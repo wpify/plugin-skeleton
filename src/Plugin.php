@@ -1,17 +1,20 @@
 <?php
 
-namespace Wpify;
+namespace WpifyPlugin;
 
-use Wpify\Assets;
+use ComposePress\Core\Exception\ContainerInvalid;
+use ComposePress\Core\Exception\ContainerNotExists;
+use Exception;
+use WpifyPlugin\Assets;
 use Wpify\Core\Interfaces\RepositoryInterface;
 use Wpify\Core\AbstractPlugin as PluginBase;
 use Wpify\Core\View;
-use Wpify\Managers\ApiManager;
-use Wpify\Managers\BlockManager;
-use Wpify\Managers\CptManager;
-use Wpify\Managers\RepositoriesManager;
-use Wpify\Managers\TaxonomiesManager;
-use Wpify\Managers\ToolsManager;
+use WpifyPlugin\Managers\ApiManager;
+use WpifyPlugin\Managers\BlockManager;
+use WpifyPlugin\Managers\CptManager;
+use WpifyPlugin\Managers\RepositoriesManager;
+use WpifyPlugin\Managers\TaxonomiesManager;
+use WpifyPlugin\Managers\ToolsManager;
 
 /**
  * Class Plugin
@@ -23,7 +26,7 @@ class Plugin extends PluginBase
   public const VERSION = '0.1.0';
 
   /** Plugin slug name */
-  public const PLUGIN_SLUG = 'wpify';
+  public const PLUGIN_SLUG = 'wpify-plugin';
 
   /** Plugin namespace */
   public const PLUGIN_NAMESPACE = '\\' . __NAMESPACE__;
@@ -60,19 +63,19 @@ class Plugin extends PluginBase
   /**
    * Plugin constructor.
    *
-   * @param Frontend            $frontend
+   * @param Frontend $frontend
    * @param RepositoriesManager $repositories_manager
-   * @param ApiManager          $api_manager
-   * @param Settings            $settings
-   * @param CptManager          $cpt_manager
-   * @param TaxonomiesManager   $taxonomies_manager
-   * @param ToolsManager        $tools_manager
-   * @param BlockManager        $block_manager
-   * @param Assets              $assets
-   * @param View                $view
+   * @param ApiManager $api_manager
+   * @param Settings $settings
+   * @param CptManager $cpt_manager
+   * @param TaxonomiesManager $taxonomies_manager
+   * @param ToolsManager $tools_manager
+   * @param BlockManager $block_manager
+   * @param Assets $assets
+   * @param View $view
    *
-   * @throws \ComposePress\Core\Exception\ContainerInvalid
-   * @throws \ComposePress\Core\Exception\ContainerNotExists
+   * @throws ContainerInvalid
+   * @throws ContainerNotExists
    */
   public function __construct(
     Frontend $frontend,
@@ -206,7 +209,7 @@ class Plugin extends PluginBase
 
   /**
    * @return bool
-   * @throws \Exception
+   * @throws Exception
    */
   protected function load_components()
   {

@@ -1,10 +1,16 @@
 <?php
 
-namespace Wpify\Managers;
+namespace WpifyPlugin\Managers;
 
-use Wpify\Api\ExampleApi;
+use WpifyPlugin\Api\ExampleApi;
 use Wpify\Core\AbstractManager;
+use WpifyPlugin\Plugin;
 
+/**
+ * Class ApiManager
+ * @package WpifyPlugin\Managers
+ * @property Plugin $plugin
+ */
 class ApiManager extends AbstractManager
 {
   public const REST_NAMESPACE = 'wpify/v1';

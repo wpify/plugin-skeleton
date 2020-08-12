@@ -1,6 +1,6 @@
 <?php
 
-namespace Wpify;
+namespace WpifyPlugin;
 
 use Wpify\Core\AbstractController;
 

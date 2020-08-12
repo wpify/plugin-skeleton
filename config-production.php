@@ -1,7 +1,7 @@
 <?php
 
 use ComposePress\Dice\Dice;
-use Wpify\Plugin;
+use WpifyPlugin\Plugin;
 
 $defaults = include __DIR__ . '/vendor/wpify/core/config-default.php';
 

@@ -1,9 +1,10 @@
 <?php
 
-namespace Wpify\Repositories;
+namespace WpifyPlugin\Repositories;
 
 use Wpify\Core\AbstractTaxonomyRepository;
-use Wpify\Taxonomies\BookshelfTaxonomy;
+use WpifyPlugin\Plugin;
+use WpifyPlugin\Taxonomies\BookshelfTaxonomy;
 
 /**
  * @property Plugin $plugin

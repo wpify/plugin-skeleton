@@ -1,5 +1,5 @@
 {
-  "name": "wpify",
+  "name": "wpify-plugin",
   "version": "0.1.1",
   "main": "assets/plugin.jsx",
   "scripts": {

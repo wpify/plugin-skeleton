@@ -1,8 +1,15 @@
 <?php
-namespace Wpify\Blocks;
+
+namespace WpifyPlugin\Blocks;
 
 use Wpify\Core\AbstractComponent;
+use WpifyPlugin\Plugin;
 
+/**
+ * Class TestBlock
+ * @package WpifyPlugin\Blocks
+ * @property Plugin $plugin
+ */
 class TestBlock extends AbstractComponent
 {
   public function setup()
@@ -12,16 +19,22 @@ class TestBlock extends AbstractComponent
 
   public function register()
   {
-    register_block_type('wpify/test-block', [
-      'render_callback' => [$this, 'render'],
-    ]);
+    register_block_type(
+      'wpify/test-block',
+      [
+        'render_callback' => [$this, 'render'],
+      ]
+    );
   }
 
   public function render($block_attributes, $content)
   {
-    return print_r([
-      'block_attributes' => $block_attributes,
-      'content' => $content,
-    ], true);
+    return print_r(
+      [
+        'block_attributes' => $block_attributes,
+        'content'          => $content,
+      ],
+      true
+    );
   }
 }

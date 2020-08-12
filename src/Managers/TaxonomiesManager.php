@@ -1,13 +1,15 @@
 <?php
 
-namespace Wpify\Managers;
+namespace WpifyPlugin\Managers;
 
 use Wpify\Core\AbstractManager;
-use Wpify\Taxonomies\BookshelfTaxonomy;
+use WpifyPlugin\Plugin;
+use WpifyPlugin\Taxonomies\BookshelfTaxonomy;
 
 /**
  * Class CptManager
  * @package Wpify\Managers
+ * @property Plugin $plugin
  * @property BookshelfTaxonomy $MyTaxonomy
  */
 class TaxonomiesManager extends AbstractManager

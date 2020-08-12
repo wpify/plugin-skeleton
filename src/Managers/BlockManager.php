@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Wpify\Managers;
+namespace WpifyPlugin\Managers;
 
-use Wpify\Blocks\TestBlock;
+use WpifyPlugin\Blocks\TestBlock;
 use Wpify\Core\AbstractManager;
-use Wpify\Plugin;
+use WpifyPlugin\Plugin;
 
 /** @property Plugin $plugin */
 class BlockManager extends AbstractManager
@@ -24,8 +24,8 @@ class BlockManager extends AbstractManager
   {
     return array_merge($categories, [
       [
-        'slug' => 'wpify',
-        'title' => __('WPify', 'wpify'),
+        'slug' => 'wpify-plugin',
+        'title' => __('wpify-plugin', 'wpify-plugin'),
         'icon' => 'wordpress',
       ],
     ]);

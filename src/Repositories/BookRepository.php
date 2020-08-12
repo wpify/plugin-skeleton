@@ -1,9 +1,10 @@
 <?php
 
-namespace Wpify\Repositories;
+namespace WpifyPlugin\Repositories;
 
+use ComposePress\Core\Exception\Plugin;
 use Wpify\Core\AbstractPostTypeRepository;
-use Wpify\Cpt\BookPostType;
+use WpifyPlugin\Cpt\BookPostType;
 
 /**
  * @property Plugin $plugin

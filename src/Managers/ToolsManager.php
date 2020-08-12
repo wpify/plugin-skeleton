@@ -1,8 +1,9 @@
 <?php
 
-namespace Wpify\Managers;
+namespace WpifyPlugin\Managers;
 
 use Wpify\Core\AbstractManager;
+use WpifyPlugin\Plugin;
 use Wpify\Tools\CopyrightShortcode;
 use Wpify\Tools\CustomSMTP;
 use Wpify\Tools\DeferScripts;
@@ -12,6 +13,11 @@ use Wpify\Tools\DisableXmlRpc;
 use Wpify\Tools\RemoveAccentInFilenames;
 use Wpify\Tools\RemoveScriptVersion;
 
+/**
+ * Class ToolsManager
+ * @package WpifyPlugin\Managers
+ * @property Plugin $plugin
+ */
 class ToolsManager extends AbstractManager
 {
   protected $modules = [

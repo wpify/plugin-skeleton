@@ -1,10 +1,11 @@
 <?php
 
-namespace Wpify\Controllers;
+namespace WpifyPlugin\Controllers;
 
-use Wpify\Repositories\BookRepository;
+use WpifyPlugin\Plugin;
+use WpifyPlugin\Repositories\BookRepository;
 use Doctrine\Common\Collections\ArrayCollection;
-use Wpify\Controller;
+use WpifyPlugin\Controller;
 
 /**
  * @property Plugin $plugin

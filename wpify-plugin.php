@@ -1,14 +1,14 @@
 <?php // phpcs:disable PSR1.Files.SideEffects.FoundWithSymbols
 
 /*
- * Plugin Name: WPify
+ * Plugin Name: WPify Plugin
  * Version: 0.1.0
- * Text Domain: wpify
+ * Text Domain: wpify-plugin
  * Domain Path: /languages
 */
 
 use ComposePress\Dice\Dice;
-use Wpify\Plugin;
+use WpifyPlugin\Plugin;
 
 if (!defined('WPIFY_MIN_PHP_VERSION')) {
   define('WPIFY_MIN_PHP_VERSION', '7.2.0');
@@ -17,13 +17,12 @@ if (!defined('WPIFY_MIN_PHP_VERSION')) {
 /**
  * Singleton instance function. We will not use a global at all as that defeats the purpose of a singleton
  * and is a bad design overall
- *
  * @SuppressWarnings(PHPMD.StaticAccess)
- * @return Wpify\Plugin
+ * @return WpifyPlugin\Plugin
  */
-function wpify(): Plugin
+function wpify_plugin(): Plugin
 {
-  return wpify_container()->create(Plugin::class);
+  return wpify_plugin_container()->create(Plugin::class);
 }
 
 /**
@@ -31,9 +30,9 @@ function wpify(): Plugin
  *
  * @param string $env
  *
- * @return \ComposePress\Dice\Dice
+ * @return Dice
  */
-function wpify_container($env = 'production'): Dice
+function wpify_plugin_container($env = 'production'): Dice
 {
   static $container;
   if (empty($container)) {
@@ -47,41 +46,41 @@ function wpify_container($env = 'production'): Dice
 /**
  * Init function shortcut
  */
-function wpify_init()
+function wpify_plugin_init()
 {
-  wpify()->init();
+  wpify_plugin()->init();
 }
 
 /**
  * Activate function shortcut
  */
-function wpify_activate($network_wide)
+function wpify_plugin_activate($network_wide)
 {
-  register_uninstall_hook(__FILE__, 'wpify_uninstall');
-  wpify()->init();
-  wpify()->activate($network_wide);
+  register_uninstall_hook(__FILE__, 'wpify_plugin_uninstall');
+  wpify_plugin()->init();
+  wpify_plugin()->activate($network_wide);
 }
 
 /**
  * Deactivate function shortcut
  */
-function wpify_deactivate($network_wide)
+function wpify_plugin_deactivate($network_wide)
 {
-  wpify()->deactivate($network_wide);
+  wpify_plugin()->deactivate($network_wide);
 }
 
 /**
  * Uninstall function shortcut
  */
-function wpify_uninstall()
+function wpify_plugin_uninstall()
 {
-  wpify()->uninstall();
+  wpify_plugin()->uninstall();
 }
 
 /**
  * Error for older php
  */
-function wpify_php_upgrade_notice()
+function wpify_plugin_php_upgrade_notice()
 {
   $info = get_plugin_data(__FILE__);
   _e(
@@ -103,7 +102,7 @@ function wpify_php_upgrade_notice()
 /**
  * Error if vendors autoload is missing
  */
-function wpify_php_vendor_missing()
+function wpify_plugin_php_vendor_missing()
 {
   $info = get_plugin_data(__FILE__);
   _e(
@@ -122,15 +121,15 @@ function wpify_php_vendor_missing()
  * We want to use a fairly modern php version, feel free to increase the minimum requirement
  */
 if (version_compare(PHP_VERSION, WPIFY_MIN_PHP_VERSION) < 0) {
-  add_action('admin_notices', 'wpify_php_upgrade_notice');
+  add_action('admin_notices', 'wpify_plugin_php_upgrade_notice');
 } else {
   if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     include_once __DIR__ . '/vendor/autoload.php';
 
-    add_action('plugins_loaded', 'wpify_init', 11);
-    register_activation_hook(__FILE__, 'wpify_activate');
-    register_deactivation_hook(__FILE__, 'wpify_deactivate');
+    add_action('plugins_loaded', 'wpify_plugin_init', 11);
+    register_activation_hook(__FILE__, 'wpify_plugin_activate');
+    register_deactivation_hook(__FILE__, 'wpify_plugin_deactivate');
   } else {
-    add_action('admin_notices', 'wpify_php_vendor_missing');
+    add_action('admin_notices', 'wpify_plugin_php_vendor_missing');
   }
 }

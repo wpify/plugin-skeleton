@@ -1,10 +1,11 @@
 <?php
 
-namespace Wpify\Api;
+namespace WpifyPlugin\Api;
 
 use Wpify\Core\AbstractRest;
 use WP_REST_Server;
 use WP_REST_Response;
+use WpifyPlugin\Plugin;
 
 /**
  * @property Plugin $plugin

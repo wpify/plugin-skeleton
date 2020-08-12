@@ -1,14 +1,16 @@
 <?php
 
-namespace Wpify\Managers;
+namespace WpifyPlugin\Managers;
 
 use Wpify\Core\AbstractManager;
-use Wpify\Repositories\BookRepository;
-use Wpify\Repositories\BookshelfRepository;
+use WpifyPlugin\Plugin;
+use WpifyPlugin\Repositories\BookRepository;
+use WpifyPlugin\Repositories\BookshelfRepository;
 
 /**
  * Class RepositoriesManager
  * @package Wpify\Managers
+ * @property Plugin $plugin
  */
 class RepositoriesManager extends AbstractManager
 {
