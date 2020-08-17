@@ -14,7 +14,7 @@ class TestBlock extends AbstractBlock
 {
   public function name(): string
   {
-    return 'wpify/test-block';
+    return 'wpify-plugin/test-block';
   }
 
   public function register(): void

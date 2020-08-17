@@ -8,7 +8,7 @@ use Wpify\Core\AbstractManager;
 use WpifyPlugin\Plugin;
 
 /** @property Plugin $plugin */
-class BlockManager extends AbstractManager
+class BlocksManager extends AbstractManager
 {
   protected $modules = [
     TestBlock::class
@@ -17,7 +17,7 @@ class BlockManager extends AbstractManager
   public function setup()
   {
     add_action('admin_enqueue_scripts', [$this, 'gutenberg_script']);
-    add_filter( 'block_categories', [$this, 'block_categories'], 10, 2 );
+    add_filter('block_categories', [$this, 'block_categories'], 10, 2);
   }
 
   public function block_categories($categories, $post)
@@ -35,7 +35,7 @@ class BlockManager extends AbstractManager
   {
     $scripts = $this->plugin->get_assets()->get_manifest_asset(
       'block-editor.js',
-      'mojamiska-block-editor',
+      'wpify-plugin-block-editor',
       []
     );
 

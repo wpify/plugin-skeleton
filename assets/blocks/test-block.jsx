@@ -45,21 +45,21 @@ const save = (props) => {
 };
 
 const config = {
-  title: __('Test block', 'wpify'),
+  title: __('Test block', 'wpify-plugin'),
   icon: 'universal-access-alt',
-  category: 'wpify',
+  category: 'wpify-plugin',
   attributes: {
     content: {
       type: 'string',
     },
   },
   example: {
-    content: __('This is a content of the block', 'wpify'),
+    content: __('This is a content of the block', 'wpify-plugin'),
   },
   edit,
   save,
 };
 
-registerBlockType('wpify/test-block', config);
+registerBlockType('wpify-plugin/test-block', config);
 
 export default config;

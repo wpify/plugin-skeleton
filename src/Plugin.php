@@ -11,6 +11,7 @@ use Wpify\Core\AbstractPlugin as PluginBase;
 use Wpify\Core\View;
 use WpifyPlugin\Managers\ApiManager;
 use WpifyPlugin\Managers\BlockManager;
+use WpifyPlugin\Managers\BlocksManager;
 use WpifyPlugin\Managers\CptManager;
 use WpifyPlugin\Managers\RepositoriesManager;
 use WpifyPlugin\Managers\TaxonomiesManager;
@@ -49,7 +50,8 @@ class Plugin extends PluginBase
   /** @var ApiManager */
   private $api_manager;
 
-  private $block_manager;
+  /** @var BlocksManager */
+  private $blocks_manager;
 
   /** @var Settings */
   private $settings;
@@ -70,7 +72,7 @@ class Plugin extends PluginBase
    * @param CptManager $cpt_manager
    * @param TaxonomiesManager $taxonomies_manager
    * @param ToolsManager $tools_manager
-   * @param BlockManager $block_manager
+   * @param BlocksManager $blocks_manager
    * @param Assets $assets
    * @param View $view
    *
@@ -85,7 +87,7 @@ class Plugin extends PluginBase
     CptManager $cpt_manager,
     TaxonomiesManager $taxonomies_manager,
     ToolsManager $tools_manager,
-    BlockManager $block_manager,
+    BlocksManager $blocks_manager,
     Assets $assets,
     View $view
   ) {
@@ -96,7 +98,7 @@ class Plugin extends PluginBase
     $this->api_manager          = $api_manager;
     $this->settings             = $settings;
     $this->tools_manager        = $tools_manager;
-    $this->block_manager        = $block_manager;
+    $this->blocks_manager       = $blocks_manager;
     $this->assets               = $assets;
     $this->view                 = $view;
 
@@ -173,9 +175,9 @@ class Plugin extends PluginBase
     return $this->plugin->create_component($class);
   }
 
-  public function get_block_manager()
+  public function get_blocks_manager()
   {
-    return $this->block_manager;
+    return $this->blocks_manager;
   }
 
   public function get_assets(): Assets
