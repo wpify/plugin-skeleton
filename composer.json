@@ -17,7 +17,7 @@
     "php": "^7.3.0",
     "doctrine/collections": "^1.6",
     "cmb2/cmb2": "^2.7",
-    "wpify/core": "v1.1.20",
+    "wpify/core": "^1.1.20",
     "wpify/tools": "^1.1.0"
   },
   "require-dev": {
