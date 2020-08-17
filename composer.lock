@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "17694bf7d87055b66a9268813983726e",
+    "content-hash": "0d06084079634bc9ec57748a4ec8548c",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -249,23 +249,20 @@
         },
         {
             "name": "wpify/tools",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/wpify-tools.git",
-                "reference": "055f21ac13329cf608fb64a4ced7be555b6b21d9"
+                "reference": "dce97f9b9bd73dab41dc7879991f4d4010c978b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-tools/repository/archive.zip?sha=055f21ac13329cf608fb64a4ced7be555b6b21d9",
-                "reference": "055f21ac13329cf608fb64a4ced7be555b6b21d9",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-tools/repository/archive.zip?sha=dce97f9b9bd73dab41dc7879991f4d4010c978b9",
+                "reference": "dce97f9b9bd73dab41dc7879991f4d4010c978b9",
                 "shasum": ""
             },
             "require": {
-                "wpify/core": "^1.1"
-            },
-            "require-dev": {
-                "php-stubs/wordpress-stubs": "^5.4"
+                "wpify/core": "^1.1.20"
             },
             "type": "library",
             "autoload": {
@@ -287,7 +284,7 @@
                     "email": "info@vaclavgreif.cz"
                 }
             ],
-            "time": "2020-05-25T16:05:34+00:00"
+            "time": "2020-08-17T09:54:52+00:00"
         }
     ],
     "packages-dev": [
