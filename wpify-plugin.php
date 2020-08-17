@@ -3,7 +3,7 @@
 /*
  * Plugin Name:       WPify Plugin
  * Description:       Plugin with theme by WPify
- * Version:           1.2.4
+ * Version:           1.2.5
  * Requires PHP:      7.3.0
  * Requires at least: 5.5
  * Author:            WPify
@@ -17,8 +17,8 @@
 use ComposePress\Dice\Dice;
 use WpifyPlugin\Plugin;
 
-if (!defined('WPIFY_MIN_PHP_VERSION')) {
-  define('WPIFY_MIN_PHP_VERSION', '7.3.0');
+if (!defined('WPIFY_PLUGIN_MIN_PHP_VERSION')) {
+  define('WPIFY_PLUGIN_MIN_PHP_VERSION', '7.3.0');
 }
 
 /**
@@ -95,7 +95,7 @@ function wpify_plugin_php_upgrade_notice()
       '
       <div class="error notice">
         <p>
-          Opps! %s requires a minimum PHP version of ' . WPIFY_MIN_PHP_VERSION . '. Your current version is: %s.
+          Opps! %s requires a minimum PHP version of ' . WPIFY_PLUGIN_MIN_PHP_VERSION . '. Your current version is: %s.
           Please contact your host to upgrade.
         </p>
       </div>
@@ -127,7 +127,7 @@ function wpify_plugin_php_vendor_missing()
 /*
  * We want to use a fairly modern php version, feel free to increase the minimum requirement
  */
-if (version_compare(PHP_VERSION, WPIFY_MIN_PHP_VERSION) < 0) {
+if (version_compare(PHP_VERSION, WPIFY_PLUGIN_MIN_PHP_VERSION) < 0) {
   add_action('admin_notices', 'wpify_plugin_php_upgrade_notice');
 } else {
   if (file_exists(__DIR__ . '/vendor/autoload.php')) {

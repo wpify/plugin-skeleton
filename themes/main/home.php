@@ -1,11 +1,10 @@
 <?php
 
-use Wpify\Controllers\ButtonController;
+use WpifyPlugin\Controllers\ButtonController;
 
 get_header();
-/** @var ButtonController $controller */
-wpify_render(ButtonController::class, ['label' => 'Some label', 'link' => 'https://wpify.io']);
-wpify()->print_assets('some-module.css');
+wpify_plugin_render(ButtonController::class, ['label' => 'Some label', 'link' => 'https://wpify.io']);
+wpify_plugin()->print_assets('some-module.css');
 
 while (have_posts()) {
   the_post();

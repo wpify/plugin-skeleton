@@ -1,6 +1,6 @@
 <?php
 
-use Wpify\Controllers\FrontPageController;
+use WpifyPlugin\Controllers\FrontPageController;
 
 /** @var FrontPageController */
 $controller = wpify()->get_controller(FrontPageController::class);

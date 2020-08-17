@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c5f85fcfe6c8b963fa277e4fb40643fe",
+    "content-hash": "75e94df5c74a7155838afda5a5d9b508",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -60,49 +60,6 @@
             "time": "2020-01-21T17:49:50+00:00"
         },
         {
-            "name": "composepress/core",
-            "version": "0.9.0",
-            "source": {
-                "type": "git",
-                "url": "https://gitlab.com/ComposePress/core.git",
-                "reference": "18d546c588cf751c5251b351e112245d0467481b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/ComposePress%2Fcore/repository/archive.zip?sha=18d546c588cf751c5251b351e112245d0467481b",
-                "reference": "18d546c588cf751c5251b351e112245d0467481b",
-                "shasum": ""
-            },
-            "require": {
-                "composepress/dice": "^0.6.0"
-            },
-            "require-dev": {
-                "codeception/codeception": "^2.4",
-                "lucatume/wp-browser": "~2.2.0"
-            },
-            "type": "library",
-            "extra": {
-                "composepress": []
-            },
-            "autoload": {
-                "psr-4": {
-                    "ComposePress\\Core\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Derrick Hammer",
-                    "email": "derrick@derrickhammer.com"
-                }
-            ],
-            "description": "A simple PSR-4 and composer ready plugin framework for the modern wordpress age",
-            "time": "2020-03-30T00:18:27+00:00"
-        },
-        {
             "name": "composepress/dice",
             "version": "0.6.4",
             "source": {
@@ -148,45 +105,6 @@
                 "ioc"
             ],
             "time": "2019-07-30T07:06:24+00:00"
-        },
-        {
-            "name": "composepress/views",
-            "version": "0.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://gitlab.com/ComposePress/views.git",
-                "reference": "4269649b141990a98a890b96874622e810cb4896"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/ComposePress%2Fviews/repository/archive.zip?sha=4269649b141990a98a890b96874622e810cb4896",
-                "reference": "4269649b141990a98a890b96874622e810cb4896",
-                "shasum": ""
-            },
-            "require": {
-                "composepress/core": "0.9.0"
-            },
-            "require-dev": {
-                "codeception/codeception": "^2.4",
-                "lucatume/wp-browser": "~2.2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ComposePress\\Views\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Derrick Hammer",
-                    "email": "derrick@derrickhammer.com"
-                }
-            ],
-            "time": "2020-05-08T14:04:40+00:00"
         },
         {
             "name": "doctrine/collections",
@@ -255,32 +173,26 @@
         },
         {
             "name": "wpify/composepress",
-            "version": "0.10.0",
+            "version": "0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/composepress.git",
-                "reference": "98004b1aa0febc432d848b6a55387ebb9caf6a0d"
+                "reference": "fed6e68389cd14b85bcdb40db49b8cc9547c4c23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fcomposepress/repository/archive.zip?sha=98004b1aa0febc432d848b6a55387ebb9caf6a0d",
-                "reference": "98004b1aa0febc432d848b6a55387ebb9caf6a0d",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fcomposepress/repository/archive.zip?sha=fed6e68389cd14b85bcdb40db49b8cc9547c4c23",
+                "reference": "fed6e68389cd14b85bcdb40db49b8cc9547c4c23",
                 "shasum": ""
             },
             "require": {
                 "composepress/dice": "^0.6.0"
             },
-            "require-dev": {
-                "codeception/codeception": "^2.4",
-                "lucatume/wp-browser": "~2.2.0"
-            },
             "type": "library",
-            "extra": {
-                "composepress": []
-            },
             "autoload": {
                 "psr-4": {
-                    "ComposePress\\Core\\": "src/"
+                    "ComposePress\\Core\\": "src/",
+                    "ComposePress\\Views\\": "views/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -302,30 +214,26 @@
                 }
             ],
             "description": "A simple PSR-4 and composer ready plugin framework for the modern wordpress age",
-            "time": "2020-08-05T12:09:03+00:00"
+            "time": "2020-08-17T09:16:47+00:00"
         },
         {
             "name": "wpify/core",
-            "version": "v1.1.19",
+            "version": "v1.1.20",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/wpify-core.git",
-                "reference": "8f244264e49158c82a2de0c760fe84d5b92b97cb"
+                "reference": "13eb2dd47d5455d643ed5ec627062e27ff47906d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=8f244264e49158c82a2de0c760fe84d5b92b97cb",
-                "reference": "8f244264e49158c82a2de0c760fe84d5b92b97cb",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=13eb2dd47d5455d643ed5ec627062e27ff47906d",
+                "reference": "13eb2dd47d5455d643ed5ec627062e27ff47906d",
                 "shasum": ""
             },
             "require": {
-                "composepress/views": "^0.5.0",
                 "doctrine/collections": "^1.6",
-                "php": ">=7.2.0",
-                "wpify/composepress": "^0.10.0"
-            },
-            "require-dev": {
-                "php-stubs/wordpress-stubs": "^5.4"
+                "php": ">=7.3.0",
+                "wpify/composepress": "^0.11.0"
             },
             "type": "library",
             "autoload": {
@@ -337,7 +245,7 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2020-08-11T20:54:18+00:00"
+            "time": "2020-08-17T11:32:28+00:00"
         },
         {
             "name": "wpify/tools",
@@ -443,5 +351,6 @@
     "platform": {
         "php": "^7.3.0"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

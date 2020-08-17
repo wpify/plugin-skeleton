@@ -7,9 +7,9 @@
  * @param string $view
  * @param bool $return
  */
-function wpify_render($controller, $data = [], $view = '', $return = false)
+function wpify_plugin_render($controller, $data = [], $view = '', $return = false)
 {
-  wpify()->get_controller($controller)->render($data, $view, $return);
+  wpify_plugin()->get_controller($controller)->render($data, $view, $return);
 }
 
 add_theme_support('editor-styles');
