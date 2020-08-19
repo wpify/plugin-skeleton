@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "27bee0c24afc4b5f7cacea71d0996e82",
+    "content-hash": "ca3ffd0b43edc5615637631f769f69ce",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -382,20 +382,20 @@
         },
         {
             "name": "wpify/tools",
-            "version": "v1.1.1",
+            "version": "v1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/wpify-tools.git",
-                "reference": "dce97f9b9bd73dab41dc7879991f4d4010c978b9"
+                "reference": "57e63a04034481015191ab564df9594577b40df3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-tools/repository/archive.zip?sha=dce97f9b9bd73dab41dc7879991f4d4010c978b9",
-                "reference": "dce97f9b9bd73dab41dc7879991f4d4010c978b9",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-tools/repository/archive.zip?sha=57e63a04034481015191ab564df9594577b40df3",
+                "reference": "57e63a04034481015191ab564df9594577b40df3",
                 "shasum": ""
             },
             "require": {
-                "wpify/core": "^1.1.20"
+                "wpify/core": "^1.2.0"
             },
             "type": "library",
             "autoload": {
@@ -417,7 +417,7 @@
                     "email": "info@vaclavgreif.cz"
                 }
             ],
-            "time": "2020-08-17T09:54:52+00:00"
+            "time": "2020-08-19T18:30:48+00:00"
         }
     ],
     "packages-dev": [
