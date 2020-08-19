@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "df3428e3d64a6a4b6f01c49addc6183f",
+    "content-hash": "27bee0c24afc4b5f7cacea71d0996e82",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -844,16 +844,16 @@
         },
         {
             "name": "wpify/cli",
-            "version": "v0.1.0",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/wpify-cli.git",
-                "reference": "c455fbd4662879e7c7023bc1287fe902d44a0b9a"
+                "reference": "4ec7ad460660d63c5d438b738d1c3260a98f775d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-cli/repository/archive.zip?sha=c455fbd4662879e7c7023bc1287fe902d44a0b9a",
-                "reference": "c455fbd4662879e7c7023bc1287fe902d44a0b9a",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-cli/repository/archive.zip?sha=4ec7ad460660d63c5d438b738d1c3260a98f775d",
+                "reference": "4ec7ad460660d63c5d438b738d1c3260a98f775d",
                 "shasum": ""
             },
             "require": {
@@ -875,7 +875,7 @@
                 "MIT"
             ],
             "homepage": "https://gitlab.com/wpify/wpify-cli",
-            "time": "2020-08-17T11:51:19+00:00"
+            "time": "2020-08-19T18:26:29+00:00"
         }
     ],
     "aliases": [],
