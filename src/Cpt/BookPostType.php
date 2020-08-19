@@ -3,7 +3,7 @@
 namespace WpifyPlugin\Cpt;
 
 use Wpify\Core\AbstractPostType;
-use WpifyPlugin\CustomFieldsFactory;
+use WpifyPlugin\Factories\Cmb2FieldsFactory;
 use WpifyPlugin\Models\BookModel;
 use WpifyPlugin\Plugin;
 
@@ -25,6 +25,7 @@ class BookPostType extends AbstractPostType
       'publicly_queryable' => true,
       'show_ui'            => true,
       'show_in_menu'       => true,
+      'show_in_rest'       => true,
       'query_var'          => true,
       'rewrite'            => ['slug' => 'book'],
       'capability_type'    => 'post',
@@ -61,6 +62,6 @@ class BookPostType extends AbstractPostType
 
   public function custom_fields_factory(): string
   {
-    return CustomFieldsFactory::class;
+    return Cmb2FieldsFactory::class;
   }
 }
