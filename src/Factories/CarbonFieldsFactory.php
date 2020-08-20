@@ -28,7 +28,11 @@ class CarbonFieldsFactory extends AbstractCustomFieldsFactory
    */
   public function get_field($id, $field)
   {
-    return carbon_get_post_meta($id, $field, true);
+    if ($this->get_type() === 'cpt') {
+      return carbon_get_post_meta($id, $field, $this->container ? $this->container->get_id() : null);
+    } elseif ($this->get_type() === 'taxonomy') {
+      return carbon_get_term_meta($id, $field, $this->container ? $this->container->get_id() : null);
+    }
   }
 
   /**
@@ -40,7 +44,12 @@ class CarbonFieldsFactory extends AbstractCustomFieldsFactory
    */
   public function save_field($id, $field, $value)
   {
-    carbon_set_post_meta($id, $field, $value, $this->container ? $this->container->get_id() : null);
+    if ($this->get_type() === 'cpt') {
+      carbon_set_post_meta($id, $field, $value, $this->container ? $this->container->get_id() : null);
+    } elseif ($this->get_type() === 'taxonomy') {
+      carbon_set_term_meta($id, $field, $value, $this->container ? $this->container->get_id() : null);
+    }
+
     return true;
   }
 
@@ -52,11 +61,23 @@ class CarbonFieldsFactory extends AbstractCustomFieldsFactory
   {
     $title = __('Custom fields', 'skiapluj');
 
-    $this->container = Container::make('post_meta', $title)
-      ->where('post_type', '=', $this->get_entity_name())
-      ->add_fields(array_map(
-        fn($f) => Field::make($f['type'], $f['id'], $f['name']),
-        $this->get_custom_fields()
-      ));
+    if ($this->get_type() === 'cpt') {
+      $this->container = Container::make('post_meta', $title)->where('post_type', '=', $this->get_entity_name());
+    } elseif ($this->get_type() === 'taxonomy') {
+      $this->container = Container::make('term_meta', $title)->where('term_taxonomy', '=', $this->get_entity_name());
+    }
+
+    $this->container->add_fields(array_map(
+      function($f) {
+        $field = Field::make($f['type'], $f['id'], $f['name']);
+
+        if (isset($f['config']) && is_callable($f['config'])) {
+          $f['config']($field);
+        }
+
+        return $field;
+      },
+      $this->get_custom_fields()
+    ));
   }
 }
