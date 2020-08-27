@@ -1,6 +1,6 @@
 {
   "name": "wpify-plugin",
-  "version": "1.2.4",
+  "version": "1.2.6",
   "main": "assets/plugin.jsx",
   "scripts": {
     "start": "wpify start",
@@ -107,7 +107,7 @@
     "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.18.0",
     "stylelint-webpack-plugin": "^2.1.0",
-    "wpify-scripts": "^1.0.6"
+    "wpify-scripts": "^1.0.8"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
