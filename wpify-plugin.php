@@ -3,7 +3,7 @@
 /*
  * Plugin Name:       WPify Plugin
  * Description:       Plugin with theme by WPify
- * Version:           1.2.6
+ * Version:           1.2.7
  * Requires PHP:      7.3.0
  * Requires at least: 5.5
  * Author:            WPify
@@ -14,7 +14,7 @@
  * Domain Path: /languages
 */
 
-use ComposePress\Dice\Dice;
+use Dice\Dice;
 use WpifyPlugin\Plugin;
 
 if (!defined('WPIFY_PLUGIN_MIN_PHP_VERSION')) {

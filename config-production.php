@@ -1,6 +1,6 @@
 <?php
 
-use ComposePress\Dice\Dice;
+use Dice\Dice;
 use WpifyPlugin\Plugin;
 
 $defaults = include __DIR__ . '/vendor/wpify/core/config-default.php';
