@@ -4,7 +4,7 @@ namespace WpifyPlugin\Factories;
 
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
-use Wpify\Core\AbstractCustomFieldsFactory;
+use Wpify\Core\Abstracts\AbstractCustomFieldsFactory;
 
 class CarbonFieldsFactory extends AbstractCustomFieldsFactory
 {
@@ -24,6 +24,7 @@ class CarbonFieldsFactory extends AbstractCustomFieldsFactory
    *
    * @param $id
    * @param $field
+   *
    * @return mixed
    */
   public function get_field($id, $field)
@@ -37,9 +38,11 @@ class CarbonFieldsFactory extends AbstractCustomFieldsFactory
 
   /**
    * Save custom field value
+   *
    * @param int $id
    * @param string $field
    * @param mixed $value
+   *
    * @return bool|int
    */
   public function save_field($id, $field, $value)
@@ -55,6 +58,7 @@ class CarbonFieldsFactory extends AbstractCustomFieldsFactory
 
   /**
    * Register metaboxes
+   *
    * @param string|null $title
    */
   public function register_metaboxes()
@@ -67,17 +71,19 @@ class CarbonFieldsFactory extends AbstractCustomFieldsFactory
       $this->container = Container::make('term_meta', $title)->where('term_taxonomy', '=', $this->get_entity_name());
     }
 
-    $this->container->add_fields(array_map(
-      function($f) {
-        $field = Field::make($f['type'], $f['id'], $f['name']);
+    $this->container->add_fields(
+      array_map(
+        function ($f) {
+          $field = Field::make($f['type'], $f['id'], $f['name']);
 
-        if (isset($f['config']) && is_callable($f['config'])) {
-          $f['config']($field);
-        }
+          if (isset($f['config']) && is_callable($f['config'])) {
+            $f['config']($field);
+          }
 
-        return $field;
-      },
-      $this->get_custom_fields()
-    ));
+          return $field;
+        },
+        $this->get_custom_fields()
+      )
+    );
   }
 }

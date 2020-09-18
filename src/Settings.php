@@ -2,7 +2,7 @@
 
 namespace WpifyPlugin;
 
-use Wpify\Core\AbstractComponent;
+use Wpify\Core\Abstracts\AbstractComponent;
 use WpifyPlugin\Managers\RepositoriesManager;
 
 /**

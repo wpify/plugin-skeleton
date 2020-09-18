@@ -2,7 +2,7 @@
 
 namespace WpifyPlugin\Models;
 
-use Wpify\Core\AbstractPostTypeModel;
+use Wpify\Core\Abstracts\AbstractPostTypeModel;
 use WpifyPlugin\Plugin;
 
 /**

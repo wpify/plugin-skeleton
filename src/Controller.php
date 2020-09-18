@@ -2,7 +2,7 @@
 
 namespace WpifyPlugin;
 
-use Wpify\Core\AbstractController;
+use Wpify\Core\Abstracts\AbstractController;
 
 /**
  * Class Controller

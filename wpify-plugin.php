@@ -14,7 +14,8 @@
  * Domain Path: /languages
 */
 
-use ComposePress\Dice\Dice;
+use Dice\Dice;
+use Wpify\Core\Container;
 use WpifyPlugin\Plugin;
 
 if (!defined('WPIFY_PLUGIN_MIN_PHP_VERSION')) {
@@ -38,13 +39,19 @@ function wpify_plugin(): Plugin
  * @param string $env
  *
  * @return Dice
+ * @throws Exception
  */
 function wpify_plugin_container($env = 'production'): Dice
 {
   static $container;
   if (empty($container)) {
-    $container = new Dice();
-    include __DIR__ . "/config-{$env}.php";
+    $wpify_container = new Container();
+    $container       = $wpify_container->add_container(
+      'wpify_plugin',
+      [
+        Plugin::class => ['shared' => true],
+      ]
+    );
   }
 
   return $container;

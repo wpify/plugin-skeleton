@@ -3,7 +3,7 @@
 namespace WpifyPlugin\Managers;
 
 use WpifyPlugin\Api\ExampleApi;
-use Wpify\Core\AbstractManager;
+use Wpify\Core\Abstracts\AbstractManager;
 use WpifyPlugin\Plugin;
 
 /**

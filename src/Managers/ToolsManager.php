@@ -2,7 +2,7 @@
 
 namespace WpifyPlugin\Managers;
 
-use Wpify\Core\AbstractManager;
+use Wpify\Core\Abstracts\AbstractManager;
 use WpifyPlugin\Plugin;
 use Wpify\Tools\CopyrightShortcode;
 use Wpify\Tools\CustomSMTP;
