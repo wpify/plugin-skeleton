@@ -27,6 +27,7 @@ if (!defined('WPIFY_PLUGIN_MIN_PHP_VERSION')) {
  * and is a bad design overall
  * @SuppressWarnings(PHPMD.StaticAccess)
  * @return WpifyPlugin\Plugin
+ * @throws Exception
  */
 function wpify_plugin(): Plugin
 {
@@ -45,13 +46,14 @@ function wpify_plugin_container($env = 'production'): Dice
 {
   static $container;
   if (empty($container)) {
-    $wpify_container = new Container();
+    $wpify_container = Container::getInstance();
     $container       = $wpify_container->add_container(
       'wpify_plugin',
       [
         Plugin::class => ['shared' => true],
       ]
     );
+    die(var_dump( $container->get_container('wpify_container')));
   }
 
   return $container;
