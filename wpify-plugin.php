@@ -53,7 +53,6 @@ function wpify_plugin_container($env = 'production'): Dice
         Plugin::class => ['shared' => true],
       ]
     );
-    die(var_dump( $container->get_container('wpify_container')));
   }
 
   return $container;
