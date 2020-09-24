@@ -2,7 +2,7 @@
 
 namespace WpifyPlugin\Cpt;
 
-use Wpify\Core\Abstracts\AbstractPostType;
+use Wpify\Core_2_0\Abstracts\AbstractPostType;
 use WpifyPlugin\Factories\Cmb2FieldsFactory;
 use WpifyPlugin\Models\BookModel;
 use WpifyPlugin\Plugin;

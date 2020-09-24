@@ -15,7 +15,7 @@
 */
 
 use Dice\Dice;
-use Wpify\Core\Container;
+use Wpify\Core_2_0\Container;
 use WpifyPlugin\Plugin;
 
 if (!defined('WPIFY_PLUGIN_MIN_PHP_VERSION')) {

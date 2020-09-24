@@ -2,7 +2,7 @@
 
 namespace WpifyPlugin;
 
-use Wpify\Core\Abstracts\AbstractAssets;
+use Wpify\Core_2_0\Abstracts\AbstractAssets;
 
 /**
  * @property Plugin $plugin

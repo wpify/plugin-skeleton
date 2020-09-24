@@ -4,7 +4,7 @@
 namespace WpifyPlugin\Managers;
 
 use WpifyPlugin\Blocks\TestBlock;
-use Wpify\Core\Abstracts\AbstractManager;
+use Wpify\Core_2_0\Abstracts\AbstractManager;
 use WpifyPlugin\Plugin;
 
 /** @property Plugin $plugin */

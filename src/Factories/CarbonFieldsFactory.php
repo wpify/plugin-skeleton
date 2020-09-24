@@ -4,7 +4,7 @@ namespace WpifyPlugin\Factories;
 
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
-use Wpify\Core\Abstracts\AbstractCustomFieldsFactory;
+use Wpify\Core_2_0\Abstracts\AbstractCustomFieldsFactory;
 
 class CarbonFieldsFactory extends AbstractCustomFieldsFactory
 {
