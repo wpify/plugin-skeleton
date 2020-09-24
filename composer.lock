@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "28b17637a8de6b3189c3b3969b490564",
+    "content-hash": "6989e4a648b82f7e424d8394eeff6ff0",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -58,53 +58,6 @@
                 "wordpress"
             ],
             "time": "2020-01-21T17:49:50+00:00"
-        },
-        {
-            "name": "composepress/dice",
-            "version": "0.6.4",
-            "source": {
-                "type": "git",
-                "url": "https://gitlab.com/ComposePress/Dice.git",
-                "reference": "5a7858181935908109062109d61e43d664a117cc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/ComposePress%2FDice/repository/archive.zip?sha=5a7858181935908109062109d61e43d664a117cc",
-                "reference": "5a7858181935908109062109d61e43d664a117cc",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ComposePress\\Dice\\": "./"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Tom Butler",
-                    "email": "tom@r.je"
-                },
-                {
-                    "name": "Derrick Hammer",
-                    "email": "derrick@derrickhammer.com"
-                }
-            ],
-            "description": "A minimalist Dependency injection container (DIC) for PHP. Please note: This branch is only compatible with PHP5.6. 5.5, 5.4 and 5.3 compatible version is available as a separate branch on github. ",
-            "homepage": "http://r.je/dice.html",
-            "keywords": [
-                "dependency injection",
-                "dependency injection container",
-                "di",
-                "ioc"
-            ],
-            "time": "2019-07-30T07:06:24+00:00"
         },
         {
             "name": "doctrine/collections",
@@ -305,21 +258,67 @@
             "time": "2020-05-18T09:54:56+00:00"
         },
         {
-            "name": "wpify/composepress",
-            "version": "0.11.0",
+            "name": "level-2/dice",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
-                "url": "https://gitlab.com/wpify/composepress.git",
-                "reference": "fed6e68389cd14b85bcdb40db49b8cc9547c4c23"
+                "url": "https://github.com/Level-2/Dice.git",
+                "reference": "b9336d9200d0165c31e982374dc5d8d2552807bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fcomposepress/repository/archive.zip?sha=fed6e68389cd14b85bcdb40db49b8cc9547c4c23",
-                "reference": "fed6e68389cd14b85bcdb40db49b8cc9547c4c23",
+                "url": "https://api.github.com/repos/Level-2/Dice/zipball/b9336d9200d0165c31e982374dc5d8d2552807bc",
+                "reference": "b9336d9200d0165c31e982374dc5d8d2552807bc",
                 "shasum": ""
             },
             "require": {
-                "composepress/dice": "^0.6.0"
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dice\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Tom Butler",
+                    "email": "tom@r.je"
+                }
+            ],
+            "description": "A minimalist Dependency injection container (DIC) for PHP. Please note: 3.0+ is only compatible with PHP 7.0. The 2.0 branch is compatbile with PHP 5.6.",
+            "homepage": "http://r.je/dice.html",
+            "keywords": [
+                "dependency injection",
+                "dependency injection container",
+                "di",
+                "ioc"
+            ],
+            "time": "2020-01-28T13:47:49+00:00"
+        },
+        {
+            "name": "wpify/composepress",
+            "version": "0.12.0",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/wpify/composepress.git",
+                "reference": "f9a9a84d8dbd8bfc883b3949d622c85d0afa3681"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fcomposepress/repository/archive.zip?sha=f9a9a84d8dbd8bfc883b3949d622c85d0afa3681",
+                "reference": "f9a9a84d8dbd8bfc883b3949d622c85d0afa3681",
+                "shasum": ""
+            },
+            "require": {
+                "level-2/dice": "^4.0"
             },
             "type": "library",
             "autoload": {
@@ -347,26 +346,26 @@
                 }
             ],
             "description": "A simple PSR-4 and composer ready plugin framework for the modern wordpress age",
-            "time": "2020-08-17T09:16:47+00:00"
+            "time": "2020-09-04T12:08:55+00:00"
         },
         {
             "name": "wpify/core",
-            "version": "v1.2.1",
+            "version": "2.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/wpify-core.git",
-                "reference": "e183d65aaa623b8a4643e25de921fa58a2afa63b"
+                "reference": "5b6c3ef511ab3603b3e684709ec83a459670992b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=e183d65aaa623b8a4643e25de921fa58a2afa63b",
-                "reference": "e183d65aaa623b8a4643e25de921fa58a2afa63b",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=5b6c3ef511ab3603b3e684709ec83a459670992b",
+                "reference": "5b6c3ef511ab3603b3e684709ec83a459670992b",
                 "shasum": ""
             },
             "require": {
                 "doctrine/collections": "^1.6",
                 "php": ">=7.4",
-                "wpify/composepress": "^0.11.0"
+                "wpify/composepress": "^0.12.0"
             },
             "type": "library",
             "autoload": {
@@ -378,24 +377,24 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2020-08-20T09:22:53+00:00"
+            "time": "2020-09-20T19:09:54+00:00"
         },
         {
             "name": "wpify/tools",
-            "version": "v1.1.3",
+            "version": "2.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/wpify-tools.git",
-                "reference": "d54aa34ee2f05896753fe22bab000572de4b4b8f"
+                "reference": "34ad1c955eb52c4729a27e443cd571ed27518774"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-tools/repository/archive.zip?sha=d54aa34ee2f05896753fe22bab000572de4b4b8f",
-                "reference": "d54aa34ee2f05896753fe22bab000572de4b4b8f",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-tools/repository/archive.zip?sha=34ad1c955eb52c4729a27e443cd571ed27518774",
+                "reference": "34ad1c955eb52c4729a27e443cd571ed27518774",
                 "shasum": ""
             },
             "require": {
-                "wpify/core": "^1.2.1"
+                "wpify/core": "2.0.x-dev"
             },
             "type": "library",
             "autoload": {
@@ -417,7 +416,7 @@
                     "email": "info@vaclavgreif.cz"
                 }
             ],
-            "time": "2020-08-20T21:28:48+00:00"
+            "time": "2020-09-20T19:20:27+00:00"
         }
     ],
     "packages-dev": [
@@ -469,16 +468,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.9.0",
+            "version": "v4.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "aaee038b912e567780949787d5fe1977be11a778"
+                "reference": "1c13d05035deff45f1230ca68bd7d74d621762d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/aaee038b912e567780949787d5fe1977be11a778",
-                "reference": "aaee038b912e567780949787d5fe1977be11a778",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/1c13d05035deff45f1230ca68bd7d74d621762d9",
+                "reference": "1c13d05035deff45f1230ca68bd7d74d621762d9",
                 "shasum": ""
             },
             "require": {
@@ -517,7 +516,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2020-08-18T19:48:01+00:00"
+            "time": "2020-09-19T14:52:48+00:00"
         },
         {
             "name": "rmccue/requests",
@@ -621,16 +620,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v5.1.3",
+            "version": "v5.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "4298870062bfc667cb78d2b379be4bf5dec5f187"
+                "reference": "2b765f0cf6612b3636e738c0689b29aa63088d5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/4298870062bfc667cb78d2b379be4bf5dec5f187",
-                "reference": "4298870062bfc667cb78d2b379be4bf5dec5f187",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/2b765f0cf6612b3636e738c0689b29aa63088d5d",
+                "reference": "2b765f0cf6612b3636e738c0689b29aa63088d5d",
                 "shasum": ""
             },
             "require": {
@@ -680,7 +679,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-05-20T17:43:50+00:00"
+            "time": "2020-08-17T10:01:29+00:00"
         },
         {
             "name": "wp-cli/mustangostang-spyc",
@@ -880,7 +879,10 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wpify/core": 20,
+        "wpify/tools": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
