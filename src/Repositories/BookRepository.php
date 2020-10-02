@@ -3,7 +3,7 @@
 namespace WpifyPlugin\Repositories;
 
 use ComposePress\Core\Exception\Plugin;
-use Wpify\Core\AbstractPostTypeRepository;
+use Wpify\Core_2_0\Abstracts\AbstractPostTypeRepository;
 use WpifyPlugin\Cpt\BookPostType;
 
 /**

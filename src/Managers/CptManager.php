@@ -2,7 +2,7 @@
 
 namespace WpifyPlugin\Managers;
 
-use Wpify\Core\AbstractManager;
+use Wpify\Core_2_0\Abstracts\AbstractManager;
 use WpifyPlugin\Cpt\BookPostType;
 use WpifyPlugin\Plugin;
 

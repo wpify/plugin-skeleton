@@ -2,7 +2,7 @@
 
 namespace WpifyPlugin\Managers;
 
-use Wpify\Core\AbstractManager;
+use Wpify\Core_2_0\Abstracts\AbstractManager;
 use WpifyPlugin\Plugin;
 use WpifyPlugin\Repositories\BookRepository;
 use WpifyPlugin\Repositories\BookshelfRepository;

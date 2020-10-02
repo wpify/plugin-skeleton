@@ -2,7 +2,7 @@
 
 namespace WpifyPlugin;
 
-use Wpify\Core\AbstractCustomFieldsFactory;
+use Wpify\Core_2_0\Abstracts\AbstractCustomFieldsFactory;
 
 class CustomFieldsFactory extends AbstractCustomFieldsFactory
 {
