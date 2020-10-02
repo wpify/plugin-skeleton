@@ -3,7 +3,7 @@
 namespace WpifyPlugin\Managers;
 
 use Wpify\Core_2_0\Abstracts\AbstractManager;
-use WpifyPlugin\Cpt\BookPostType;
+use WpifyPlugin\PostTypes\BookPostType;
 use WpifyPlugin\Plugin;
 
 /**
@@ -12,7 +12,7 @@ use WpifyPlugin\Plugin;
  * @property Plugin $plugin
  * @property BookPostType $MyPostType
  */
-class CptManager extends AbstractManager
+class PostTypesManager extends AbstractManager
 {
   protected $modules = [
     BookPostType::class,

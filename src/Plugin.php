@@ -11,7 +11,7 @@ use Wpify\Core_2_0\Abstracts\AbstractPlugin as PluginBase;
 use Wpify\Core_2_0\View;
 use WpifyPlugin\Managers\ApiManager;
 use WpifyPlugin\Managers\BlocksManager;
-use WpifyPlugin\Managers\CptManager;
+use WpifyPlugin\Managers\PostTypesManager;
 use WpifyPlugin\Managers\RepositoriesManager;
 use WpifyPlugin\Managers\TaxonomiesManager;
 use WpifyPlugin\Managers\ToolsManager;
@@ -34,8 +34,8 @@ class Plugin extends PluginBase
   /** @var Frontend */
   private $frontend;
 
-  /** @var CptManager */
-  private $cpt_manager;
+  /** @var PostTypesManager */
+  private $post_types_manager;
 
   /** @var TaxonomiesManager */
   private $taxonomies_manager;
@@ -68,7 +68,7 @@ class Plugin extends PluginBase
    * @param RepositoriesManager $repositories_manager
    * @param ApiManager $api_manager
    * @param Settings $settings
-   * @param CptManager $cpt_manager
+   * @param PostTypesManager $post_types_manager
    * @param TaxonomiesManager $taxonomies_manager
    * @param ToolsManager $tools_manager
    * @param BlocksManager $blocks_manager
@@ -83,7 +83,7 @@ class Plugin extends PluginBase
     RepositoriesManager $repositories_manager,
     ApiManager $api_manager,
     Settings $settings,
-    CptManager $cpt_manager,
+    PostTypesManager $post_types_manager,
     TaxonomiesManager $taxonomies_manager,
     ToolsManager $tools_manager,
     BlocksManager $blocks_manager,
@@ -91,7 +91,7 @@ class Plugin extends PluginBase
     View $view
   ) {
     $this->frontend             = $frontend;
-    $this->cpt_manager          = $cpt_manager;
+    $this->post_types_manager   = $post_types_manager;
     $this->taxonomies_manager   = $taxonomies_manager;
     $this->repositories_manager = $repositories_manager;
     $this->api_manager          = $api_manager;
@@ -144,14 +144,14 @@ class Plugin extends PluginBase
     return $this->settings;
   }
 
-  public function get_cpt_manager(): CptManager
+  public function get_post_types_manager(): PostTypesManager
   {
-    return $this->cpt_manager;
+    return $this->post_types_manager;
   }
 
-  public function get_cpt(string $class)
+  public function get_post_type(string $class)
   {
-    return $this->cpt_manager->get_module($class);
+    return $this->post_types_manager->get_module($class);
   }
 
   public function get_tools_manager()

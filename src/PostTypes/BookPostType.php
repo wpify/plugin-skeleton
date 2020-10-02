@@ -1,6 +1,6 @@
 <?php
 
-namespace WpifyPlugin\Cpt;
+namespace WpifyPlugin\PostTypes;
 
 use Wpify\Core_2_0\Abstracts\AbstractPostType;
 use WpifyPlugin\Factories\Cmb2FieldsFactory;
