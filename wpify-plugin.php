@@ -3,7 +3,7 @@
 /*
  * Plugin Name:       WPify Plugin
  * Description:       Plugin with theme by WPify
- * Version:           1.2.5
+ * Version:           1.4.0
  * Requires PHP:      7.3.0
  * Requires at least: 5.5
  * Author:            WPify
