@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6989e4a648b82f7e424d8394eeff6ff0",
+    "content-hash": "91c7b7df20037ae4f18c93c9275b377e",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -350,16 +350,16 @@
         },
         {
             "name": "wpify/core",
-            "version": "2.0.x-dev",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/wpify-core.git",
-                "reference": "5b6c3ef511ab3603b3e684709ec83a459670992b"
+                "reference": "34876e2b7afc9ab99b7c90e63579eabd10c195f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=5b6c3ef511ab3603b3e684709ec83a459670992b",
-                "reference": "5b6c3ef511ab3603b3e684709ec83a459670992b",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=34876e2b7afc9ab99b7c90e63579eabd10c195f1",
+                "reference": "34876e2b7afc9ab99b7c90e63579eabd10c195f1",
                 "shasum": ""
             },
             "require": {
@@ -370,31 +370,31 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Wpify\\Core\\": "src\\"
+                    "Wpify\\Core_2_0\\": "src\\"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2020-09-20T19:09:54+00:00"
+            "time": "2020-10-03T18:25:27+00:00"
         },
         {
             "name": "wpify/tools",
-            "version": "2.0.x-dev",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/wpify-tools.git",
-                "reference": "34ad1c955eb52c4729a27e443cd571ed27518774"
+                "reference": "7263049acc3c4b5fb1708495f989f7087df9c0fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-tools/repository/archive.zip?sha=34ad1c955eb52c4729a27e443cd571ed27518774",
-                "reference": "34ad1c955eb52c4729a27e443cd571ed27518774",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-tools/repository/archive.zip?sha=7263049acc3c4b5fb1708495f989f7087df9c0fe",
+                "reference": "7263049acc3c4b5fb1708495f989f7087df9c0fe",
                 "shasum": ""
             },
             "require": {
-                "wpify/core": "2.0.x-dev"
+                "wpify/core": "^2.0.1"
             },
             "type": "library",
             "autoload": {
@@ -416,7 +416,7 @@
                     "email": "info@vaclavgreif.cz"
                 }
             ],
-            "time": "2020-09-20T19:20:27+00:00"
+            "time": "2020-10-03T18:28:30+00:00"
         }
     ],
     "packages-dev": [
@@ -468,16 +468,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.10.0",
+            "version": "v4.10.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "1c13d05035deff45f1230ca68bd7d74d621762d9"
+                "reference": "658f1be311a230e0907f5dfe0213742aff0596de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/1c13d05035deff45f1230ca68bd7d74d621762d9",
-                "reference": "1c13d05035deff45f1230ca68bd7d74d621762d9",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/658f1be311a230e0907f5dfe0213742aff0596de",
+                "reference": "658f1be311a230e0907f5dfe0213742aff0596de",
                 "shasum": ""
             },
             "require": {
@@ -516,7 +516,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2020-09-19T14:52:48+00:00"
+            "time": "2020-09-26T10:30:38+00:00"
         },
         {
             "name": "rmccue/requests",
@@ -620,16 +620,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v5.1.5",
+            "version": "v5.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "2b765f0cf6612b3636e738c0689b29aa63088d5d"
+                "reference": "2c3ba7ad6884e6c4451ce2340e2dc23f6fa3e0d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/2b765f0cf6612b3636e738c0689b29aa63088d5d",
-                "reference": "2b765f0cf6612b3636e738c0689b29aa63088d5d",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/2c3ba7ad6884e6c4451ce2340e2dc23f6fa3e0d8",
+                "reference": "2c3ba7ad6884e6c4451ce2340e2dc23f6fa3e0d8",
                 "shasum": ""
             },
             "require": {
@@ -679,7 +679,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-08-17T10:01:29+00:00"
+            "time": "2020-09-02T16:23:27+00:00"
         },
         {
             "name": "wp-cli/mustangostang-spyc",
@@ -879,10 +879,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "wpify/core": 20,
-        "wpify/tools": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
