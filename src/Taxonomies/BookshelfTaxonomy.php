@@ -3,7 +3,7 @@
 namespace WpifyPlugin\Taxonomies;
 
 use Wpify\Core_2_0\Abstracts\AbstractTaxonomy;
-use WpifyPlugin\Cpt\BookPostType;
+use WpifyPlugin\PostTypes\BookPostType;
 use WpifyPlugin\Models\BookshelfModel;
 use WpifyPlugin\Plugin;
 

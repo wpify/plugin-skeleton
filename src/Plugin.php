@@ -5,7 +5,6 @@ namespace WpifyPlugin;
 use ComposePress\Core\Exception\ContainerInvalid;
 use ComposePress\Core\Exception\ContainerNotExists;
 use Exception;
-use WpifyPlugin\Assets;
 use Wpify\Core_2_0\Interfaces\RepositoryInterface;
 use Wpify\Core_2_0\Abstracts\AbstractPlugin as PluginBase;
 use Wpify\Core_2_0\View;
