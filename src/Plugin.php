@@ -23,7 +23,7 @@ use WpifyPlugin\Managers\ToolsManager;
  */
 class Plugin extends PluginBase {
 	/** Plugin version */
-	public const VERSION = '2.1.0';
+	public const VERSION = '2.1.3';
 
 	/** Plugin slug name */
 	public const PLUGIN_SLUG = 'wpify-plugin';

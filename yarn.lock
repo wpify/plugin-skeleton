@@ -15625,10 +15625,10 @@ worker-farm@^1.7.0:
   dependencies:
     errno "~0.1.7"
 
-wpify-scripts@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/wpify-scripts/-/wpify-scripts-1.1.0.tgz#32d5c9cf8d86c11f603e3a53f9254d4002dd699b"
-  integrity sha512-AXtAEBMLNvx+apvkNZ/8gjuwFlrptz9rDXRzbpx2SIxLDE1MqvU5HizkpiHqaAo5AVBPowj704GUClwuEjBlEg==
+wpify-scripts@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/wpify-scripts/-/wpify-scripts-1.1.1.tgz#e10c6551ceda89d9042eee676b78258b7fca8951"
+  integrity sha512-cmLCGUTVgzWV1ag3+cIuNfF/pCIKbFwi9KBrkRK3lrGCjT3li+ixDU1929sWzBdtIyf1lHPB73BTSO7y1T3fbg==
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-proposal-object-rest-spread" "^7.12.1"
@@ -15652,6 +15652,7 @@ wpify-scripts@^1.1.0:
     cssnano "^4.1.10"
     dotenv "^8.2.0"
     eslint "^7.16.0"
+    eslint-plugin-babel "^5.3.1"
     file-loader "^6.2.0"
     find-babel-config "^1.2.0"
     friendly-errors-webpack-plugin "^1.7.0"
