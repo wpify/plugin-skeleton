@@ -330,7 +330,7 @@
         },
         {
             "name": "wpify/core",
-            "version": "3.0.6",
+            "version": "3.0.7",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/wpify-core.git",
