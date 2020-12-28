@@ -330,16 +330,16 @@
         },
         {
             "name": "wpify/core",
-            "version": "3.0.7",
+            "version": "3.0.8",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/wpify-core.git",
-                "reference": "cd12120694aef5520ca9d1fce8ac1e5a46b19691"
+                "reference": "6e9742d15e15e16f3ff4e1aecb4bfd15e902ce26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=cd12120694aef5520ca9d1fce8ac1e5a46b19691",
-                "reference": "cd12120694aef5520ca9d1fce8ac1e5a46b19691",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=6e9742d15e15e16f3ff4e1aecb4bfd15e902ce26",
+                "reference": "6e9742d15e15e16f3ff4e1aecb4bfd15e902ce26",
                 "shasum": ""
             },
             "require": {
@@ -367,7 +367,7 @@
             "support": {
                 "issues": "https://gitlab.com/api/v4/projects/18728803/issues"
             },
-            "time": "2020-12-27T18:30:24+00:00"
+            "time": "2020-12-28T12:23:12+00:00"
         },
         {
             "name": "wpify/tools",
