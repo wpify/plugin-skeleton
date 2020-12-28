@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e1b4a18c82b55ea9f432d8062c98a4f",
+    "content-hash": "9f8bfebf5ce6ed745fe28a510bb5a2dd",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -330,16 +330,16 @@
         },
         {
             "name": "wpify/core",
-            "version": "3.0.8",
+            "version": "3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/wpify-core.git",
-                "reference": "6e9742d15e15e16f3ff4e1aecb4bfd15e902ce26"
+                "reference": "67ace8c13ae7a13f55c459938a11ba74b0e5b29d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=6e9742d15e15e16f3ff4e1aecb4bfd15e902ce26",
-                "reference": "6e9742d15e15e16f3ff4e1aecb4bfd15e902ce26",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=67ace8c13ae7a13f55c459938a11ba74b0e5b29d",
+                "reference": "67ace8c13ae7a13f55c459938a11ba74b0e5b29d",
                 "shasum": ""
             },
             "require": {
@@ -350,8 +350,9 @@
                 "php": ">=7.4"
             },
             "require-dev": {
-                "squizlabs/php_codesniffer": "^3.5.8",
-                "wp-coding-standards/wpcs": "^2.3.0"
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+                "squizlabs/php_codesniffer": "^3.5",
+                "wp-coding-standards/wpcs": "^2.3"
             },
             "type": "library",
             "autoload": {
@@ -367,7 +368,7 @@
             "support": {
                 "issues": "https://gitlab.com/api/v4/projects/18728803/issues"
             },
-            "time": "2020-12-28T12:23:12+00:00"
+            "time": "2020-12-28T13:03:08+00:00"
         },
         {
             "name": "wpify/tools",
@@ -413,6 +414,76 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "dealerdirect/phpcodesniffer-composer-installer",
+            "version": "v0.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dealerdirect/phpcodesniffer-composer-installer.git",
+                "reference": "fe390591e0241955f22eb9ba327d137e501c771c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dealerdirect/phpcodesniffer-composer-installer/zipball/fe390591e0241955f22eb9ba327d137e501c771c",
+                "reference": "fe390591e0241955f22eb9ba327d137e501c771c",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0 || ^2.0",
+                "php": ">=5.3",
+                "squizlabs/php_codesniffer": "^2.0 || ^3.0 || ^4.0"
+            },
+            "require-dev": {
+                "composer/composer": "*",
+                "phpcompatibility/php-compatibility": "^9.0",
+                "sensiolabs/security-checker": "^4.1.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Franck Nijhof",
+                    "email": "franck.nijhof@dealerdirect.com",
+                    "homepage": "http://www.frenck.nl",
+                    "role": "Developer / IT Manager"
+                }
+            ],
+            "description": "PHP_CodeSniffer Standards Composer Installer Plugin",
+            "homepage": "http://www.dealerdirect.com",
+            "keywords": [
+                "PHPCodeSniffer",
+                "PHP_CodeSniffer",
+                "code quality",
+                "codesniffer",
+                "composer",
+                "installer",
+                "phpcs",
+                "plugin",
+                "qa",
+                "quality",
+                "standard",
+                "standards",
+                "style guide",
+                "stylecheck",
+                "tests"
+            ],
+            "support": {
+                "issues": "https://github.com/dealerdirect/phpcodesniffer-composer-installer/issues",
+                "source": "https://github.com/dealerdirect/phpcodesniffer-composer-installer"
+            },
+            "time": "2020-12-07T18:04:37+00:00"
+        },
         {
             "name": "mustache/mustache",
             "version": "v2.13.0",
