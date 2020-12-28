@@ -3,7 +3,8 @@
   "type": "project",
   "license": "GPL-3.0-or-later",
   "scripts": {
-    "phpcs": "phpcs --standard=phpcs.xml"
+    "phpcs": "phpcs --standard=WordPress",
+    "phpcbf": "phpcbf --standard=WordPress"
   },
   "autoload": {
     "psr-4": {
@@ -14,14 +15,15 @@
     ]
   },
   "require": {
-    "php": "^7.3.0",
+    "php": "^7.3",
     "doctrine/collections": "^1.6",
     "cmb2/cmb2": "^2.7",
-    "wpify/core": "^2.0",
-    "wpify/tools": "^2.0"
+    "wpify/core": "^3.0",
+    "wpify/tools": "^2.1"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.5",
-    "wpify/cli": "^0.3.1"
+    "wpify/cli": "^0.3",
+    "wp-coding-standards/wpcs": "^2.3"
   }
 }

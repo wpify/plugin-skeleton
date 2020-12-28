@@ -2,20 +2,18 @@
 
 namespace WpifyPlugin;
 
-use Wpify\Core_2_0\Abstracts\AbstractComponent;
+use Wpify\Core_3_0\Abstracts\AbstractComponent;
 
-class Frontend extends AbstractComponent
-{
-  public function setup()
-  {
-    add_action('wp_footer', [$this, 'print_react_root']);
-  }
+class Frontend extends AbstractComponent {
 
-  /**
-   * Prints React root div
-   */
-  public function print_react_root()
-  {
-    echo '<div id="react-root"></div>';
-  }
+	public function setup() {
+		add_action( 'wp_footer', array( $this, 'print_react_root' ) );
+	}
+
+	/**
+	 * Prints React root div
+	 */
+	public function print_react_root() {
+		echo '<div id="react-root"></div>';
+	}
 }

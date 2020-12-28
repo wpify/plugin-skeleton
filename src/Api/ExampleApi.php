@@ -2,7 +2,7 @@
 
 namespace WpifyPlugin\Api;
 
-use Wpify\Core_2_0\Abstracts\AbstractRest;
+use Wpify\Core_3_0\Abstracts\AbstractRest;
 use WP_REST_Server;
 use WP_REST_Response;
 use WpifyPlugin\Plugin;
@@ -10,110 +10,103 @@ use WpifyPlugin\Plugin;
 /**
  * @property Plugin $plugin
  */
-class ExampleApi extends AbstractRest
-{
-  /**
-   * ExampleApi constructor.
-   */
-  public function __construct()
-  {
-  }
+class ExampleApi extends AbstractRest {
 
-  public function setup()
-  {
-    add_action('rest_api_init', [$this, 'register_routes']);
-  }
+	/**
+	 * ExampleApi constructor.
+	 */
+	public function __construct() {
+	}
 
-  /**
-   * Register the routes for the objects of the controller.
-   */
-  public function register_routes()
-  {
-    register_rest_route(
-      $this->plugin->get_api_manager()->get_rest_namespace(),
-      'some-endpoint',
-      [
-        [
-          'methods'  => WP_REST_Server::CREATABLE,
-          'callback' => [$this, 'handle_some_endpoint'],
-          'args'     => [
-            'size' => [
-              'required' => true,
-            ],
-          ],
-        ],
-      ]
-    );
+	public function setup() {
+		add_action( 'rest_api_init', array( $this, 'register_routes' ) );
+	}
 
-    register_rest_route(
-      $this->plugin->get_api_manager()->get_rest_namespace(),
-      '/set-app-name',
-      [
-        'methods' => WP_REST_Server::EDITABLE,
-        'callback' => [$this, 'set_app_name'],
-        'args' => [
-          'nonce' => [
-            'required' => true,
-            'validate_callback' => function ($nonce) {
-              return wp_verify_nonce($nonce, $this->plugin->get_api_manager()->get_nonce_action());
-            },
-          ],
-          'name' => [
-            'required' => true,
-          ],
-        ],
-      ]
-    );
-  }
+	/**
+	 * Register the routes for the objects of the controller.
+	 */
+	public function register_routes() {
+		register_rest_route(
+			$this->plugin->get_api_manager()->get_rest_namespace(),
+			'some-endpoint',
+			array(
+				array(
+					'methods'  => WP_REST_Server::CREATABLE,
+					'callback' => array( $this, 'handle_some_endpoint' ),
+					'args'     => array(
+						'size' => array(
+							'required' => true,
+						),
+					),
+				),
+			)
+		);
 
-  /**
-   * Add box to cart
-   *
-   * @param \WP_REST_Request $request Full data about the request.
-   *
-   * @return \WP_Error|\WP_REST_Request|\WP_REST_Response | bool
-   * @throws \ComposePress\Core\Exception\Plugin
-   */
-  public function handle_some_endpoint($request)
-  {
-    $size = $request->get_param('size');
+		register_rest_route(
+			$this->plugin->get_api_manager()->get_rest_namespace(),
+			'/set-app-name',
+			array(
+				'methods'  => WP_REST_Server::EDITABLE,
+				'callback' => array( $this, 'set_app_name' ),
+				'args'     => array(
+					'nonce' => array(
+						'required'          => true,
+						'validate_callback' => function ( $nonce ) {
+							return wp_verify_nonce( $nonce, $this->plugin->get_api_manager()->get_nonce_action() );
+						},
+					),
+					'name'  => array(
+						'required' => true,
+					),
+				),
+			)
+		);
+	}
 
-    return new WP_REST_Response(['size' => $size], 201);
-  }
+	/**
+	 * Add box to cart
+	 *
+	 * @param \WP_REST_Request $request Full data about the request.
+	 *
+	 * @return \WP_Error|\WP_REST_Request|\WP_REST_Response | bool
+	 * @throws \ComposePress\Core\Exception\Plugin
+	 */
+	public function handle_some_endpoint( $request ) {
+		$size = $request->get_param( 'size' );
 
-  public function set_app_name($request)
-  {
-    $params = $request->get_params();
+		return new WP_REST_Response( array( 'size' => $size ), 201 );
+	}
 
-    set_transient('wpify_app_name', $params['name']);
+	public function set_app_name( $request ) {
+		$params = $request->get_params();
 
-    return rest_ensure_response($params);
-  }
+		set_transient( 'wpify_app_name', $params['name'] );
+
+		return rest_ensure_response( $params );
+	}
 
 
-  /**
-   * Check if a given request has access to create items
-   *
-   * @param \WP_REST_Request $request Full data about the request.
-   *
-   * @return \WP_Error|bool
-   */
-  public function create_item_permissions_check($request)
-  {
-    return true;
-  }
+	/**
+	 * Check if a given request has access to create items
+	 *
+	 * @param \WP_REST_Request $request Full data about the request.
+	 *
+	 * @return \WP_Error|bool
+	 */
+	public function create_item_permissions_check( $request ) {
+		return true;
+	}
 
 
-  /**
-   * Prepare the item for the REST response
-   *
-   * @param mixed            $item WordPress representation of the item.
-   * @param \WP_REST_Request $request Request object.
-   *
-   * @return mixed
-   */
-  public function prepare_item_for_response($item, $request)
-  {
-    return [];
-  }
+	/**
+	 * Prepare the item for the REST response
+	 *
+	 * @param mixed            $item WordPress representation of the item.
+	 * @param \WP_REST_Request $request Request object.
+	 *
+	 * @return mixed
+	 */
+	public function prepare_item_for_response( $item, $request ) {
+		return array();
+	}
 }

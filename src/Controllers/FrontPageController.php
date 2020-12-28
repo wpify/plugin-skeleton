@@ -10,10 +10,9 @@ use WpifyPlugin\Controller;
 /**
  * @property Plugin $plugin
  */
-class FrontPageController extends Controller
-{
-  public function get_posts(): ArrayCollection
-  {
-    return $this->plugin->get_repository(BookRepository::class)->all();
-  }
+class FrontPageController extends Controller {
+
+	public function get_posts(): ArrayCollection {
+		return $this->plugin->get_repository( BookRepository::class )->all();
+	}
 }
