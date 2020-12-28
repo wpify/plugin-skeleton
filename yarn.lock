@@ -1618,7 +1618,7 @@
     deepmerge "^4.2.2"
     svgo "^1.2.2"
 
-"@svgr/webpack@^5.2.0", "@svgr/webpack@^5.5.0":
+"@svgr/webpack@^5.2.0":
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/@svgr/webpack/-/webpack-5.5.0.tgz#aae858ee579f5fa8ce6c3166ef56c6a1b381b640"
   integrity sha512-DOBOK255wfQxguUta2INKkzPj6AIS6iafZYiYmHn6W3pHlycSRRlvWKCfLDG10fXfLWqE3DJHgRUOyJYmARa7g==
@@ -15625,19 +15625,21 @@ worker-farm@^1.7.0:
   dependencies:
     errno "~0.1.7"
 
-wpify-scripts@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/wpify-scripts/-/wpify-scripts-1.1.1.tgz#e10c6551ceda89d9042eee676b78258b7fca8951"
-  integrity sha512-cmLCGUTVgzWV1ag3+cIuNfF/pCIKbFwi9KBrkRK3lrGCjT3li+ixDU1929sWzBdtIyf1lHPB73BTSO7y1T3fbg==
+wpify-scripts@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/wpify-scripts/-/wpify-scripts-1.1.4.tgz#4ea792433bab379b3f0410700875928a322349fe"
+  integrity sha512-OBkh1OMuovVVeVMs5paq1Q7Qtg2n7WHSBj1MJw0rlmKiEiT+Mv2ra7DEqTJ+f25IzAFmTzjitXNZnRWT+JMc7w==
   dependencies:
     "@babel/core" "^7.12.10"
+    "@babel/plugin-proposal-class-properties" "^7.12.1"
     "@babel/plugin-proposal-object-rest-spread" "^7.12.1"
     "@babel/plugin-proposal-optional-chaining" "^7.12.7"
+    "@babel/plugin-syntax-class-properties" "^7.12.1"
     "@babel/plugin-syntax-dynamic-import" "^7.8.3"
     "@babel/preset-env" "^7.12.11"
     "@babel/preset-react" "^7.12.10"
     "@pmmmwh/react-refresh-webpack-plugin" "^0.4.3"
-    "@svgr/webpack" "^5.5.0"
+    "@svgr/webpack" "^5.2.0"
     "@wordpress/dependency-extraction-webpack-plugin" "^2.9.0"
     "@wordpress/eslint-plugin" "^7.4.0"
     "@wordpress/jest-preset-default" "^6.6.0"
