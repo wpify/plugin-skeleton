@@ -42,7 +42,7 @@ class TestBlock extends AbstractBlock {
   }
 
   public function render( $block_attributes, $content ) {
-    return $this->plugin->render_template( 'blocks/test-block', null, array(
+    return $this->plugin->get_template()->render( 'blocks/test-block', null, array(
       'attributes' => $this->parse_attributes( $block_attributes ),
       'content'    => $content,
     ) );

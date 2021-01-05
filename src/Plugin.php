@@ -7,8 +7,8 @@ use Wpify\Core_3_0\Abstracts\AbstractPlugin as PluginBase;
 use Wpify\Core_3_0\Exceptions\ContainerInvalidException;
 use Wpify\Core_3_0\Exceptions\ContainerNotExistsException;
 use Wpify\Core_3_0\Interfaces\RepositoryInterface;
-use Wpify\Core_3_0\View;
 use Wpify\Core_3_0\WebpackManifest;
+use Wpify\Core_3_0\WordPressTemplate;
 use WpifyPlugin\Managers\ApiManager;
 use WpifyPlugin\Managers\BlocksManager;
 use WpifyPlugin\Managers\PostTypesManager;
@@ -61,8 +61,8 @@ class Plugin extends PluginBase {
   /** @var WebpackManifest */
   private $webpack_manifest;
 
-  /** @var View */
-  private $view;
+  /** @var WordPressTemplate */
+  private $template;
 
   /**
    * Plugin constructor.
@@ -77,7 +77,7 @@ class Plugin extends PluginBase {
    * @param BlocksManager $blocks_manager
    * @param Assets $assets
    * @param WebpackManifest $webpack_manifest
-   * @param View $view
+   * @param WordPressTemplate $template
    *
    * @throws ContainerInvalidException
    * @throws ContainerNotExistsException
@@ -93,7 +93,7 @@ class Plugin extends PluginBase {
     BlocksManager $blocks_manager,
     Assets $assets,
     WebpackManifest $webpack_manifest,
-    View $view
+    WordPressTemplate $template
   ) {
     $this->frontend             = $frontend;
     $this->post_types_manager   = $post_types_manager;
@@ -105,7 +105,7 @@ class Plugin extends PluginBase {
     $this->blocks_manager       = $blocks_manager;
     $this->assets               = $assets;
     $this->webpack_manifest     = $webpack_manifest;
-    $this->view                 = $view;
+    $this->template             = $template;
 
     parent::__construct();
   }
@@ -189,44 +189,6 @@ class Plugin extends PluginBase {
     $this->assets->print_assets( $handles );
   }
 
-  public function get_view(): View {
-    return $this->view;
-  }
-
-  /**
-   * Renders the template from plugin templates folder or theme folder and returns the result.
-   *
-   * @param string $slug The slug name for the generic template.
-   * @param null $name The name of the specialised template.
-   * @param array $args Additional arguments passed to the template.
-   *
-   * @return string
-   */
-  public function render_template( string $slug, $name = null, $args = array() ) {
-    $templates_folder = $this->get_plugin_dir() . '/templates/';
-    $templates        = array();
-
-    if ( ! empty( $name ) ) {
-      $templates[] = $templates_folder . $slug . '-' . $name . '.php';
-    }
-
-    $templates[] = $templates_folder . $slug . '.php';
-
-    foreach ( $templates as $template ) {
-      if ( file_exists( $template ) ) {
-        ob_start();
-        load_template( $template, false, $args );
-
-        return ob_get_clean();
-      }
-    }
-
-    ob_start();
-    get_template_part( $slug, $name, $args );
-
-    return ob_get_clean();
-  }
-
   /**
    * Plugin activation and upgrade
    *
@@ -253,6 +215,13 @@ class Plugin extends PluginBase {
    * @return void
    */
   public function uninstall() {
+  }
+
+  /**
+   * @return WordPressTemplate
+   */
+  public function get_template(): WordPressTemplate {
+    return $this->template;
   }
 
   /**

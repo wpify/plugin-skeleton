@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f81ce4ad88c585650e56f28d970012b",
+    "content-hash": "fbc212bd1c2001567937d56523104d6f",
     "packages": [
         {
             "name": "cmb2/cmb2",
@@ -330,16 +330,16 @@
         },
         {
             "name": "wpify/core",
-            "version": "3.0.10",
+            "version": "3.0.11",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/wpify-core.git",
-                "reference": "4ddd5623e622fa51be89bbd436b0989668b496b4"
+                "reference": "e7876b3f48b2efa2273a63d661d87d23a815018e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=4ddd5623e622fa51be89bbd436b0989668b496b4",
-                "reference": "4ddd5623e622fa51be89bbd436b0989668b496b4",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-core/repository/archive.zip?sha=e7876b3f48b2efa2273a63d661d87d23a815018e",
+                "reference": "e7876b3f48b2efa2273a63d661d87d23a815018e",
                 "shasum": ""
             },
             "require": {
@@ -368,24 +368,24 @@
             "support": {
                 "issues": "https://gitlab.com/api/v4/projects/18728803/issues"
             },
-            "time": "2021-01-05T12:33:47+00:00"
+            "time": "2021-01-05T14:27:35+00:00"
         },
         {
             "name": "wpify/tools",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/wpify-tools.git",
-                "reference": "d238e533f818700327b2d438df3abe590cee6007"
+                "reference": "8f38e303a176a63e3900ccf8d4766aaf73858c5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-tools/repository/archive.zip?sha=d238e533f818700327b2d438df3abe590cee6007",
-                "reference": "d238e533f818700327b2d438df3abe590cee6007",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fwpify-tools/repository/archive.zip?sha=8f38e303a176a63e3900ccf8d4766aaf73858c5e",
+                "reference": "8f38e303a176a63e3900ccf8d4766aaf73858c5e",
                 "shasum": ""
             },
             "require": {
-                "wpify/core": "^3.0.10"
+                "wpify/core": "^3.0"
             },
             "type": "library",
             "autoload": {
@@ -410,7 +410,7 @@
             "support": {
                 "issues": "https://gitlab.com/api/v4/projects/18983824/issues"
             },
-            "time": "2021-01-05T13:36:47+00:00"
+            "time": "2021-01-05T15:34:54+00:00"
         }
     ],
     "packages-dev": [
