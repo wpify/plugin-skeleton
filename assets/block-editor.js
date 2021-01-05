@@ -1,6 +1,5 @@
 import { registerBlockStyle, unregisterBlockStyle } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
-import './block-editor.scss';
 
 // Block styles
 
