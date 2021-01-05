@@ -197,10 +197,10 @@ class Plugin extends PluginBase {
    * Renders the template from plugin templates folder or theme folder and returns the result.
    *
    * @param string $slug The slug name for the generic template.
-   * @param null   $name The name of the specialised template.
-   * @param array  $args Additional arguments passed to the template.
+   * @param null $name The name of the specialised template.
+   * @param array $args Additional arguments passed to the template.
    *
-   * @return false|string|void
+   * @return string
    */
   public function render_template( string $slug, $name = null, $args = array() ) {
     $templates_folder = $this->get_plugin_dir() . '/templates/';
@@ -221,7 +221,10 @@ class Plugin extends PluginBase {
       }
     }
 
-    return get_template_part( $slug, $name, $args );
+    ob_start();
+    get_template_part( $slug, $name, $args );
+
+    return ob_get_clean();
   }
 
   /**
