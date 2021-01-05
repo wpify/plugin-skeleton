@@ -204,11 +204,13 @@ class Plugin extends PluginBase {
    */
   public function render_template( string $slug, $name = null, $args = array() ) {
     $templates_folder = $this->get_plugin_dir() . '/templates/';
-    $templates        = array( $templates_folder . $slug . '.php' );
+    $templates        = array();
 
     if ( ! empty( $name ) ) {
       $templates[] = $templates_folder . $slug . '-' . $name . '.php';
     }
+
+    $templates[] = $templates_folder . $slug . '.php';
 
     foreach ( $templates as $template ) {
       if ( file_exists( $template ) ) {
