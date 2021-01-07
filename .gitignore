@@ -1,5 +1,5 @@
-build
-node_modules
-vendor
-.php_cs.cache
-.idea
+/.idea/
+/build/
+/node_modules/
+/vendor/
+/.php_cs.cache
