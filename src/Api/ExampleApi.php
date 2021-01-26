@@ -2,7 +2,7 @@
 
 namespace WpifyPlugin\Api;
 
-use Wpify\Core_3_0\Abstracts\AbstractRest;
+use Wpify\Core_4_0\Abstracts\AbstractRest;
 use WP_REST_Server;
 use WP_REST_Response;
 use WpifyPlugin\Plugin;

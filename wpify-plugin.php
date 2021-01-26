@@ -3,9 +3,9 @@
 /*
  * Plugin Name:       WPify Plugin
  * Description:       Plugin with theme by WPify
- * Version:           2.1.3
+ * Version:           2.2.0
  * Requires PHP:      7.3.0
- * Requires at least: 5.5
+ * Requires at least: 5.3.0
  * Author:            WPify
  * Author URI:        https://www.wpify.io/
  * License:           GPL v2 or later
@@ -14,9 +14,8 @@
  * Domain Path: /languages
 */
 
-use Dice\Dice;
-use Wpify\Core_3_0\Container;
-use Wpify\Core_3_0\WebpackManifest;
+use Wpify\Core_4_0\Container;
+use Wpify\Core_4_0\WebpackManifest;
 use WpifyPlugin\Plugin;
 
 if ( ! defined( 'WPIFY_PLUGIN_MIN_PHP_VERSION' ) ) {
@@ -32,7 +31,7 @@ if ( ! defined( 'WPIFY_PLUGIN_MIN_PHP_VERSION' ) ) {
  * @throws Exception
  */
 function wpify_plugin(): Plugin {
-  return wpify_plugin_container()->create( Plugin::class );
+  return wpify_plugin_container()->get( Plugin::class );
 }
 
 /**
@@ -40,24 +39,19 @@ function wpify_plugin(): Plugin {
  *
  * @param string $env
  *
- * @return Dice
+ * @return DI\Container
  * @throws Exception
  */
-function wpify_plugin_container( $env = 'production' ): Dice {
+function wpify_plugin_container(): DI\Container {
   static $container;
   if ( empty( $container ) ) {
     $wpify_container = Container::getInstance();
     $container       = $wpify_container->add_container(
       'wpify_plugin',
       array(
-        Plugin::class          => array( 'shared' => true ),
-        WebpackManifest::class => array(
-          'shared'          => true,
-          'constructParams' => array(
-            'build/assets-manifest.json',
-            'wpify-plugin~',
-          ),
-        ),
+        Plugin::class          => DI\autowire( Plugin::class ),
+        WebpackManifest::class => DI\autowire()
+          ->constructor( 'build/assets-manifest.json', 'wpify-woo~' )
       )
     );
   }

@@ -2,7 +2,7 @@
 
 namespace WpifyPlugin\Models;
 
-use Wpify\Core_3_0\Abstracts\AbstractTermModel;
+use Wpify\Core_4_0\Abstracts\AbstractTermModel;
 use WpifyPlugin\Plugin;
 
 /**

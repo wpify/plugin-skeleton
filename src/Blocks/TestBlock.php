@@ -2,7 +2,7 @@
 
 namespace WpifyPlugin\Blocks;
 
-use Wpify\Core_3_0\Abstracts\AbstractBlock;
+use Wpify\Core_4_0\Abstracts\AbstractBlock;
 use WpifyPlugin\Plugin;
 
 /**

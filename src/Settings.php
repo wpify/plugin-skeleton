@@ -2,7 +2,7 @@
 
 namespace WpifyPlugin;
 
-use Wpify\Core_3_0\Abstracts\AbstractComponent;
+use Wpify\Core_4_0\Abstracts\AbstractComponent;
 use WpifyPlugin\Managers\RepositoriesManager;
 
 /**
@@ -54,7 +54,7 @@ class Settings extends AbstractComponent {
 	 */
 	public function __construct( RepositoriesManager $repositories_manager ) {
 		// Set our title
-		$this->title = __( 'WPify Settings', 'wpify-plugin' );
+		$this->title = __( 'WPify', 'wpify-plugin' );
 		$this->hooks();
 		$this->repositories_manager = $repositories_manager;
 	}
@@ -86,7 +86,8 @@ class Settings extends AbstractComponent {
 	 * @since 0.1.0
 	 */
 	public function add_options_page() {
-		$this->options_page = add_menu_page(
+		$this->options_page = add_submenu_page(
+		  'options-general.php',
 			$this->title,
 			$this->title,
 			'manage_options',

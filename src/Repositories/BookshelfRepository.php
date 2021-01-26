@@ -2,7 +2,7 @@
 
 namespace WpifyPlugin\Repositories;
 
-use Wpify\Core_3_0\Abstracts\AbstractTaxonomyRepository;
+use Wpify\Core_4_0\Abstracts\AbstractTaxonomyRepository;
 use WpifyPlugin\Plugin;
 use WpifyPlugin\Taxonomies\BookshelfTaxonomy;
 

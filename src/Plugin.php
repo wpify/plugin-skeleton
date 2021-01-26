@@ -3,12 +3,12 @@
 namespace WpifyPlugin;
 
 use Exception;
-use Wpify\Core_3_0\Abstracts\AbstractPlugin as PluginBase;
-use Wpify\Core_3_0\Exceptions\ContainerInvalidException;
-use Wpify\Core_3_0\Exceptions\ContainerNotExistsException;
-use Wpify\Core_3_0\Interfaces\RepositoryInterface;
-use Wpify\Core_3_0\WebpackManifest;
-use Wpify\Core_3_0\WordPressTemplate;
+use Wpify\Core_4_0\Abstracts\AbstractPlugin as PluginBase;
+use Wpify\Core_4_0\Exceptions\ContainerInvalidException;
+use Wpify\Core_4_0\Exceptions\ContainerNotExistsException;
+use Wpify\Core_4_0\Interfaces\RepositoryInterface;
+use Wpify\Core_4_0\WebpackManifest;
+use Wpify\Core_4_0\WordPressTemplate;
 use WpifyPlugin\Managers\ApiManager;
 use WpifyPlugin\Managers\BlocksManager;
 use WpifyPlugin\Managers\PostTypesManager;
@@ -23,7 +23,7 @@ use WpifyPlugin\Managers\ToolsManager;
  */
 class Plugin extends PluginBase {
   /** Plugin version */
-  public const VERSION = '2.1.3';
+  public const VERSION = '2.2.0';
 
   /** Plugin slug name */
   public const PLUGIN_SLUG = 'wpify-plugin';
