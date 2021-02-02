@@ -1,7 +1,7 @@
 {
   "name": "wpify/plugin",
   "type": "project",
-  "license": "GPL-3.0-or-later",
+  "license": "GPL-2.0-or-later",
   "scripts": {
     "phpcs": "phpcs --standard=WordPress",
     "phpcbf": "phpcbf --standard=WordPress"
@@ -15,7 +15,7 @@
     ]
   },
   "require": {
-    "php": "^7.3",
+    "php": ">=7.3.0||^8.0.0",
     "doctrine/collections": "^1.6",
     "cmb2/cmb2": "^2.7",
     "wpify/core": "^4.0",
