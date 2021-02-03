@@ -26,6 +26,6 @@ The boilerplate uses composer (for dependencies and PHP autoloading), Yarn (for 
 
 1. Clone the directory to the `wp-content/plugins/wpify`
 2. Go to the directory `wp-content/plugins/wpify`
-3. Run the commands `composer install`, `yarn install` and `yarn build`
+3. Run the commands `composer install`, `npm install` and `npm run build`
 4. Activate the plugin and the default theme
-5. For development run `yarn start` command
+5. For development run `npm run start` command
