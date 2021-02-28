@@ -38,10 +38,6 @@ return array(
 				$content = str_replace( "\\$prefix\\WC", '\\WP', $content );
 			}
 
-			if ( strpos( $filePath, 'cmb2/cmb2' ) !== false ) {
-				$content = str_replace( "array('CMB2", "array('$prefix\\CMB2", $content );
-			}
-
 			return $content;
 		},
 	),
