@@ -27,10 +27,6 @@ return array(
 	),
 	'patchers'                   => array(
 		function ( string $filePath, string $prefix, string $content ): string {
-			if ( strpos( $filePath, 'composer/autoload_real.php' ) !== false ) {
-				$content = str_replace( 'if (\'Composer\\\\Autoload\\\\ClassLoader\' === $class)', 'if (\'' . $prefix . '\\\\Composer\\\\Autoload\\\\ClassLoader\' === $class)', $content );
-			}
-
 			if ( strpos( $filePath, 'guzzlehttp/guzzle/src/Handler/CurlFactory.php' ) !== false ) {
 				$content = str_replace( 'stream_for($sink)', 'Utils::streamFor()', $content );
 			}

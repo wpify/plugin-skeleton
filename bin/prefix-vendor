@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2046
 
+# Download php-scoper if needed
 if [ ! -f ./bin/php-scoper ]; then
 	echo "=== INSTALLING PHP-SCOPER ==="
 
@@ -9,7 +10,7 @@ if [ ! -f ./bin/php-scoper ]; then
   elif [ $(command -v curl) ]; then
     curl -Lo ./bin/php-scoper "https://github.com/humbug/php-scoper/releases/download/0.14.0/php-scoper.phar"
   else
-		echo "!!! COULD NOT INSTALL PHP-SCOPER !!!"
+		echo "!!! COULD NOT INSTALL PHP-SCOPER, no WGET or CURL on the system !!!"
     exit 1
   fi
 
@@ -18,10 +19,6 @@ fi
 
 # Build scoped vendor folder
 ./bin/php-scoper add-prefix --output-dir=deps/prefixed --force
+
+# Dump aulotoad for prefixed files
 cd deps/prefixed && composer dump-autoload
-
-#composer dump-autoload
-
-#cd dist && composer dump-autoload && cd ..
-
-#rsync -av --delete ./dist/ ~/sites/wp/wp-content/plugins/wpify-plugin/
