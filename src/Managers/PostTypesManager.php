@@ -2,9 +2,9 @@
 
 namespace WpifyPlugin\Managers;
 
-use Wpify\Core_4_0\Abstracts\AbstractManager;
-use WpifyPlugin\PostTypes\BookPostType;
 use WpifyPlugin\Plugin;
+use WpifyPlugin\PostTypes\BookPostType;
+use Wpify\Core\Abstracts\AbstractManager;
 
 /**
  * Class CptManager
@@ -14,8 +14,7 @@ use WpifyPlugin\Plugin;
  * @property BookPostType $MyPostType
  */
 class PostTypesManager extends AbstractManager {
-
-	protected $modules = array(
-		BookPostType::class,
-	);
+  protected $modules = array(
+    BookPostType::class,
+  );
 }

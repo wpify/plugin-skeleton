@@ -3,18 +3,18 @@
 namespace WpifyPlugin;
 
 use Exception;
-use Wpify\Core_4_0\Abstracts\AbstractPlugin as PluginBase;
-use Wpify\Core_4_0\Exceptions\ContainerInvalidException;
-use Wpify\Core_4_0\Exceptions\ContainerNotExistsException;
-use Wpify\Core_4_0\Interfaces\RepositoryInterface;
-use Wpify\Core_4_0\WebpackManifest;
-use Wpify\Core_4_0\WordPressTemplate;
 use WpifyPlugin\Managers\ApiManager;
 use WpifyPlugin\Managers\BlocksManager;
 use WpifyPlugin\Managers\PostTypesManager;
 use WpifyPlugin\Managers\RepositoriesManager;
 use WpifyPlugin\Managers\TaxonomiesManager;
 use WpifyPlugin\Managers\ToolsManager;
+use Wpify\Core\Abstracts\AbstractPlugin as PluginBase;
+use Wpify\Core\Exceptions\ContainerInvalidException;
+use Wpify\Core\Exceptions\ContainerNotExistsException;
+use Wpify\Core\Interfaces\RepositoryInterface;
+use Wpify\Core\WebpackManifest;
+use Wpify\Core\WordPressTemplate;
 
 /**
  * Class Plugin

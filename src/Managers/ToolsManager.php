@@ -2,8 +2,8 @@
 
 namespace WpifyPlugin\Managers;
 
-use Wpify\Core_4_0\Abstracts\AbstractManager;
 use WpifyPlugin\Plugin;
+use Wpify\Core\Abstracts\AbstractManager;
 
 /**
  * Class ToolsManager

@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2046
+
+if [ ! -f ./bin/php-scoper ]; then
+	echo "=== INSTALLING PHP-SCOPER ==="
+
+  if [ $(command -v wget) ]; then
+    wget -O ./bin/php-scoper "https://github.com/humbug/php-scoper/releases/download/0.14.0/php-scoper.phar"
+  elif [ $(command -v curl) ]; then
+    curl -Lo ./bin/php-scoper "https://github.com/humbug/php-scoper/releases/download/0.14.0/php-scoper.phar"
+  else
+		echo "!!! COULD NOT INSTALL PHP-SCOPER !!!"
+    exit 1
+  fi
+
+	chmod +x ./bin/php-scoper
+fi
+
+if [ ! -f ./bin/mozart ]; then
+	echo "=== INSTALLING MOZART ==="
+
+  if [ $(command -v wget) ]; then
+    wget -O ./bin/mozart "https://github.com/coenjacobs/mozart/releases/download/0.7.1/mozart.phar"
+  elif [ $(command -v curl) ]; then
+    curl -Lo ./bin/mozart "https://github.com/coenjacobs/mozart/releases/download/0.7.1/mozart.phar"
+  else
+		echo "!!! COULD NOT INSTALL MOZART !!!"
+    exit 1
+  fi
+
+	chmod +x ./bin/mozart
+fi
+
+./bin/mozart compose
+
+# Build scoped vendor folder
+#./bin/php-scoper add-prefix --output-dir=dist --force
+
+#composer dump-autoload
+
+#cd dist && composer dump-autoload && cd ..
+
+#rsync -av --delete ./dist/ ~/sites/wp/wp-content/plugins/wpify-plugin/

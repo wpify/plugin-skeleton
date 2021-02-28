@@ -2,10 +2,10 @@
 
 namespace WpifyPlugin\Managers;
 
-use Wpify\Core_4_0\Abstracts\AbstractManager;
 use WpifyPlugin\Plugin;
 use WpifyPlugin\Repositories\BookRepository;
 use WpifyPlugin\Repositories\BookshelfRepository;
+use Wpify\Core\Abstracts\AbstractManager;
 
 /**
  * Class RepositoriesManager
@@ -14,9 +14,8 @@ use WpifyPlugin\Repositories\BookshelfRepository;
  * @property Plugin $plugin
  */
 class RepositoriesManager extends AbstractManager {
-
-	protected $modules = array(
-		BookRepository::class,
-		BookshelfRepository::class,
-	);
+  protected $modules = array(
+    BookRepository::class,
+    BookshelfRepository::class,
+  );
 }

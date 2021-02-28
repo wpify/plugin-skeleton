@@ -2,8 +2,8 @@
 
 namespace WpifyPlugin\Models;
 
-use Wpify\Core_4_0\Abstracts\AbstractPostTypeModel;
 use WpifyPlugin\Plugin;
+use Wpify\Core\Abstracts\AbstractPostTypeModel;
 
 /**
  * Class BookModel

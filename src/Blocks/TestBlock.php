@@ -2,8 +2,8 @@
 
 namespace WpifyPlugin\Blocks;
 
-use Wpify\Core_4_0\Abstracts\AbstractBlock;
 use WpifyPlugin\Plugin;
+use Wpify\Core\Abstracts\AbstractBlock;
 
 /**
  * Class TestBlock

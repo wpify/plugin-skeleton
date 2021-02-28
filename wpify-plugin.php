@@ -3,7 +3,7 @@
 /*
  * Plugin Name:       WPify Plugin
  * Description:       Plugin with theme by WPify
- * Version:           2.2.1
+ * Version:           2.2.2
  * Requires PHP:      7.3.0
  * Requires at least: 5.3.0
  * Author:            WPify
@@ -14,12 +14,12 @@
  * Domain Path: /languages
 */
 
-use Wpify\Core_4_0\Container;
-use Wpify\Core_4_0\WebpackManifest;
 use WpifyPlugin\Plugin;
+use Wpify\Core\Container;
+use Wpify\Core\WebpackManifest;
 
 if ( ! defined( 'WPIFY_PLUGIN_MIN_PHP_VERSION' ) ) {
-  define( 'WPIFY_PLUGIN_MIN_PHP_VERSION', '7.3.0' );
+	define( 'WPIFY_PLUGIN_MIN_PHP_VERSION', '7.3.0' );
 }
 
 /**
@@ -31,7 +31,7 @@ if ( ! defined( 'WPIFY_PLUGIN_MIN_PHP_VERSION' ) ) {
  * @throws Exception
  */
 function wpify_plugin(): Plugin {
-  return wpify_plugin_container()->get( Plugin::class );
+	return wpify_plugin_container()->get( Plugin::class );
 }
 
 /**
@@ -43,60 +43,60 @@ function wpify_plugin(): Plugin {
  * @throws Exception
  */
 function wpify_plugin_container(): DI\Container {
-  static $container;
-  if ( empty( $container ) ) {
-    $wpify_container = Container::getInstance();
-    $container       = $wpify_container->add_container(
-      'wpify_plugin',
-      array(
-        Plugin::class          => DI\autowire( Plugin::class ),
-        WebpackManifest::class => DI\autowire()
-          ->constructor( 'build/assets-manifest.json', 'wpify-woo~' )
-      )
-    );
-  }
+	static $container;
+	if ( empty( $container ) ) {
+		$wpify_container = Container::getInstance();
+		$container       = $wpify_container->add_container(
+			'wpify_plugin',
+			array(
+				Plugin::class          => DI\autowire( Plugin::class ),
+				WebpackManifest::class => DI\autowire()
+					->constructor( 'build/assets-manifest.json', 'wpify-woo~' )
+			)
+		);
+	}
 
-  return $container;
+	return $container;
 }
 
 /**
  * Init function shortcut
  */
 function wpify_plugin_init() {
-  wpify_plugin()->init();
+	wpify_plugin()->init();
 }
 
 /**
  * Activate function shortcut
  */
 function wpify_plugin_activate( $network_wide ) {
-  register_uninstall_hook( __FILE__, 'wpify_plugin_uninstall' );
-  wpify_plugin()->init();
-  wpify_plugin()->activate( $network_wide );
+	register_uninstall_hook( __FILE__, 'wpify_plugin_uninstall' );
+	wpify_plugin()->init();
+	wpify_plugin()->activate( $network_wide );
 }
 
 /**
  * Deactivate function shortcut
  */
 function wpify_plugin_deactivate( $network_wide ) {
-  wpify_plugin()->deactivate( $network_wide );
+	wpify_plugin()->deactivate( $network_wide );
 }
 
 /**
  * Uninstall function shortcut
  */
 function wpify_plugin_uninstall() {
-  wpify_plugin()->uninstall();
+	wpify_plugin()->uninstall();
 }
 
 /**
  * Error for older php
  */
 function wpify_plugin_php_upgrade_notice() {
-  $info = get_plugin_data( __FILE__ );
-  _e(
-    sprintf(
-      '
+	$info = get_plugin_data( __FILE__ );
+	_e(
+		sprintf(
+			'
       <div class="error notice">
         <p>
           Opps! %s requires a minimum PHP version of ' . WPIFY_PLUGIN_MIN_PHP_VERSION . '. Your current version is: %s.
@@ -104,42 +104,43 @@ function wpify_plugin_php_upgrade_notice() {
         </p>
       </div>
       ',
-      $info['Name'],
-      PHP_VERSION
-    )
-  );
+			$info['Name'],
+			PHP_VERSION
+		)
+	);
 }
 
 /**
  * Error if vendors autoload is missing
  */
 function wpify_plugin_php_vendor_missing() {
-  $info = get_plugin_data( __FILE__ );
-  _e(
-    sprintf(
-      '
+	$info = get_plugin_data( __FILE__ );
+	_e(
+		sprintf(
+			'
       <div class="error notice">
         <p>Opps! %s is corrupted it seems, please re-install the plugin.</p>
       </div>
       ',
-      $info['Name']
-    )
-  );
+			$info['Name']
+		)
+	);
 }
 
 /*
  * We want to use a fairly modern php version, feel free to increase the minimum requirement
  */
 if ( version_compare( PHP_VERSION, WPIFY_PLUGIN_MIN_PHP_VERSION ) < 0 ) {
-  add_action( 'admin_notices', 'wpify_plugin_php_upgrade_notice' );
+	add_action( 'admin_notices', 'wpify_plugin_php_upgrade_notice' );
 } else {
-  if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
-    include_once __DIR__ . '/vendor/autoload.php';
+	if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+		include_once __DIR__ . '/vendor/autoload.php';
+		include_once __DIR__ . '/vendor/cmb2/cmb2/init.php';
 
-    add_action( 'plugins_loaded', 'wpify_plugin_init', 11 );
-    register_activation_hook( __FILE__, 'wpify_plugin_activate' );
-    register_deactivation_hook( __FILE__, 'wpify_plugin_deactivate' );
-  } else {
-    add_action( 'admin_notices', 'wpify_plugin_php_vendor_missing' );
-  }
+		add_action( 'plugins_loaded', 'wpify_plugin_init', 11 );
+		register_activation_hook( __FILE__, 'wpify_plugin_activate' );
+		register_deactivation_hook( __FILE__, 'wpify_plugin_deactivate' );
+	} else {
+		add_action( 'admin_notices', 'wpify_plugin_php_vendor_missing' );
+	}
 }

@@ -2,16 +2,16 @@
 
 namespace WpifyPlugin\Repositories;
 
-use ComposePress\Core\Exception\Plugin;
-use Wpify\Core_4_0\Abstracts\AbstractPostTypeRepository;
+use WpifyPlugin\Plugin;
 use WpifyPlugin\PostTypes\BookPostType;
+use Wpify\Core\Abstracts\AbstractPostTypeRepository;
 
 /**
  * @property Plugin $plugin
  */
 class BookRepository extends AbstractPostTypeRepository {
 
-	public function post_type(): BookPostType {
-		return $this->plugin->get_post_type( BookPostType::class );
-	}
+  public function post_type(): BookPostType {
+    return $this->plugin->get_post_type( BookPostType::class );
+  }
 }
