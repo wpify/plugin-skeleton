@@ -4,7 +4,7 @@ namespace WpifyPlugin\Managers;
 
 use WpifyPlugin\Plugin;
 use WpifyPlugin\PostTypes\BookPostType;
-use Wpify\Core\Abstracts\AbstractManager;
+use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractManager;
 
 /**
  * Class CptManager

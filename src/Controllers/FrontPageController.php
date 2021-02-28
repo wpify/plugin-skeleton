@@ -5,7 +5,7 @@ namespace WpifyPlugin\Controllers;
 use WpifyPlugin\Controller;
 use WpifyPlugin\Plugin;
 use WpifyPlugin\Repositories\BookRepository;
-use Doctrine\Common\Collections\ArrayCollection;
+use WpifyPluginDeps\Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @property Plugin $plugin

@@ -3,7 +3,15 @@
 namespace WpifyPlugin\Managers;
 
 use WpifyPlugin\Plugin;
-use Wpify\Core\Abstracts\AbstractManager;
+use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractManager;
+use WpifyPluginDeps\Wpify\Tools\CopyrightShortcode;
+use WpifyPluginDeps\Wpify\Tools\CustomSMTP;
+use WpifyPluginDeps\Wpify\Tools\DeferScripts;
+use WpifyPluginDeps\Wpify\Tools\DisableEmbeds;
+use WpifyPluginDeps\Wpify\Tools\DisableEmojis;
+use WpifyPluginDeps\Wpify\Tools\DisableXmlRpc;
+use WpifyPluginDeps\Wpify\Tools\RemoveAccentInFilenames;
+use WpifyPluginDeps\Wpify\Tools\RemoveScriptVersion;
 
 /**
  * Class ToolsManager
@@ -13,7 +21,7 @@ use Wpify\Core\Abstracts\AbstractManager;
  */
 class ToolsManager extends AbstractManager {
   protected $modules = array(
-    //CopyrightShortcode::class,
+  	//CopyrightShortcode::class,
     //CustomSMTP::class,
     //DeferScripts::class,
     //DisableEmbeds::class,

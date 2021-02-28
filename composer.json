@@ -1,51 +1,47 @@
 {
-  "name": "wpify/plugin",
-  "type": "project",
-  "license": "GPL-2.0-or-later",
-  "scripts": {
-	"phpcs": "phpcs --standard=WordPress",
-	"phpcbf": "phpcbf --standard=WordPress",
-	"prefix": "./bin/prefix-vendor"
-  },
-  "autoload": {
-	"psr-4": {
-	  "WpifyPlugin\\": "src\\"
-	}
-  },
-  "extra": {
-	"mozart": {
-	  "dep_namespace": "WpifyPlugin\\Dependencies\\",
-	  "dep_directory": "/src/Dependencies/",
-	  "classmap_directory": "/classes/dependencies/",
-	  "classmap_prefix": "CJTP_",
-	  "packages": [
-		"pimple/pimple"
-	  ],
-	  "exclude_packages": [
-		"psr/container"
-	  ],
-	  "override_autoload": {
-		"google/apiclient": {
-		  "classmap": [
-			"src/"
-		  ]
-		}
-	  },
-	  "delete_vendor_directories": true
-	}
-  },
-  "require": {
-	"php": ">=7.3.0||^8.0.0",
-	"wpify/core": "^4.2",
-	"cmb2/cmb2": "^2.8",
-	"doctrine/collections": "^1.6",
-	"wpify/tools": "^2.3"
-  },
-  "require-dev": {
-	"squizlabs/php_codesniffer": "^3.5",
-	"wpify/cli": "^0.3",
-	"wp-coding-standards/wpcs": "^2.3",
-	"dealerdirect/phpcodesniffer-composer-installer": "^0.7",
-	"bamarni/composer-bin-plugin": "^1.4"
-  }
+    "name": "wpify/plugin",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "scripts": {
+        "phpcs": "phpcs --standard=WordPress",
+        "phpcbf": "phpcbf --standard=WordPress",
+        "prefix": "./bin/prefix-vendor",
+        "require-prefixed": [
+            "cd deps/unprefixed && composer require",
+            "@composer prefix",
+            "composer remove"
+        ],
+        "remove-prefixed": [
+            "cd deps/unprefixed && composer remove",
+            "@composer prefix"
+        ],
+        "update-prefixed": [
+            "cd deps/unprefixed && composer update",
+            "@composer prefix"
+        ],
+        "post-install-cmd": [
+            "cd deps/unprefixed && composer install",
+            "@composer prefix"
+        ],
+        "post-update-cmd": [
+            "cd deps/unprefixed && composer update",
+            "@composer prefix"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "WpifyPlugin\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.3.0||^8.0.0",
+        "cmb2/cmb2": "^2.8"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.5",
+        "wpify/cli": "^0.3",
+        "wp-coding-standards/wpcs": "^2.3",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+        "bamarni/composer-bin-plugin": "^1.4"
+    }
 }

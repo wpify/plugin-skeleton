@@ -4,7 +4,7 @@ namespace WpifyPlugin\Managers;
 
 use WpifyPlugin\Api\ExampleApi;
 use WpifyPlugin\Plugin;
-use Wpify\Core\Abstracts\AbstractManager;
+use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractManager;
 
 /**
  * Class ApiManager

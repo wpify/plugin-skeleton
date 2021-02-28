@@ -5,7 +5,7 @@ namespace WpifyPlugin\Api;
 use WP_REST_Response;
 use WP_REST_Server;
 use WpifyPlugin\Plugin;
-use Wpify\Core\Abstracts\AbstractRest;
+use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractRest;
 
 /**
  * @property Plugin $plugin

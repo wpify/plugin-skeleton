@@ -4,7 +4,7 @@ namespace WpifyPlugin\Repositories;
 
 use WpifyPlugin\Plugin;
 use WpifyPlugin\PostTypes\BookPostType;
-use Wpify\Core\Abstracts\AbstractPostTypeRepository;
+use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractPostTypeRepository;
 
 /**
  * @property Plugin $plugin

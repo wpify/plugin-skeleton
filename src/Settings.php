@@ -5,7 +5,7 @@ namespace WpifyPlugin;
 use Exception;
 use WpifyPlugin\Managers\RepositoriesManager;
 use CMB2_Hookup;
-use Wpify\Core\Abstracts\AbstractComponent;
+use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractComponent;
 
 use function cmb2_get_option;
 use function cmb2_metabox_form;

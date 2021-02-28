@@ -3,7 +3,7 @@
 namespace WpifyPlugin\Models;
 
 use WpifyPlugin\Plugin;
-use Wpify\Core\Abstracts\AbstractPostTypeModel;
+use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractPostTypeModel;
 
 /**
  * Class BookModel

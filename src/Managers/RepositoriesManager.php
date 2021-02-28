@@ -5,7 +5,7 @@ namespace WpifyPlugin\Managers;
 use WpifyPlugin\Plugin;
 use WpifyPlugin\Repositories\BookRepository;
 use WpifyPlugin\Repositories\BookshelfRepository;
-use Wpify\Core\Abstracts\AbstractManager;
+use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractManager;
 
 /**
  * Class RepositoriesManager

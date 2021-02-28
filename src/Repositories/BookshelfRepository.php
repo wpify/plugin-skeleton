@@ -4,7 +4,7 @@ namespace WpifyPlugin\Repositories;
 
 use WpifyPlugin\Plugin;
 use WpifyPlugin\Taxonomies\BookshelfTaxonomy;
-use Wpify\Core\Abstracts\AbstractTaxonomyRepository;
+use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractTaxonomyRepository;
 
 /**
  * @property Plugin $plugin

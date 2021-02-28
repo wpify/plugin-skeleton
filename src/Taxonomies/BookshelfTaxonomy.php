@@ -5,7 +5,7 @@ namespace WpifyPlugin\Taxonomies;
 use WpifyPlugin\Models\BookshelfModel;
 use WpifyPlugin\Plugin;
 use WpifyPlugin\PostTypes\BookPostType;
-use Wpify\Core\Abstracts\AbstractTaxonomy;
+use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractTaxonomy;
 
 /**
  * Class BookshelfTaxonomy

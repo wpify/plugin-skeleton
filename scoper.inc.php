@@ -2,7 +2,7 @@
 
 use Isolated\Symfony\Component\Finder\Finder;
 
-$prefix = 'WpifyPluginDist';
+$prefix = 'WpifyPluginDeps';
 
 return array(
 	'prefix'                     => $prefix,
@@ -21,29 +21,12 @@ return array(
 			      'node_modules',
 			      'scoper.inc.php',
 		      ] )
-		      ->in( __DIR__ ),
+		      ->in( __DIR__ . '/deps/unprefixed' ),
 		Finder::create()
-		      ->append( array( 'composer.json' ) ),
+		      ->append( array( __DIR__ . '/deps/unprefixed/composer.json' ) ),
 	),
 	'patchers'                   => array(
 		function ( string $filePath, string $prefix, string $content ): string {
-			if ( strpos( $filePath, 'wpify-plugin.php' ) !== false ) {
-				$content = str_replace( '/vendor/autoload.php', '/vendor/scoper-autoload.php', $content );
-				$fixes   = array(
-					'add_action',
-					'register_activation_hook',
-					'register_deactivation_hook',
-					'register_uninstall_hook',
-					'get_plugin_data',
-					'_e',
-					''
-				);
-
-				foreach ( $fixes as $fix ) {
-					$content = str_replace( '\\' . $prefix . '\\' . $fix, $fix, $content );
-				}
-			}
-
 			if ( strpos( $filePath, 'composer/autoload_real.php' ) !== false ) {
 				$content = str_replace( 'if (\'Composer\\\\Autoload\\\\ClassLoader\' === $class)', 'if (\'' . $prefix . '\\\\Composer\\\\Autoload\\\\ClassLoader\' === $class)', $content );
 			}
@@ -56,6 +39,7 @@ return array(
 				$content = str_replace( "\\$prefix\\WC", "\\WC", $content );
 				$content = str_replace( "$prefix\\\\WC", '\\WC', $content );
 				$content = str_replace( "\\$prefix\\WP", "\\WP", $content );
+				$content = str_replace( "\\$prefix\\WC", '\\WP', $content );
 			}
 
 			if ( strpos( $filePath, 'cmb2/cmb2' ) !== false ) {

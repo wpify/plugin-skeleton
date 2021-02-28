@@ -3,7 +3,7 @@
 namespace WpifyPlugin\Blocks;
 
 use WpifyPlugin\Plugin;
-use Wpify\Core\Abstracts\AbstractBlock;
+use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractBlock;
 
 /**
  * Class TestBlock

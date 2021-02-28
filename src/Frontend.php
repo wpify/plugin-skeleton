@@ -2,7 +2,7 @@
 
 namespace WpifyPlugin;
 
-use Wpify\Core\Abstracts\AbstractComponent;
+use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractComponent;
 
 class Frontend extends AbstractComponent {
 

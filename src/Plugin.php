@@ -9,19 +9,19 @@ use WpifyPlugin\Managers\PostTypesManager;
 use WpifyPlugin\Managers\RepositoriesManager;
 use WpifyPlugin\Managers\TaxonomiesManager;
 use WpifyPlugin\Managers\ToolsManager;
-use Wpify\Core\Abstracts\AbstractPlugin as PluginBase;
-use Wpify\Core\Exceptions\ContainerInvalidException;
-use Wpify\Core\Exceptions\ContainerNotExistsException;
-use Wpify\Core\Interfaces\RepositoryInterface;
-use Wpify\Core\WebpackManifest;
-use Wpify\Core\WordPressTemplate;
+use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractPlugin;
+use WpifyPluginDeps\Wpify\Core\Exceptions\ContainerInvalidException;
+use WpifyPluginDeps\Wpify\Core\Exceptions\ContainerNotExistsException;
+use WpifyPluginDeps\Wpify\Core\Interfaces\RepositoryInterface;
+use WpifyPluginDeps\Wpify\Core\WebpackManifest;
+use WpifyPluginDeps\Wpify\Core\WordPressTemplate;
 
 /**
  * Class Plugin
  *
  * @package Wpify
  */
-class Plugin extends PluginBase {
+class Plugin extends AbstractPlugin {
   /** Plugin version */
   public const VERSION = '2.2.0';
 

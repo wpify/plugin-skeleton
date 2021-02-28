@@ -15,8 +15,9 @@
 */
 
 use WpifyPlugin\Plugin;
-use Wpify\Core\Container;
-use Wpify\Core\WebpackManifest;
+use WpifyPluginDeps\Wpify\Core\Container;
+use WpifyPluginDeps\Wpify\Core\WebpackManifest;
+use WpifyPluginDeps\DI;
 
 if ( ! defined( 'WPIFY_PLUGIN_MIN_PHP_VERSION' ) ) {
 	define( 'WPIFY_PLUGIN_MIN_PHP_VERSION', '7.3.0' );
@@ -135,6 +136,7 @@ if ( version_compare( PHP_VERSION, WPIFY_PLUGIN_MIN_PHP_VERSION ) < 0 ) {
 } else {
 	if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 		include_once __DIR__ . '/vendor/autoload.php';
+		include_once __DIR__ . '/deps/prefixed/vendor/scoper-autoload.php';
 		include_once __DIR__ . '/vendor/cmb2/cmb2/init.php';
 
 		add_action( 'plugins_loaded', 'wpify_plugin_init', 11 );

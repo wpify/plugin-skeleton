@@ -3,7 +3,7 @@
 namespace WpifyPlugin\Models;
 
 use WpifyPlugin\Plugin;
-use Wpify\Core\Abstracts\AbstractTermModel;
+use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractTermModel;
 
 /**
  * Class BookshelfModel
