@@ -2,16 +2,16 @@
 
 namespace WpifyPlugin\Repositories;
 
-use Wpify\Core_4_0\Abstracts\AbstractTaxonomyRepository;
 use WpifyPlugin\Plugin;
 use WpifyPlugin\Taxonomies\BookshelfTaxonomy;
+use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractTaxonomyRepository;
 
 /**
  * @property Plugin $plugin
  */
 class BookshelfRepository extends AbstractTaxonomyRepository {
 
-	public function taxonomy(): BookshelfTaxonomy {
-		return $this->plugin->get_taxonomy( BookshelfTaxonomy::class );
-	}
+  public function taxonomy(): BookshelfTaxonomy {
+    return $this->plugin->get_taxonomy( BookshelfTaxonomy::class );
+  }
 }

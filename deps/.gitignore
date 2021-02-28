@@ -1,0 +1,4 @@
+/unprefixed/vendor/
+/unprefixed/composer.lock
+/prefixed/vendor/
+/prefixed/*.*

@@ -2,9 +2,9 @@
 
 namespace WpifyPlugin\Managers;
 
-use Wpify\Core_4_0\Abstracts\AbstractManager;
 use WpifyPlugin\Plugin;
 use WpifyPlugin\Taxonomies\BookshelfTaxonomy;
+use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractManager;
 
 /**
  * Class CptManager
@@ -15,7 +15,7 @@ use WpifyPlugin\Taxonomies\BookshelfTaxonomy;
  */
 class TaxonomiesManager extends AbstractManager {
 
-	protected $modules = array(
-		BookshelfTaxonomy::class,
-	);
+  protected $modules = array(
+    BookshelfTaxonomy::class,
+  );
 }

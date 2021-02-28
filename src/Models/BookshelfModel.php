@@ -2,8 +2,8 @@
 
 namespace WpifyPlugin\Models;
 
-use Wpify\Core_4_0\Abstracts\AbstractTermModel;
 use WpifyPlugin\Plugin;
+use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractTermModel;
 
 /**
  * Class BookshelfModel
