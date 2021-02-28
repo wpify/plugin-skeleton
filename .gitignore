@@ -1,8 +1,8 @@
 /.idea/
 /build/
+/dist/
 /node_modules/
 /vendor/
-/dist/
 /.php_cs.cache
 /composer.lock
 /yarn.lock
