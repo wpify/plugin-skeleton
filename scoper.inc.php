@@ -44,13 +44,6 @@ return array(
 				$content = str_replace( 'stream_for($sink)', 'Utils::streamFor()', $content );
 			}
 
-			if ( strpos( $filePath, 'wpify/core/src' ) !== false ) {
-				$content = str_replace( "\\$prefix\\WC", "\\WC", $content );
-				$content = str_replace( "$prefix\\\\WC", '\\WC', $content );
-				$content = str_replace( "\\$prefix\\WP", "\\WP", $content );
-				$content = str_replace( "\\$prefix\\WC", '\\WP', $content );
-			}
-
 			return $content;
 		},
 	),
