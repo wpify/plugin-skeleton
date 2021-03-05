@@ -15,7 +15,7 @@ $whitelist_terms = array_filter( array_values( array_merge(
 	return strpos( 'Composer', $term ) === false;
 } );
 
-var_dump(join(',', $whitelist_terms));
+//var_dump(join(',', $whitelist_terms));
 
 return array(
 	'prefix'                     => $prefix,
