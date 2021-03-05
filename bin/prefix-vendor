@@ -18,6 +18,7 @@ if [ ! -f ./bin/php-scoper ]; then
 fi
 
 # Build scoped vendor folder
+mkdir -p deps/prefixed/
 ./bin/php-scoper add-prefix --output-dir=deps/prefixed --force
 
 # Dump aulotoad for prefixed files

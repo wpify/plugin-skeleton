@@ -4,6 +4,19 @@ use Isolated\Symfony\Component\Finder\Finder;
 
 $prefix = 'WpifyPluginDeps';
 
+$whitelist = require_once __DIR__ . '/scoper.whitelist.php';
+
+$whitelist_terms = array_filter( array_values( array_merge(
+	array_values( $whitelist['classes'] ),
+	array_values( $whitelist['interfaces'] ),
+	array_values( $whitelist['constants'] ),
+	array_values( $whitelist['functions'] )
+) ), function ( $term ) {
+	return strpos( 'Composer', $term ) === false;
+} );
+
+var_dump(join(',', $whitelist_terms));
+
 return array(
 	'prefix'                     => $prefix,
 	'finders'                    => array(
@@ -41,7 +54,7 @@ return array(
 			return $content;
 		},
 	),
-	'whitelist'                  => array(),
+	'whitelist'                  => $whitelist_terms,
 	'whitelist-global-constants' => true,
 	'whitelist-global-classes'   => true,
 	'whitelist-global-functions' => true,
