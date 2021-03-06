@@ -35,7 +35,8 @@
     },
     "require": {
         "php": ">=7.3.0||^8.0.0",
-        "cmb2/cmb2": "^2.8"
+        "cmb2/cmb2": "^2.9",
+	  	"wpify/noprefix": "^1.0"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.5",
