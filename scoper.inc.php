@@ -4,7 +4,10 @@ use Isolated\Symfony\Component\Finder\Finder;
 
 $prefix = 'WpifyPluginDeps';
 
-$whitelist = require_once __DIR__ . '/scoper.whitelist.php';
+$whitelist_wordpress   = require_once __DIR__ . '/vendor/wpify/noprefix/noprefix/wordpress.php';
+$whitelist_woocommerce = require_once __DIR__ . '/vendor/wpify/noprefix/noprefix/woocommerce.php';
+
+$whitelist = array_merge_recursive( $whitelist_wordpress, $whitelist_woocommerce );
 
 $whitelist_terms = array_filter( array_values( array_merge(
 	array_values( $whitelist['classes'] ),
@@ -12,10 +15,8 @@ $whitelist_terms = array_filter( array_values( array_merge(
 	array_values( $whitelist['constants'] ),
 	array_values( $whitelist['functions'] )
 ) ), function ( $term ) {
-	return strpos( 'Composer', $term ) === false;
+	return strpos( 'Composer', $term ) === false && strpos( 'Autoload', $term ) === false;
 } );
-
-//var_dump(join(',', $whitelist_terms));
 
 return array(
 	'prefix'                     => $prefix,
@@ -45,8 +46,10 @@ return array(
 			}
 
 			if ( strpos( $filePath, 'wpify/core/src' ) !== false ) {
-				$content = str_replace( "\\$prefix\\WC", "\\WC", $content );
-				$content = str_replace( "$prefix\\\\WC", '\\WC', $content );
+				foreach ( [ 'WP', 'WC' ] as $class_prefix ) {
+					$content = str_replace( "\\$prefix\\$class_prefix", "\\$class_prefix", $content );
+					$content = str_replace( "$prefix\\\\$class_prefix", '\\$class_prefix', $content );
+				}
 			}
 
 			return $content;
