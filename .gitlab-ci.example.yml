@@ -16,7 +16,9 @@ composer:
   stage: composer
   image: composer:2
   script:
-    - ./bin/install-deps
+    - composer global require jetbrains/phpstorm-stubs:dev-master
+    - composer global require wpify/wordpress-scoper
+    - composer install --no-dev --prefer-dist --optimize-autoloader --ignore-platform-reqs
   only:
     - tags
 
@@ -24,7 +26,8 @@ assets:
   stage: assets
   image: node:12
   script:
-    - ./bin/build-assets
+    - npm install
+    - NODE_ENV=production npm run build
   only:
     - tags
 

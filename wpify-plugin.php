@@ -15,9 +15,9 @@
 */
 
 use WpifyPlugin\Plugin;
+use WpifyPluginDeps\DI;
 use WpifyPluginDeps\Wpify\Core\Container;
 use WpifyPluginDeps\Wpify\Core\WebpackManifest;
-use WpifyPluginDeps\DI;
 
 if ( ! defined( 'WPIFY_PLUGIN_MIN_PHP_VERSION' ) ) {
 	define( 'WPIFY_PLUGIN_MIN_PHP_VERSION', '7.3.0' );
@@ -134,10 +134,10 @@ function wpify_plugin_php_vendor_missing() {
 if ( version_compare( PHP_VERSION, WPIFY_PLUGIN_MIN_PHP_VERSION ) < 0 ) {
 	add_action( 'admin_notices', 'wpify_plugin_php_upgrade_notice' );
 } else {
-	if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
-		include_once __DIR__ . '/vendor/autoload.php';
-		include_once __DIR__ . '/deps/prefixed/vendor/scoper-autoload.php';
+	if ( file_exists( __DIR__ . '/deps/scoper-autoload.php' ) ) {
+		include_once __DIR__ . '/deps/scoper-autoload.php';
 		include_once __DIR__ . '/vendor/cmb2/cmb2/init.php';
+		include_once __DIR__ . '/vendor/autoload.php';
 
 		add_action( 'plugins_loaded', 'wpify_plugin_init', 11 );
 		register_activation_hook( __FILE__, 'wpify_plugin_activate' );
