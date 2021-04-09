@@ -16,9 +16,7 @@ composer:
   stage: composer
   image: composer:2
   script:
-    - PATH=$(composer global config bin-dir --absolute --quiet):$PATH
-    - composer global config minimum-stability dev
-    - composer global require wpify/wordpress-scoper
+    - composer install --prefer-dist --optimize-autoloader --ignore-platform-reqs
     - composer install --no-dev --prefer-dist --optimize-autoloader --ignore-platform-reqs
   only:
     - tags

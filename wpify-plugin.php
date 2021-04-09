@@ -136,7 +136,6 @@ if ( version_compare( PHP_VERSION, WPIFY_PLUGIN_MIN_PHP_VERSION ) < 0 ) {
 } else {
 	if ( file_exists( __DIR__ . '/deps/scoper-autoload.php' ) ) {
 		include_once __DIR__ . '/deps/scoper-autoload.php';
-		include_once __DIR__ . '/vendor/cmb2/cmb2/init.php';
 		include_once __DIR__ . '/vendor/autoload.php';
 
 		add_action( 'plugins_loaded', 'wpify_plugin_init', 11 );
