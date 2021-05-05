@@ -1,35 +1,35 @@
 {
-    "name": "wpify/plugin",
-    "description": "WPify Plugin Skeleton",
-    "type": "project",
-    "license": "GPL-2.0-or-later",
-	"minimum-stability": "dev",
-    "extra": {
-        "wordpress-scoper": {
-            "prefix": "WpifyPluginDeps",
-            "folder": "deps",
-            "globals": [
-                "wordpress",
-                "woocommerce"
-            ],
-            "packages": {
-			  	"doctrine/collections": "^1.6",
-                "wpify/core": "^4.2",
-			  	"wpify/custom-fields": "^1.3",
-                "wpify/tools": "^2.3"
-            }
-        }
-    },
-    "autoload": {
-        "psr-4": {
-            "WpifyPlugin\\": "src/"
-        }
-    },
-    "require": {
-        "php": ">=7.3.0||^8.0.0"
-    },
-    "require-dev": {
-        "wpify/cli": "^0.3",
-        "wpify/wordpress-scoper": "^1.0"
-    }
+  "name": "wpify/plugin",
+  "description": "WPify Plugin Skeleton",
+  "type": "project",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "extra": {
+	"wordpress-scoper": {
+	  "prefix": "WpifyPluginDeps",
+	  "folder": "deps",
+	  "globals": [
+		"wordpress",
+		"woocommerce"
+	  ],
+	  "packages": {
+		"doctrine/collections": "^1.6",
+		"wpify/core": "^4.2",
+		"wpify/custom-fields": "^1.4",
+		"wpify/tools": "^2.3"
+	  }
+	}
+  },
+  "autoload": {
+	"psr-4": {
+	  "WpifyPlugin\\": "src/"
+	}
+  },
+  "require": {
+	"php": ">=7.3.0||^8.0.0"
+  },
+  "require-dev": {
+	"wpify/cli": "^0.3",
+	"wpify/wordpress-scoper": "^1.0"
+  }
 }

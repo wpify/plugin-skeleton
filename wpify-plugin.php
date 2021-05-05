@@ -50,9 +50,9 @@ function wpify_plugin_container(): DI\Container {
 		$container       = $wpify_container->add_container(
 			'wpify_plugin',
 			array(
-				Plugin::class          => DI\autowire( Plugin::class ),
-				WebpackManifest::class => DI\autowire()
-					->constructor( 'build/assets-manifest.json', 'wpify-woo~' )
+				Plugin::class                               => DI\autowire( Plugin::class ),
+				WebpackManifest::class                      => DI\autowire()
+					->constructor( 'build/assets-manifest.json', 'wpify-plugin~' ),
 			)
 		);
 	}
