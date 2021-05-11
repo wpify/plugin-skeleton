@@ -10,8 +10,7 @@ use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractTaxonomyRepository;
  * @property Plugin $plugin
  */
 class BookshelfRepository extends AbstractTaxonomyRepository {
-
-  public function taxonomy(): BookshelfTaxonomy {
-    return $this->plugin->get_taxonomy( BookshelfTaxonomy::class );
-  }
+	public function taxonomy(): BookshelfTaxonomy {
+		return $this->plugin->get_taxonomy( BookshelfTaxonomy::class );
+	}
 }

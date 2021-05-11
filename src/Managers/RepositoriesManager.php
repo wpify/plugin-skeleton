@@ -14,8 +14,8 @@ use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractManager;
  * @property Plugin $plugin
  */
 class RepositoriesManager extends AbstractManager {
-  protected $modules = array(
-    BookRepository::class,
-    BookshelfRepository::class,
-  );
+	protected $modules = array(
+		BookRepository::class,
+		BookshelfRepository::class,
+	);
 }

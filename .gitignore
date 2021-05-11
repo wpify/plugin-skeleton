@@ -5,5 +5,3 @@
 /node_modules/
 /vendor/
 /.php_cs.cache
-/composer.lock
-/yarn.lock

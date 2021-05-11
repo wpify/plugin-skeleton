@@ -15,7 +15,8 @@
 */
 
 use WpifyPlugin\Plugin;
-use WpifyPluginDeps\DI;
+use WpifyPluginDeps\DI\Container as DIContainer;
+use WpifyPluginDeps\DI\Definition\Helper\AutowireDefinitionHelper;
 use WpifyPluginDeps\Wpify\Core\Container;
 use WpifyPluginDeps\Wpify\Core\WebpackManifest;
 
@@ -40,18 +41,18 @@ function wpify_plugin(): Plugin {
  *
  * @param string $env
  *
- * @return DI\Container
+ * @return DIContainer
  * @throws Exception
  */
-function wpify_plugin_container(): DI\Container {
+function wpify_plugin_container(): DIContainer {
 	static $container;
 	if ( empty( $container ) ) {
 		$wpify_container = Container::getInstance();
 		$container       = $wpify_container->add_container(
 			'wpify_plugin',
 			array(
-				Plugin::class                               => DI\autowire( Plugin::class ),
-				WebpackManifest::class                      => DI\autowire()
+				Plugin::class          => ( new AutowireDefinitionHelper( Plugin::class ) ),
+				WebpackManifest::class => ( new AutowireDefinitionHelper )
 					->constructor( 'build/assets-manifest.json', 'wpify-plugin~' ),
 			)
 		);

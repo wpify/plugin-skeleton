@@ -14,7 +14,7 @@ use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractManager;
  * @property BookPostType $MyPostType
  */
 class PostTypesManager extends AbstractManager {
-  protected $modules = array(
-    BookPostType::class,
-  );
+	protected $modules = array(
+		BookPostType::class,
+	);
 }

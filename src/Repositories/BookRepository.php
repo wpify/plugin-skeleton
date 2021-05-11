@@ -10,8 +10,7 @@ use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractPostTypeRepository;
  * @property Plugin $plugin
  */
 class BookRepository extends AbstractPostTypeRepository {
-
-  public function post_type(): BookPostType {
-    return $this->plugin->get_post_type( BookPostType::class );
-  }
+	public function post_type(): BookPostType {
+		return $this->plugin->get_post_type( BookPostType::class );
+	}
 }

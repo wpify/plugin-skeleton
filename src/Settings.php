@@ -23,8 +23,8 @@ class Settings extends AbstractComponent {
 	public function setup() {
 		$this->plugin->get_wcf()->add_options_page( array(
 			'parent_slug' => 'options-general.php',
-			'page_title'  => __( 'WP Plugin Settings', 'wp-plugin' ),
-			'menu_title'  => __( 'WP Plugin', 'wp-plugin' ),
+			'page_title'  => __( 'WPify Plugin Settings', 'wpify-plugin' ),
+			'menu_title'  => __( 'WPify Plugin', 'wpify-plugin' ),
 			'menu_slug'   => $this->key,
 			'capability'  => 'manage_options',
 			'items'       => array(

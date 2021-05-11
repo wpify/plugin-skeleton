@@ -3,7 +3,7 @@
 namespace WpifyPlugin\Blocks;
 
 use WpifyPlugin\Plugin;
-use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractBlock;
+use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractComponent;
 
 /**
  * Class TestBlock
@@ -11,40 +11,34 @@ use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractBlock;
  * @package WpifyPlugin\Blocks
  * @property Plugin $plugin
  */
-class TestBlock extends AbstractBlock {
-  public function register(): void {
-    register_block_type( $this->name(), array(
-      'render_callback' => array( $this, 'render' ),
-      'attributes'      => $this->attributes(),
-      'editor_script'   => $this->plugin->get_webpack_manifest()->register_asset( 'test-block-backend.js' ),
-      'editor_style'    => $this->plugin->get_webpack_manifest()->register_asset( 'test-block-backend.css' ),
-    ) );
-  }
+class TestBlock extends AbstractComponent {
+	/** @var \WpifyPluginDeps\WpifyCustomFields\Implementations\GutenbergBlock */
+	private $block;
 
-  public function name(): string {
-    return 'wpify-plugin/test-block';
-  }
+	public function setup() {
+		$this->block = $this->plugin->get_wcf()->add_gutenberg_block( array(
+			'name'  => 'wpify-plugin/test-block',
+			'title' => __( 'Test block', 'wpify-plugin' ),
+			'render_callback' => array( $this, 'render' ),
+			'items' => array(
+				array(
+					'type'  => 'text',
+					'id'    => 'title',
+					'title' => __( 'Title', 'wpify-plugin' ),
+				),
+				array(
+					'type'  => 'textarea',
+					'id'    => 'content',
+					'title' => __( 'Content', 'wpify-plugin' ),
+				),
+			),
+		) );
+	}
 
-  public function attributes(): array {
-    return array(
-      'title'   => array(
-        'type' => 'string',
-      ),
-      'content' => array(
-        'type' => 'string',
-      ),
-    );
-  }
-
-  public function enqueue_assets() {
-    $this->plugin->get_webpack_manifest()->enqueue_asset( 'test-block-frontend.js' );
-    $this->plugin->get_webpack_manifest()->enqueue_asset( 'test-block-frontend.css' );
-  }
-
-  public function render( $block_attributes, $content ) {
-    return $this->plugin->get_template()->render( 'blocks/test-block', null, array(
-      'attributes' => $this->parse_attributes( $block_attributes ),
-      'content'    => $content,
-    ) );
-  }
+	public function render( $block_attributes, $content ) {
+		return $this->plugin->get_template()->render( 'blocks/test-block', null, array(
+			'attributes' => $block_attributes,
+			'content'    => $content,
+		) );
+	}
 }

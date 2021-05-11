@@ -15,7 +15,7 @@ use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractManager;
  */
 class TaxonomiesManager extends AbstractManager {
 
-  protected $modules = array(
-    BookshelfTaxonomy::class,
-  );
+	protected $modules = array(
+		BookshelfTaxonomy::class,
+	);
 }

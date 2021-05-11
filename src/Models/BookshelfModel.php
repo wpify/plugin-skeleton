@@ -12,5 +12,4 @@ use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractTermModel;
  * @package WpifyPlugin\Models
  */
 class BookshelfModel extends AbstractTermModel {
-
 }
