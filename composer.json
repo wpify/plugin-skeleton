@@ -1,5 +1,5 @@
 {
-  "name": "wpify/plugin",
+  "name": "wpify/plugin-skeleton",
   "description": "WPify Plugin Skeleton",
   "type": "project",
   "license": "GPL-2.0-or-later",
