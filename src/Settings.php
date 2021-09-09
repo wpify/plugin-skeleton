@@ -1,8 +1,8 @@
 <?php
 
-namespace WpifyPlugin;
+namespace WpifyPluginSkeleton;
 
-use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractComponent;
+use WpifyPluginSkeletonDeps\Wpify\CustomFields\CustomFields;
 
 /**
  * Class Settings
@@ -10,7 +10,15 @@ use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractComponent;
  * @package Wpify\Settings
  * @property Plugin $plugin
  */
-class Settings extends AbstractComponent {
+class Settings {
+	/**
+	 * @var CustomFields
+	 */
+	public $wcf;
+
+	/**
+	 * @var array
+	 */
 	public $options = array();
 
 	/**
@@ -18,13 +26,19 @@ class Settings extends AbstractComponent {
 	 *
 	 * @var string
 	 */
-	private $key = 'wpify_plugin_options';
+	private $key = 'wpify_plugin_skeleton_options';
+
+	public function __construct( CustomFields $wcf ) {
+		$this->wcf = $wcf;
+
+		$this->setup();
+	}
 
 	public function setup() {
-		$this->plugin->get_wcf()->add_options_page( array(
+		$this->wcf->create_options_page( array(
 			'parent_slug' => 'options-general.php',
-			'page_title'  => __( 'WPify Plugin Settings', 'wpify-plugin' ),
-			'menu_title'  => __( 'WPify Plugin', 'wpify-plugin' ),
+			'page_title'  => __( 'WPify Plugin Skeleton Settings', 'wpify-plugin-skeleton' ),
+			'menu_title'  => __( 'WPify Plugin Skeleton', 'wpify-plugin-skeleton' ),
 			'menu_slug'   => $this->key,
 			'capability'  => 'manage_options',
 			'items'       => array(
@@ -41,6 +55,11 @@ class Settings extends AbstractComponent {
 							'title' => __( 'Some HTML', 'wp-plugin' ),
 							'id'    => 'some_html',
 							'type'  => 'wysiwyg',
+						),
+						array(
+							'title' => __( 'Multi attachments', 'wp-plugin' ),
+							'id'    => 'some_attachments',
+							'type'  => 'multi_attachment',
 						),
 					),
 				),

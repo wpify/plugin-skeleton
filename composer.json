@@ -3,33 +3,28 @@
   "description": "WPify Plugin Skeleton",
   "type": "project",
   "license": "GPL-2.0-or-later",
-  "minimum-stability": "dev",
-  "extra": {
-	"wordpress-scoper": {
-	  "prefix": "WpifyPluginDeps",
-	  "folder": "deps",
-	  "globals": [
-		"wordpress",
-		"woocommerce"
-	  ],
-	  "packages": {
-		"doctrine/collections": "^1.6",
-		"wpify/core": "^4.2",
-		"wpify/custom-fields": "^1.4",
-		"wpify/tools": "^2.3"
-	  }
-	}
-  },
   "autoload": {
 	"psr-4": {
-	  "WpifyPlugin\\": "src/"
+	  "WpifyPluginSkeleton\\": "src/"
 	}
   },
+  "scripts": {
+	"post-create-project-cmd": "@composer replace-name",
+	"post-install-cmd": "@composer scope",
+	"post-update-cmd": "@composer scope"
+  },
   "require": {
-	"php": ">=7.3.0||^8.0.0"
+	"php": ">=7.3.0||^8.0.0",
+	"ext-json": "*"
   },
   "require-dev": {
-	"wpify/cli": "^0.3",
-	"wpify/wordpress-scoper": "^1.0"
+	"wpify/plugin-composer-scripts": "^1.1",
+	"wpify/scoper": "^2.1",
+	"wpify/tracy": "^1.0"
+  },
+  "extra": {
+	"wpify-scoper": {
+	  "prefix": "WpifyPluginSkeletonDeps"
+	}
   }
 }

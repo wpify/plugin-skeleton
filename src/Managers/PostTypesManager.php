@@ -1,20 +1,14 @@
 <?php
 
-namespace WpifyPlugin\Managers;
+namespace WpifyPluginSkeleton\Managers;
 
-use WpifyPlugin\Plugin;
-use WpifyPlugin\PostTypes\BookPostType;
-use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractManager;
+use WpifyPluginSkeleton\PostTypes\BookPostType;
+use WpifyPluginSkeleton\PostTypes\PagePostType;
 
-/**
- * Class CptManager
- *
- * @package Wpify\Managers
- * @property Plugin $plugin
- * @property BookPostType $MyPostType
- */
-class PostTypesManager extends AbstractManager {
-	protected $modules = array(
-		BookPostType::class,
-	);
+final class PostTypesManager {
+	public function __construct(
+		BookPostType $book_post_type,
+		PagePostType $page_post_type
+	) {
+	}
 }

@@ -1,54 +1,49 @@
 <?php
 
-namespace WpifyPlugin\Managers;
+namespace WpifyPluginSkeleton\Managers;
 
-use WpifyPlugin\Blocks\TestBlock;
-use WpifyPlugin\Plugin;
-use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractManager;
+use WpifyPluginSkeleton\Blocks\TestBlock;
+use WpifyPluginSkeletonDeps\Wpify\Asset\AssetFactory;
+use WpifyPluginSkeletonDeps\Wpify\PluginUtils\PluginUtils;
 
-/** @property Plugin $plugin */
-class BlocksManager extends AbstractManager {
-	protected $modules = array(
-		TestBlock::class,
-	);
+final class BlocksManager {
+	private $utils;
+	private $asset_factory;
+
+	public function __construct(
+		PluginUtils $utils,
+		AssetFactory $asset_factory,
+		TestBlock $test_block
+	) {
+		$this->utils         = $utils;
+		$this->asset_factory = $asset_factory;
+
+		$this->setup();
+	}
 
 	public function setup() {
 		add_action( 'after_setup_theme', array( $this, 'editor_styles' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'gutenberg_script' ) );
 		add_filter( 'block_categories', array( $this, 'block_categories' ), 10, 2 );
+
+		$this->asset_factory->wp_script(
+			$this->utils->get_plugin_path( 'block-editor.js' ),
+			array( 'is_admin' => true )
+		);
 	}
 
 	public function editor_styles() {
 		add_theme_support( 'editor-styles' );
 		add_theme_support( 'dark-editor-style' );
-
-		/**
-		 * The file must be present in there directory. The SCSS for this file is in assets/editor-style.scss
-		 * and it's copied into theme directory by `copy` rule specified in `wpify.config.js`.
-		 */
 		add_editor_style( 'editor-style.css' );
 	}
 
 	public function block_categories( $categories, $post ) {
-		return array_merge(
-			$categories,
-			array(
-				array(
-					'slug'  => 'wpify-plugin',
-					'title' => __( 'wpify-plugin', 'wpify-plugin' ),
-					'icon'  => 'wordpress',
-				),
-			)
-		);
-	}
-
-	public function gutenberg_script() {
-		$scripts = $this->plugin->get_webpack_manifest()->get_assets(
-			'block-editor.js',
-			'wpify-plugin-block-editor',
-			array()
+		$categories[] = array(
+			'slug'  => 'wpify-plugin-skeleton',
+			'title' => __( 'Wpify Plugin Skeleton', 'wpify-plugin-skeleton' ),
+			'icon'  => 'wordpress',
 		);
 
-		$this->plugin->get_assets()->enqueue_assets( $scripts );
+		return $categories;
 	}
 }

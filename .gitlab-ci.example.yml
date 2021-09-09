@@ -4,7 +4,7 @@ stages:
   - deploy
 
 variables:
-  PLUGIN_SLUG: wpify-plugin
+  PLUGIN_SLUG: wpify-plugin-skeleton
 
 cache:
   paths:
@@ -15,8 +15,11 @@ cache:
 composer:
   stage: composer
   image: composer:2
+  before_script:
+    - PATH=$(composer global config bin-dir --absolute --quiet):$PATH
+    - composer config -g cache-dir "$(pwd)/.composer-cache"
+    - composer global require wpify/scoper
   script:
-    - composer install --prefer-dist --optimize-autoloader --ignore-platform-reqs
     - composer install --no-dev --prefer-dist --optimize-autoloader --ignore-platform-reqs
   only:
     - tags
@@ -67,7 +70,7 @@ deploy_production:
 deploy_staging:
   <<: *deploy_definition_server
   variables:
-    SERVER_PATH: $SERVER_PATH/$WPIFY_PLUGIN_URL
+    SERVER_PATH: $SERVER_PATH/$WPIFY_PLUGIN_SKELETON_URL
   environment:
     name: staging
     url: https://staging.wpify.io
