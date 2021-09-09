@@ -1,16 +1,23 @@
 <?php
 
-namespace WpifyPlugin\Repositories;
+namespace WpifyPluginSkeleton\Repositories;
 
-use WpifyPlugin\Plugin;
-use WpifyPlugin\PostTypes\BookPostType;
-use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractPostTypeRepository;
+use WpifyPluginSkeleton\Models\BookModel;
+use WpifyPluginSkeleton\PostTypes\BookPostType;
+use WpifyPluginSkeletonDeps\Wpify\Model\Abstracts\AbstractPostRepository;
 
-/**
- * @property Plugin $plugin
- */
-class BookRepository extends AbstractPostTypeRepository {
-	public function post_type(): BookPostType {
-		return $this->plugin->get_post_type( BookPostType::class );
+class BookRepository extends AbstractPostRepository {
+	/**
+	 * @inheritDoc
+	 */
+	static function post_type(): string {
+		return BookPostType::KEY;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function model(): string {
+		return BookModel::class;
 	}
 }

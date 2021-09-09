@@ -1,21 +1,14 @@
 <?php
 
-namespace WpifyPlugin\Managers;
+namespace WpifyPluginSkeleton\Managers;
 
-use WpifyPlugin\Plugin;
-use WpifyPlugin\Taxonomies\BookshelfTaxonomy;
-use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractManager;
+use WpifyPluginSkeleton\Taxonomies\BookshelfTaxonomy;
+use WpifyPluginSkeleton\Taxonomies\LayoutTaxonomy;
 
-/**
- * Class CptManager
- *
- * @package Wpify\Managers
- * @property Plugin $plugin
- * @property BookshelfTaxonomy $MyTaxonomy
- */
-class TaxonomiesManager extends AbstractManager {
-
-	protected $modules = array(
-		BookshelfTaxonomy::class,
-	);
+final class TaxonomiesManager {
+	public function __construct(
+		BookshelfTaxonomy $bookshelf_taxonomy,
+		LayoutTaxonomy $layout_taxonomy
+	) {
+	}
 }

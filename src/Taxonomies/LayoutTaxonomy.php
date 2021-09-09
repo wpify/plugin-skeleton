@@ -3,11 +3,12 @@
 namespace WpifyPluginSkeleton\Taxonomies;
 
 use WpifyPluginSkeleton\PostTypes\BookPostType;
+use WpifyPluginSkeleton\PostTypes\PagePostType;
 use WpifyPluginSkeletonDeps\Wpify\CustomFields\CustomFields;
 use WpifyPluginSkeletonDeps\Wpify\Taxonomy\AbstractCustomTaxonomy;
 
-class BookshelfTaxonomy extends AbstractCustomTaxonomy {
-	const KEY = 'bookshelf';
+class LayoutTaxonomy extends AbstractCustomTaxonomy {
+	const KEY = 'page_layout';
 
 	/** @var CustomFields */
 	protected $wcf;
@@ -24,8 +25,8 @@ class BookshelfTaxonomy extends AbstractCustomTaxonomy {
 			'items'    => array(
 				array(
 					'type'  => 'text',
-					'id'    => 'genre',
-					'title' => __( 'Genre', 'wpify-plugin-skeleton' ),
+					'id'    => 'some_other_meta',
+					'title' => __( 'Some other meta', 'wpify-plugin-skeleton' ),
 				),
 			),
 		) );
@@ -42,18 +43,19 @@ class BookshelfTaxonomy extends AbstractCustomTaxonomy {
 	 * @inheritDoc
 	 */
 	public function get_post_types(): array {
-		return array( BookPostType::KEY );
+		return array( PagePostType::KEY, BookPostType::KEY );
 	}
 
 	public function get_args(): array {
-		$singular = _x( 'Bookshelf', 'post type singular name', 'wpify-plugin-skeleton' );
-		$plural   = _x( 'Bookshelves', 'post type name', 'wpify-plugin-skeleton' );
+		$singular = _x( 'Layout', 'post type singular name', 'wpify-plugin-skeleton' );
+		$plural   = _x( 'Layouts', 'post type name', 'wpify-plugin-skeleton' );
 
 		return array(
 			'labels'            => $this->generate_labels( $singular, $plural ),
-			'description'       => __( 'Bookshelf contains all the favorite books', 'wpify-plugin-skeleton' ),
-			'public'            => true,
+			'description'       => __( 'Layouts says how the page will be displayed', 'wpify-plugin-skeleton' ),
+			'public'            => false,
 			'hierarchical'      => false,
+			'show_ui'           => true,
 			'show_in_rest'      => true,
 			'show_admin_column' => true,
 		);

@@ -1,19 +1,66 @@
 <?php
 
-namespace WpifyPlugin;
+namespace WpifyPluginSkeleton;
 
-use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractComponent;
+use WpifyPluginSkeletonDeps\Wpify\Asset\AssetFactory;
+use WpifyPluginSkeletonDeps\Wpify\PluginUtils\PluginUtils;
 
-class Frontend extends AbstractComponent {
+class Frontend {
+	/** @var PluginUtils */
+	private $utils;
 
-  public function setup() {
-    add_action( 'wp_footer', array( $this, 'print_react_root' ) );
-  }
+	/** @var AssetFactory */
+	private $asset_factory;
 
-  /**
-   * Prints React root div
-   */
-  public function print_react_root() {
-    echo '<div id="react-root"></div>';
-  }
+	public function __construct(
+		PluginUtils $utils,
+		AssetFactory $asset_factory
+	) {
+		$this->utils         = $utils;
+		$this->asset_factory = $asset_factory;
+
+		$this->setup();
+		$this->setup_theme();
+		$this->setup_assets();
+	}
+
+	public function setup() {
+		add_action( 'wp_body_open', array( $this, 'print_plugin_info' ) );
+	}
+
+	public function setup_theme() {
+		register_theme_directory( $this->utils->get_plugin_path( 'themes' ) );
+	}
+
+	public function setup_assets() {
+		$this->asset_factory->url( 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js?ver=LK12' );
+		$this->asset_factory->url( 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css' );
+		$this->asset_factory->wp_script( $this->utils->get_plugin_path( 'build/plugin.js' ), array(
+			'variables'     => array( 'test_plugin' => array( 'aaa' ) ),
+			'script_before' => 'console.log("script before plugin")',
+			'script_after'  => 'console.log("script after plugin")',
+		) );
+		$this->asset_factory->wp_script( $this->utils->get_plugin_path( 'build/plugin.css' ) );
+		$this->asset_factory->theme( 'style.css' );
+		$this->asset_factory->parent_theme( 'style.css' );
+		$this->asset_factory->url( $this->utils->get_plugin_url( 'js/test.js' ) );
+	}
+
+	public function print_plugin_info() {
+		echo '<pre style="font-size: 10px;background-color: rgba(0, 0, 0, 0.5); color: white;">';
+		var_dump( array(
+			'plugin_path' => $this->utils->get_plugin_path( 'some-file.php' ),
+			'plugin_url'  => $this->utils->get_plugin_url( 'some-file.php' ),
+			'theme_path'  => $this->utils->get_theme_path( 'some-file.php' ),
+			'theme_url'   => $this->utils->get_theme_url( 'some-file.php' ),
+			'version'     => $this->utils->get_plugin_version(),
+			'name'        => $this->utils->get_plugin_name(),
+			'description' => $this->utils->get_plugin_description(),
+			'basename'    => $this->utils->get_plugin_basename(),
+			'slug'        => $this->utils->get_plugin_slug(),
+			'text_domain' => $this->utils->get_text_domain(),
+			'filesystem'  => $this->utils->get_filesystem(),
+		) );
+		echo '</pre>';
+	}
 }

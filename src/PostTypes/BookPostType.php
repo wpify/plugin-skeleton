@@ -1,77 +1,72 @@
 <?php
 
-namespace WpifyPlugin\PostTypes;
+namespace WpifyPluginSkeleton\PostTypes;
 
-use WpifyPlugin\Models\BookModel;
-use WpifyPlugin\Plugin;
-use WpifyPluginDeps\Wpify\Core\Abstracts\AbstractPostType;
-use WpifyPluginDeps\WpifyCustomFields\Implementations\Metabox;
+use WpifyPluginSkeletonDeps\Wpify\CustomFields\CustomFields;
+use WpifyPluginSkeletonDeps\Wpify\PostType\AbstractCustomPostType;
 
-/**
- * Class BookPostType
- *
- * @package WpifyPlugin\Cpt
- * @property Plugin $plugin
- */
-class BookPostType extends AbstractPostType {
-	/** @var string */
-	public const NAME = 'book';
+class BookPostType extends AbstractCustomPostType {
+	const KEY = 'book';
 
-	/** @var Metabox */
-	private $metabox;
+	/** @var CustomFields */
+	protected $wcf;
+
+	public function __construct( CustomFields $wcf ) {
+		$this->wcf = $wcf;
+
+		parent::__construct();
+	}
 
 	public function setup() {
-		$this->metabox = $this->plugin->get_wcf()->add_metabox( array(
+		$this->wcf->create_metabox( array(
 			'id'         => 'book-details',
-			'title'      => __( 'Book details', 'wpify-plugin' ),
-			'post_types' => array( $this::NAME ),
+			'title'      => __( 'Books details', 'wpify-plugin-skeleton' ),
+			'post_types' => array( $this->get_post_type_key() ),
+			'context'    => 'advanced',
+			'priority'   => 'high',
 			'items'      => array(
 				array(
 					'type'  => 'text',
-					'id'    => 'author',
-					'title' => __( 'Book author', 'wpify-plugin' ),
-				),
-				array(
-					'type'  => 'text',
 					'id'    => 'isbn',
-					'title' => __( 'ISBN', 'wpify-plugin' ),
+					'title' => __( 'ISBN', 'wpify-plugin-skeleton' ),
 				),
 			),
 		) );
 	}
 
-	public function post_type_args(): array {
-		$args = array(
-			'labels'             => $this->get_generic_labels( 'Book', 'Books' ),
-			'description'        => __( 'Description of books.', 'wpify-plugin' ),
+	public function get_post_type_key(): string {
+		return self::KEY;
+	}
+
+	public function get_args(): array {
+		$singular = _x( 'Book', 'post type singular name', 'wpify-plugin-skeleton' );
+		$plural   = _x( 'Books', 'post type name', 'wpify-plugin-skeleton' );
+
+		return array(
+			'label'              => $plural,
+			'labels'             => $this->generate_labels( $singular, $plural ),
+			'description'        => __( 'Custom post type Books created by WPify Plugin Skeleton', 'wpify-plugin-skeleton' ),
 			'public'             => true,
+			'hierarchical'       => false,
 			'publicly_queryable' => true,
 			'show_ui'            => true,
 			'show_in_menu'       => true,
+			'show_in_nav_menus'  => true,
+			'show_in_admin_bar'  => true,
 			'show_in_rest'       => true,
-			'query_var'          => true,
-			'rewrite'            => array( 'slug' => 'book' ),
-			'capability_type'    => 'post',
-			'has_archive'        => true,
-			'hierarchical'       => false,
-			'menu_position'      => null,
-			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+			'supports'           => array(
+				'title',
+				'editor',
+				'comments',
+				'revisions',
+				'trackbacks',
+				'author',
+				'excerpt',
+				'page-attributes',
+				'thumbnail',
+				'custom-fields',
+				'post-formats'
+			),
 		);
-
-		return $args;
-	}
-
-	public function post_type_name(): string {
-		return $this::NAME;
-	}
-
-	public function model(): string {
-		return BookModel::class;
-	}
-
-	public function get_field( $id, $name ) {
-		$this->metabox->set_post( $id );
-
-		return $this->metabox->get_field( $name );
 	}
 }

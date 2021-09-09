@@ -11,7 +11,7 @@ $content    = $attributes['content'];
 ?>
 <div class="block-test-block">
 	<h2>Test Block</h2>
-	<p>This is default template for Test block</p>
+	<p>This is template for Test block that overwrites default template from plugin folder</p>
 
 	<?php if ( ! empty( $title ) ): ?>
 		<h2>
