@@ -10,7 +10,8 @@
 	"wpify/post-type": "^1.0",
 	"wpify/taxonomy": "^1.0",
 	"wpify/template": "^1.0",
-	"wpify/log": "^1.0"
+	"wpify/log": "^1.0",
+	"wpify/snippets": "^3.0"
   },
   "scripts": {}
 }

@@ -4,48 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3a6322ebe37ce9af27d28c6866cc312a",
-    "packages": [
-        {
-            "name": "wpify/snippets",
-            "version": "3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://gitlab.com/wpify/snippets.git",
-                "reference": "90743d3e967e48cf8b6e88d857b02b72e42ed9f4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fsnippets/repository/archive.zip?sha=90743d3e967e48cf8b6e88d857b02b72e42ed9f4",
-                "reference": "90743d3e967e48cf8b6e88d857b02b72e42ed9f4",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Wpify\\Snippets\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Daniel Mejta",
-                    "email": "daniel@mejta.net"
-                },
-                {
-                    "name": "Václav Greif",
-                    "email": "info@vaclavgreif.cz"
-                }
-            ],
-            "support": {
-                "issues": "https://gitlab.com/api/v4/projects/18983824/issues"
-            },
-            "time": "2021-09-09T18:25:40+00:00"
-        }
-    ],
+    "content-hash": "80bd0655cf6c761252396c6d881c9491",
+    "packages": [],
     "packages-dev": [
         {
             "name": "composer/package-versions-deprecated",

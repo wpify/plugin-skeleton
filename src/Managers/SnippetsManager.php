@@ -2,8 +2,8 @@
 
 namespace WpifyPluginSkeleton\Managers;
 
-use Wpify\Snippets\CopyrightShortcode;
-use Wpify\Snippets\RemoveAccentInFilenames;
+use WpifyPluginSkeletonDeps\Wpify\Snippets\CopyrightShortcode;
+use WpifyPluginSkeletonDeps\Wpify\Snippets\RemoveAccentInFilenames;
 
 final class SnippetsManager {
 	public function __construct(
