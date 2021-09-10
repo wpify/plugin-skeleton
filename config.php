@@ -7,7 +7,7 @@ use function WpifyPluginSkeletonDeps\DI\create;
 
 return array(
 	CustomFields::class      => create()
-		->constructor( plugins_url( 'vendor/wpify/custom-fields', __FILE__ ) ),
+		->constructor( plugins_url( 'deps/wpify/custom-fields', __FILE__ ) ),
 	WordPressTemplate::class => create()
 		->constructor( array( __DIR__ . '/templates' ), 'wpify-plugin-skeleton' ),
 	PluginUtils::class       => create()
