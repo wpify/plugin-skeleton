@@ -3,7 +3,7 @@
 	"php": ">=7.3.0||^8.0.0",
 	"ext-json": "*",
 	"php-di/php-di": "^6.3",
-	"wpify/asset": "^1.0",
+	"wpify/asset": "^1.1",
 	"wpify/custom-fields": "^2.0",
 	"wpify/model": "^2.0",
 	"wpify/plugin-utils": "^1.0",
