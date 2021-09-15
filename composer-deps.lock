@@ -489,16 +489,16 @@
         },
         {
             "name": "wpify/asset",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/asset.git",
-                "reference": "df01dddda7967e7618fbc8dcd4cee955a488d6da"
+                "reference": "145d4edcb3bdfbb378c18c0fc97606ec5a272715"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fasset/repository/archive.zip?sha=df01dddda7967e7618fbc8dcd4cee955a488d6da",
-                "reference": "df01dddda7967e7618fbc8dcd4cee955a488d6da",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fasset/repository/archive.zip?sha=145d4edcb3bdfbb378c18c0fc97606ec5a272715",
+                "reference": "145d4edcb3bdfbb378c18c0fc97606ec5a272715",
                 "shasum": ""
             },
             "type": "library",
@@ -520,7 +520,7 @@
             "support": {
                 "issues": "https://gitlab.com/api/v4/projects/29458530/issues"
             },
-            "time": "2021-09-14T17:40:54+00:00"
+            "time": "2021-09-14T18:26:24+00:00"
         },
         {
             "name": "wpify/custom-fields",
