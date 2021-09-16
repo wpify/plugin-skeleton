@@ -2,6 +2,7 @@
 
 namespace WpifyPluginSkeleton;
 
+use WpifyPluginSkeleton\Repositories\BookRepository;
 use WpifyPluginSkeletonDeps\Wpify\Asset\AssetFactory;
 use WpifyPluginSkeletonDeps\Wpify\PluginUtils\PluginUtils;
 
@@ -12,12 +13,17 @@ class Frontend {
 	/** @var AssetFactory */
 	private $asset_factory;
 
+	/** @var BookRepository */
+	private $book_repository;
+
 	public function __construct(
 		PluginUtils $utils,
-		AssetFactory $asset_factory
+		AssetFactory $asset_factory,
+		BookRepository $book_repository
 	) {
-		$this->utils         = $utils;
-		$this->asset_factory = $asset_factory;
+		$this->utils           = $utils;
+		$this->asset_factory   = $asset_factory;
+		$this->book_repository = $book_repository;
 
 		$this->setup();
 		$this->setup_theme();
@@ -61,6 +67,10 @@ class Frontend {
 			'text_domain' => $this->utils->get_text_domain(),
 			'filesystem'  => $this->utils->get_filesystem(),
 		) );
+
+		foreach ( $this->book_repository->all() as $book ) {
+			var_dump( $book->to_array() );
+		}
 		echo '</pre>';
 	}
 }

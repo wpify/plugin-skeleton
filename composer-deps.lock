@@ -4,28 +4,28 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "535810ec668bfe2cd29332b0593e8132",
+    "content-hash": "c8a63e4c0b186c477bcb0973e4a1b4c4",
     "packages": [
         {
             "name": "monolog/monolog",
-            "version": "2.3.2",
+            "version": "2.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "71312564759a7db5b789296369c1a264efc43aad"
+                "reference": "437e7a1c50044b92773b361af77620efb76fff59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/71312564759a7db5b789296369c1a264efc43aad",
-                "reference": "71312564759a7db5b789296369c1a264efc43aad",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/437e7a1c50044b92773b361af77620efb76fff59",
+                "reference": "437e7a1c50044b92773b361af77620efb76fff59",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2",
-                "psr/log": "^1.0.1"
+                "psr/log": "^1.0.1 || ^2.0 || ^3.0"
             },
             "provide": {
-                "psr/log-implementation": "1.0.0"
+                "psr/log-implementation": "1.0.0 || 2.0.0 || 3.0.0"
             },
             "require-dev": {
                 "aws/aws-sdk-php": "^2.4.9 || ^3.0",
@@ -40,7 +40,7 @@
                 "phpunit/phpunit": "^8.5",
                 "predis/predis": "^1.1",
                 "rollbar/rollbar": "^1.3",
-                "ruflin/elastica": ">=0.90 <7.0.1",
+                "ruflin/elastica": ">=0.90@dev",
                 "swiftmailer/swiftmailer": "^5.3|^6.0"
             },
             "suggest": {
@@ -48,8 +48,11 @@
                 "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
                 "elasticsearch/elasticsearch": "Allow sending log messages to an Elasticsearch server via official client",
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
+                "ext-curl": "Required to send log messages using the IFTTTHandler, the LogglyHandler, the SendGridHandler, the SlackWebhookHandler or the TelegramBotHandler",
                 "ext-mbstring": "Allow to work properly with unicode symbols",
                 "ext-mongodb": "Allow sending log messages to a MongoDB server (via driver)",
+                "ext-openssl": "Required to send log messages using SSL",
+                "ext-sockets": "Allow sending log messages to a Syslog server (via UDP driver)",
                 "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
                 "mongodb/mongodb": "Allow sending log messages to a MongoDB server (via library)",
                 "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
@@ -88,7 +91,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/2.3.2"
+                "source": "https://github.com/Seldaek/monolog/tree/2.3.4"
             },
             "funding": [
                 {
@@ -100,7 +103,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-23T07:42:52+00:00"
+            "time": "2021-09-15T11:27:21+00:00"
         },
         {
             "name": "opis/closure",
@@ -439,30 +442,30 @@
         },
         {
             "name": "psr/log",
-            "version": "1.1.4",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
+                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
-                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/fe5ea303b0887d5caefd3d431c3e61ad47037001",
+                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=8.0.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "3.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Psr\\Log\\": "Psr/Log/"
+                    "Psr\\Log\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -483,22 +486,22 @@
                 "psr-3"
             ],
             "support": {
-                "source": "https://github.com/php-fig/log/tree/1.1.4"
+                "source": "https://github.com/php-fig/log/tree/3.0.0"
             },
-            "time": "2021-05-03T11:20:27+00:00"
+            "time": "2021-07-14T16:46:02+00:00"
         },
         {
             "name": "wpify/asset",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/asset.git",
-                "reference": "145d4edcb3bdfbb378c18c0fc97606ec5a272715"
+                "reference": "d7f544658415ed85228e9b20566cb81007aedf0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fasset/repository/archive.zip?sha=145d4edcb3bdfbb378c18c0fc97606ec5a272715",
-                "reference": "145d4edcb3bdfbb378c18c0fc97606ec5a272715",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fasset/repository/archive.zip?sha=d7f544658415ed85228e9b20566cb81007aedf0f",
+                "reference": "d7f544658415ed85228e9b20566cb81007aedf0f",
                 "shasum": ""
             },
             "type": "library",
@@ -520,20 +523,20 @@
             "support": {
                 "issues": "https://gitlab.com/api/v4/projects/29458530/issues"
             },
-            "time": "2021-09-14T18:26:24+00:00"
+            "time": "2021-09-14T17:01:15+00:00"
         },
         {
             "name": "wpify/custom-fields",
-            "version": "2.0.1",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/custom-fields.git",
-                "reference": "467ea21154ef4d22089b0ce5bc77a15e3673728c"
+                "reference": "8629046c929669921bd984c63a011b6717f1afc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fcustom-fields/repository/archive.zip?sha=467ea21154ef4d22089b0ce5bc77a15e3673728c",
-                "reference": "467ea21154ef4d22089b0ce5bc77a15e3673728c",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fcustom-fields/repository/archive.zip?sha=8629046c929669921bd984c63a011b6717f1afc2",
+                "reference": "8629046c929669921bd984c63a011b6717f1afc2",
                 "shasum": ""
             },
             "require": {
@@ -560,7 +563,7 @@
             "support": {
                 "issues": "https://gitlab.com/api/v4/projects/25066786/issues"
             },
-            "time": "2021-09-10T08:27:28+00:00"
+            "time": "2021-09-16T18:36:00+00:00"
         },
         {
             "name": "wpify/log",
@@ -603,16 +606,16 @@
         },
         {
             "name": "wpify/model",
-            "version": "2.0.1",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/model.git",
-                "reference": "52632d87aaf870d7ac751d4058c73d1527c9f195"
+                "reference": "77afc6d940d26af981290df7182f1baed8bf3453"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fmodel/repository/archive.zip?sha=52632d87aaf870d7ac751d4058c73d1527c9f195",
-                "reference": "52632d87aaf870d7ac751d4058c73d1527c9f195",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fmodel/repository/archive.zip?sha=77afc6d940d26af981290df7182f1baed8bf3453",
+                "reference": "77afc6d940d26af981290df7182f1baed8bf3453",
                 "shasum": ""
             },
             "require": {
@@ -645,7 +648,7 @@
             "support": {
                 "issues": "https://gitlab.com/api/v4/projects/26642003/issues"
             },
-            "time": "2021-09-12T17:45:27+00:00"
+            "time": "2021-09-16T19:06:32+00:00"
         },
         {
             "name": "wpify/plugin-utils",

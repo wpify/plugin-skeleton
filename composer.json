@@ -3,6 +3,9 @@
   "description": "WPify Plugin Skeleton",
   "type": "project",
   "license": "GPL-2.0-or-later",
+  "config": {
+	"platform-check": false
+  },
   "autoload": {
 	"psr-4": {
 	  "WpifyPluginSkeleton\\": "src/"
