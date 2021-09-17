@@ -2,6 +2,7 @@
 
 namespace WpifyPluginSkeleton\PostTypes;
 
+use WpifyPluginSkeleton\Taxonomies\PublisherTaxonomy;
 use WpifyPluginSkeletonDeps\Wpify\CustomFields\CustomFields;
 use WpifyPluginSkeletonDeps\Wpify\PostType\AbstractCustomPostType;
 
@@ -30,6 +31,16 @@ class BookPostType extends AbstractCustomPostType {
 					'id'    => 'isbn',
 					'title' => __( 'ISBN', 'wpify-plugin-skeleton' ),
 				),
+				array(
+					'type'  => 'text',
+					'id'    => 'author_name',
+					'title' => __( 'Author', 'wpify-plugin-skeleton' ),
+				),
+				array(
+					'type'  => 'number',
+					'id'    => 'rating',
+					'title' => __( 'Rating', 'wpify-plugin-skeleton' ),
+				),
 			),
 		) );
 	}
@@ -48,24 +59,21 @@ class BookPostType extends AbstractCustomPostType {
 			'description'        => __( 'Custom post type Books created by WPify Plugin Skeleton', 'wpify-plugin-skeleton' ),
 			'public'             => true,
 			'hierarchical'       => false,
+			'taxonomies'         => array( PublisherTaxonomy::KEY ),
 			'publicly_queryable' => true,
 			'show_ui'            => true,
 			'show_in_menu'       => true,
 			'show_in_nav_menus'  => true,
 			'show_in_admin_bar'  => true,
 			'show_in_rest'       => true,
+			'has_archive'        => true,
 			'supports'           => array(
 				'title',
 				'editor',
-				'comments',
 				'revisions',
-				'trackbacks',
-				'author',
 				'excerpt',
-				'page-attributes',
 				'thumbnail',
-				'custom-fields',
-				'post-formats'
+				'custom-fields'
 			),
 		);
 	}

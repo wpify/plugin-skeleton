@@ -1,35 +1,35 @@
 {
-	"name": "wpify-plugin-skeleton",
-	"version": "1.0.0",
-	"main": "assets/plugin.js",
-	"scripts": {
-		"build": "wp-scripts build --config webpack.config.js",
-		"check-engines": "wp-scripts check-engines --config webpack.config.js",
-		"check-licenses": "wp-scripts check-licenses --config webpack.config.js",
-		"format": "wp-scripts format --config webpack.config.js",
-		"lint:css": "wp-scripts lint-style --config webpack.config.js",
-		"lint:js": "wp-scripts lint-js --config webpack.config.js",
-		"lint:md:docs": "wp-scripts lint-md-docs --config webpack.config.js",
-		"lint:md:js": "wp-scripts lint-md-js --config webpack.config.js",
-		"lint:pkg-json": "wp-scripts lint-pkg-json --config webpack.config.js",
-		"packages-update": "wp-scripts packages-update --config webpack.config.js",
-		"start": "wp-scripts start --config webpack.config.js",
-		"test:e2e": "wp-scripts test-e2e --config webpack.config.js",
-		"test:unit": "wp-scripts test-unit-js --config webpack.config.js"
-	},
-	"author": "WPify <info@wpify.io>",
-	"license": "ISC",
-	"engines": {
-		"node": ">=v14.17.6"
-	},
-	"sideEffects": [
-		"*.scss"
-	],
-	"browserslist": [
-		"defaults",
-		"cover 97%"
-	],
-	"devDependencies": {
-		"@wordpress/scripts": "^18.0.1"
-	}
+  "name": "wpify-plugin-skeleton",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "wpify build",
+    "check-engines": "wpify check-engines",
+    "check-licenses": "wpify check-licenses",
+    "format": "wpify format",
+    "lint:css": "wpify lint-style",
+    "lint:js": "wpify lint-js",
+    "lint:md:docs": "wpify lint-md-docs",
+    "lint:md:js": "wpify lint-md-js",
+    "lint:pkg-json": "wpify lint-pkg-json",
+    "packages-update": "wpify packages-update",
+    "start": "wpify start",
+    "test:e2e": "wpify test-e2e",
+    "test:unit": "wpify test-unit-js",
+    "hot": "wpify hot"
+  },
+  "author": "WPify <info@wpify.io>",
+  "license": "GPL-2.0-or-later",
+  "engines": {
+    "node": ">=v14.17.6"
+  },
+  "sideEffects": [
+    "*.scss"
+  ],
+  "browserslist": [
+    "defaults",
+    "cover 97%"
+  ],
+  "dependencies": {
+    "wpify-scripts": "^3.0.1"
+  }
 }

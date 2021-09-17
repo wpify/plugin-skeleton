@@ -13,17 +13,12 @@ class Frontend {
 	/** @var AssetFactory */
 	private $asset_factory;
 
-	/** @var BookRepository */
-	private $book_repository;
-
 	public function __construct(
 		PluginUtils $utils,
-		AssetFactory $asset_factory,
-		BookRepository $book_repository
+		AssetFactory $asset_factory
 	) {
 		$this->utils           = $utils;
 		$this->asset_factory   = $asset_factory;
-		$this->book_repository = $book_repository;
 
 		$this->setup();
 		$this->setup_theme();
@@ -55,22 +50,14 @@ class Frontend {
 	public function print_plugin_info() {
 		echo '<pre style="font-size: 10px;background-color: rgba(0, 0, 0, 0.5); color: white;">';
 		var_dump( array(
-			'plugin_path' => $this->utils->get_plugin_path( 'some-file.php' ),
-			'plugin_url'  => $this->utils->get_plugin_url( 'some-file.php' ),
-			'theme_path'  => $this->utils->get_theme_path( 'some-file.php' ),
-			'theme_url'   => $this->utils->get_theme_url( 'some-file.php' ),
-			'version'     => $this->utils->get_plugin_version(),
 			'name'        => $this->utils->get_plugin_name(),
+			'version'     => $this->utils->get_plugin_version(),
 			'description' => $this->utils->get_plugin_description(),
 			'basename'    => $this->utils->get_plugin_basename(),
 			'slug'        => $this->utils->get_plugin_slug(),
 			'text_domain' => $this->utils->get_text_domain(),
-			'filesystem'  => $this->utils->get_filesystem(),
 		) );
 
-		foreach ( $this->book_repository->all() as $book ) {
-			var_dump( $book->to_array() );
-		}
 		echo '</pre>';
 	}
 }

@@ -2,7 +2,7 @@
 
 namespace WpifyPluginSkeleton\Managers;
 
-use WpifyPluginSkeleton\Blocks\TestBlock;
+use WpifyPluginSkeleton\Blocks\BookBlock;
 use WpifyPluginSkeletonDeps\Wpify\Asset\AssetFactory;
 use WpifyPluginSkeletonDeps\Wpify\PluginUtils\PluginUtils;
 
@@ -13,7 +13,7 @@ final class BlocksManager {
 	public function __construct(
 		PluginUtils $utils,
 		AssetFactory $asset_factory,
-		TestBlock $test_block
+		BookBlock $test_block
 	) {
 		$this->utils         = $utils;
 		$this->asset_factory = $asset_factory;
@@ -25,10 +25,7 @@ final class BlocksManager {
 		add_action( 'after_setup_theme', array( $this, 'editor_styles' ) );
 		add_filter( 'block_categories', array( $this, 'block_categories' ), 10, 2 );
 
-		$this->asset_factory->wp_script(
-			$this->utils->get_plugin_path( 'block-editor.js' ),
-			array( 'is_admin' => true )
-		);
+		$this->asset_factory->admin_wp_script( $this->utils->get_plugin_path( 'build/block-editor.js' ) );
 	}
 
 	public function editor_styles() {

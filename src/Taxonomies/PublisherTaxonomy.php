@@ -6,8 +6,8 @@ use WpifyPluginSkeleton\PostTypes\BookPostType;
 use WpifyPluginSkeletonDeps\Wpify\CustomFields\CustomFields;
 use WpifyPluginSkeletonDeps\Wpify\Taxonomy\AbstractCustomTaxonomy;
 
-class BookshelfTaxonomy extends AbstractCustomTaxonomy {
-	const KEY = 'bookshelf';
+class PublisherTaxonomy extends AbstractCustomTaxonomy {
+	const KEY = 'publisher';
 
 	/** @var CustomFields */
 	protected $wcf;
@@ -23,9 +23,14 @@ class BookshelfTaxonomy extends AbstractCustomTaxonomy {
 			'taxonomy' => $this->get_taxonomy_key(),
 			'items'    => array(
 				array(
-					'type'  => 'text',
-					'id'    => 'genre',
-					'title' => __( 'Genre', 'wpify-plugin-skeleton' ),
+					'type'  => 'url',
+					'id'    => 'url',
+					'title' => __( 'URL', 'wpify-plugin-skeleton' ),
+				),
+				array(
+					'type'  => 'attachment',
+					'id'    => 'logo',
+					'title' => __( 'Logo', 'wpify-plugin-skeleton' ),
 				),
 			),
 		) );
@@ -46,16 +51,17 @@ class BookshelfTaxonomy extends AbstractCustomTaxonomy {
 	}
 
 	public function get_args(): array {
-		$singular = _x( 'Bookshelf', 'post type singular name', 'wpify-plugin-skeleton' );
-		$plural   = _x( 'Bookshelves', 'post type name', 'wpify-plugin-skeleton' );
+		$singular = _x( 'Publisher', 'post type singular name', 'wpify-plugin-skeleton' );
+		$plural   = _x( 'Publishers', 'post type name', 'wpify-plugin-skeleton' );
 
 		return array(
 			'labels'            => $this->generate_labels( $singular, $plural ),
-			'description'       => __( 'Bookshelf contains all the favorite books', 'wpify-plugin-skeleton' ),
+			'description'       => __( 'Book publishers are responsible for overseeing the selection, production, marketing and distribution processes involved with new works of writing.', 'wpify-plugin-skeleton' ),
 			'public'            => true,
 			'hierarchical'      => false,
 			'show_in_rest'      => true,
 			'show_admin_column' => true,
+			'show_tagcloud'     => false,
 		);
 	}
 }
