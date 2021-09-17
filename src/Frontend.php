@@ -2,7 +2,6 @@
 
 namespace WpifyPluginSkeleton;
 
-use WpifyPluginSkeleton\Repositories\BookRepository;
 use WpifyPluginSkeletonDeps\Wpify\Asset\AssetFactory;
 use WpifyPluginSkeletonDeps\Wpify\PluginUtils\PluginUtils;
 
@@ -17,8 +16,8 @@ class Frontend {
 		PluginUtils $utils,
 		AssetFactory $asset_factory
 	) {
-		$this->utils           = $utils;
-		$this->asset_factory   = $asset_factory;
+		$this->utils         = $utils;
+		$this->asset_factory = $asset_factory;
 
 		$this->setup();
 		$this->setup_theme();
