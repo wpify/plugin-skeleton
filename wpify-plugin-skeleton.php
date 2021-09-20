@@ -81,10 +81,24 @@ function wpify_plugin_skeleton_php_vendor_missing() {
 if ( version_compare( PHP_VERSION, WPIFY_PLUGIN_SKELETON_MIN_PHP_VERSION ) < 0 ) {
 	add_action( 'admin_notices', 'wpify_plugin_skeleton_php_upgrade_notice' );
 } else {
-	if ( file_exists( __DIR__ . '/deps/scoper-autoload.php' ) ) {
-		include_once __DIR__ . '/deps/scoper-autoload.php';
-		include_once __DIR__ . '/vendor/autoload.php';
+	$deps_loaded   = false;
+	$vendor_loaded = false;
 
+	$deps = array_filter( array( __DIR__ . '/deps/scoper-autoload.php', __DIR__ . '/deps/autoload.php' ), function ( $path ) {
+		return file_exists( $path );
+	} );
+
+	foreach ( $deps as $dep ) {
+		include_once $dep;
+		$deps_loaded = true;
+	}
+
+	if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+		include_once __DIR__ . '/vendor/autoload.php';
+		$vendor_loaded = true;
+	}
+
+	if ( $deps_loaded && $vendor_loaded ) {
 		add_action( 'plugins_loaded', 'wpify_plugin_skeleton', 11 );
 		register_activation_hook( __FILE__, 'wpify_plugin_skeleton_activate' );
 		register_deactivation_hook( __FILE__, 'wpify_plugin_skeleton_deactivate' );

@@ -12,9 +12,7 @@
 	}
   },
   "scripts": {
-	"post-create-project-cmd": "@composer replace-name",
-	"post-install-cmd": "@composer scope",
-	"post-update-cmd": "@composer scope"
+	"post-create-project-cmd": "@composer replace-name"
   },
   "require": {
 	"php": ">=7.3.0||^8.0.0",
@@ -22,7 +20,7 @@
   },
   "require-dev": {
 	"wpify/plugin-composer-scripts": "^1.1",
-	"wpify/scoper": "^2.1",
+	"wpify/scoper": "^2.2",
 	"wpify/tracy": "^1.0"
   },
   "extra": {
