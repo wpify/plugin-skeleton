@@ -37,8 +37,8 @@ class Settings {
 	public function setup() {
 		$this->wcf->create_options_page( array(
 			'parent_slug' => 'options-general.php',
-			'page_title'  => __( 'WPify Plugin Skeleton Settings', 'wpify-plugin-skeleton' ),
-			'menu_title'  => __( 'WPify Plugin Skeleton', 'wpify-plugin-skeleton' ),
+			'page_title'  => __( 'Wpify Plugin Skeleton Settings', 'wpify-plugin-skeleton' ),
+			'menu_title'  => __( 'Wpify Plugin Skeleton', 'wpify-plugin-skeleton' ),
 			'menu_slug'   => $this->key,
 			'capability'  => 'manage_options',
 			'items'       => array(

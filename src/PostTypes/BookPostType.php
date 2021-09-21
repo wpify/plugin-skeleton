@@ -56,7 +56,7 @@ class BookPostType extends AbstractCustomPostType {
 		return array(
 			'label'              => $plural,
 			'labels'             => $this->generate_labels( $singular, $plural ),
-			'description'        => __( 'Custom post type Books created by WPify Plugin Skeleton', 'wpify-plugin-skeleton' ),
+			'description'        => __( 'Custom post type Books created by Wpify Plugin Skeleton', 'wpify-plugin-skeleton' ),
 			'public'             => true,
 			'hierarchical'       => false,
 			'taxonomies'         => array( PublisherTaxonomy::KEY ),

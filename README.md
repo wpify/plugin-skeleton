@@ -1,4 +1,4 @@
-# WPify Plugin Skeleton
+# Wpify Plugin Skeleton
 
 Plugin skeleton with theme by WPify
 

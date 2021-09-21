@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name:       WPify Plugin Skeleton
+ * Plugin Name:       Wpify Plugin Skeleton
  * Description:       Plugin skeleton with theme by WPify
  * Version:           1.0.0
  * Requires PHP:      7.3.0

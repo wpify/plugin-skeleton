@@ -1,6 +1,6 @@
 {
   "name": "wpify/plugin-skeleton",
-  "description": "WPify Plugin Skeleton",
+  "description": "Wpify Plugin Skeleton",
   "type": "project",
   "license": "GPL-2.0-or-later",
   "config": {
@@ -12,14 +12,14 @@
 	}
   },
   "scripts": {
-	"post-create-project-cmd": "@composer replace-name"
+	"post-create-project-cmd": "@composer rename-wpify-plugin"
   },
   "require": {
 	"php": ">=7.3.0||^8.0.0",
 	"ext-json": "*"
   },
   "require-dev": {
-	"wpify/plugin-composer-scripts": "^1.1",
+	"wpify/plugin-composer-scripts": "^1.2",
 	"wpify/scoper": "^2.2",
 	"wpify/tracy": "^1.0"
   },
