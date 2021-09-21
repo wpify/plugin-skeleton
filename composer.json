@@ -12,7 +12,12 @@
 	}
   },
   "scripts": {
-	"post-create-project-cmd": "@composer rename-wpify-plugin"
+	"post-create-project-cmd": [
+	  "composer rename-wpify-plugin",
+	  "composer require --dev wpify/scoper:^2.2",
+	  "npm install",
+	  "npm run build"
+	]
   },
   "require": {
 	"php": ">=7.3.0||^8.0.0",
