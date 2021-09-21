@@ -1,15 +1,15 @@
 <?php
 
+use WpifyPluginSkeletonDeps\DI\Definition\Helper\CreateDefinitionHelper;
 use WpifyPluginSkeletonDeps\Wpify\CustomFields\CustomFields;
 use WpifyPluginSkeletonDeps\Wpify\PluginUtils\PluginUtils;
 use WpifyPluginSkeletonDeps\Wpify\Template\WordPressTemplate;
-use function WpifyPluginSkeletonDeps\DI\create;
 
 return array(
-	CustomFields::class      => create()
+	CustomFields::class      => ( new CreateDefinitionHelper() )
 		->constructor( plugins_url( 'deps/wpify/custom-fields', __FILE__ ) ),
-	WordPressTemplate::class => create()
+	WordPressTemplate::class => ( new CreateDefinitionHelper() )
 		->constructor( array( __DIR__ . '/templates' ), 'wpify-plugin-skeleton' ),
-	PluginUtils::class       => create()
+	PluginUtils::class       => ( new CreateDefinitionHelper() )
 		->constructor( __DIR__ . '/wpify-plugin-skeleton.php' ),
 );
