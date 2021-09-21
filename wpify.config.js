@@ -1,5 +1,5 @@
 module.exports = {
-	wordPressUrl: 'https://www.wpify-plugin.test',
+	wordPressUrl: 'https://www.wpify-plugin-skeleton.test',
 	config: {
 		build: 'build',
 		entry: {
