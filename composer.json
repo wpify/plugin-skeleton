@@ -14,7 +14,7 @@
   "scripts": {
 	"post-create-project-cmd": [
 	  "composer rename-wpify-plugin",
-	  "composer require --dev wpify/scoper:^2.2",
+	  "composer require --dev wpify/scoper:^2",
 	  "npm install",
 	  "npm run build"
 	]
