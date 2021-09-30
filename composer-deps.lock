@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c8a63e4c0b186c477bcb0973e4a1b4c4",
+    "content-hash": "7dcb6157da8903d1e105e7565bea52cc",
     "packages": [
         {
             "name": "monolog/monolog",
@@ -492,16 +492,16 @@
         },
         {
             "name": "wpify/asset",
-            "version": "1.1.2",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/wpify/asset.git",
-                "reference": "d7f544658415ed85228e9b20566cb81007aedf0f"
+                "reference": "acbab41adc24f5443858b0a1e227cd9ed8332da9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fasset/repository/archive.zip?sha=d7f544658415ed85228e9b20566cb81007aedf0f",
-                "reference": "d7f544658415ed85228e9b20566cb81007aedf0f",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fasset/repository/archive.zip?sha=acbab41adc24f5443858b0a1e227cd9ed8332da9",
+                "reference": "acbab41adc24f5443858b0a1e227cd9ed8332da9",
                 "shasum": ""
             },
             "type": "library",
@@ -523,7 +523,7 @@
             "support": {
                 "issues": "https://gitlab.com/api/v4/projects/29458530/issues"
             },
-            "time": "2021-09-14T17:01:15+00:00"
+            "time": "2021-09-30T10:57:16+00:00"
         },
         {
             "name": "wpify/custom-fields",
