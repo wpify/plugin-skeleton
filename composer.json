@@ -13,7 +13,7 @@
   },
   "scripts": {
 	"post-create-project-cmd": [
-	  "npm install && npm run build && composer rename-wpify-plugin && composer remove wpify/plugin-composer-scripts --dev && composer require --dev wpify/scoper:^2"
+	  "npm install && npm run build && composer rename-wpify-plugin && composer remove --dev wpify/plugin-composer-scripts && composer require --dev wpify/scoper:^2"
 	]
   },
   "require": {
