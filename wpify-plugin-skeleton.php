@@ -37,9 +37,16 @@ function wpify_plugin_skeleton_container(): Container {
 	static $container;
 
 	if ( empty( $container ) ) {
+		$is_production    = ! WP_DEBUG;
+		$file_data        = get_file_data( __FILE__, array( 'version' => 'Version' ) );
 		$definition       = require_once __DIR__ . '/config.php';
 		$containerBuilder = new ContainerBuilder();
 		$containerBuilder->addDefinitions( $definition );
+
+		if ( $is_production ) {
+			$containerBuilder->enableCompilation( WP_CONTENT_DIR . '/cache/' . dirname( plugin_basename( __FILE__ ) ) . '/' . $file_data['version'], 'WpifyPluginSkeletonCompiledContainer' );
+		}
+
 		$container = $containerBuilder->build();
 	}
 
