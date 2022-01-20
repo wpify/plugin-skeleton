@@ -16,7 +16,7 @@
       "composer rename-wpify-plugin",
       "composer remove --dev wpify/plugin-composer-scripts",
       "composer require --dev wpify/scoper:^2",
-      "npm install",
+      "npm install --save-dev @wordpress/scripts browser-sync browser-sync-webpack-plugin node-sass-glob-importer postcss-import svg-spritemap-webpack-plugin",
       "npm run build"
     ]
   },

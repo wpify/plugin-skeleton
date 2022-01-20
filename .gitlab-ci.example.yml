@@ -14,7 +14,7 @@ cache:
 
 composer:
   stage: composer
-  image: composer:2
+  image: composer:2.1.11
   before_script:
     - PATH=$(composer global config bin-dir --absolute --quiet):$PATH
     - composer config -g cache-dir "$(pwd)/.composer-cache"
