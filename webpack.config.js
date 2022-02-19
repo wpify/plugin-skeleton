@@ -8,8 +8,8 @@
 
 const config = {
   entry: {
-		'plugin': ['./assets/plugin.js', './assets/styles/plugin.scss'],
-		'block-editor': './assets/block-editor.js',
+		'plugin': ['./assets/scripts/plugin.js', './assets/styles/plugin.scss'],
+		'block-editor': './assets/scripts/block-editor.js',
 		'editor-style': './assets/styles/editor-style.scss'
 	},
   output: {
@@ -27,13 +27,13 @@ const config = {
   },
   browsersync: {
     files: [
-      'web/app/mu-plugins/viatempia/build/**/*.css',
-      'web/app/mu-plugins/viatempia/build/**/*.js',
-      'web/app/mu-plugins/viatempia/build/**/*.svg',
-      'web/app/mu-plugins/viatempia/src/**/*.php',
-      'web/app/mu-plugins/viatempia/templates/**/*.php',
-      'web/app/themes/viatempia/**/*.php',
-      'web/app/themes/viatempia/*.php',
+      'build/**/*.css',
+      'build/**/*.js',
+      'build/**/*.svg',
+      'src/**/*.php',
+      'templates/**/*.php',
+      'themes/main/**/*.php',
+      'themes/main/*.php',
     ],
   },
 };
