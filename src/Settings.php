@@ -8,7 +8,6 @@ use WpifyPluginSkeletonDeps\Wpify\CustomFields\CustomFields;
  * Class Settings
  *
  * @package Wpify\Settings
- * @property Plugin $plugin
  */
 class Settings {
 	/**
@@ -26,7 +25,7 @@ class Settings {
 	 *
 	 * @var string
 	 */
-	private $key = 'wpify_plugin_skeleton_options';
+	const KEY = 'wpify_plugin_skeleton_options';
 
 	public function __construct( CustomFields $wcf ) {
 		$this->wcf = $wcf;
@@ -39,11 +38,11 @@ class Settings {
 			'parent_slug' => 'options-general.php',
 			'page_title'  => __( 'Wpify Plugin Skeleton Settings', 'wpify-plugin-skeleton' ),
 			'menu_title'  => __( 'Wpify Plugin Skeleton', 'wpify-plugin-skeleton' ),
-			'menu_slug'   => $this->key,
+			'menu_slug'   => self::KEY,
 			'capability'  => 'manage_options',
 			'items'       => array(
 				array(
-					'id'    => $this->key,
+					'id'    => self::KEY,
 					'type'  => 'group',
 					'items' => array(
 						array(
@@ -65,36 +64,5 @@ class Settings {
 				),
 			),
 		) );
-	}
-
-	/**
-	 * @param string $key
-	 * @param null $default
-	 *
-	 * @return string|array
-	 */
-	public function get_option( $key = '', $default = null ) {
-		if ( ! $this->options ) {
-			$this->get_options();
-		}
-
-		if ( isset( $this->options[ $key ] ) ) {
-			return $this->options[ $key ];
-		}
-
-		return $default ?: false;
-	}
-
-	/**
-	 * Get all options
-	 *
-	 * @return array|mixed
-	 */
-	public function get_options() {
-		if ( ! $this->options ) {
-			$this->options = get_option( $this->key, array() );
-		}
-
-		return $this->options;
 	}
 }
