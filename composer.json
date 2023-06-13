@@ -20,7 +20,7 @@
     "post-create-project-cmd": [
       "composer rename-wpify-plugin",
       "composer remove --dev wpify/plugin-composer-scripts",
-      "composer require --dev wpify/scoper:^2",
+      "composer require --dev wpify/scoper:^3",
       "npm install --save-dev @wordpress/scripts browser-sync browser-sync-webpack-plugin node-sass-glob-importer svg-spritemap-webpack-plugin",
       "npm run build"
     ]

@@ -2,6 +2,7 @@
 
 use WpifyPluginSkeletonDeps\DI\Definition\Helper\CreateDefinitionHelper;
 use WpifyPluginSkeletonDeps\Wpify\CustomFields\CustomFields;
+use WpifyPluginSkeletonDeps\Wpify\Model\Manager;
 use WpifyPluginSkeletonDeps\Wpify\PluginUtils\PluginUtils;
 use WpifyPluginSkeletonDeps\Wpify\Template\WordPressTemplate;
 
@@ -12,4 +13,6 @@ return array(
 		->constructor( array( __DIR__ . '/templates' ), 'wpify-plugin-skeleton' ),
 	PluginUtils::class       => ( new CreateDefinitionHelper() )
 		->constructor( __DIR__ . '/wpify-plugin-skeleton.php' ),
+	Manager::class => ( new CreateDefinitionHelper() )
+		->constructor( [] )
 );
