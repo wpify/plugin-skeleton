@@ -2,7 +2,7 @@
 
 namespace WpifyMultilang\Repositories;
 
-use WpifyMultilangDeps\Wpify\Model\Post;
+use WpifyMultilang\Models\Post;
 use WpifyMultilangDeps\Wpify\Model\PostRepository;
 
 class PostTypeRepository extends PostRepository {

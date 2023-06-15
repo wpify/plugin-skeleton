@@ -28,8 +28,8 @@ class Term {
 	 * @return void
 	 * @throws Exception
 	 */
-	public function translate_term( int $term_id, string $taxonomy, int $target_site_id ): void {
-		$this->create_remote_term( $term_id, $taxonomy, $target_site_id );
+	public function translate_term( int $term_id, string $taxonomy, int $target_site_id ) {
+		return $this->create_remote_term( $term_id, $taxonomy, $target_site_id );
 	}
 
 	/**
@@ -43,21 +43,23 @@ class Term {
 	 * @throws Exception
 	 */
 	private function create_remote_term( int $term_id, string $taxonomy, int $target_site_id ): int {
-		$translation = $this->translation_repository->get_linked_translation( $term_id, $target_site_id, self::OBJECT_TYPE );
+		$translation = $this->translation_repository->get_linked_translation( get_current_blog_id(), $term_id, $target_site_id, self::OBJECT_TYPE );
 
 		if ( is_null( $translation ) ) {
 			$repo = $this->repository_manager->get_repository_by_taxonomy( $taxonomy );
 			if ( ! $repo ) {
 				throw new Exception( 'Taxonomy is not translatable' );
 			}
-			$term = $repo->get($term_id);
+
+			$term = $repo->get( $term_id );
+
 			switch_to_blog( $target_site_id );
 			$new_term = $this->insert_remote_term( $taxonomy, $taxonomy, $term );
 			restore_current_blog();
 			if ( is_wp_error( $new_term ) ) {
 				if ( isset( $new_term->error_data['term_exists'] ) ) {
 					$exists_term_id = $new_term->error_data['term_exists'];
-					$this->relations->link_objects( $term_id, $target_site_id, $exists_term_id, self::OBJECT_TYPE );
+					$this->relations->link_objects( get_current_blog_id(), $term_id, $target_site_id, $exists_term_id, self::OBJECT_TYPE );
 
 					return $exists_term_id;
 				} else {
@@ -65,11 +67,11 @@ class Term {
 				}
 			}
 
-			$this->relations->link_objects( $term_id, $target_site_id, $new_term['term_id'], self::OBJECT_TYPE );
+			$this->relations->link_objects( get_current_blog_id(), $term_id, $target_site_id, $new_term['term_id'], self::OBJECT_TYPE );
 
 			return $new_term['term_id'];
 		} else {
-			return $translation->target_object_id;
+			return $translation->site2_id;
 		}
 	}
 
@@ -87,6 +89,9 @@ class Term {
 		$temp_taxonomies = $wp_taxonomies;
 		$wp_taxonomies[ $remote_taxonomy ] = $wp_taxonomies[ $original_taxonomy ];
 
+		$repo = $this->repository_manager->get_repository_by_taxonomy($remote_taxonomy);
+		$term->id = 0;
+		$repo->save($term);
 		$new_term = wp_insert_term(
 			$term->name,
 			$remote_taxonomy,

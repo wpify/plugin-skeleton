@@ -21,16 +21,13 @@ class RepositoryManager {
 
 		$repo = new PostTypeRepository( $this->settings->get_translatable_post_types() );
 		$this->manager->register_repository( $repo );
-
-		foreach ( $this->settings->get_translatable_taxonomies() as $taxonomy ) {
-			$repo = new TermRepository( $taxonomy );
-			$this->manager->register_repository( $repo );
-		}
+		$repo = new TermRepository();
+		$this->manager->register_repository( $repo );
 	}
 
 	public function get_repository_by_post_type( string $post_type ) {
 		foreach ( $this->manager->get_repositories() as $repository ) {
-			if (is_a($repository, PostTypeRepository::class)) {
+			if ( is_a( $repository, PostTypeRepository::class ) ) {
 				return $repository;
 			}
 		}
@@ -40,15 +37,13 @@ class RepositoryManager {
 
 	public function get_repository_by_taxonomy( string $taxonomy ) {
 		foreach ( $this->manager->get_repositories() as $repository ) {
-			if ( ! method_exists( $repository, 'taxonomy' ) ) {
-				continue;
-			}
+			if ( is_a( $repository, TermRepository::class ) ) {
+				$repository->set_taxonomy( $taxonomy );
 
-
-			if ( $repository->taxonomy() === $taxonomy ) {
 				return $repository;
 			}
 		}
+
 
 		return null;
 	}

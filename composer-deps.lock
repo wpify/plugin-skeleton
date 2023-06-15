@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "938ad0d07b0eafab7d1e43de608e72a1",
+    "content-hash": "3b19724b1b6d0263e84d42d24156ad0f",
     "packages": [
         {
             "name": "laravel/serializable-closure",
@@ -547,21 +547,22 @@
         },
         {
             "name": "wpify/model",
-            "version": "4.0.4",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.com:wpify/model.git",
-                "reference": "1bf2f0c3684721a03f371a3ba418b1d0c4029cdc"
+                "reference": "c6fa4c9855727ede78e1dbef3a0b8a130cec727e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/wpify%2Fmodel/repository/archive.zip?sha=1bf2f0c3684721a03f371a3ba418b1d0c4029cdc",
-                "reference": "1bf2f0c3684721a03f371a3ba418b1d0c4029cdc",
+                "url": "https://gitlab.com/api/v4/projects/wpify%2Fmodel/repository/archive.zip?sha=c6fa4c9855727ede78e1dbef3a0b8a130cec727e",
+                "reference": "c6fa4c9855727ede78e1dbef3a0b8a130cec727e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.0.0"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -579,7 +580,7 @@
                 }
             ],
             "description": "WPify Model",
-            "time": "2023-06-07T16:29:04+00:00"
+            "time": "2023-06-15T12:53:18+00:00"
         },
         {
             "name": "wpify/plugin-utils",
@@ -766,7 +767,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wpify/model": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -36,18 +36,20 @@ class TranslationRepository extends CustomTableRepository {
 
 
 	/**
-	 * @param  int  $source_object_id  Source Object ID.
-	 * @param  int  $target_site_id  Target Site ID.
+	 * @param $site1_id
+	 * @param  int  $object_id
+	 * @param  int  $site2_id
 	 * @param  string  $object_type  Object Type.
 	 *
 	 * @return Translation|null
 	 */
-	public function get_linked_translation( int $source_object_id, int $target_site_id, string $object_type ): ?Translation {
+	public function get_linked_translation( $site1_id, int $object_id, int $site2_id, string $object_type ): ?Translation {
 		$translation = $this->find_by_multiple(
 			array(
-				'source_object_id' => $source_object_id,
-				'target_site_id'   => $target_site_id,
-				'object_type' => $object_type,
+				'site1_id'        => $site1_id,
+				'site1_object_id' => $object_id,
+				'site2_id'        => $site2_id,
+				'object_type'     => $object_type,
 			)
 		);
 

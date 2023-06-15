@@ -1,15 +1,15 @@
 <?php
 
 declare (strict_types=1);
-namespace WpifyMultilangDeps\Wpify\Model;
+namespace WpifyMultilang\Models;
 
-use WpifyMultilangDeps\Wpify\Model\Attributes\ChildPostsRelation;
 use WpifyMultilangDeps\Wpify\Model\Attributes\Meta;
-use WpifyMultilangDeps\Wpify\Model\Attributes\PostTermsRelation;
 use WpifyMultilangDeps\Wpify\Model\Attributes\SourceObject;
 use WpifyMultilangDeps\Wpify\Model\Attributes\ReadOnlyProperty;
 use WpifyMultilangDeps\Wpify\Model\Attributes\ManyToOneRelation;
-use WpifyMultilangDeps\Wpify\Model\Attributes\TopLevelPostParentRelation;
+
+use WpifyMultilangDeps\Wpify\Model\Model;
+
 class Post extends Model
 {
 	/**

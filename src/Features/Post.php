@@ -3,7 +3,6 @@
 namespace WpifyMultilang\Features;
 
 use WpifyMultilang\Managers\RepositoryManager;
-use WpifyMultilang\Repositories\SiteRepository;
 use WpifyMultilang\Repositories\TranslationRepository;
 
 class Post {
@@ -14,6 +13,7 @@ class Post {
 		private RepositoryManager $repository_manager,
 		private Relations $relations,
 		private Settings $settings,
+		private Term $term
 	) {
 	}
 
@@ -49,10 +49,10 @@ class Post {
 	 * @throws \Wpify\Model\Exceptions\NotPersistedException
 	 */
 	public function create_remote_post( int $source_post_id, int $target_site_id, bool $copy_content, string $post_type ): int {
-		$translation = $this->translation_repository->get_linked_translation( $source_post_id, $target_site_id, self::OBJECT_TYPE );
+		$translation = $this->translation_repository->get_linked_translation( get_current_blog_id(), $source_post_id, $target_site_id, self::OBJECT_TYPE );
 
 		if ( ! is_null( $translation ) ) {
-			return $translation->target_object_id;
+			//	return $translation->site2_object_id;
 		}
 
 		$repo = $this->repository_manager->get_repository_by_post_type( $post_type );
@@ -86,7 +86,9 @@ class Post {
 			}
 		}
 
+
 		switch_to_blog( $target_site_id );
+
 		// Save post.
 		$post = $repo->save( $post );
 
@@ -97,7 +99,19 @@ class Post {
 
 		restore_current_blog();
 
-		$this->relations->link_objects( $source_site_id, $source_post_id, $target_site_id, $post->id, self::OBJECT_TYPE );
+		$this->relations->link_objects( get_current_blog_id(), $source_post_id, $target_site_id, $post->id, self::OBJECT_TYPE );
+
+		foreach ( $terms as $tax => $terms ) {
+			$taxonomy = get_taxonomy( $tax );
+			if ( ! $taxonomy || is_wp_error( $taxonomy ) ) {
+				continue;
+			}
+			foreach ( $terms as $term ) {
+				$term_id = $this->term->translate_term( $term->id, $tax, $target_site_id );
+			}
+
+		}
+
 
 		return $post->id;
 	}

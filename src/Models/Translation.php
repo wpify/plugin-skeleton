@@ -10,15 +10,15 @@ class Translation extends Model {
 	public int $id = 0;
 
 	#[Column( type: Column::INT )]
-	public int $source_object_id = 0;
+	public int $site1_object_id = 0;
 	#[Column( type: Column::INT )]
-	public int $target_object_id = 0;
+	public int $site2_object_id = 0;
 
 	#[Column( type: Column::INT )]
-	public int $source_site_id = 0;
+	public int $site1_id = 0;
 
 	#[Column( type: Column::INT )]
-	public int $target_site_id = 0;
+	public int $site2_id = 0;
 
 	#[Column( type: Column::VARCHAR )]
 	public string $object_type = '';
