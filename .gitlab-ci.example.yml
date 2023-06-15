@@ -4,7 +4,7 @@ stages:
   - deploy
 
 variables:
-  PLUGIN_SLUG: wpify-plugin-skeleton
+  PLUGIN_SLUG: wpify-multilang
 
 cache:
   paths:

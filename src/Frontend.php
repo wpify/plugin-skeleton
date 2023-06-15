@@ -1,9 +1,9 @@
 <?php
 
-namespace WpifyPluginSkeleton;
+namespace WpifyMultilang;
 
-use WpifyPluginSkeletonDeps\Wpify\Asset\AssetFactory;
-use WpifyPluginSkeletonDeps\Wpify\PluginUtils\PluginUtils;
+use WpifyMultilangDeps\Wpify\Asset\AssetFactory;
+use WpifyMultilangDeps\Wpify\PluginUtils\PluginUtils;
 
 class Frontend {
 	/** @var PluginUtils */

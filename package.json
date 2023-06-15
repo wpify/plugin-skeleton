@@ -1,5 +1,5 @@
 {
-  "name": "wpify-plugin-skeleton",
+  "name": "wpify-multilang",
   "version": "1.0.0",
   "scripts": {
 	"start": "wp-scripts start",

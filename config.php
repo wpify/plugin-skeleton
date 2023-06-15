@@ -1,18 +1,18 @@
 <?php
 
-use WpifyPluginSkeletonDeps\DI\Definition\Helper\CreateDefinitionHelper;
-use WpifyPluginSkeletonDeps\Wpify\CustomFields\CustomFields;
-use WpifyPluginSkeletonDeps\Wpify\Model\Manager;
-use WpifyPluginSkeletonDeps\Wpify\PluginUtils\PluginUtils;
-use WpifyPluginSkeletonDeps\Wpify\Template\WordPressTemplate;
+use WpifyMultilangDeps\DI\Definition\Helper\CreateDefinitionHelper;
+use WpifyMultilangDeps\Wpify\CustomFields\CustomFields;
+use WpifyMultilangDeps\Wpify\Model\Manager;
+use WpifyMultilangDeps\Wpify\PluginUtils\PluginUtils;
+use WpifyMultilangDeps\Wpify\Template\WordPressTemplate;
 
 return array(
 	CustomFields::class      => ( new CreateDefinitionHelper() )
 		->constructor( plugins_url( 'deps/wpify/custom-fields', __FILE__ ) ),
 	WordPressTemplate::class => ( new CreateDefinitionHelper() )
-		->constructor( array( __DIR__ . '/templates' ), 'wpify-plugin-skeleton' ),
+		->constructor( array( __DIR__ . '/templates' ), 'wpify-multilang' ),
 	PluginUtils::class       => ( new CreateDefinitionHelper() )
-		->constructor( __DIR__ . '/wpify-plugin-skeleton.php' ),
+		->constructor( __DIR__ . '/wpify-multilang.php' ),
 	Manager::class => ( new CreateDefinitionHelper() )
 		->constructor( [] )
 );

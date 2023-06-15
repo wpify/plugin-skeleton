@@ -13,7 +13,7 @@
   },
   "autoload": {
 	"psr-4": {
-	  "WpifyPluginSkeleton\\": "src/"
+	  "WpifyMultilang\\": "src/"
 	}
   },
   "scripts": {
@@ -39,7 +39,7 @@
   },
   "extra": {
 	"wpify-scoper": {
-	  "prefix": "WpifyPluginSkeletonDeps"
+	  "prefix": "WpifyMultilangDeps"
 	}
   }
 }

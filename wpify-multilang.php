@@ -9,13 +9,13 @@
  * Author URI:        https://www.wpify.io/
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       wpify-plugin-skeleton
+ * Text Domain:       wpify-multilang
  * Domain Path:       /languages
 */
 
-use WpifyPluginSkeleton\Plugin;
-use WpifyPluginSkeletonDeps\DI\Container;
-use WpifyPluginSkeletonDeps\DI\ContainerBuilder;
+use WpifyMultilang\Plugin;
+use WpifyMultilangDeps\DI\Container;
+use WpifyMultilangDeps\DI\ContainerBuilder;
 
 if ( ! defined( 'WPIFY_PLUGIN_SKELETON_MIN_PHP_VERSION' ) ) {
 	define( 'WPIFY_PLUGIN_SKELETON_MIN_PHP_VERSION', '7.3.0' );
@@ -25,15 +25,15 @@ if ( ! defined( 'WPIFY_PLUGIN_SKELETON_MIN_PHP_VERSION' ) ) {
  * @return Plugin
  * @throws Exception
  */
-function wpify_plugin_skeleton(): Plugin {
-	return wpify_plugin_skeleton_container()->get( Plugin::class );
+function wpify_multilang(): Plugin {
+	return wpify_multilang_container()->get( Plugin::class );
 }
 
 /**
  * @return Container
  * @throws Exception
  */
-function wpify_plugin_skeleton_container(): Container {
+function wpify_multilang_container(): Container {
 	static $container;
 
 	if ( empty( $container ) ) {
@@ -44,7 +44,7 @@ function wpify_plugin_skeleton_container(): Container {
 		$containerBuilder->addDefinitions( $definition );
 
 		if ( $is_production ) {
-			$containerBuilder->enableCompilation( WP_CONTENT_DIR . '/cache/' . dirname( plugin_basename( __FILE__ ) ) . '/' . $file_data['version'], 'WpifyPluginSkeletonCompiledContainer' );
+			$containerBuilder->enableCompilation( WP_CONTENT_DIR . '/cache/' . dirname( plugin_basename( __FILE__ ) ) . '/' . $file_data['version'], 'WpifyMultilangCompiledContainer' );
 		}
 
 		$container = $containerBuilder->build();
@@ -53,40 +53,40 @@ function wpify_plugin_skeleton_container(): Container {
 	return $container;
 }
 
-function wpify_plugin_skeleton_activate( $network_wide ) {
-	wpify_plugin_skeleton()->activate( $network_wide );
+function wpify_multilang_activate( $network_wide ) {
+	wpify_multilang()->activate( $network_wide );
 }
 
-function wpify_plugin_skeleton_deactivate( $network_wide ) {
-	wpify_plugin_skeleton()->deactivate( $network_wide );
+function wpify_multilang_deactivate( $network_wide ) {
+	wpify_multilang()->deactivate( $network_wide );
 }
 
-function wpify_plugin_skeleton_uninstall() {
-	wpify_plugin_skeleton()->uninstall();
+function wpify_multilang_uninstall() {
+	wpify_multilang()->uninstall();
 }
 
-function wpify_plugin_skeleton_php_upgrade_notice() {
+function wpify_multilang_php_upgrade_notice() {
 	$info = get_plugin_data( __FILE__ );
 
 	echo sprintf(
-		__( '<div class="error notice"><p>Opps! %s requires a minimum PHP version of %s. Your current version is: %s. Please contact your host to upgrade.</p></div>', 'wpify-plugin-skeleton' ),
+		__( '<div class="error notice"><p>Opps! %s requires a minimum PHP version of %s. Your current version is: %s. Please contact your host to upgrade.</p></div>', 'wpify-multilang' ),
 		$info['Name'],
 		WPIFY_PLUGIN_SKELETON_MIN_PHP_VERSION,
 		PHP_VERSION
 	);
 }
 
-function wpify_plugin_skeleton_php_vendor_missing() {
+function wpify_multilang_php_vendor_missing() {
 	$info = get_plugin_data( __FILE__ );
 
 	echo sprintf(
-		__( '<div class="error notice"><p>Opps! %s is corrupted it seems, please re-install the plugin.</p></div>', 'wpify-plugin-skeleton' ),
+		__( '<div class="error notice"><p>Opps! %s is corrupted it seems, please re-install the plugin.</p></div>', 'wpify-multilang' ),
 		$info['Name']
 	);
 }
 
 if ( version_compare( PHP_VERSION, WPIFY_PLUGIN_SKELETON_MIN_PHP_VERSION ) < 0 ) {
-	add_action( 'admin_notices', 'wpify_plugin_skeleton_php_upgrade_notice' );
+	add_action( 'admin_notices', 'wpify_multilang_php_upgrade_notice' );
 } else {
 	$deps_loaded   = false;
 	$vendor_loaded = false;
@@ -106,11 +106,11 @@ if ( version_compare( PHP_VERSION, WPIFY_PLUGIN_SKELETON_MIN_PHP_VERSION ) < 0 )
 	}
 
 	if ( $deps_loaded && $vendor_loaded ) {
-		add_action( 'plugins_loaded', 'wpify_plugin_skeleton', 11 );
-		register_activation_hook( __FILE__, 'wpify_plugin_skeleton_activate' );
-		register_deactivation_hook( __FILE__, 'wpify_plugin_skeleton_deactivate' );
-		register_uninstall_hook( __FILE__, 'wpify_plugin_skeleton_uninstall' );
+		add_action( 'plugins_loaded', 'wpify_multilang', 11 );
+		register_activation_hook( __FILE__, 'wpify_multilang_activate' );
+		register_deactivation_hook( __FILE__, 'wpify_multilang_deactivate' );
+		register_uninstall_hook( __FILE__, 'wpify_multilang_uninstall' );
 	} else {
-		add_action( 'admin_notices', 'wpify_plugin_skeleton_php_vendor_missing' );
+		add_action( 'admin_notices', 'wpify_multilang_php_vendor_missing' );
 	}
 }

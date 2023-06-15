@@ -1,23 +1,24 @@
 <?php
 
-namespace WpifyPluginSkeleton;
+namespace WpifyMultilang;
 
-use WpifyPluginSkeleton\Managers\ApiManager;
-use WpifyPluginSkeleton\Managers\BlocksManager;
-use WpifyPluginSkeleton\Managers\PostTypesManager;
-use WpifyPluginSkeleton\Managers\RepositoryManager;
-use WpifyPluginSkeleton\Managers\SnippetsManager;
+use WpifyMultilang\Features\Post;
+use WpifyMultilang\Managers\ApiManager;
+use WpifyMultilang\Managers\RepositoryManager;
 
 final class Plugin {
 	public function __construct(
 		RepositoryManager $repository_manager,
 		ApiManager $api_manager,
-		BlocksManager $blocks_manager,
-		PostTypesManager $post_types_manager,
-		SnippetsManager $snippets_manager,
-		Frontend $frontend,
-		Settings $settings
+		Settings $settings,
+		private Post $post
 	) {
+		add_action('template_redirect', function() {
+			if (isset($_GET['test'])) {
+				$result = $this->post->translate_post(1,'post',2);
+				dumpe($result);
+			}
+		});
 	}
 
 	/**

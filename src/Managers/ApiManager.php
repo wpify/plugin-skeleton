@@ -1,8 +1,8 @@
 <?php
 
-namespace WpifyPluginSkeleton\Managers;
+namespace WpifyMultilang\Managers;
 
-use WpifyPluginSkeleton\Api\ExampleApi;
+use WpifyMultilang\Api\ExampleApi;
 
 final class ApiManager {
 	public function __construct(

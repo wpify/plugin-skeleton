@@ -1,12 +1,11 @@
 <?php
 
-namespace WpifyPluginSkeleton;
+namespace WpifyMultilang;
 
-use WpifyPluginSkeletonDeps\Wpify\CustomFields\CustomFields;
+use WpifyMultilangDeps\Wpify\CustomFields\CustomFields;
 
 /**
  * Class Settings
- *
  * @package Wpify\Settings
  */
 class Settings {
@@ -22,47 +21,61 @@ class Settings {
 
 	/**
 	 * Option key, and option page slug
-	 *
 	 * @var string
 	 */
-	const KEY = 'wpify_plugin_skeleton_options';
+	const KEY = 'wpify_multilang_options';
 
 	public function __construct( CustomFields $wcf ) {
 		$this->wcf = $wcf;
-
-		$this->setup();
+		add_action( 'init', [ $this, 'setup' ] );
 	}
 
 	public function setup() {
-		$this->wcf->create_options_page( array(
-			'parent_slug' => 'options-general.php',
-			'page_title'  => __( 'Wpify Plugin Skeleton Settings', 'wpify-plugin-skeleton' ),
-			'menu_title'  => __( 'Wpify Plugin Skeleton', 'wpify-plugin-skeleton' ),
-			'menu_slug'   => self::KEY,
-			'capability'  => 'manage_options',
-			'items'       => array(
-				array(
-					'id'    => self::KEY,
-					'type'  => 'group',
-					'items' => array(
-						array(
-							'title' => __( 'Some URL', 'wp-plugin' ),
-							'id'    => 'some_url',
-							'type'  => 'url',
-						),
-						array(
-							'title' => __( 'Some HTML', 'wp-plugin' ),
-							'id'    => 'some_html',
-							'type'  => 'wysiwyg',
-						),
-						array(
-							'title' => __( 'Multi attachments', 'wp-plugin' ),
-							'id'    => 'some_attachments',
-							'type'  => 'multi_attachment',
+		$post_types = get_post_types();
+		$taxonomies = get_taxonomies();
+
+		$this->wcf->create_options_page(
+			array(
+				'parent_slug' => 'options-general.php',
+				'page_title'  => __( 'Wpify Plugin Skeleton Settings', 'wpify-multilang' ),
+				'menu_title'  => __( 'Wpify Plugin Skeleton', 'wpify-multilang' ),
+				'menu_slug'   => self::KEY,
+				'capability'  => 'manage_options',
+				'items'       => array(
+					array(
+						'id'    => self::KEY,
+						'type'  => 'group',
+						'items' => array(
+							array(
+								'id'    => 'aaa',
+								'type'  => 'text',
+								'title' => 'dasdsa',
+							),
+							array(
+								'title'   => __( 'Translatable Post Types', 'wp-plugin' ),
+								'id'      => 'translatable_post_types',
+								'type'    => 'multi_select',
+								'options' => array_values( array_map( fn( $post_type ) => [
+									'label' => $post_type,
+									'value' => $post_type,
+								],
+									$post_types
+								                           ) ),
+							),
+							array(
+								'title'   => __( 'Translatable Taxonomies', 'wp-plugin' ),
+								'id'      => 'translatable_taxonomies',
+								'type'    => 'multi_select',
+								'options' => array_values( array_map( fn( $taxonomy ) => [
+									'label' => $taxonomy,
+									'value' => $taxonomy,
+								],
+									$taxonomies
+								                           ) ),
+							),
 						),
 					),
 				),
-			),
-		) );
+			) );
 	}
 }

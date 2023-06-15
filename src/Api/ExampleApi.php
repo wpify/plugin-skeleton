@@ -1,6 +1,6 @@
 <?php
 
-namespace WpifyPluginSkeleton\Api;
+namespace WpifyMultilang\Api;
 
 use WP_REST_Controller;
 use WP_REST_Request;
@@ -9,7 +9,7 @@ use WP_REST_Server;
 
 class ExampleApi extends WP_REST_Controller {
 	/** @var string */
-	protected $namespace = 'wpify-plugin-skeleton/v1';
+	protected $namespace = 'wpify-multilang/v1';
 
 	/** @var string */
 	protected $nonce_action = 'wp_rest';

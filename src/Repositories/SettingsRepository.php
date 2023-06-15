@@ -1,8 +1,8 @@
 <?php
 
-namespace WpifyPluginSkeleton\Repositories;
+namespace WpifyMultilang\Repositories;
 
-use WpifyPluginSkeleton\Settings;
+use WpifyMultilang\Settings;
 
 class SettingsRepository {
 	private $options = [];

@@ -6,7 +6,7 @@
 + /templates/***
 + /themes/***
 + /vendor/***
-+ /wpify-plugin-skeleton.php
++ /wpify-multilang.php
 + /config.php
 + /LICENSE
 + /README.md
